@@ -13,8 +13,10 @@ const profileCPU = process.argv.slice(5).includes('--profile');
 const rawBoneTracks = process.argv.slice(5).includes('--raw-bone-tracks');
 const gpuTiming = process.argv.slice(5).includes('--gpu');
 const developmentLeona = process.argv.slice(5).includes('--development-leona');
+const rosterBaron = process.argv.slice(5).includes('--roster-baron');
 const followPlayer = process.argv.slice(5).includes('--follow-player');
 const systemChromium = process.argv.slice(5).includes('--system-chromium');
+const headed = process.argv.slice(5).includes('--headed');
 const requestedCount = (name) => {
   const args = process.argv.slice(5).filter((arg) => arg.startsWith(`--${name}=`));
   if (args.length > 1) throw new Error(`Duplicate --${name} option`);
@@ -26,10 +28,20 @@ const requestedCount = (name) => {
 };
 const requestedSamples = requestedCount('samples');
 const requestedWarmup = requestedCount('warmup');
-const saveKey = developmentLeona ? 'development-leona-rift' : 'rift';
+const saveKey = rosterBaron
+  ? 'development-roster-baron'
+  : developmentLeona
+    ? 'development-leona-rift'
+    : 'rift';
 const targetUrl = new URL(process.argv[2] ?? 'http://127.0.0.1:5173');
 if (developmentLeona) targetUrl.searchParams.set('scene', 'leona-rift');
-if ((developmentLeona || followPlayer) && !snapshot)
+if (rosterBaron) {
+  if (developmentLeona || followPlayer)
+    throw new Error('Use --roster-baron by itself to center the camera on Baron.');
+  targetUrl.searchParams.set('scene', 'roster-rift');
+  targetUrl.searchParams.set('objectives', 'baron');
+}
+if ((developmentLeona || rosterBaron || followPlayer) && !snapshot)
   throw new Error('Development/player-follow measurement requires a match checkpoint.');
 const output =
   process.argv[4] ?? (snapshot ? 'artifacts/rift-match-benchmark' : 'artifacts/rift-benchmark');
@@ -41,8 +53,15 @@ if (snapshot) {
     saved.units.filter((u) => u.kind === 'champion').length !== 10
   )
     throw new Error('Match benchmark requires an unfinished ten-champion Rift checkpoint');
-  if (saved.units.some((u) => u.champion === 'leona') && !developmentLeona)
+  if (saved.units.some((u) => u.champion === 'leona') && !(developmentLeona || rosterBaron))
     throw new Error('Leona checkpoints require the explicit --development-leona context.');
+  if (
+    rosterBaron &&
+    !saved.units.some(
+      (u) => u.id === saved.riftBaron?.unitId && u.monster?.species === 'baron' && u.hp > 0
+    )
+  )
+    throw new Error('Baron benchmark requires a checkpoint with a living Rift Baron.');
 }
 for (const extension of ['.json', '.png', '.cpuprofile'])
   if (existsSync(output + extension))
@@ -50,11 +69,12 @@ for (const extension of ['.json', '.png', '.cpuprofile'])
 await mkdir(dirname(output), { recursive: true });
 let canonicalSnapshot = null;
 
-const browser = await chromium.launch(
-  systemChromium
+const browser = await chromium.launch({
+  headless: !headed,
+  ...(systemChromium
     ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] }
-    : { channel: 'chrome' }
-);
+    : { channel: 'chrome' }),
+});
 try {
   const page = await browser.newPage({
     viewport: { width: 1920, height: 1080 },
@@ -72,25 +92,48 @@ try {
       });
     });
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(targetUrl.href);
-  await page.waitForFunction(() => window.__GAME__?.ready);
-  await page.locator('#loading').waitFor({ state: 'detached' });
-  if (snapshot) {
-    canonicalSnapshot = await page.evaluate(
-      async ({ input, saveKey }) => {
-        const g = window.__GAME__;
-        g.setPaused(true);
-        const { World } = await import('/src/simulation/world.ts');
-        const { writeMatch } = await import('/src/storage/match-store.ts');
-        const canonical = World.fromSnapshot(input, g.world.battlefield).snapshot();
-        await writeMatch(saveKey, canonical);
-        return canonical;
-      },
-      { input: snapshot, saveKey }
-    );
-    await page.reload();
-    await page.waitForFunction(() => window.__GAME__?.ready);
+  const ready = async () => {
+    await page.waitForFunction(() => window.__GAME__?.ready, null, { timeout: 120_000 });
     await page.locator('#loading').waitFor({ state: 'detached' });
+  };
+  if (rosterBaron) {
+    // Load the checkpoint before initializing the map, rigs and WebGL context.
+    const bootstrap = new URL('/__baron_benchmark_storage__', targetUrl).href;
+    await page.route(bootstrap, (route) =>
+      route.fulfill({
+        contentType: 'text/html',
+        body: '<!doctype html><title>Benchmark setup</title>',
+      })
+    );
+    await page.goto(bootstrap);
+    await page.evaluate(
+      async ({ snapshot, saveKey }) => {
+        const { writeMatch } = await import('/src/storage/match-store.ts');
+        await writeMatch(saveKey, snapshot);
+      },
+      { snapshot, saveKey }
+    );
+    canonicalSnapshot = snapshot;
+  }
+  await page.goto(targetUrl.href);
+  await ready();
+  if (snapshot) {
+    if (!rosterBaron) {
+      canonicalSnapshot = await page.evaluate(
+        async ({ input, saveKey }) => {
+          const g = window.__GAME__;
+          g.setPaused(true);
+          const { World } = await import('/src/simulation/world.ts');
+          const { writeMatch } = await import('/src/storage/match-store.ts');
+          const canonical = World.fromSnapshot(input, g.world.battlefield).snapshot();
+          await writeMatch(saveKey, canonical);
+          return canonical;
+        },
+        { input: snapshot, saveKey }
+      );
+      await page.reload();
+      await ready();
+    }
     if (
       !(await page.evaluate(
         (snapshot) => window.__GAME__.world.snapshot() === snapshot,
@@ -108,7 +151,14 @@ try {
     await profiler.send('Profiler.start');
   }
   const data = await page.evaluate(
-    async ({ matchMode, gpuTiming, followPlayer, requestedSamples, requestedWarmup }) => {
+    async ({
+      matchMode,
+      gpuTiming,
+      followPlayer,
+      rosterBaron,
+      requestedSamples,
+      requestedWarmup,
+    }) => {
       const g = window.__GAME__,
         w = g.world,
         v = g.view;
@@ -132,16 +182,19 @@ try {
             w.visible(other) &&
             Math.hypot(u.x - other.x, u.y - other.y) < 1600
         ).length;
-      const focus = matchMode
-        ? followPlayer
-          ? w.hero
-          : champions
-              .filter((u) => u.team === 'blue' && w.alive(u))
-              .sort((a, b) => threatCount(b) - threatCount(a) || a.id - b.id)[0]
-        : null;
+      const focus = rosterBaron
+        ? w.unit(w.riftBaron.unitId)
+        : matchMode
+          ? followPlayer
+            ? w.hero
+            : champions
+                .filter((u) => u.team === 'blue' && w.alive(u))
+                .sort((a, b) => threatCount(b) - threatCount(a) || a.id - b.id)[0]
+          : null;
       if (matchMode && (!focus || !w.alive(focus)))
         throw new Error('Checkpoint has no living selected camera subject');
-      v.center = focus ? { x: focus.x, y: focus.y } : { x: 0, y: 0 };
+      const pit = rosterBaron ? { x: focus.x, y: focus.y } : null;
+      v.center = matchMode ? { x: focus.x, y: focus.y } : { x: 0, y: 0 };
       v.locked = false;
       v.render(w, 1, w.time);
       const gl = v.renderer.getContext(),
@@ -168,6 +221,9 @@ try {
       let lastFrame;
       for (let i = 0; i < warmupCount; i++) lastFrame = await nextFrame();
       const callbackIntervals = [];
+      const pitFrames = [];
+      const pitCallbackIntervals = [];
+      let busyPitRender = false;
       const activity = {
         maxProjectiles: 0,
         maxSingularities: 0,
@@ -204,7 +260,7 @@ try {
         const queried = gpu?.begin();
         const t = performance.now();
         try {
-          if (focus) this.center = { x: focus.x, y: focus.y };
+          if (pit || focus) this.center = pit ?? { x: focus.x, y: focus.y };
           return render.apply(this, args);
         } finally {
           if (queried) gpu.end();
@@ -214,23 +270,45 @@ try {
           activity.maxProjectiles = Math.max(activity.maxProjectiles, w.projectiles.length);
           activity.maxSingularities = Math.max(activity.maxSingularities, w.singularities.length);
           activity.maxLuxBeams = Math.max(activity.maxLuxBeams, w.luxBeams.length);
-          activity.maxVisibleChampions = Math.max(
-            activity.maxVisibleChampions,
-            champions.filter(
-              (u) =>
-                w.alive(u) &&
-                w.visible(u) &&
-                anchorInsideViewport(this.screenPoint(u, 1.55), this.width, this.height)
-            ).length
-          );
+          let visibleChampions = 0;
+          let pitBlue = false;
+          let pitRed = false;
+          for (const u of champions) {
+            if (
+              !w.alive(u) ||
+              !w.visible(u) ||
+              !anchorInsideViewport(this.screenPoint(u, 1.55), this.width, this.height)
+            )
+              continue;
+            visibleChampions++;
+            if (pit && Math.hypot(u.x - pit.x, u.y - pit.y) <= 1500) {
+              pitBlue ||= u.team === 'blue';
+              pitRed ||= u.team === 'red';
+            }
+          }
+          activity.maxVisibleChampions = Math.max(activity.maxVisibleChampions, visibleChampions);
+          busyPitRender =
+            rosterBaron &&
+            pitBlue &&
+            pitRed &&
+            w.targetable(focus) &&
+            focus.hp < focus.maxHp &&
+            w.visible(focus);
         }
       };
       try {
         let previous = lastFrame;
         for (let i = 0; i < sampleCount; i++) {
           const now = await nextFrame();
-          frames.push(now.timestamp - previous.timestamp);
-          callbackIntervals.push(now.delivered - previous.delivered);
+          const interval = now.timestamp - previous.timestamp;
+          const callbackInterval = now.delivered - previous.delivered;
+          frames.push(interval);
+          callbackIntervals.push(callbackInterval);
+          if (busyPitRender) {
+            pitFrames.push(interval);
+            pitCallbackIntervals.push(callbackInterval);
+          }
+          busyPitRender = false;
           previous = now;
         }
       } finally {
@@ -259,20 +337,25 @@ try {
         };
       };
       return {
-        fixture: matchMode
-          ? `Canonical ten-champion checkpoint restored through browser storage; camera follows ${followPlayer ? 'the owned player' : 'the living blue champion with most nearby visible enemies at start'}, retaining that subject through death/respawn`
-          : `Full Rift, live simulation beginning at 90 seconds after opening/closing shop, ${warmupCount} warmup frames, ${sampleCount} samples`,
+        fixture: rosterBaron
+          ? 'Canonical ten-champion Rift checkpoint restored through browser storage; camera centered on the Baron pit'
+          : matchMode
+            ? `Canonical ten-champion checkpoint restored through browser storage; camera follows ${followPlayer ? 'the owned player' : 'the living blue champion with most nearby visible enemies at start'}, retaining that subject through death/respawn`
+            : `Full Rift, live simulation beginning at 90 seconds after opening/closing shop, ${warmupCount} warmup frames, ${sampleCount} samples`,
         startingTick,
+        endingTick: w.tick,
         graphicsContext,
         audioContextState,
-        cameraPolicy: !matchMode
-          ? 'practice-origin'
-          : followPlayer
-            ? 'owned-player'
-            : 'visible-opponent-density',
+        cameraPolicy: rosterBaron
+          ? 'baron-pit'
+          : !matchMode
+            ? 'practice-origin'
+            : followPlayer
+              ? 'owned-player'
+              : 'visible-opponent-density',
         warmupCount,
         sampleCount,
-        cameraSubject: focus ? { id: focus.id, champion: focus.champion } : null,
+        cameraSubject: focus && !rosterBaron ? { id: focus.id, champion: focus.champion } : null,
         championRoster: champions.map((u) => ({
           id: u.id,
           team: u.team,
@@ -280,6 +363,15 @@ try {
           ai: u.ai,
         })),
         activity,
+        busyPit: rosterBaron
+          ? {
+              definition:
+                'Rendered sample with a living, visible, damaged Baron and a living, team-visible champion from each side within 1500 units of the pit and inside the viewport',
+              sampleCount: pitFrames.length,
+              frames: pitFrames.length ? summarize(pitFrames) : null,
+              callbackDeliveryIntervals: pitFrames.length ? summarize(pitCallbackIntervals) : null,
+            }
+          : null,
         visibleChampionMetric:
           'Living team-visible champion anchors at elevation 1.55 inside the CSS viewport; not model bounds, occlusion or HUD coverage',
         advanceMS,
@@ -311,7 +403,15 @@ try {
         fogResolution: v.fogPixels.width,
       };
     },
-    { matchMode: !!snapshot, gpuTiming, followPlayer, requestedSamples, requestedWarmup }
+    {
+      matchMode: !!snapshot,
+      gpuTiming,
+      headed,
+      followPlayer,
+      rosterBaron,
+      requestedSamples,
+      requestedWarmup,
+    }
   );
   if (profiler) {
     const { profile } = await profiler.send('Profiler.stop');
@@ -325,6 +425,7 @@ try {
   const result = {
     result: 'measured',
     developmentLeona,
+    rosterBaron,
     followPlayer,
     saveKey,
     benchmarkURL: targetUrl.href,

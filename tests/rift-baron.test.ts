@@ -195,3 +195,72 @@ test('Hand of Baron amplifies real minion hits without stacking and expires on d
   expect(w.baronEmpoweredMinion(minion)).toBe(false);
   expect(w.riftBaron?.holders).toEqual([]);
 });
+
+test('a manual player can decline, join, and leave an attempt without bots overriding their order', () => {
+  const w = match();
+  w.tick = RIFT_BARON.firstReadyTick - 1;
+  w.step();
+  const [baron] = barons(w);
+  const allies = w.units.filter(
+    (u) => u.team === 'blue' && ['jungle', 'mid'].includes(w.championState(u.id)?.role ?? '')
+  );
+  const approach = w.battlefield.reachable({ x: baron.x + 450, y: baron.y }, w.hero.radius);
+  for (const actor of [w.hero, ...allies]) {
+    Object.assign(actor, approach, { previous: { ...approach } });
+    w.gainExperience(10_000, actor.id);
+  }
+  for (const ally of allies) ally.ai = true;
+  const plan = w.teamPlans!.blue;
+  const refresh = () => {
+    plan.nextThinkTick = w.tick + 1;
+    for (const ally of allies) ally.nextThink = w.tick + 1;
+    w.step();
+    return plan.assignments.filter((goal) => goal.kind === 'baron');
+  };
+  expect(refresh()).toEqual([]);
+  expect(w.hero.order.type).toBe('idle');
+  w.enqueue({ type: 'order', unit: w.hero.id, order: { type: 'attack', target: baron.id } });
+  expect(
+    refresh()
+      .map((goal) => goal.unitId)
+      .sort()
+  ).toEqual(allies.map((ally) => ally.id).sort());
+  expect(w.hero.order).toEqual({ type: 'attack', target: baron.id });
+  w.enqueue({ type: 'order', unit: w.hero.id, order: { type: 'idle' } });
+  expect(refresh()).toEqual([]);
+  expect(w.hero.order.type).toBe('idle');
+  expect(
+    allies.some((ally) => ally.order.type === 'attack' && ally.order.target === baron.id)
+  ).toBe(false);
+});
+
+test('a staged Baron clear carries through to a normal minion attack after restore', () => {
+  const w = match();
+  w.tick = RIFT_BARON.firstReadyTick - 1;
+  w.step();
+  const [baron] = barons(w);
+  const approach = w.battlefield.reachable({ x: baron.x + 450, y: baron.y }, w.hero.radius);
+  Object.assign(w.hero, approach, { previous: { ...approach } });
+  w.damage(w.hero, baron, baron.maxHp - 100, 'true');
+  w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'f', point: baron, targetId: baron.id });
+  w.step();
+  expect(w.riftBaron?.lastClear).toEqual({ tick: w.tick, team: 'blue' });
+
+  const restored = World.fromSnapshot(w.snapshot(), playtest);
+  const attackTower = (world: World, empowered: boolean) => {
+    const tower = world.units.find(
+      (unit) => unit.team === 'red' && unit.structure?.role === 'outer-turret'
+    )!;
+    const point = world.battlefield.reachable({ x: tower.x + 115, y: tower.y }, 30, 'blue');
+    const minion = world.spawn('melee', 'blue', point);
+    if (empowered) Object.assign(world.hero, point, { previous: { ...point } });
+    expect(world.baronEmpoweredMinion(minion)).toBe(empowered);
+    world.enqueue({ type: 'order', unit: minion.id, order: { type: 'attack', target: tower.id } });
+    const hp = tower.hp;
+    for (let i = 0; i < 180 && tower.hp === hp; i++) world.step();
+    expect(tower.hp).toBeLessThan(hp);
+    return hp - tower.hp;
+  };
+  const baseDamage = attackTower(w, false);
+  expect(attackTower(restored, true)).toBeCloseTo(baseDamage * 1.5);
+});

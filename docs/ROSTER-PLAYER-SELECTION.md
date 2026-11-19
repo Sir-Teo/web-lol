@@ -103,6 +103,70 @@ For human playtest acceptance, complete one spawn-to-Nexus match from each of
 the five roles, exercising both mid choices across runs if possible. Capture
 the build/pack identity, champion, role, side, result and match duration. Note
 any input, bot, combat-readability or progression issue with the match clock
-and an exported checkpoint when available. Run the existing
-[combat performance gate](DESIGN.md#15-provisional-performance-budgets) on a
-named integrated-GPU laptop; a headless browser smoke is not that measurement.
+and an exported checkpoint when available. Across the games, join an allied
+Baron attempt, decline one, and disrupt an enemy attempt. Check that the bots
+resume lane play or defend after losing vision or the fight, and follow an
+empowered wave after a successful clear.
+
+The headless check uses the normal bot policy in the player's slot, not human
+input, and records natural victories, Baron clears, empowered siege hits, and
+an exact terminal save for each role. Run it from the repository root:
+
+```sh
+node --experimental-strip-types --input-type=module -e '
+import { build } from "vite";
+import { rulesetFingerprint } from "./tools/ruleset-fingerprint.ts";
+await build({
+  configFile: false, publicDir: false,
+  define: { __SIMULATION_HASH__: JSON.stringify(rulesetFingerprint()) },
+  ssr: { noExternal: true },
+  build: { ssr: "tools/qa/baron-playtest.ts", outDir: ".cache/baron-playtest-runner" }
+});'
+mkdir -p artifacts
+results=$(mktemp -d artifacts/baron-playtest-XXXXXX)
+for champion in garen masteryi lux ashe leona; do
+  node .cache/baron-playtest-runner/baron-playtest.js "$champion" 1 --output "$results/$champion"
+done
+```
+
+A natural Nexus finish without an objective attempt is evidence for match
+completion, not evidence that the bots can convert Baron into a siege.
+`tests/rift-baron.test.ts` separately stages a Smite clear and verifies that a
+minion's ordinary attack after restore deals 50% more damage to a tower.
+
+On schema 183, ruleset `a56c9faac8a4a1bc7ea1a10e26ac6eb4c455cfc6797a37c9fe42896e6b9101af`,
+all five seed-1 matches produced valid Nexus finishes and exact terminal
+restores:
+
+| Player slot | Champion | Winning side | Match clock |
+|---|---|---|---|
+| Top | Garen | Red | 40:23 |
+| Jungle | Master Yi | Red | 34:47 |
+| Mid | Lux | Blue | 43:38 |
+| Carry | Ashe | Blue | 46:21 |
+| Support | Leona | Red | 37:34 |
+
+None of these runs sampled a Baron rally or attack assignment, recorded a
+clear, or dealt empowered structure damage. The separate staged Chrome
+profile restored exactly and sampled both sides at the pit using SwiftShader;
+it is a tooling check, not a hardware performance result.
+
+For the [combat performance gate](DESIGN.md#15-provisional-performance-budgets),
+use a named integrated-GPU laptop, record its GPU, driver, browser and quality
+settings, and keep the raw frame/callback percentiles. Start the development
+server and use a `contest.match.json` captured by the runner, or export a
+checkpoint during a human pit fight on the same ruleset:
+
+```sh
+npm run dev # run in another terminal
+node tools/qa/benchmark-rift.mjs http://127.0.0.1:5173 \
+  path/to/contest.match.json artifacts/baron-pit-cadence \
+  --roster-baron --headed --samples=600 --warmup=15
+```
+
+The report separates busy-pit frame intervals from the whole window. Check
+that Chrome reports the intended physical GPU, and collect at least 100
+busy-pit samples before interpreting a p99 (repeat or use a longer contest if
+necessary). Empty-pit frames and software rendering do not qualify. This pit
+profile supplements the full stress fixture in the design budget; it does not
+replace it.

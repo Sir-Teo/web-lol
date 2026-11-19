@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 
 test('playtest Baron enters the pit, can be secured with F and restores its respawn', async ({
   page,
@@ -8,12 +8,12 @@ test('playtest Baron enters the pit, can be secured with F and restores its resp
   const errors: string[] = [];
   page.on('request', (request) => requests.push(new URL(request.url()).pathname));
   page.on('pageerror', (error) => errors.push(error.message));
-  const ready = async () => {
-    await page.waitForFunction(() => (window as any).__GAME__?.ready, null, { timeout: 120_000 });
-    await page.locator('#loading').waitFor({ state: 'detached' });
+  const ready = async (target: Page) => {
+    await target.waitForFunction(() => (window as any).__GAME__?.ready, null, { timeout: 120_000 });
+    await target.locator('#loading').waitFor({ state: 'detached' });
   };
   await page.goto('/?scene=roster-rift&objectives=baron');
-  await ready();
+  await ready(page);
   expect(requests.some((path) => path.endsWith('/sru-baron-base.glb'))).toBe(true);
   expect(requests.some((path) => path.includes('/assets/audio/baron-basic/'))).toBe(false);
   const button = (name: string) => page.getByRole('button', { name, exact: true });
@@ -25,7 +25,7 @@ test('playtest Baron enters the pit, can be secured with F and restores its resp
   await button('New match').click();
   await page.getByRole('group', { name: 'F spell' }).getByRole('button', { name: 'Smite' }).click();
   await Promise.all([page.waitForEvent('load'), button('Start 5v5 match').click()]);
-  await ready();
+  await ready(page);
   await button('Return to the Rift').click();
 
   const boss = await page.evaluate(async () => {
@@ -72,11 +72,20 @@ test('playtest Baron enters the pit, can be secured with F and restores its resp
   await page.keyboard.up('Tab');
   await page.keyboard.press('Escape');
   await button('Save match').click();
-  await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
-  const snapshot = () => page.evaluate(() => (window as any).__GAME__.world.snapshot());
-  const saved = await snapshot();
-  await page.reload();
-  await ready();
-  expect(await snapshot()).toBe(saved);
+  await expect(page.locator('#toast')).toHaveText('Match saved on this browser.', {
+    timeout: 30_000,
+  });
+  const snapshot = (target: Page) =>
+    target.evaluate(() => (window as any).__GAME__.world.snapshot());
+  const saved = await snapshot(page);
+  const url = page.url();
+  const context = page.context();
+  await page.close();
+  const reopened = await context.newPage();
+  reopened.on('pageerror', (error) => errors.push(error.message));
+  await reopened.goto(url);
+  await ready(reopened);
+  expect(await snapshot(reopened)).toBe(saved);
+  await expect(reopened.locator('#baron-buff')).toBeVisible();
   expect(errors).toEqual([]);
 });
