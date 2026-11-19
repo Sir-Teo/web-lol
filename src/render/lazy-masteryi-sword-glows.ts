@@ -37,6 +37,21 @@ export class LazySwordGlows {
   prepare(camera: THREE.Camera) {
     this.renderer?.prepare(camera);
   }
+  prepareVisible(camera: THREE.Camera) {
+    if (!this.renderer) return;
+    const visible: THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>[] = [];
+    for (const surface of this.renderer.models.values()) {
+      if (surface.visible) visible.push(surface);
+    }
+    if (!visible.length) {
+      for (const batch of this.renderer.instances.batches.values()) {
+        batch.mesh.visible = false;
+        batch.mesh.geometry.instanceCount = 0;
+      }
+      return;
+    }
+    this.renderer.instances.prepare(visible, camera);
+  }
   update(
     world: World,
     alpha: number,

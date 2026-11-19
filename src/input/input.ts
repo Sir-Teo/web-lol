@@ -20,6 +20,7 @@ export class GameInput {
   private wardAiming = false;
   private attackMove = false;
   private championsOnly = false;
+  private hitCache: { x: number; y: number; overCanvas: boolean } | null = null;
   private heldOrder: {
     pointerId: number;
     point: { x: number; y: number };
@@ -46,6 +47,7 @@ export class GameInput {
     };
     window.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
+      this.hitCache = { x: e.clientX, y: e.clientY, overCanvas: e.target === canvas };
       if (this.heldOrder?.pointerId === e.pointerId) {
         if (!(e.buttons & 2)) this.heldOrder = null;
         else {
@@ -56,26 +58,43 @@ export class GameInput {
       this.refreshAim();
     });
     window.addEventListener('pointerup', (e) => {
+      this.hitCache = null;
       if (this.heldOrder?.pointerId === e.pointerId && (e.button === 2 || !(e.buttons & 2)))
         this.heldOrder = null;
     });
     window.addEventListener('pointercancel', (e) => {
+      this.hitCache = null;
       if (this.heldOrder?.pointerId === e.pointerId) this.heldOrder = null;
     });
     window.addEventListener('pointerdown', (e) => {
       unlockAudio();
       this.pointer = { x: e.clientX, y: e.clientY };
+      this.hitCache = { x: e.clientX, y: e.clientY, overCanvas: e.target === canvas };
       if (e.button === 2 && hud.minimapPoint(e.clientX, e.clientY)) this.cancelAim();
+    });
+    window.addEventListener('keydown', () => {
+      this.hitCache = null;
+    });
+    window.addEventListener('keyup', () => {
+      this.hitCache = null;
+    });
+    window.addEventListener('resize', () => {
+      this.hitCache = null;
+    });
+    window.addEventListener('blur', () => {
+      this.hitCache = null;
     });
     canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     canvas.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
+      this.hitCache = { x: e.clientX, y: e.clientY, overCanvas: e.target === canvas };
       this.inside = true;
       if (this.heldOrder?.pointerId === e.pointerId) this.heldOrder.inside = true;
       this.updateHover();
     });
     canvas.addEventListener('pointerleave', (e) => {
       this.inside = false;
+      this.hitCache = null;
       if (this.heldOrder?.pointerId === e.pointerId) this.heldOrder.inside = false;
       this.updateHover();
     });
@@ -430,14 +449,17 @@ export class GameInput {
     }
     this.refreshHeldOrder();
   }
+  private pointerOverCanvas(canvas: HTMLCanvasElement): boolean {
+    if (this.hitCache && this.hitCache.x === this.pointer.x && this.hitCache.y === this.pointer.y)
+      return this.hitCache.overCanvas;
+    const overCanvas = document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas;
+    this.hitCache = { x: this.pointer.x, y: this.pointer.y, overCanvas };
+    return overCanvas;
+  }
   updateHover(): void {
     const canvas = this.view.renderer.domElement;
     const target =
-      this.inside &&
-      !this.hud.modal &&
-      document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
-        ? this.pick()
-        : undefined;
+      this.inside && !this.hud.modal && this.pointerOverCanvas(canvas) ? this.pick() : undefined;
     this.view.hovered = target?.id ?? null;
     canvas.classList.toggle('enemy-hover', !!target && target.team !== this.world.hero.team);
   }

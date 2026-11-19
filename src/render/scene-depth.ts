@@ -4,6 +4,19 @@ import * as THREE from 'three';
 export class SceneDepth {
   target?: THREE.WebGLRenderTarget;
   private size = new THREE.Vector2();
+  private frustum = new THREE.Frustum();
+  private projScreen = new THREE.Matrix4();
+  private pureBones = new WeakSet<THREE.Object3D>();
+  private viewport = new THREE.Vector4();
+  private scissor = new THREE.Vector4();
+  private fullRegion = new THREE.Vector4();
+  private isPureBoneSubtree(root: THREE.Object3D): boolean {
+    for (let i = 0; i < root.children.length; i++) {
+      const c = root.children[i];
+      if (!(c as THREE.Bone).isBone || !this.isPureBoneSubtree(c)) return false;
+    }
+    return true;
+  }
   capture(
     renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,
@@ -20,29 +33,50 @@ export class SceneDepth {
       );
     } else if (this.target.width !== this.size.x || this.target.height !== this.size.y)
       this.target.setSize(this.size.x, this.size.y);
-    // A first depth pass must see the current pose, before the normal renderer
-    // has initialized or refreshed each skinned mesh's GPU bone data.
-    scene.updateMatrixWorld(true);
-    scene.traverse((o) => {
-      if ((o as THREE.SkinnedMesh).isSkinnedMesh) (o as THREE.SkinnedMesh).skeleton.update();
-    });
+    // Refresh dirty transforms once while respecting frozen terrain and sleeping rigs.
+    camera.updateMatrixWorld();
+    scene.updateMatrixWorld();
+    this.projScreen.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+    this.frustum.setFromProjectionMatrix(this.projScreen, camera.coordinateSystem);
     const hidden: THREE.Object3D[] = [];
-    scene.traverse((o) => {
-      const material = (o as THREE.Mesh).material;
-      if (!o.visible || !material) return;
-      const materials = Array.isArray(material) ? material : [material];
-      if (materials.every((m) => !m.depthWrite)) {
-        hidden.push(o);
-        o.visible = false;
+    const visit = (o: THREE.Object3D) => {
+      if (!o.visible || this.pureBones.has(o)) return;
+      if ((o as THREE.Bone).isBone && this.isPureBoneSubtree(o)) {
+        this.pureBones.add(o);
+        return;
       }
-    });
+      const material = (o as THREE.Mesh).material;
+      if (material) {
+        const materials = Array.isArray(material) ? material : [material];
+        if (materials.every((m) => !m.depthWrite)) {
+          hidden.push(o);
+          o.visible = false;
+          return;
+        }
+        const skinned = o as THREE.SkinnedMesh & {
+          intersectsFrustum?: (f: THREE.Frustum) => boolean;
+        };
+        if (
+          skinned.isSkinnedMesh &&
+          (!skinned.frustumCulled ||
+            !skinned.intersectsFrustum ||
+            skinned.intersectsFrustum(this.frustum))
+        ) {
+          skinned.skeleton.update();
+        }
+      }
+      for (let i = 0; i < o.children.length; i++) visit(o.children[i]);
+    };
+    visit(scene);
     const previous = renderer.getRenderTarget(),
+      matrixUpdate = scene.matrixWorldAutoUpdate,
       shadows = renderer.shadowMap.autoUpdate,
-      shadowsEnabled = renderer.shadowMap.enabled;
-    const viewport = renderer.getViewport(new THREE.Vector4()),
-      scissor = renderer.getScissor(new THREE.Vector4()),
+      shadowsEnabled = renderer.shadowMap.enabled,
       scissorTest = renderer.getScissorTest();
+    renderer.getViewport(this.viewport);
+    renderer.getScissor(this.scissor);
     try {
+      scene.matrixWorldAutoUpdate = false;
       renderer.shadowMap.autoUpdate = false;
       // A restored effect can request depth before the first normal frame has
       // allocated shadow maps. Sampling their null color-texture fallback as a
@@ -51,7 +85,7 @@ export class SceneDepth {
       renderer.shadowMap.enabled = false;
       // Render-target rectangles are physical pixels, independent of the canvas pixel ratio.
       this.target.scissor.copy(
-        region ?? new THREE.Vector4(0, 0, this.target.width, this.target.height)
+        region ?? this.fullRegion.set(0, 0, this.target.width, this.target.height)
       );
       this.target.scissorTest = !!region;
       renderer.setRenderTarget(this.target);
@@ -60,11 +94,12 @@ export class SceneDepth {
       renderer.render(scene, camera);
     } finally {
       for (const o of hidden) o.visible = true;
+      scene.matrixWorldAutoUpdate = matrixUpdate;
       renderer.shadowMap.autoUpdate = shadows;
       renderer.shadowMap.enabled = shadowsEnabled;
       renderer.setRenderTarget(previous);
-      renderer.setViewport(viewport);
-      renderer.setScissor(scissor);
+      renderer.setViewport(this.viewport);
+      renderer.setScissor(this.scissor);
       renderer.setScissorTest(scissorTest);
     }
     return this.target;

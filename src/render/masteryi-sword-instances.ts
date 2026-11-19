@@ -23,18 +23,42 @@ export class SwordParticleInstances {
   readonly batches = new Map<number, Batch>();
   private readonly cameraInverse = new THREE.Matrix4();
   private readonly modelView = new THREE.Matrix4();
+  private readonly projection = new THREE.Matrix4();
+  private readonly position = new THREE.Vector4();
+  private readonly opaqueStaticSubtrees = new WeakSet<THREE.Object3D>();
+  private readonly pureBoneSubtrees = new WeakSet<THREE.Object3D>();
   constructor(private readonly scene: THREE.Scene) {}
+
+  private isPureBoneSubtree(root: THREE.Object3D): boolean {
+    for (let i = 0; i < root.children.length; i++) {
+      const c = root.children[i];
+      if (!(c as THREE.Bone).isBone || !this.isPureBoneSubtree(c)) return false;
+    }
+    return true;
+  }
+
+  private subtreeHasTransparent(root: THREE.Object3D): boolean {
+    let found = false;
+    root.traverse((node) => {
+      if (found) return;
+      const mat = (node as THREE.Mesh).material;
+      if (!mat) return;
+      const list = Array.isArray(mat) ? mat : [mat];
+      if (list.some((m) => m?.transparent)) found = true;
+    });
+    return found;
+  }
 
   prepare(surfaces: Iterable<Surface>, camera: THREE.Camera) {
     camera.updateMatrixWorld();
     this.cameraInverse.copy(camera.matrixWorldInverse);
     const input = [...surfaces];
     for (const surface of input) this.validate(surface);
-    const projection = new THREE.Matrix4().multiplyMatrices(
+    const projection = this.projection.multiplyMatrices(
       camera.projectionMatrix,
       camera.matrixWorldInverse
     );
-    const position = new THREE.Vector4();
+    const position = this.position;
     const ordered = input
       .map((surface) => {
         surface.updateWorldMatrix(true, false);
@@ -69,50 +93,76 @@ export class SwordParticleInstances {
           .applyMatrix4(projection).z;
       });
       const near = depths.at(-1)!,
-        far = depths[0];
-      this.scene.updateMatrixWorld();
-      this.scene.traverseVisible((object) => {
-        if (interleaved || own.has(object)) return;
-        const draw = object as THREE.Mesh;
+        far = depths[0],
+        targetOrder = ordered[0].renderOrder;
+      const visit = (object: THREE.Object3D) => {
         if (
-          !draw.isMesh &&
-          !(draw as unknown as THREE.Line).isLine &&
-          !(draw as unknown as THREE.Points).isPoints &&
-          !(draw as unknown as THREE.Sprite).isSprite
+          interleaved ||
+          !object.visible ||
+          this.opaqueStaticSubtrees.has(object) ||
+          this.pureBoneSubtrees.has(object)
         )
           return;
-        const materials = Array.isArray(draw.material) ? draw.material : [draw.material];
-        if (!materials.some((material) => material?.visible && material.transparent)) return;
-        // Different renderOrder values are already separate transparent phases.
-        if (object.renderOrder !== ordered[0].renderOrder) return;
-        if (
-          !draw.geometry ||
-          'boundingSphere' in object ||
-          (draw as unknown as THREE.Sprite).isSprite
+        if ((object as THREE.Bone).isBone) {
+          if (this.isPureBoneSubtree(object)) {
+            this.pureBoneSubtrees.add(object);
+            return;
+          }
+        } else if (
+          (object as THREE.Group).isGroup &&
+          !object.matrixWorldAutoUpdate &&
+          !this.subtreeHasTransparent(object)
         ) {
-          interleaved = true;
+          this.opaqueStaticSubtrees.add(object);
           return;
         }
-        if (!draw.geometry.boundingSphere) draw.geometry.computeBoundingSphere();
-        const c = draw.geometry.boundingSphere!.center;
-        const z = position
-          .set(c.x, c.y, c.z, 1)
-          .applyMatrix4(object.matrixWorld)
-          .applyMatrix4(projection).z;
-        if (z >= near && z <= far) {
-          // Equality would require reproducing source object IDs on the new draw.
-          // Keep the original surfaces for that ambiguous boundary.
-          let low = 0,
-            high = depths.length;
-          while (low < high) {
-            const middle = (low + high) >>> 1;
-            if (depths[middle] > z) low = middle + 1;
-            else high = middle;
+        if (!own.has(object) && object.renderOrder === targetOrder) {
+          const draw = object as THREE.Mesh;
+          if (
+            draw.isMesh ||
+            (draw as unknown as THREE.Line).isLine ||
+            (draw as unknown as THREE.Points).isPoints ||
+            (draw as unknown as THREE.Sprite).isSprite
+          ) {
+            const materials = Array.isArray(draw.material) ? draw.material : [draw.material];
+            if (materials.some((material) => material?.visible && material.transparent)) {
+              if (
+                !draw.geometry ||
+                'boundingSphere' in object ||
+                (draw as unknown as THREE.Sprite).isSprite
+              ) {
+                interleaved = true;
+                return;
+              }
+              draw.updateWorldMatrix(true, false);
+              if (!draw.geometry.boundingSphere) draw.geometry.computeBoundingSphere();
+              const c = draw.geometry.boundingSphere!.center;
+              const z = position
+                .set(c.x, c.y, c.z, 1)
+                .applyMatrix4(object.matrixWorld)
+                .applyMatrix4(projection).z;
+              if (z >= near && z <= far) {
+                // Equality would require reproducing source object IDs on the new draw.
+                // Keep the original surfaces for that ambiguous boundary.
+                let low = 0,
+                  high = depths.length;
+                while (low < high) {
+                  const middle = (low + high) >>> 1;
+                  if (depths[middle] > z) low = middle + 1;
+                  else high = middle;
+                }
+                if (depths[low] === z) {
+                  interleaved = true;
+                  return;
+                }
+                cuts.add(low);
+              }
+            }
           }
-          if (depths[low] === z) interleaved = true;
-          else cuts.add(low);
         }
-      });
+        for (let i = 0; i < object.children.length; i++) visit(object.children[i]);
+      };
+      visit(this.scene);
     }
     if (interleaved) {
       for (const surface of ordered) surface.visible = true;

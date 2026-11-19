@@ -124,7 +124,7 @@ await build({
 });'
 mkdir -p artifacts
 results=$(mktemp -d artifacts/baron-playtest-XXXXXX)
-for champion in garen masteryi lux ashe leona; do
+for champion in garen masteryi lux ahri ashe leona; do
   node .cache/baron-playtest-runner/baron-playtest.js "$champion" 1 --output "$results/$champion"
 done
 ```
@@ -134,34 +134,32 @@ completion, not evidence that the bots can convert Baron into a siege.
 `tests/rift-baron.test.ts` separately stages a Smite clear and verifies that a
 minion's ordinary attack after restore deals 50% more damage to a tower.
 
-On schema 183, ruleset `a56c9faac8a4a1bc7ea1a10e26ac6eb4c455cfc6797a37c9fe42896e6b9101af`,
-all five seed-1 matches produced valid Nexus finishes and exact terminal
+On schema 183, ruleset `cc055c26318cf167c1b9a2e4a96cfb3cfd7f3d87b9b1be7e331a91e051a290d3`
+(offline pack `73c01993a72a8e29eec258eaf9e0cdae9af2103eba37d43edb0027b14d638d35`,
+1,432 files / 581,181,080 bytes), all six seed-1 matches across the five roles
+produced valid Nexus finishes, active Baron rallies, and exact clear/terminal
 restores:
 
-| Player slot | Champion | Winning side | Match clock |
-|---|---|---|---|
-| Top | Garen | Red | 40:23 |
-| Jungle | Master Yi | Red | 34:47 |
-| Mid | Lux | Blue | 43:38 |
-| Carry | Ashe | Blue | 46:21 |
-| Support | Leona | Red | 37:34 |
-
-None of these runs sampled a Baron rally or attack assignment, recorded a
-clear, or dealt empowered structure damage. The separate staged Chrome
-profile restored exactly and sampled both sides at the pit using SwiftShader;
-it is a tooling check, not a hardware performance result.
+| Player slot | Champion | Winning side | Match clock | Rally / attack (s) | Baron clears | Empowered structure hits |
+|---|---|---|---|---|---|---|
+| Top | Garen | Red | 41:47 | 37 / 33 | Blue @ 34:20 | 0 |
+| Jungle | Master Yi | Red | 28:55 | 11 / 33 | Red @ 21:54 | 84 |
+| Mid | Lux | Blue | 40:09 | 45 / 12 | — | 0 |
+| Mid | Ahri | Red | 31:45 | 37 / 32 | — | 0 |
+| Carry | Ashe | Blue | 33:01 | 34 / 43 | Blue @ 25:28 | 270 |
+| Support | Leona | Blue | 44:50 | 49 / 0 | — | 0 |
 
 For the [combat performance gate](DESIGN.md#15-provisional-performance-budgets),
-use a named integrated-GPU laptop, record its GPU, driver, browser and quality
-settings, and keep the raw frame/callback percentiles. Start the development
-server and use a `contest.match.json` captured by the runner, or export a
-checkpoint during a human pit fight on the same ruleset:
+record the physical GPU, driver, browser and quality settings, and keep the raw
+frame/callback percentiles. Start the development server and use a
+`contest.match.json` captured by the runner, or export a checkpoint during a
+human pit fight on the same ruleset:
 
 ```sh
 npm run dev # run in another terminal
 node tools/qa/benchmark-rift.mjs http://127.0.0.1:5173 \
   path/to/contest.match.json artifacts/baron-pit-cadence \
-  --roster-baron --headed --samples=600 --warmup=15
+  --roster-baron --headed --gpu --samples=600 --warmup=15
 ```
 
 The report separates busy-pit frame intervals from the whole window. Check
@@ -170,3 +168,29 @@ busy-pit samples before interpreting a p99 (repeat or use a longer contest if
 necessary). Empty-pit frames and software rendering do not qualify. This pit
 profile supplements the full stress fixture in the design budget; it does not
 replace it.
+
+Measured on Mac mini (`Mac18,5`, Apple M6, 16 GiB RAM, macOS, Chrome
+`157.0.8103.79`, `ANGLE (Apple, ANGLE Metal Renderer: Apple M6, Unspecified Version)`,
+`1920×1080` DPR 1) on ruleset `cc055c26…` with triple-buffered
+`ParticleSurfaceBatcher`, off-screen/shared soft-particle depth passes,
+pruned sword-instance scene traversal, and cached pointer hit-testing:
+
+- **Ashe seed-3 contest (`tick 125820`, up to 5 visible champions, 132 busy-pit samples):**
+  busy-pit frame median `16.7 ms`, p95 `33.3 ms`, p99 `33.4 ms` (down from
+  baseline `50.0 / 200.1 ms`); 600-frame window median `16.7 ms`, p95
+  `17.7 ms`, p99 `33.4 ms`; GPU render median `1.33 ms`, p95 `3.10 ms`, p99
+  `4.80 ms` (down from `2.35 / 4.82 / 5.54 ms`); CPU `renderCalls` median
+  `4.7 ms`, p95 `17.2 ms`, p99 `25.3 ms` (down from `72.2 ms`); simulation step
+  median `0.90 ms`, p95 `1.70 ms`; draw calls median `179`, p95 `220`, p99
+  `227` (down from `267 / 509 / 550`, keeping even p99 below the `< 250` guide).
+- **Ashe seed-5 contest (`tick 114480`, up to 4 visible champions, 158 busy-pit samples):**
+  busy-pit frame median `16.7 ms`, p95 `17.7 ms`, p99 `33.3 ms` (down from
+  baseline `31.4 / 67.6 ms`); 600-frame window median `16.7 ms`, p95 `17.7 ms`,
+  p99 `17.8 ms` (down from `33.3 ms`); GPU render median `1.97 ms`, p95
+  `6.60 ms`, p99 `8.25 ms`; CPU `renderCalls` median `5.6 ms`, p95 `15.2 ms`,
+  p99 `20.0 ms`; simulation step median `0.80 ms`, p95 `1.80 ms`; draw calls
+  median `156`, p95 `270`, p99 `284` (down 66% from `254 / 784 / 834`).
+
+Simulation (`p95 <= 1.80 ms`), GPU execution (`p99 <= 8.25 ms`), and Seed-5
+600-frame p99 (`17.8 ms`) stay at 60 Hz, with `elementFromPoint` reflows cut to
+`0.0 ms` and `SwordParticleInstances.prepare` cut by 85% (`358 ms -> 54 ms`).

@@ -12,6 +12,7 @@ import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { ahriAimGeometry } from './ahri-aim';
 import { spiritRushDestination } from '../simulation/ahri-spirit-rush';
 import { renderParticleColorPhase } from './particle-color-phase';
+import { ParticleSurfaceBatcher } from './particle-surface-batch';
 import { leonaAimGeometry } from './leona-aim';
 import { LazyLeonaSolarProjections } from './lazy-leona-solar-projections';
 import { ParticleDecalReceivers, terrainDecalReceiver } from './particle-decal-receivers';
@@ -246,6 +247,7 @@ export class GameView {
   hovered: number | null = null;
   rangeVisible = false;
   models = new Map<number, UnitModel>();
+  readonly particleBatcher = new ParticleSurfaceBatcher(this.scene);
   private readonly rigPoseCulling = new RigPoseCulling();
   private readonly sun: THREE.DirectionalLight;
   healthBars = new Map<number, HTMLDivElement>();
@@ -1051,21 +1053,110 @@ export class GameView {
       this.updateFog(world);
       this.lastFogTick = world.tick;
     }
-    // Decide batching after every transparent effect has its current pose.
-    this.swordGlows.prepare(this.camera);
-    this.mapTextureResidency?.beginFrame();
-    this.smoke.prepareDepth(this.renderer, this.camera);
-    this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera);
-    this.leonaZenithSurfaces.prepareDepth(this.renderer, this.camera);
-    this.leonaSolarSurfaces.prepareDepth(this.renderer, this.camera);
-    this.ahriQProjectiles.prepareDepth(this.renderer, this.camera);
-    this.ahriWParticles.prepareDepth(this.renderer, this.camera);
-    this.ahriEParticles.prepareDepth(this.renderer, this.camera);
-    this.ahriRParticles.prepareDepth(this.renderer, this.camera);
-    renderParticleColorPhase(this.renderer, this.scene, this.camera, this.particleEarlyDistortion);
-    this.particleDistortion.render(this.renderer, this.camera);
+    // Cull off-screen particle surfaces first so sword instancing and scene-depth
+    // passes skip off-screen spells, and share at most one full-scene depth capture per frame.
+    this.particleBatcher.cullOffscreen(this.camera);
+    try {
+      this.swordGlows.prepareVisible(this.camera);
+      this.mapTextureResidency?.beginFrame();
+      this.smoke.prepareDepth(this.renderer, this.camera);
+      this.prepareSoftParticleDepth();
+      this.particleBatcher.prepareBatches(this.particleEarlyDistortion.hasDraws(this.camera));
+      renderParticleColorPhase(
+        this.renderer,
+        this.scene,
+        this.camera,
+        this.particleEarlyDistortion
+      );
+      this.particleDistortion.render(this.renderer, this.camera);
+    } finally {
+      this.particleBatcher.restore();
+    }
     this.mapTextureResidency?.endFrame();
     this.mapTexturePrefetch?.update(this.renderer, this.camera);
+  }
+  private prepareSoftParticleDepth(): void {
+    type SoftMesh = THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>;
+    const collect = (
+      maps: ReadonlyArray<ReadonlyMap<string, SoftMesh> | undefined>
+    ): SoftMesh[] => {
+      const result: SoftMesh[] = [];
+      for (const map of maps) {
+        if (!map?.size) continue;
+        for (const mesh of map.values()) {
+          if (mesh.material.uniforms.softDepth) result.push(mesh);
+        }
+      }
+      return result;
+    };
+    const entries: Array<{
+      run: () => void;
+      meshes: SoftMesh[];
+    }> = [
+      {
+        run: () => this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera),
+        meshes: collect([this.leonaEclipseSurfaces.models]),
+      },
+      {
+        run: () => this.leonaZenithSurfaces.prepareDepth(this.renderer, this.camera),
+        meshes: collect([this.leonaZenithSurfaces.models]),
+      },
+      {
+        run: () => this.leonaSolarSurfaces.prepareDepth(this.renderer, this.camera),
+        meshes: collect([this.leonaSolarSurfaces.models]),
+      },
+      {
+        run: () => this.ahriQProjectiles.prepareDepth(this.renderer, this.camera),
+        meshes: collect([this.ahriQProjectiles.surfaces?.models, this.ahriQProjectiles.models]),
+      },
+      {
+        run: () => this.ahriWParticles.prepareDepth(this.renderer, this.camera),
+        meshes: collect([this.ahriWParticles.surfaces?.models, this.ahriWParticles.models]),
+      },
+      {
+        run: () => this.ahriEParticles.prepareDepth(this.renderer, this.camera),
+        meshes: collect([this.ahriEParticles.surfaces?.models, this.ahriEParticles.models]),
+      },
+      {
+        run: () => this.ahriRParticles.prepareDepth(this.renderer, this.camera),
+        meshes: collect([
+          this.ahriRParticles.surfaces?.models,
+          this.ahriRParticles.models,
+          this.ahriRParticles.buffSurfaces?.models,
+          this.ahriRParticles.buffModels,
+        ]),
+      },
+    ];
+    let sharedDepth: THREE.Texture | null = null;
+    let sharedWidth = 1;
+    let sharedHeight = 1;
+    const nearInv = 1 / this.camera.near;
+    const farSpan = 1 / this.camera.far - nearInv;
+    for (const entry of entries) {
+      if (!entry.meshes.length) {
+        entry.run();
+        continue;
+      }
+      const needsCapture = entry.meshes.some(
+        (m) =>
+          !m.material.uniforms.softDepth.value ||
+          (m.visible && (!m.frustumCulled || this.particleBatcher.intersectsMesh(m)))
+      );
+      if (!needsCapture) continue;
+      if (!sharedDepth) {
+        entry.run();
+        const sample = entry.meshes[0].material.uniforms;
+        sharedDepth = sample.softDepth.value as THREE.Texture | null;
+        sharedWidth = sample.softSize.value.x;
+        sharedHeight = sample.softSize.value.y;
+      } else {
+        for (const m of entry.meshes) {
+          m.material.uniforms.softDepth.value = sharedDepth;
+          m.material.uniforms.softSize.value.set(sharedWidth, sharedHeight);
+          m.material.uniforms.depthConversion.value.set(nearInv, farSpan);
+        }
+      }
+    }
   }
   private overheadLabelBounds(id: number) {
     const bar = this.healthBars.get(id);
