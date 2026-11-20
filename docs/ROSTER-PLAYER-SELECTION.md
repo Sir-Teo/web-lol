@@ -134,11 +134,12 @@ completion, not evidence that the bots can convert Baron into a siege.
 `tests/rift-baron.test.ts` separately stages a Smite clear and verifies that a
 minion's ordinary attack after restore deals 50% more damage to a tower.
 
-On schema 183, ruleset `cc055c26318cf167c1b9a2e4a96cfb3cfd7f3d87b9b1be7e331a91e051a290d3`
-(offline pack `73c01993a72a8e29eec258eaf9e0cdae9af2103eba37d43edb0027b14d638d35`,
-1,432 files / 581,181,080 bytes), all six seed-1 matches across the five roles
+On schema 184, graduated public ruleset `1cf6e4e9b814a10bcd727579afc7485af55df0f870b7deed6cfdaadb58989ce7`
+(production offline pack `dd3a5ee1303ab4c01e259632eb0e6446e796a761c3eed3bd566dc2be1faabfb1`,
+1,432 files / 581,183,932 bytes), all six seed-1 matches across the five roles
 produced valid Nexus finishes, active Baron rallies, and exact clear/terminal
-restores:
+restores, alongside the verified [100-seed public Milestone 4 cohort](reference/1cf6e4-public-milestone4-hundred-ledger.json)
+(`99` victories, `1` retained 60-minute horizon, `0` failures):
 
 | Player slot | Champion | Winning side | Match clock | Rally / attack (s) | Baron clears | Empowered structure hits |
 |---|---|---|---|---|---|---|

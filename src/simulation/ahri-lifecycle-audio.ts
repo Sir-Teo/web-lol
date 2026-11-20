@@ -31,6 +31,16 @@ export function beginAhriLifecycleAudio(w: World, u: Unit, level: number, event:
     terminalTick: null,
   });
 }
+export function syncAhriLifecycleDeathOrigin(w: World, u: Unit) {
+  if (u.champion !== 'ahri') return;
+  for (let i = w.ahriLifecycleAudio.length - 1; i >= 0; i--) {
+    const entry = w.ahriLifecycleAudio[i];
+    if (entry.sourceId === u.id && entry.startTick === w.tick && !entry.respawn) {
+      entry.origin = xy(u);
+      return;
+    }
+  }
+}
 export function respawnAhriLifecycleAudio(w: World, u: Unit, deathTick: number | null) {
   if (u.champion !== 'ahri') return;
   const r = w.ahriLifecycleAudio.find(

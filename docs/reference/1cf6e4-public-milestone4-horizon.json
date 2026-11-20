@@ -1,0 +1,318 @@
+{
+  "format": 1,
+  "ruleset": "1cf6e4e9b814a10bcd727579afc7485af55df0f870b7deed6cfdaadb58989ce7",
+  "ledgerSha256": "04efba24d0154cb29977c4aab21279d6f905a724a5d03e34802f2e8cd2cee72d",
+  "lastTicks": 36000,
+  "cases": [
+    {
+      "seed": 75,
+      "outcome": "unfinished",
+      "finalTick": 216000,
+      "samples": [
+        {
+          "tick": 180000,
+          "kills": 100,
+          "deaths": 102,
+          "cs": 1853.1499999999999,
+          "aliveChampions": 10,
+          "liveMinions": 72,
+          "liveTurrets": 6,
+          "liveInhibitors": 5,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 1364.9333333330717
+          }
+        },
+        {
+          "tick": 183600,
+          "kills": 102,
+          "deaths": 104,
+          "cs": 1895.1499999999999,
+          "aliveChampions": 8,
+          "liveMinions": 69,
+          "liveTurrets": 6,
+          "liveInhibitors": 6,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 1604.9333333328534
+          }
+        },
+        {
+          "tick": 187200,
+          "kills": 105,
+          "deaths": 107,
+          "cs": 1940.1499999999999,
+          "aliveChampions": 7,
+          "liveMinions": 75,
+          "liveTurrets": 5,
+          "liveInhibitors": 5,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 1844.9333333326351
+          }
+        },
+        {
+          "tick": 190800,
+          "kills": 105,
+          "deaths": 107,
+          "cs": 1993.1499999999999,
+          "aliveChampions": 9,
+          "liveMinions": 84,
+          "liveTurrets": 5,
+          "liveInhibitors": 4,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 2084.933333332417
+          }
+        },
+        {
+          "tick": 194400,
+          "kills": 107,
+          "deaths": 109,
+          "cs": 2065.15,
+          "aliveChampions": 8,
+          "liveMinions": 63,
+          "liveTurrets": 4,
+          "liveInhibitors": 4,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 2324.933333332199
+          }
+        },
+        {
+          "tick": 198000,
+          "kills": 111,
+          "deaths": 113,
+          "cs": 2106.15,
+          "aliveChampions": 6,
+          "liveMinions": 66,
+          "liveTurrets": 4,
+          "liveInhibitors": 4,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 2564.9333333319805
+          }
+        },
+        {
+          "tick": 201600,
+          "kills": 112,
+          "deaths": 114,
+          "cs": 2140.15,
+          "aliveChampions": 8,
+          "liveMinions": 76,
+          "liveTurrets": 3,
+          "liveInhibitors": 4,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 2804.9333333317622
+          }
+        },
+        {
+          "tick": 205200,
+          "kills": 114,
+          "deaths": 116,
+          "cs": 2199.75,
+          "aliveChampions": 7,
+          "liveMinions": 69,
+          "liveTurrets": 4,
+          "liveInhibitors": 5,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 3044.933333331544
+          }
+        },
+        {
+          "tick": 208800,
+          "kills": 114,
+          "deaths": 116,
+          "cs": 2239,
+          "aliveChampions": 10,
+          "liveMinions": 79,
+          "liveTurrets": 4,
+          "liveInhibitors": 6,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 3284.9333333313257
+          }
+        },
+        {
+          "tick": 212400,
+          "kills": 115,
+          "deaths": 117,
+          "cs": 2293.75,
+          "aliveChampions": 9,
+          "liveMinions": 84,
+          "liveTurrets": 5,
+          "liveInhibitors": 6,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 3524.9333333311074
+          }
+        },
+        {
+          "tick": 216000,
+          "kills": 119,
+          "deaths": 121,
+          "cs": 2352.75,
+          "aliveChampions": 6,
+          "liveMinions": 72,
+          "liveTurrets": 5,
+          "liveInhibitors": 4,
+          "nexusHp": {
+            "red": 5500,
+            "blue": 3764.933333330889
+          }
+        }
+      ],
+      "counterDeltas": {
+        "kills": 19,
+        "deaths": 19,
+        "cs": 499.60000000000014
+      },
+      "nexusChanges": [
+        {
+          "tick": 183600,
+          "hp": {
+            "red": 5500,
+            "blue": 1604.9333333328534
+          }
+        },
+        {
+          "tick": 187200,
+          "hp": {
+            "red": 5500,
+            "blue": 1844.9333333326351
+          }
+        },
+        {
+          "tick": 190800,
+          "hp": {
+            "red": 5500,
+            "blue": 2084.933333332417
+          }
+        },
+        {
+          "tick": 194400,
+          "hp": {
+            "red": 5500,
+            "blue": 2324.933333332199
+          }
+        },
+        {
+          "tick": 198000,
+          "hp": {
+            "red": 5500,
+            "blue": 2564.9333333319805
+          }
+        },
+        {
+          "tick": 201600,
+          "hp": {
+            "red": 5500,
+            "blue": 2804.9333333317622
+          }
+        },
+        {
+          "tick": 205200,
+          "hp": {
+            "red": 5500,
+            "blue": 3044.933333331544
+          }
+        },
+        {
+          "tick": 208800,
+          "hp": {
+            "red": 5500,
+            "blue": 3284.9333333313257
+          }
+        },
+        {
+          "tick": 212400,
+          "hp": {
+            "red": 5500,
+            "blue": 3524.9333333311074
+          }
+        },
+        {
+          "tick": 216000,
+          "hp": {
+            "red": 5500,
+            "blue": 3764.933333330889
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "path": "seeds/75/report.json",
+          "sha256": "702e32be7b6a95cf458e84bd0c1c279bfdb10cf83304441918ab286532a1c922",
+          "bytes": 313860
+        },
+        {
+          "path": "seeds/75/180000.match.json.gz",
+          "bytes": 48712,
+          "sha256": "825cbaab6ddc06858c2988d2f6acdfd7f2453fc802768c157ed8d871ec06fe32"
+        },
+        {
+          "path": "seeds/75/183600.match.json.gz",
+          "bytes": 52105,
+          "sha256": "50f52c32ec42af0d3eb057c059b978a9deb19aaa1d2ebbf30cc82dd0b8ea53b4"
+        },
+        {
+          "path": "seeds/75/187200.match.json.gz",
+          "bytes": 44177,
+          "sha256": "13818f515602589dcf6267d964378dd951cb0dd7f656f92fe513df267ab9eaa3"
+        },
+        {
+          "path": "seeds/75/190800.match.json.gz",
+          "bytes": 50037,
+          "sha256": "3ce1e451c8ec6cd84cf9711613cd6311d1b77f8709519592acf34bc50eab7a63"
+        },
+        {
+          "path": "seeds/75/194400.match.json.gz",
+          "bytes": 77871,
+          "sha256": "2ea6d04c7887055c857442307927903b3b52b7c34f39875f9655b49140b9f781"
+        },
+        {
+          "path": "seeds/75/198000.match.json.gz",
+          "bytes": 45926,
+          "sha256": "2e17466fac8e3b66b2f6dcc3cd24c6cb79a5503517f0ddaf66ec2bd97db44176"
+        },
+        {
+          "path": "seeds/75/201600.match.json.gz",
+          "bytes": 23648,
+          "sha256": "197d4cffe064fb5c1dd01a013393ed421d28ce160eace81ed3ae7699559fcefe"
+        },
+        {
+          "path": "seeds/75/205200.match.json.gz",
+          "bytes": 21123,
+          "sha256": "7f05124a02506175595ae4a9ee2c0098ab63f3694c6dbdd57eb1838f7707d950"
+        },
+        {
+          "path": "seeds/75/208800.match.json.gz",
+          "bytes": 21910,
+          "sha256": "2d2764ead4e39531c16ff80d60f76524045d4dfa62b454712260f2a5cd241a3e"
+        },
+        {
+          "path": "seeds/75/212400.match.json.gz",
+          "bytes": 30500,
+          "sha256": "065312b8c9bda0b87765220d9520a2037f01aa53825935cc9d1ab7ff7a19af08"
+        },
+        {
+          "path": "seeds/75/216000.match.json.gz",
+          "bytes": 80917,
+          "sha256": "d192110fc225048e6da6c027079e1bc8b3d19a55f3f7107b1c6b4cf681d6fe9c"
+        },
+        {
+          "path": "seeds/75/final.match.json.gz",
+          "bytes": 80917,
+          "sha256": "d192110fc225048e6da6c027079e1bc8b3d19a55f3f7107b1c6b4cf681d6fe9c"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Read-only archived snapshots; no simulation, ruleset bridge or current-build certification.",
+    "Counter and sampled HP changes establish observed activity, not causal AI diagnosis.",
+    "Minute-spaced snapshots cannot establish recall loops, exact paths or fight timing."
+  ]
+}

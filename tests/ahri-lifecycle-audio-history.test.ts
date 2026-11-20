@@ -92,6 +92,32 @@ test('hidden death and visible respawn keep independent immutable audiences', ()
   expect(r.respawn?.audience).toEqual(['blue', 'red']);
   restore(w);
 });
+test('mid-dash death over unwalkable terrain aligns lifecycle death origin with the snapped corpse', () => {
+  const w = new World(false, {
+    ...PRACTICE_FIXTURE,
+    initialUnits: [],
+    lineOfSight: () => true,
+    inBrush: () => false,
+    lineWalkable: () => true,
+    reachable: (p) => (p.x > 100 && p.x < 400 ? { x: 100, y: p.y } : { x: p.x, y: p.y }),
+    findPath: (_a, b) => [{ x: b.x, y: b.y }],
+  });
+  w.nextWaveTick = 1e9;
+  const ahri = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'ahri');
+  ahri.ai = false;
+  w.gainExperience(1e6, ahri.id);
+  expect(w.learnSpell('r', ahri.id)).toBeNull();
+  const enemy = w.spawn('champion', 'red', { x: 600, y: 0 }, 'lux');
+  enemy.ai = false;
+  w.enqueue({ type: 'cast', unit: ahri.id, ability: 'r', point: { x: 500, y: 0 } });
+  w.step(8);
+  expect(ahri.x).toBeGreaterThan(100);
+  w.damage(enemy, ahri, 1e6, 'true');
+  expect(ahri.x).toBe(100);
+  expect(w.ahriLifecycleAudio[0]?.origin).toEqual({ x: ahri.x, y: ahri.y });
+  const saved = w.snapshot();
+  expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+});
 test('a second life preserves the first finite respawn tail and captures a new existing death identity', () => {
   const { w, kill } = setup();
   kill();

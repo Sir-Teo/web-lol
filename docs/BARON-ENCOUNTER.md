@@ -1,11 +1,8 @@
 # Baron encounters
 
-## Rift playtest
+## Public Summoner’s Rift & Rift playtest
 
-Baron Nashor is available in the internal [roster playtest](ROSTER-PLAYER-SELECTION.md#internal-roster-playtest-build)
-5v5, not public Rift or practice. The equivalent development URL is
-`/?scene=roster-rift&objectives=baron`, with its own save slot
-`development-roster-baron`. The original `/?scene=roster-rift` has no Baron.
+Baron Nashor now runs in public Summoner’s Rift 5v5 matches (`/` → **New match → Start 5v5 match**) as well as the isolated [roster playtest](ROSTER-PLAYER-SELECTION.md#internal-roster-playtest-build) build and `/?scene=roster-rift&objectives=baron` (`development-roster-baron`). Rift **Practice** (`Start practice`) and the legacy `/?scene=roster-rift` trial omit Baron and do not preload his 13.5 MB rig.
 
 Baron becomes attackable at **20:00** at the retained top-river locator, after
 the protected spawn clip. A kill schedules another spawn **six minutes after

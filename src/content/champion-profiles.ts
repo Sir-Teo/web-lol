@@ -47,7 +47,28 @@ export function isMeleeChampion(identity: keyof typeof CHAMPION_PROFILES | undef
   return identity !== undefined && CHAMPION_PROFILES[identity].missileSpeed === 0;
 }
 
-/** Selection remains limited to integrated player kits during roster expansion. */
+export const PUBLIC_SELECTABLE_CHAMPIONS = [
+  'ashe',
+  'lux',
+  'garen',
+  'masteryi',
+  'leona',
+  'ahri',
+] as const;
+
+export type PublicSelectableChampion = (typeof PUBLIC_SELECTABLE_CHAMPIONS)[number];
+
+/** Public Summoner’s Rift selection across all six integrated Milestone 4 kits. */
+export function publicSelectableChampion(
+  identity: keyof typeof CHAMPION_PROFILES | undefined
+): PublicSelectableChampion {
+  if (identity === undefined) return 'ashe';
+  if (!Object.hasOwn(CHAMPION_PROFILES, identity))
+    throw new RangeError(`Unsupported champion profile: ${identity}`);
+  return identity;
+}
+
+/** Legacy narrow-trial selection helper retained for isolated trial boundaries. */
 export function selectableChampion(
   identity: keyof typeof CHAMPION_PROFILES | undefined
 ): 'ashe' | 'lux' {

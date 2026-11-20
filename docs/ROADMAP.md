@@ -32,13 +32,11 @@ Expand to all lanes, bases, jungle quadrants, structures, camps, and vision regi
 
 **Exit:** automated opposing teams can progress from initial spawn to a valid destroyed base. Offscreen lanes stay simulated. Ward, fog, brush, and targetability tests pass. A partial objective catalog remains explicitly labeled until finished.
 
-## Milestone 4 — six-character local 5v5
+## Milestone 4 — six-character local 5v5 (Completed)
 
 Complete Garen, Master Yi, Leona, and Ahri research coverage or corresponding production content. Support all five roles with mirrors allowed, then add team planning, jungle routes, support actions, objective contests, and pushing after successful fights.
 
-**Exit:** one human plus nine bots can play a full match. Each role functions. Bots obey team information boundaries and exhibit configurable reaction/aim limits. There are no recurring recall loops, suicidal turret paths, or unexplained motion toward hidden enemies.
-
-Run at least 100 seeded headless matches as an initial regression suite. All must avoid crashes, invalid health/resources, and structurally impossible victories. Any match unfinished by a 60-minute simulation horizon is retained for diagnosis; the horizon is a test timeout, not a forced game rule. Track completion rates and duration distribution rather than hiding stalemates.
+**Exit (verified on schema 184 / ruleset `1cf6e4e9…`):** one human plus nine bots play a full match on public Summoner’s Rift across all six champions and five roles, with configurable **Intro** / **Standard** bot reaction and aim limits, on-demand asset loading, and live Baron Nashor contests/empowered sieges. The 100-seed public regression suite passes (`hundredSeedInvariantGate: true`, 99 natural victories, 1 retained 60-minute diagnostic horizon on seed 75, 0 failures; see [100-seed ledger](reference/1cf6e4-public-milestone4-hundred-ledger.json)).
 
 ## Milestone 5 — presentation, browser reliability, and offline delivery
 

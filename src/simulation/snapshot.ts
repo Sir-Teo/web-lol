@@ -200,7 +200,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 183;
+export const SNAPSHOT_VERSION = 184;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1936,7 +1936,7 @@ const baronContact = z.strictObject({
   frames: z
     .array(savedPoseFrame.extend({ audience: baronAudience }))
     .min(1)
-    .max(BARON_ATTACK_HIT_HISTORY_TICKS),
+    .max(Math.max(BARON_ATTACK_HIT_HISTORY_TICKS, BARON_BASIC_CAST_TICKS)),
 });
 const teamPlan = z.strictObject({
   nextThinkTick: tick,
@@ -2006,6 +2006,7 @@ const snapshot = z.strictObject({
     )
     .max(10),
   version: z.literal(SNAPSHOT_VERSION),
+  botDifficulty: z.enum(['intro', 'standard']).optional().default('standard'),
   encounter: z.enum(['gromp', 'baron']).nullable(),
   riftBaron: z
     .strictObject({
@@ -2013,7 +2014,9 @@ const snapshot = z.strictObject({
       lastClear: z.strictObject({ tick, team: team.nullable() }).nullable(),
       holders: z.array(id).max(5),
     })
-    .nullable(),
+    .nullable()
+    .optional()
+    .transform((v) => v ?? null),
   pendingWards: z
     .array(
       z.strictObject({
@@ -3613,7 +3616,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   );
   const objective = state.riftBaron;
   const liveBaronEnabled =
-    battlefield.rosterPlaytestBaron === true &&
+    (battlefield.publicRift === true || battlefield.rosterPlaytestBaron === true) &&
     state.battlefield === 'rift' &&
     state.matchMode === 'lanes';
   if (liveBaronEnabled !== (objective !== null))
@@ -3684,7 +3687,9 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
     !(
       state.battlefield === 'practice-fixture' ||
-      (state.battlefield === 'rift' && battlefield.developmentGaren && state.matchMode === 'lanes')
+      (state.battlefield === 'rift' &&
+        (battlefield.publicRift === true ||
+          (battlefield.developmentGaren && state.matchMode === 'lanes')))
     )
   )
     throw new Error('Garen player kit requires the development practice fixture or Rift trial.');
@@ -3735,8 +3740,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           (unit.id !== state.player.id ||
             (battlefield.developmentMasterYi && state.matchMode === 'practice'))) ||
         (state.battlefield === 'rift' &&
-          battlefield.developmentMasterYiRift &&
-          state.matchMode === 'lanes')
+          (battlefield.publicRift === true ||
+            (battlefield.developmentMasterYiRift && state.matchMode === 'lanes')))
       )
     )
       throw new Error('Master Yi requires a trusted development practice or Rift context.');
@@ -3747,8 +3752,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           (unit.id !== state.player.id ||
             (battlefield.developmentAhri && state.matchMode === 'practice'))) ||
         (state.battlefield === 'rift' &&
-          battlefield.developmentAhriRift &&
-          state.matchMode === 'lanes')
+          (battlefield.publicRift === true ||
+            (battlefield.developmentAhriRift && state.matchMode === 'lanes')))
       )
     )
       throw new Error('Ahri requires a trusted development practice or Rift context.');
@@ -3758,8 +3763,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         (state.battlefield === 'practice-fixture' &&
           (unit.id !== state.player.id || state.matchMode === 'practice')) ||
         (state.battlefield === 'rift' &&
-          battlefield.developmentLeona &&
-          state.matchMode === 'lanes')
+          (battlefield.publicRift === true ||
+            (battlefield.developmentLeona && state.matchMode === 'lanes')))
       )
     )
       throw new Error('Leona requires the development practice fixture or Rift lane trial.');
@@ -5658,11 +5663,15 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
               recipient &&
               !isStructureKind(recipient.kind) &&
               recipient.kind !== 'ward' &&
+              recipient.monster?.species !== 'baron' &&
               ((recipient.deadAt === null && state.tick < a.impact.tick + silenceTicks) ||
                 (recipient.deadAt !== null && recipient.deadAt > a.impact.tick))
             : !a.impact ||
               !silenceDurations.includes(a.silenceEndTick - a.impact.tick) ||
-              (recipient && (isStructureKind(recipient.kind) || recipient.kind === 'ward')) ||
+              (recipient &&
+                (isStructureKind(recipient.kind) ||
+                  recipient.kind === 'ward' ||
+                  recipient.monster?.species === 'baron')) ||
               (recipient?.deadAt === null &&
                 a.silenceEndTick > state.tick &&
                 recipient.silenceUntil < a.silenceEndTick)) ||

@@ -18,6 +18,12 @@ import { trinketSwapError } from '../simulation/trinkets';
 import { shrinePoint } from '../simulation/scuttler';
 import { RIVER_SIDES, SCUTTLER_POLICY } from '../content/scuttler-policy';
 import { RIFT_BARON, baronReadyTick } from '../content/baron';
+import {
+  BOT_DIFFICULTIES,
+  DEFAULT_BOT_DIFFICULTY,
+  isBotDifficulty,
+  type BotDifficulty,
+} from '../content/bot-difficulty';
 import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
 import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI } from '../content/masteryi-progression';
@@ -109,7 +115,8 @@ export interface HudActions {
   startMatch: (
     mode: 'practice' | 'lanes',
     champion: ChampionIdentity,
-    summoners: SummonerLoadout
+    summoners: SummonerLoadout,
+    botDifficulty?: BotDifficulty
   ) => Promise<void>;
   save: () => Promise<void>;
   exportMatch: () => void;
@@ -702,17 +709,24 @@ export class Hud {
     this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
-    const playerChoices: readonly ChampionIdentity[] = this.world.battlefield.developmentRosterBots
+    const fullRoster = !!(
+      this.world.battlefield.publicRift || this.world.battlefield.developmentRosterBots
+    );
+    const playerChoices: readonly ChampionIdentity[] = fullRoster
       ? ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']
       : ['ashe', 'lux'];
     const currentChampion = this.world.hero.champion;
     let chosenChampion: ChampionIdentity =
       currentChampion && playerChoices.includes(currentChampion) ? currentChampion : 'ashe';
+    let chosenDifficulty: BotDifficulty = this.world.botDifficulty;
     const laneDescription = () =>
-      this.world.battlefield.developmentRosterBots
-        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the ${this.rosterPlaytest ? 'playtest' : 'development'} roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
-        : `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
-    const canPractice = () => chosenChampion === 'ashe' || chosenChampion === 'lux';
+      this.world.battlefield.publicRift
+        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents across top, jungle, mid, bottom and support. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Baron Nashor enters the top river pit at 20:00.`
+        : this.world.battlefield.developmentRosterBots
+          ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the ${this.rosterPlaytest ? 'playtest' : 'development'} roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
+          : `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
+    const canPractice = () =>
+      !!this.world.battlefield.publicRift || chosenChampion === 'ashe' || chosenChampion === 'lux';
     const practiceDescription = () =>
       canPractice()
         ? 'Train with a sparring partner, target dummy and practice tools. Rift jungle camps and Scuttlers follow their normal spawn calendars.'
@@ -720,6 +734,8 @@ export class Hud {
     const chosenSummoners = { ...this.world.player.summoners };
     const summonerChoices = () =>
       `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
+    const botSkillChoices = () =>
+      `<div class="summoner-selection bot-difficulty-selection" role="group" aria-label="Choose bot skill"><fieldset><legend>Bot skill</legend><div class="summoner-choices bot-difficulty-choices">${(Object.keys(BOT_DIFFICULTIES) as BotDifficulty[]).map((level) => `<button class="menu-button" data-action="choose-bot-difficulty" data-bot-difficulty="${level}" aria-pressed="${chosenDifficulty === level}" title="${BOT_DIFFICULTIES[level].description}">${BOT_DIFFICULTIES[level].name}</button>`).join('')}</div></fieldset></div>`;
     let content = '',
       title = '',
       subtitle = '';
@@ -751,7 +767,7 @@ export class Hud {
       subtitle = this.rosterPlaytest
         ? 'Internal roster playtest. Saves are separate from the public game.'
         : 'Play locally. Your browser runs the match.';
-      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}${botSkillChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'offline') {
       title = 'Offline files';
       subtitle = 'Keep a complete game pack on this browser.';
@@ -887,6 +903,19 @@ export class Hud {
               )
             );
         }
+        if (action === 'choose-bot-difficulty') {
+          const level = button.dataset.botDifficulty;
+          if (!isBotDifficulty(level)) return;
+          chosenDifficulty = level;
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-bot-difficulty]')
+            .forEach((choice) =>
+              choice.setAttribute(
+                'aria-pressed',
+                String(choice.dataset.botDifficulty === chosenDifficulty)
+              )
+            );
+        }
         if (action === 'choose-champion') {
           const champion = button.dataset.champion as ChampionIdentity;
           if (!playerChoices.includes(champion)) return;
@@ -920,18 +949,17 @@ export class Hud {
           status.setAttribute('role', 'status');
           status.textContent = 'Starting match…';
           dialog.querySelector('.dialog-rule')!.after(status);
-          void this.actions
-            .startMatch(
-              action === 'start-lanes' ? 'lanes' : 'practice',
-              chosenChampion,
-              chosenSummoners
-            )
-            .catch((error) => {
-              this.replacingMatch = false;
-              this.importError =
-                error instanceof Error ? error.message : 'Match could not be started.';
-              this.setGraphicsState(this.graphicsState);
-            });
+          const mode = action === 'start-lanes' ? 'lanes' : 'practice';
+          void (
+            chosenDifficulty === DEFAULT_BOT_DIFFICULTY
+              ? this.actions.startMatch(mode, chosenChampion, chosenSummoners)
+              : this.actions.startMatch(mode, chosenChampion, chosenSummoners, chosenDifficulty)
+          ).catch((error) => {
+            this.replacingMatch = false;
+            this.importError =
+              error instanceof Error ? error.message : 'Match could not be started.';
+            this.setGraphicsState(this.graphicsState);
+          });
         }
         if (action === 'offline') this.toggleModal('offline');
         if (action === 'files') this.toggleModal('files');
@@ -980,6 +1008,8 @@ export class Hud {
               ? ASHE_E.maximumCharges
               : 0;
           this.world.player.eRechargeTick = null;
+          if (this.world.hero.champion === 'garen' && this.world.hero.deadAt === null)
+            state.garenPassiveReadyTick = 0;
           resetTrinket(state.trinket);
           if (state.smite) {
             state.smite.charges = SUMMONER_SMITE.maxCharges;

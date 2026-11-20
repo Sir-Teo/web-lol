@@ -37,8 +37,6 @@ interface ReferenceModel {
 const references = new Map<string, ReferenceModel>();
 const referenceNames = [
   'ashe-base',
-  'lux-base',
-  'garen-base',
   'sightward-base',
   'blue-melee',
   'red-melee',
@@ -59,7 +57,9 @@ export async function loadReferenceModels(
   includeMonsters: boolean | readonly MonsterSpecies[] = false,
   includeLeona = false,
   includeAhri = false,
-  includeMasterYi = false
+  includeMasterYi = false,
+  includeGaren = true,
+  includeLux = true
 ): Promise<void> {
   const loader = new GLTFLoader();
   const species =
@@ -72,6 +72,8 @@ export async function loadReferenceModels(
   await Promise.all(
     [
       ...referenceNames,
+      ...(includeLux ? ['lux-base'] : []),
+      ...(includeGaren ? ['garen-base'] : []),
       ...monsterNames,
       ...(includeLeona ? ['leona-base'] : []),
       ...(includeAhri ? ['ahri-base'] : []),

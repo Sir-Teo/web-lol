@@ -35,7 +35,8 @@ export function cohortProfile(
     playerChampion: 'ashe' as const,
     humanRole: 'carry' as const,
     humanLane: 'bot',
-    roster: 'six Ashe/four Lux; five roles per team',
-    permissions: {},
+    roster:
+      'two Garen/two Master Yi/two Ahri/two Ashe/two Leona; five roles per team; live Baron Nashor',
+    permissions: { publicRift: true as const },
   };
 }

@@ -437,8 +437,15 @@ try {
     await page
       .locator('[data-action="choose-champion"]')
       .evaluateAll((buttons) => buttons.map((button) => button.dataset.champion)),
-    ['ashe', 'lux'],
-    'Production keeps the two public human choices on the combined-trial URL'
+    ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri'],
+    'Production offers all six integrated Milestone 4 champions'
+  );
+  assert.deepEqual(
+    await page
+      .locator('[data-action="choose-bot-difficulty"]')
+      .evaluateAll((buttons) => buttons.map((button) => button.dataset.botDifficulty)),
+    ['intro', 'standard'],
+    'Production exposes configurable bot difficulty bands'
   );
   await page.getByRole('button', { name: 'Back to pause menu', exact: true }).click();
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
@@ -448,6 +455,8 @@ try {
     [],
     'Worlds without Lux do not request Lux effects or audio'
   );
+  assert.deepEqual(judgmentRequests, [], 'Ashe practice must not preload Garen Judgment assets');
+  assert.deepEqual(baronPreviewRequests, [], 'Ashe practice must not preload the 5v5 Baron rig');
   await page.mouse.click(880, 480, { button: 'right' });
   await page.waitForTimeout(1800);
   await page.mouse.move(1020, 440);
@@ -471,8 +480,8 @@ try {
   );
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
-  assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 0);
-  assert.equal(await page.getByRole('button', { name: 'Ahri', exact: true }).count(), 0);
+  assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 1);
+  assert.equal(await page.getByRole('button', { name: 'Ahri', exact: true }).count(), 1);
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
   await page
     .getByRole('group', { name: 'F spell', exact: true })
@@ -484,7 +493,20 @@ try {
   ]);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
-  assert.equal(recordings.size, 29, 'All Lux and Ashe recordings must be ready before 5v5 play');
+  assert(
+    recordings.size >= 29,
+    'Active 6-champion 5v5 roster recordings must be ready before play'
+  );
+  assert(
+    baronPreviewRequests.length >= 1,
+    'Public 5v5 match prepares the scheduled Baron Nashor rig'
+  );
+  assert.deepEqual(
+    baronEffectRequests,
+    [],
+    'Baron attack particles stay unloaded before Baron combat'
+  );
+  assert.deepEqual(baronAudioRequests, [], 'Baron basic audio stays unloaded before Baron combat');
   assert.equal(
     await page.locator('[data-ability="f"] img').getAttribute('src'),
     'assets/icons/SummonerSmite.png'
@@ -514,6 +536,10 @@ try {
   await page.keyboard.down('Tab');
   for (const role of ['top', 'jungle', 'mid', 'carry', 'support'])
     assert.equal(await page.locator(`.scoreboard-row[data-role="${role}"]`).count(), 2);
+  assert.match(
+    await page.getByRole('region', { name: 'Baron Nashor' }).textContent(),
+    /^Baron Nashor in (20:00|19:\d\d)$/
+  );
   await page.waitForFunction(() => {
     const icons = [...document.querySelectorAll('.scoreboard-row img')];
     return icons.length >= 30 && icons.every((img) => img.complete && img.naturalWidth > 0);
@@ -578,6 +604,47 @@ try {
   );
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
+  // Reset per-match roster/objective request counters before switching back to Lux practice
+  // so the post-practice audit proves unselected champions and Baron do not preload in practice.
+  for (const list of [
+    leonaPreviewRequests,
+    judgmentRequests,
+    ahriPreviewRequests,
+    masterYiPreviewRequests,
+    masterYiAttackAudioRequests,
+    masterYiHighlanderAudioRequests,
+    masterYiAlphaAudioRequests,
+    masterYiMeditateAudioRequests,
+    masterYiWujuStyleAudioRequests,
+    masterYiQCastRequests,
+    masterYiQEndRequests,
+    masterYiRCastRequests,
+    masterYiRKillRequests,
+    masterYiMeditateDamageRequests,
+    masterYiSwordRequests,
+    masterYiPrimaryTrailRequests,
+    masterYiPrimaryHitRequests,
+    masterYiPassiveTrailRequests,
+    masterYiQContactRequests,
+    masterYiMeditateCastRequests,
+    masterYiMeditateBuffRequests,
+    baronPreviewRequests,
+    baronEffectRequests,
+    baronAudioRequests,
+    ahriCharmAudioRequests,
+    ahriOrbAudioRequests,
+    ahriQCastRequests,
+    ahriQProjectileRequests,
+    ahriEParticleRequests,
+    ahriRParticleRequests,
+    ahriFoxFireAudioRequests,
+    ahriSpiritRushAudioRequests,
+    ahriPassiveAudioRequests,
+    ahriAttackAudioRequests,
+    ahriLifecycleAudioRequests,
+    ahriRecallAudioRequests,
+  ])
+    list.length = 0;
   await Promise.all([
     page.waitForEvent('load'),
     page.getByRole('button', { name: 'Start practice', exact: true }).click(),
@@ -677,7 +744,7 @@ try {
     oracleAudioRequests.length >= 6,
     'Selection and restore must prepare all three Oracle recordings'
   );
-  assert.equal(recordings.size, 32);
+  assert(recordings.size >= 32);
   assert(
     oracleRigRequests.every((url) => /\/oracle-lens-(base|radar|laser|core-laser)\.glb$/.test(url))
   );
@@ -885,7 +952,7 @@ try {
     masterYiRiftTrialInProduction: false,
     masterYiBotRiftTrialInProduction: false,
     rosterRiftTrialInProduction: false,
-    publicChampionChoices: ['ashe', 'lux'],
+    publicChampionChoices: ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri'],
     ahriRiftTrialInProduction: false,
     ahriBotRiftTrialInProduction: false,
     ahriNpcFixtureInProduction: false,

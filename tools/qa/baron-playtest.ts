@@ -48,8 +48,7 @@ const battlefield = {
     new NavGrid(JSON.parse(readFileSync(`${map}rift-nav.json`, 'utf8')), nav.buffer),
     JSON.parse(readFileSync(`${map}rift-layout.json`, 'utf8'))
   ),
-  ...cohortProfile(false, true).permissions,
-  rosterPlaytestBaron: true as const,
+  ...cohortProfile().permissions,
 };
 const role = PLAYER_CHAMPION_ROLES[champion];
 const world = createLaneMatch(

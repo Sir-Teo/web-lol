@@ -1,4 +1,5 @@
-import { selectableChampion } from './content/champion-profiles';
+import { publicSelectableChampion, selectableChampion } from './content/champion-profiles';
+import { DEFAULT_BOT_DIFFICULTY, type BotDifficulty } from './content/bot-difficulty';
 import { loadLuxIlluminationTriggerTextures } from './render/lux-illumination-triggers';
 import { loadLuxESource } from './render/lux-e-source';
 import { loadLuxIlluminationTextures } from './render/lux-illumination';
@@ -76,6 +77,13 @@ async function boot(): Promise<void> {
     fixture && !baronEncounter && query.get('npc') === 'masteryi' && !query.has('champion');
   const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
   const masterYiPlayerFixture = fixture && query.get('champion') === 'masteryi';
+  const publicRift =
+    !fixture &&
+    !rosterRiftTrial &&
+    !ahriRiftTrial &&
+    !masterYiRiftTrial &&
+    !leonaRiftTrial &&
+    !garenRiftTrial;
   const rawBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
   const loadedBattlefield = baronEncounter
     ? { ...rawBattlefield, developmentBaron: true as const }
@@ -112,7 +120,9 @@ async function boot(): Promise<void> {
               ? { ...loadedBattlefield, developmentMasterYi: true as const }
               : ahriPlayerFixture
                 ? { ...loadedBattlefield, developmentAhri: true as const }
-                : loadedBattlefield;
+                : publicRift
+                  ? { ...loadedBattlefield, publicRift: true as const }
+                  : loadedBattlefield;
   const saveKey = rosterRiftTrial
     ? rosterPlaytest
       ? 'roster-playtest'
@@ -154,10 +164,13 @@ async function boot(): Promise<void> {
     companionQuery && Object.hasOwn(COMPANION_SOURCE.profiles, companionQuery)
       ? (companionQuery as CompanionKind)
       : null;
-  const freshPractice = (champion: import('./simulation/types').ChampionIdentity = 'ashe') => {
-    if (!fixture && champion !== 'ashe' && champion !== 'lux')
+  const freshPractice = (
+    champion: import('./simulation/types').ChampionIdentity = 'ashe',
+    botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY
+  ) => {
+    if (!fixture && !publicRift && champion !== 'ashe' && champion !== 'lux')
       throw new Error('Choose Ashe or Lux for practice in this trial.');
-    return baronEncounter
+    const created = baronEncounter
       ? createBaronEncounter(battlefield, champion)
       : grompEncounter
         ? (() => {
@@ -169,7 +182,7 @@ async function boot(): Promise<void> {
             return next;
           })()
         : (() => {
-            const next = new World(true, battlefield, champion);
+            const next = new World(true, battlefield, champion, botDifficulty);
             if (leonaNpc) {
               const npc = next.spawn('champion', 'blue', { x: -650, y: 350 }, 'leona');
               next.gainExperience(2400, npc.id);
@@ -180,6 +193,8 @@ async function boot(): Promise<void> {
             if (ahriNpc) next.spawn('champion', 'blue', { x: -650, y: 350 }, 'ahri');
             return next;
           })();
+    created.botDifficulty = botDifficulty;
+    return created;
   };
   let world = rosterRiftTrial
     ? createLaneMatch(battlefield, 'ashe')
@@ -330,20 +345,24 @@ async function boot(): Promise<void> {
             world.matchMode === 'lanes'
               ? createLaneMatch(
                   battlefield,
-                  rosterRiftTrial
-                    ? world.hero.champion
-                    : ahriRiftTrial && world.hero.champion === 'ahri'
-                      ? 'ahri'
-                      : masterYiRiftTrial && world.hero.champion === 'masteryi'
-                        ? 'masteryi'
-                        : leonaRiftTrial && world.hero.champion === 'leona'
-                          ? 'leona'
-                          : garenRiftTrial && world.hero.champion === 'garen'
-                            ? 'garen'
-                            : selectableChampion(world.hero.champion),
-                  world.player.summoners
+                  publicRift
+                    ? publicSelectableChampion(world.hero.champion)
+                    : rosterRiftTrial
+                      ? world.hero.champion
+                      : ahriRiftTrial && world.hero.champion === 'ahri'
+                        ? 'ahri'
+                        : masterYiRiftTrial && world.hero.champion === 'masteryi'
+                          ? 'masteryi'
+                          : leonaRiftTrial && world.hero.champion === 'leona'
+                            ? 'leona'
+                            : garenRiftTrial && world.hero.champion === 'garen'
+                              ? 'garen'
+                              : selectableChampion(world.hero.champion),
+                  world.player.summoners,
+                  world.botDifficulty
                 ).snapshot()
               : grompEncounter ||
+                  world.botDifficulty !== DEFAULT_BOT_DIFFICULTY ||
                   world.hero.champion === 'lux' ||
                   world.hero.champion === 'garen' ||
                   world.hero.champion === 'leona' ||
@@ -352,7 +371,7 @@ async function boot(): Promise<void> {
                   world.player.summoners.d !== 'flash' ||
                   world.player.summoners.f !== 'heal'
                 ? (() => {
-                    const next = freshPractice(world.hero.champion);
+                    const next = freshPractice(world.hero.champion, world.botDifficulty);
                     equipSummoners(next.player, world.player.summoners);
                     return next.snapshot();
                   })()
@@ -362,11 +381,16 @@ async function boot(): Promise<void> {
           .then(() => window.location.reload())
           .catch((error) => hud.toast(error.message));
       },
-      startMatch: async (mode, champion, summoners) => {
+      startMatch: async (
+        mode,
+        champion,
+        summoners,
+        botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY
+      ) => {
         const next =
           mode === 'lanes'
-            ? createLaneMatch(battlefield, champion, summoners)
-            : freshPractice(champion);
+            ? createLaneMatch(battlefield, champion, summoners, botDifficulty)
+            : freshPractice(champion, botDifficulty);
         if (mode === 'practice') equipSummoners(next.player, summoners);
         await checkpoints!.replace(next.snapshot(), world.tick);
         window.location.reload();
@@ -444,7 +468,9 @@ async function boot(): Promise<void> {
       monsterSpecies,
       world.units.some((u) => u.champion === 'leona'),
       world.units.some((u) => u.champion === 'ahri'),
-      world.units.some((u) => u.champion === 'masteryi')
+      world.units.some((u) => u.champion === 'masteryi'),
+      import.meta.env.DEV || hasGaren,
+      prepareLux
     ),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     ...(world.units.some((u) => u.champion === 'leona')

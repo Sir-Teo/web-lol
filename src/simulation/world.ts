@@ -49,6 +49,7 @@ import {
 } from './ahri-recall-audio';
 import {
   beginAhriLifecycleAudio,
+  syncAhriLifecycleDeathOrigin,
   respawnAhriLifecycleAudio,
   finishAllAhriLifecycleAudio,
   advanceAhriLifecycleAudio,
@@ -86,6 +87,11 @@ import {
 } from './ahri-orb-audio';
 import { advancePrimaryHitPoses } from './masteryi-primary-hit-poses';
 import { BARON, RIFT_BARON, baronReadyTick } from '../content/baron';
+import {
+  BOT_DIFFICULTIES,
+  DEFAULT_BOT_DIFFICULTY,
+  type BotDifficulty,
+} from '../content/bot-difficulty';
 import {
   capturePassiveTrail,
   advancePassiveTrails,
@@ -509,6 +515,7 @@ export class World {
   firstBloodClaimed = false;
   nextId = 1;
   matchMode: 'practice' | 'lanes' = 'practice';
+  botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY;
   encounter: 'gromp' | 'baron' | null = null;
   riftBaron: {
     unitId: number | null;
@@ -589,13 +596,16 @@ export class World {
   constructor(
     populate = true,
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
-    playerChampion: import('./types').ChampionIdentity = 'ashe'
+    playerChampion: import('./types').ChampionIdentity = 'ashe',
+    botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY
   ) {
+    this.botDifficulty = botDifficulty;
     if (
       playerChampion === 'masteryi' &&
       !(
         (battlefield.id === 'practice-fixture' && battlefield.developmentMasterYi) ||
-        (battlefield.id === 'rift' && battlefield.developmentMasterYiRift)
+        (battlefield.id === 'rift' &&
+          (battlefield.publicRift || battlefield.developmentMasterYiRift))
       )
     )
       throw new Error(
@@ -605,19 +615,21 @@ export class World {
       playerChampion === 'ahri' &&
       !(
         (battlefield.id === 'practice-fixture' && battlefield.developmentAhri) ||
-        (battlefield.id === 'rift' && battlefield.developmentAhriRift)
+        (battlefield.id === 'rift' && (battlefield.publicRift || battlefield.developmentAhriRift))
       )
     )
       throw new Error('Ahri requires a development NPC or trusted player practice/Rift context.');
     if (
       playerChampion === 'leona' &&
       battlefield.id !== 'practice-fixture' &&
+      !battlefield.publicRift &&
       !battlefield.developmentLeona
     )
       throw new Error('Leona player kit requires the development practice fixture or Rift trial.');
     if (
       playerChampion === 'garen' &&
       battlefield.id !== 'practice-fixture' &&
+      !battlefield.publicRift &&
       !battlefield.developmentGaren
     )
       throw new Error('Garen player kit requires the development practice fixture or Rift trial.');
@@ -782,12 +794,14 @@ export class World {
     if (
       identity === 'ahri' &&
       this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.publicRift &&
       !this.battlefield.developmentAhriRift
     )
       throw new Error('Ahri simulation requires the development practice fixture or Rift trial.');
     if (
       identity === 'leona' &&
       this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.publicRift &&
       !this.battlefield.developmentLeona
     )
       throw new Error('Leona simulation requires the development practice fixture or Rift trial.');
@@ -795,6 +809,7 @@ export class World {
       kind === 'champion' &&
       identity === 'masteryi' &&
       this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.publicRift &&
       !this.battlefield.developmentMasterYiRift
     )
       throw new Error('Master Yi requires a development practice NPC or trusted Rift context.');
@@ -947,7 +962,7 @@ export class World {
         !fixture &&
         !(
           this.battlefield.id === 'rift' &&
-          this.battlefield.rosterPlaytestBaron &&
+          (this.battlefield.publicRift || this.battlefield.rosterPlaytestBaron) &&
           this.matchMode === 'lanes' &&
           objective?.unitId === null &&
           !this.winner &&
@@ -1684,7 +1699,7 @@ export class World {
           this.planGarenW(u);
           this.planLeonaW(u);
         }
-        u.nextThink = this.tick + 18;
+        u.nextThink = this.tick + this.botThinkTicks();
       }
       const state = this.championState(u.id);
       if (activeSpiritDash(this, u.id)) {
@@ -2450,7 +2465,7 @@ export class World {
     const target = candidates[0]?.target;
     if (!target) return false;
     if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: target.x, y: target.y } });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: this.botAimPoint(u, target) });
     return true;
   }
   /** Stationary-target forecast of visible, committed champion/turret attacks. */
@@ -2828,11 +2843,25 @@ export class World {
       )
     );
   }
+  botThinkTicks(): number {
+    return BOT_DIFFICULTIES[this.botDifficulty].thinkTicks;
+  }
+  botAimPoint(caster: Vec2, target: Vec2): Vec2 {
+    const spread = BOT_DIFFICULTIES[this.botDifficulty].aimSpreadUnits;
+    if (spread <= 0) return { x: target.x, y: target.y };
+    const angle = this.random.next() * Math.PI * 2;
+    const radius = Math.sqrt(this.random.next()) * spread;
+    const candidate = {
+      x: target.x + Math.cos(angle) * radius,
+      y: target.y + Math.sin(angle) * radius,
+    };
+    return distance(caster, candidate) < 1 ? { x: target.x, y: target.y } : candidate;
+  }
   private planMasterYiMeditateSafety(u: Unit): void {
     if (u.kind !== 'champion' || !u.ai) return;
     const channel = this.championState(u.id)?.meditate;
     if (!channel || channel.stopTick !== null || this.tick < u.nextThink) return;
-    u.nextThink = this.tick + 18;
+    u.nextThink = this.tick + this.botThinkTicks();
     const unsafe = u.rootUntil <= this.tick && this.masterYiSustainThreatened(u);
     const healed = u.hp >= u.maxHp * MASTER_YI_BOT_POLICY.sustainStopHealthFraction;
     if (!unsafe && !healed) return;
@@ -3018,7 +3047,7 @@ export class World {
         type: 'cast',
         unit: u.id,
         ability,
-        point: { x: point.x, y: point.y },
+        point: ability === 'w' ? { x: point.x, y: point.y } : this.botAimPoint(u, point),
       });
       return true;
     };
@@ -3117,8 +3146,13 @@ export class World {
       state.spellRanks[ability] > 0 &&
       this.abilityCooldownTicks(ability, u.id) === 0 &&
       u.mana >= this.abilityResources(ability, u.id).mana;
-    const cast = (ability: 'q' | 'w' | 'e' | 'r', point: Vec2) => {
-      this.enqueue({ type: 'cast', unit: u.id, ability, point: { x: point.x, y: point.y } });
+    const cast = (ability: 'q' | 'w' | 'e' | 'r', point: Vec2, disperse = false) => {
+      this.enqueue({
+        type: 'cast',
+        unit: u.id,
+        ability,
+        point: disperse ? this.botAimPoint(u, point) : { x: point.x, y: point.y },
+      });
       return true;
     };
     // Filter sight before consulting enemy position, health or order.
@@ -3175,7 +3209,7 @@ export class World {
           distance(u, enemy) <= LUX_R.range &&
           enemy.hp + this.shieldAmount(enemy) <= this.mitigatedDamage(enemy, raw, 'magic')
       );
-      if (target) return cast('r', target);
+      if (target) return cast('r', target, true);
     }
     const target = enemies.find(
       (enemy) => distance(u, enemy) <= (retreating ? 700 : LUX_BINDING.range)
@@ -3198,9 +3232,10 @@ export class World {
         })
         .sort((a, b) => a.t - b.t || a.id - b.id)
         .slice(0, LUX_BINDING.maximumTargets);
-      if (contacts.some((hit) => hit.id === target.id)) return cast('q', target);
+      if (contacts.some((hit) => hit.id === target.id)) return cast('q', target, true);
     }
-    if (!zone && ready('e') && distance(u, target) <= LUX_E.castRange) return cast('e', target);
+    if (!zone && ready('e') && distance(u, target) <= LUX_E.castRange)
+      return cast('e', target, true);
     return false;
   }
   private planAhriWaveClear(u: Unit): boolean {
@@ -3397,7 +3432,7 @@ export class World {
     }
     if (!chosen) return false;
     if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: chosen.x, y: chosen.y } });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: this.botAimPoint(u, chosen) });
     return true;
   }
   private planEmergencyFlash(u: Unit): boolean {
@@ -4221,7 +4256,7 @@ export class World {
           type: 'cast',
           unit: u.id,
           ability: 'w',
-          point: { x: target.x, y: target.y },
+          point: this.botAimPoint(u, target),
         });
         return;
       }
@@ -6975,6 +7010,7 @@ export class World {
         targetState.alphaStrike = null;
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
+        syncAhriLifecycleDeathOrigin(this, target);
         stopEssences(this, target.id);
         this.finishGarenE(targetState);
         this.cancelGarenRVisual(targetState);
@@ -8538,8 +8574,11 @@ export class World {
     return encodeSnapshot({
       version: SNAPSHOT_VERSION,
       matchMode: this.matchMode,
+      ...(this.botDifficulty !== DEFAULT_BOT_DIFFICULTY
+        ? { botDifficulty: this.botDifficulty }
+        : {}),
       encounter: this.encounter,
-      riftBaron: this.riftBaron,
+      ...(this.riftBaron ? { riftBaron: this.riftBaron } : {}),
       jungleCamps: this.jungleCamps,
       pendingWards: this.pendingWards,
       scuttlers: this.scuttlers,

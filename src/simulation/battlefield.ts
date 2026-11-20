@@ -58,6 +58,8 @@ export interface Battlefield extends TerrainQueries {
   developmentBaron?: true;
   /** Enables the live Baron prototype only in trusted Rift lane matches. */
   rosterPlaytestBaron?: true;
+  /** Enables the graduated six-champion roster, practice kits and live Baron on public Summoner’s Rift. */
+  publicRift?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

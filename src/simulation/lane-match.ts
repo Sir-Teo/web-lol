@@ -5,12 +5,14 @@ import { equipSummoners, type SummonerLoadout } from './smite';
 import { DEFAULT_SUMMONERS } from '../content/summoners';
 import { assignRole } from './bot-jungle';
 import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
+import { DEFAULT_BOT_DIFFICULTY, type BotDifficulty } from '../content/bot-difficulty';
 
-/** Five-position roster with separately admitted development compositions. */
+/** Five-position roster with public Milestone 4 composition and isolated trial overrides. */
 export function createLaneMatch(
   battlefield: Battlefield,
   playerChampion: 'ashe' | 'lux' | 'leona' | 'garen' | 'masteryi' | 'ahri' = 'ashe',
-  summoners: SummonerLoadout = DEFAULT_SUMMONERS
+  summoners: SummonerLoadout = DEFAULT_SUMMONERS,
+  botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY
 ): World {
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
   if (
@@ -29,19 +31,24 @@ export function createLaneMatch(
     throw new Error('Ahri bot selection requires the trusted development Ahri Rift host.');
   if (battlefield.developmentMasterYiBots && !battlefield.developmentMasterYiRift)
     throw new Error('Master Yi bot selection requires the trusted development Yi Rift host.');
+  const fullRoster = battlefield.publicRift === true || battlefield.developmentRosterBots === true;
   const assignments = [
-    { role: 'top', lane: 'top', champion: battlefield.developmentRosterBots ? 'garen' : 'ashe' },
+    { role: 'top', lane: 'top', champion: fullRoster ? 'garen' : 'ashe' },
     {
       role: 'jungle',
       lane: null,
-      champion: battlefield.developmentMasterYiBots ? 'masteryi' : 'ashe',
+      champion: fullRoster || battlefield.developmentMasterYiBots ? 'masteryi' : 'ashe',
     },
-    { role: 'mid', lane: 'mid', champion: battlefield.developmentAhriBots ? 'ahri' : 'lux' },
+    {
+      role: 'mid',
+      lane: 'mid',
+      champion: fullRoster || battlefield.developmentAhriBots ? 'ahri' : 'lux',
+    },
     { role: 'carry', lane: 'bot', champion: 'ashe' },
     {
       role: 'support',
       lane: 'bot',
-      champion: battlefield.developmentRosterBots ? 'leona' : 'lux',
+      champion: fullRoster ? 'leona' : 'lux',
     },
   ] as const;
   const lanes = assignments.map(({ lane }) => {
@@ -59,10 +66,11 @@ export function createLaneMatch(
         (unit) => unit.kind !== 'champion' && unit.kind !== 'dummy'
       ),
     },
-    playerChampion
+    playerChampion,
+    botDifficulty
   );
   world.matchMode = 'lanes';
-  if (battlefield.rosterPlaytestBaron)
+  if (battlefield.publicRift || battlefield.rosterPlaytestBaron)
     world.riftBaron = { unitId: null, lastClear: null, holders: [] };
   equipSummoners(world.player, summoners);
   const playerRole = PLAYER_CHAMPION_ROLES[playerChampion];

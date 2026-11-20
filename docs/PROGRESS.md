@@ -1,10 +1,50 @@
 # Development status
 
-Last updated: November 7, 2026 (UTC).
+Last updated: November 19, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
+
+**Roadmap Milestone 4 (six-character local 5v5) is complete** at save schema **184**,
+ruleset `1cf6e4e9b814a10bcd727579afc7485af55df0f870b7deed6cfdaadb58989ce7`, and
+production offline pack `dd3a5ee1303ab4c01e259632eb0e6446e796a761c3eed3bd566dc2be1faabfb1`
+(`1,432` files / `581,183,932` bytes, worker policy `41e26572…`):
+
+- **Public 6-champion 5v5, Practice & Live Baron:** Public Summoner’s Rift (`/` and
+  `npm run build`) graduates **Ashe, Lux, Garen, Master Yi, Leona, and Ahri** into
+  **New match** for both **5v5 matches** and **Practice**, with on-demand rig,
+  effect, and audio loading (Ashe practice preloads zero Lux, Garen, Master Yi,
+  Leona, Ahri, or Baron assets; 5v5 preloads active roster assets plus Baron’s rig
+  while keeping Baron combat audio/VFX lazy until combat). Live **Baron Nashor**
+  spawns at 20:00 in public 5v5 with vision-safe bot scouting/contests and
+  **Hand of Baron** empowered siege waves.
+- **Configurable Bot Skill Bands:** **New match** offers **Intro** (`450 ms` /
+  `27`-tick reaction cadence, `110`-unit skillshot dispersion) and **Standard**
+  (`300 ms` / `18`-tick cadence, direct observed-position aim), persisted across
+  saves and restarts while strictly obeying team sight boundaries.
+- **100-Seed Public Milestone 4 Invariant Gate Passed:** All 100 public 5v5 seeds
+  completed across 8 workers with **`hundredSeedInvariantGate: true`**, **zero
+  failures**, **99 natural victories** (`48` Blue / `51` Red, `99.0%` completion
+  rate), **1 retained 60-minute diagnostic horizon** (seed `75`, see
+  [horizon diagnostic](reference/1cf6e4-public-milestone4-horizon.json)), nearest-rank
+  victory duration `p10 = 2,068.17 s` (`34:28`), `p50 = 2,483.23 s` (`41:23`),
+  `p90 = 2,963.78 s` (`49:24`), `14,941,497` checked ticks, `4,201` exact round trips,
+  and `4,101` future comparisons (`246,006` future ticks). See the
+  [verified 100-seed ledger](reference/1cf6e4-public-milestone4-hundred-ledger.json).
+  Certification uncovered and fixed three cross-system snapshot invariants:
+  Decisive Strike `silenceEndTick` against control-immune Baron, point-blank melee
+  Baron contact histories across the `140`-tick cast audio tail, and mid-Spirit-Rush
+  wall-death corpse origin synchronization.
+- **5-Role / 6-Champion Baron Playtest & Browser/Production Gates:** All six
+  seed-1 role matches (`garen` top, `masteryi` jungle, `lux` mid, `ahri` mid, `ashe`
+  carry, `leona` support), portable CI suites (`1,718/1,718` in `baron-audio.yml`,
+  `206/206` in `ahri-e-rendering.yml`, all five Python source-binding checks),
+  Chrome E2E specs, nested static-host production audit (`313` recordings, `0`
+  unrequested preloads), and offline pack verification pass. Dragons/other epic
+  objectives and Milestones 5–6 remain next.
+
+### Earlier schema-181 checkpoint
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.

@@ -11,11 +11,12 @@ const battlefield = {
   ...PRACTICE_FIXTURE,
   developmentBaron: true as const,
   developmentAhri: true as const,
+  developmentMasterYi: true as const,
   initialUnits: [],
   lineOfSight: () => true,
   lineWalkable: () => true,
-  reachable: (p: { x: number; y: number }) => ({ ...p }),
-  findPath: (_a: unknown, b: { x: number; y: number }) => [{ ...b }],
+  reachable: (p: { x: number; y: number }) => ({ x: p.x, y: p.y }),
+  findPath: (_a: unknown, b: { x: number; y: number }) => [{ x: b.x, y: b.y }],
 };
 function setup(champion: ChampionIdentity = 'ashe') {
   const w = createBaronEncounter(battlefield, champion),
@@ -133,7 +134,7 @@ test('resisted controls preserve a mid-windup save and its uninterrupted future'
   expect(copy.snapshot()).toBe(w.snapshot());
 });
 
-test('Decisive Strike is consumed and damages Baron without applying silence', () => {
+test('Decisive Strike is consumed, damages Baron without silence, and round-trips through snapshot restore', () => {
   const { w, b } = setup('garen'),
     hp = b.hp;
   Object.assign(w.hero, { x: 300, y: 0, previous: { x: 300, y: 0 } });
@@ -146,6 +147,51 @@ test('Decisive Strike is consumed and damages Baron without applying silence', (
   expect(b.hp).toBeLessThan(hp);
   expect(w.player.garenQ?.consumed).toBe(true);
   expect(b.silenceUntil).toBe(0);
+  const saved = w.snapshot();
+  const copy = World.fromSnapshot(saved, battlefield);
+  expect(copy.snapshot()).toBe(saved);
+  w.step(90);
+  copy.step(90);
+  expect(copy.snapshot()).toBe(w.snapshot());
+});
+
+test('all six champions’ Baron spell/CC contacts preserve valid snapshots and futures', () => {
+  for (const champion of ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri'] as const) {
+    const { w, b } = setup(champion);
+    Object.assign(w.hero, { x: 260, y: 0, previous: { x: 260, y: 0 } });
+    w.gainExperience(20_000);
+    for (const ability of ['q', 'w', 'e', 'r'] as const) expect(w.learnSpell(ability)).toBeNull();
+    w.setOrder(w.hero, { type: 'attack', target: b.id });
+    for (const ability of ['q', 'w', 'e', 'r'] as const) {
+      if (champion === 'garen' && ability === 'r') continue;
+      w.enqueue({
+        type: 'cast',
+        unit: w.hero.id,
+        ability,
+        point: { x: b.x, y: b.y },
+        ...(champion === 'masteryi' && ability === 'q' ? { targetId: b.id } : {}),
+      });
+      for (let i = 0; i < 45; i++) {
+        w.step();
+        if (i === 10 || i === 25 || i === 44) {
+          const saved = w.snapshot();
+          expect(World.fromSnapshot(saved, battlefield).snapshot()).toBe(saved);
+        }
+      }
+    }
+  }
+});
+
+test('point-blank melee Baron retaliation retains valid contact frames across the full 140-tick cast audio tail', () => {
+  const { w, b } = setup('masteryi');
+  Object.assign(w.hero, { x: b.x + 140, y: b.y, previous: { x: b.x + 140, y: b.y } });
+  w.hero.hp = w.hero.maxHp = 50_000;
+  w.damage(w.hero, b, 10, 'physical');
+  for (let i = 0; i < 165; i++) {
+    w.step();
+    const saved = w.snapshot();
+    expect(World.fromSnapshot(saved, battlefield).snapshot()).toBe(saved);
+  }
 });
 
 for (const field of ['rootUntil', 'stunUntil', 'silenceUntil', 'charm'] as const)

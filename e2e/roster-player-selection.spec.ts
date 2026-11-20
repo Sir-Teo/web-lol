@@ -145,7 +145,7 @@ test('all six private player choices keep their own manual kit, roles, actual sa
   expect(errors).toEqual([]);
 });
 
-test('public and separate trials retain two choices while the combined trial enforces its practice boundary', async ({
+test('public Rift enables all six champions in 5v5 and practice while separate trials retain their boundaries', async ({
   page,
 }, info) => {
   const errors: string[] = [];
@@ -157,15 +157,22 @@ test('public and separate trials retain two choices while the combined trial enf
     await page
       .locator('[data-action="choose-champion"]')
       .evaluateAll((nodes) => nodes.map((n) => (n as HTMLElement).dataset.champion))
-  ).toEqual(['ashe', 'lux']);
-  await page.getByRole('button', { name: 'Lux', exact: true }).click();
+  ).toEqual(['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']);
+  await page.getByRole('button', { name: 'Garen', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Start practice', exact: true })).toBeEnabled();
+  await page
+    .getByRole('group', { name: 'Choose bot skill' })
+    .getByRole('button', { name: 'Intro', exact: true })
+    .click();
   await reloadAction(page, 'Start practice');
   expect(
     await page.evaluate(() => ({
       champion: (window as any).__GAME__.world.hero.champion,
       mode: (window as any).__GAME__.world.matchMode,
+      botDifficulty: (window as any).__GAME__.world.botDifficulty,
+      riftBaron: (window as any).__GAME__.world.riftBaron,
     }))
-  ).toEqual({ champion: 'lux', mode: 'practice' });
+  ).toEqual({ champion: 'garen', mode: 'practice', botDifficulty: 'intro', riftBaron: null });
   await page.goto('/?scene=ahri-rift&bots=ahri', { waitUntil: 'domcontentloaded' });
   await ready(page);
   await newMatch(page);
