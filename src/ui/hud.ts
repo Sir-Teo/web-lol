@@ -11,7 +11,6 @@ import { cameraKeyTarget } from '../input/camera-targets';
 import { AHRI_R } from '../content/ahri-r';
 import { mountOfflinePack } from './offline-pack';
 import { ROLE_LABELS } from '../content/bot-roles';
-import { resetTrinket } from '../simulation/wards';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
 import { trinketSwapError } from '../simulation/trinkets';
@@ -25,7 +24,48 @@ import {
   type BotDifficulty,
 } from '../content/bot-difficulty';
 import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
-import { championProfile, isMeleeChampion } from '../content/champion-profiles';
+import {
+  PUBLIC_SELECTABLE_CHAMPIONS,
+  championProfile,
+  isMeleeChampion,
+} from '../content/champion-profiles';
+import { isMilestone6Champion } from '../simulation/milestone6-champions';
+import {
+  ROLE_QUESTS,
+  isRoleQuestComplete,
+  maxChampionLevelForQuest,
+  maxInventorySlotsForQuest,
+  maxStealthWardsForQuest,
+} from '../content/role-quests';
+import {
+  DEFENSE_SHARD_IDS,
+  FLEX_SHARD_IDS,
+  KEYSTONES,
+  KEYSTONE_IDS,
+  OFFENSE_SHARD_IDS,
+  SECONDARY_RUNES,
+  SECONDARY_RUNE_IDS,
+  STAT_SHARD_LABELS,
+  type DefenseShardId,
+  type FlexShardId,
+  type KeystoneId,
+  type OffenseShardId,
+  type RuneLoadout,
+  type SecondaryRuneId,
+} from '../content/runes';
+import { defaultRuneLoadoutForRole } from '../simulation/runes';
+import { getExpandedItem } from '../simulation/item-effects';
+import { FARSIGHT_POLICY, FAELIGHT_NODES } from '../content/faelights';
+import {
+  DRAGON_ELEMENT_NAMES,
+  DRAGON_SOUL_NAMES,
+  EPIC_OBJECTIVE_TIMING,
+} from '../content/epic-objectives';
+import { isElementalRiftTransformed } from '../simulation/epic-objectives';
+import {
+  REFERENCE_COVERAGE_LEDGER,
+  summarizeReferenceCoverage,
+} from '../content/reference-coverage';
 import { MASTER_YI } from '../content/masteryi-progression';
 import {
   isMasterYiSpell,
@@ -56,6 +96,18 @@ import {
   targetInstruction,
   garenRecastLockTicks,
 } from '../input/spell-controls';
+import {
+  applyImmediatePracticeTool,
+  isImmediatePracticeAction,
+  type PracticeToolAction,
+} from '../practice/practice-tools';
+import {
+  REPLAY_SPEEDS,
+  type MatchReplayLog,
+  type PreparedReplayImport,
+  type ReplaySpeed,
+} from '../replay/match-replay';
+import { DEFAULT_SOUND_MIX, type SoundMixPreferences } from '../storage/sound-preference';
 import type { PreparedMatchImport } from '../storage/match-files';
 import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
@@ -97,32 +149,55 @@ import {
   type SummonerSlot,
   type SummonerSpell,
 } from '../content/summoners';
-import {
-  experienceToNextLevel,
-  growthAtLevel,
-  MAX_LEVEL,
-  statPrecision,
-} from '../simulation/progression';
+import { experienceToNextLevel, growthAtLevel, statPrecision } from '../simulation/progression';
 import { isStructureKind, type Ability, type ChampionIdentity } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 
+export interface ReplayHudState {
+  active: boolean;
+  playing: boolean;
+  speed: ReplaySpeed;
+  startTick: number;
+  currentTick: number;
+  endTick: number;
+  verifiedCheckpoints: number;
+  totalCheckpoints: number;
+  error: string | null;
+}
+
+export type ReplayControlCommand =
+  | { type: 'toggle-play' }
+  | { type: 'seek-delta'; deltaTicks: number }
+  | { type: 'restart' }
+  | { type: 'speed'; speed: ReplaySpeed }
+  | { type: 'exit' };
+
 export interface HudActions {
   swapTrinket: (kind: TrinketKind) => Promise<string | null>;
   buyItem: (itemId: string) => Promise<string | null>;
+  practiceTool?: (action: PracticeToolAction) => string;
   pause: (value: boolean) => void;
   reset: () => void;
   startMatch: (
     mode: 'practice' | 'lanes',
     champion: ChampionIdentity,
     summoners: SummonerLoadout,
-    botDifficulty?: BotDifficulty
+    botDifficulty?: BotDifficulty,
+    runes?: RuneLoadout
   ) => Promise<void>;
   save: () => Promise<void>;
   exportMatch: () => void;
   prepareImport: (file: File) => Promise<PreparedMatchImport>;
   prepareRecovery: () => Promise<PreparedMatchImport | null>;
   sound: (enabled: boolean) => void;
+  soundMix?: () => SoundMixPreferences;
+  updateSoundMix?: (partial: Partial<SoundMixPreferences>) => SoundMixPreferences;
+  exportReplay?: () => Promise<void>;
+  watchCurrentReplay?: () => Promise<void>;
+  prepareReplay?: (file: File) => Promise<PreparedReplayImport>;
+  watchPreparedReplay?: (log: MatchReplayLog) => Promise<void>;
+  replayControl?: (command: ReplayControlCommand) => void;
 }
 export class Hud {
   root: HTMLDivElement;
@@ -130,8 +205,11 @@ export class Hud {
   onInstantCast?: () => void;
   modal: string | null = null;
   paused = false;
+  replaying = false;
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
   sound = true;
+  private readonly abort = new AbortController();
+  private renderedHeroKey = '';
   private offlineCleanup: (() => void) | null = null;
   private replacingMatch = false;
   private importError = '';
@@ -167,6 +245,21 @@ export class Hud {
     this.root.innerHTML = `
       <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>${world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE TOOL'} <i>•</i> ${this.rosterPlaytest ? 'ROSTER PLAYTEST' : 'LOCAL MATCH'}</span></div></div>
       <div class="match-top"><span class="team-score"><b class="blue-number" id="kills">0</b><i>⚔</i><b class="red-number" id="deaths">0</b></span><span class="personal-score" id="personal">0 / 0 / 0</span><span title="Creep score"><i class="gold-symbol">♜</i> <b id="cs">0</b></span><time id="clock">00:00</time><button class="icon-button" id="pause-button" title="Pause (Esc)" aria-label="Pause game">Ⅱ</button></div>
+      <section class="replay-bar" id="replay-bar" role="region" aria-label="Match replay controls" hidden>
+        <span class="replay-badge">REPLAY</span>
+        <span class="replay-verify" id="replay-verify">✓ Verified</span>
+        <time class="replay-time" id="replay-time">00:00 / 00:00</time>
+        <div class="replay-buttons" role="group" aria-label="Replay transport">
+          <button type="button" class="replay-btn" data-replay-cmd="restart" aria-label="Restart replay" title="Restart replay">⏮</button>
+          <button type="button" class="replay-btn" data-replay-cmd="back-5s" aria-label="Rewind 5 seconds" title="Rewind 5s">-5s</button>
+          <button type="button" class="replay-btn" data-replay-cmd="toggle-play" id="replay-play-btn" aria-label="Pause replay">Pause</button>
+          <button type="button" class="replay-btn" data-replay-cmd="forward-5s" aria-label="Forward 5 seconds" title="Forward 5s">+5s</button>
+        </div>
+        <div class="replay-speeds" role="group" aria-label="Replay speed">
+          ${REPLAY_SPEEDS.map((speed) => `<button type="button" class="replay-btn" data-replay-speed="${speed}" aria-pressed="${speed === 1}">${speed}×</button>`).join('')}
+        </div>
+        <button type="button" class="replay-btn replay-exit" data-replay-cmd="exit">Exit replay</button>
+      </section>
       <div class="welcome"><span>THE RIFT AWAITS</span><h1>Welcome to Summoner’s Rift</h1><div class="ornament">━━━━ ◈ ━━━━</div></div>
       <div id="toast" role="status" aria-live="polite"></div>
       <div class="targeting-mode" role="status">Champions only</div>
@@ -175,7 +268,7 @@ export class Hud {
       <section class="champion-hud" aria-label="Champion controls">
         <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${championProfile(world.hero.champion!).name}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : world.hero.champion === 'leona' ? 'THE RADIANT DAWN' : world.hero.champion === 'ahri' ? 'THE NINE-TAILED FOX' : world.hero.champion === 'masteryi' ? 'THE WUJU BLADESMAN' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : world.hero.champion === 'ahri' ? '<span id="ahri-essence" class="essence-counter" tabindex="0" aria-label="Essence Theft, 0 of 9 kills">0 / 9</span>' : world.hero.champion === 'masteryi' ? '<span id="masteryi-double-strike" class="essence-counter yi-double-strike" tabindex="0" aria-label="Double Strike, 0 of 3 stacks"><img src="assets/icons/MasterYi_Passive1.png" alt=""><b>0 / 3</b></span>' : ''}</div>
+        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${this.championSubtitle(world.hero.champion!)}</span>${this.championPassiveWidget(world.hero.champion!)}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health" role="meter" aria-label="Health" aria-valuemin="0"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
           <div class="resource mana" role="meter" aria-label="Mana" aria-valuemin="0" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
@@ -193,7 +286,7 @@ export class Hud {
       .querySelector('#champion-buffs')!
       .insertAdjacentHTML(
         'beforeend',
-        '<span class="blue-buff baron-buff" id="baron-buff" tabindex="0" role="img" hidden><b>Hand of Baron</b><time id="baron-buff-time"></time></span>'
+        '<span class="blue-buff baron-buff" id="baron-buff" tabindex="0" role="img" hidden><b>Hand of Baron</b><time id="baron-buff-time"></time></span><span class="blue-buff elder-buff" id="elder-buff" tabindex="0" role="img" hidden><b>Aspect of the Dragon</b><time id="elder-buff-time"></time></span>'
       );
     host.append(this.root);
     this.allyCameraGroup = this.root.querySelector<HTMLDivElement>('.ally-portraits')!;
@@ -227,6 +320,7 @@ export class Hud {
     this.floating.className = 'floating-layer';
     host.append(this.floating);
     this.mini = this.root.querySelector('#minimap')!;
+    this.renderedHeroKey = this.heroIdentityKey();
     this.bind();
     this.root.querySelector<HTMLButtonElement>('#practice-button')!.hidden =
       world.matchMode === 'lanes';
@@ -240,11 +334,127 @@ export class Hud {
       Math.floor(world.hero.maxMana)
     );
   }
+  private heroIdentityKey(): string {
+    return `${this.world.hero.champion}:${this.world.player.summoners.d}:${this.world.player.summoners.f}`;
+  }
+  private championSubtitle(champion: ChampionIdentity): string {
+    if (champion === 'garen') return 'THE MIGHT OF DEMACIA';
+    if (champion === 'lux') return 'THE LADY OF LUMINOSITY';
+    if (champion === 'leona') return 'THE RADIANT DAWN';
+    if (champion === 'ahri') return 'THE NINE-TAILED FOX';
+    if (champion === 'masteryi') return 'THE WUJU BLADESMAN';
+    if (champion === 'darius') return 'THE HAND OF NOXUS';
+    if (champion === 'vi') return 'THE PILTOVER ENFORCER';
+    if (champion === 'ezreal') return 'THE PRODIGAL EXPLORER';
+    if (champion === 'morgana') return 'THE FALLEN';
+    return 'THE FROST ARCHER';
+  }
+  private championPassiveWidget(champion: ChampionIdentity): string {
+    if (champion === 'ashe')
+      return '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>';
+    if (champion === 'ahri')
+      return '<span id="ahri-essence" class="essence-counter" tabindex="0" aria-label="Essence Theft, 0 of 9 kills">0 / 9</span>';
+    if (champion === 'masteryi')
+      return '<span id="masteryi-double-strike" class="essence-counter yi-double-strike" tabindex="0" aria-label="Double Strike, 0 of 3 stacks"><img src="assets/icons/MasterYi_Passive1.png" alt=""><b>0 / 3</b></span>';
+    return '';
+  }
+  setWorld(world: World, replaying = false): void {
+    this.world = world;
+    this.replaying = replaying;
+    this.attackStatTooltip.setWorld(world);
+    this.hoveredAbility = null;
+    this.focusedAbility = null;
+    this.refreshTooltip();
+    this.itemTooltip.clear();
+    this.floating.replaceChildren();
+    this.lastEventId = Math.max(0, ...world.events.map((event) => event.id));
+    this.lastSecond = -1;
+    this.lastWelcomeTick = -1;
+    this.lastInventory = '';
+    this.lastScoreboard = '';
+    const identitySpan = this.root.querySelector<HTMLElement>('.match-identity div > span')!;
+    const modeText = world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE TOOL';
+    const tagText = replaying ? 'REPLAY' : this.rosterPlaytest ? 'ROSTER PLAYTEST' : 'LOCAL MATCH';
+    identitySpan.innerHTML = `${modeText} <i>•</i> ${tagText}`;
+    this.root.querySelector<HTMLButtonElement>('#practice-button')!.hidden =
+      replaying || world.matchMode === 'lanes';
+    this.root.querySelector<HTMLButtonElement>('#shop-button')!.disabled = replaying;
+    const scoreboardTitle = this.root.querySelector<HTMLElement>('.scoreboard-title');
+    if (scoreboardTitle)
+      scoreboardTitle.textContent = world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH';
+    const nextHeroKey = this.heroIdentityKey();
+    if (nextHeroKey !== this.renderedHeroKey) {
+      this.renderedHeroKey = nextHeroKey;
+      const champion = world.hero.champion ?? 'ashe';
+      const portrait = this.root.querySelector<HTMLImageElement>('.champion-portrait img')!;
+      portrait.src = `assets/icons/${champion}.png`;
+      portrait.alt = championProfile(champion).name;
+      this.root.querySelector<HTMLElement>('.champion-title')!.innerHTML =
+        `<strong>${championProfile(champion).name.toUpperCase()}</strong><span>${this.championSubtitle(champion)}</span>${this.championPassiveWidget(champion)}`;
+      this.root.querySelector<HTMLElement>('.resource.mana')!.hidden = champion === 'garen';
+      this.root.querySelector<HTMLElement>('.resource.garen-resource')!.hidden =
+        champion !== 'garen';
+      this.root.querySelector<HTMLElement>('.ability-row')!.innerHTML =
+        `${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div>`;
+      this.bindAbilityButtons();
+    }
+  }
+  syncEventsToCurrentTick(): void {
+    this.lastEventId = Math.max(0, ...this.world.events.map((event) => event.id));
+    this.lastSecond = -1;
+    this.lastWelcomeTick = -1;
+    this.lastInventory = '';
+    this.lastScoreboard = '';
+    this.floating.replaceChildren();
+  }
+  setReplayState(state: ReplayHudState | null): void {
+    const bar = this.root.querySelector<HTMLElement>('#replay-bar')!;
+    if (!state || !state.active) {
+      bar.hidden = true;
+      return;
+    }
+    bar.hidden = false;
+    const formatClock = (ticks: number) => {
+      const totalSeconds = Math.max(0, Math.floor(ticks / TICK_RATE));
+      const m = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const s = String(totalSeconds % 60).padStart(2, '0');
+      return `${m}:${s}`;
+    };
+    const verify = bar.querySelector<HTMLElement>('#replay-verify')!;
+    if (state.error) {
+      verify.textContent = state.error;
+      verify.classList.add('error');
+    } else {
+      verify.textContent = `✓ ${state.verifiedCheckpoints}/${state.totalCheckpoints} hashes`;
+      verify.classList.remove('error');
+    }
+    bar.querySelector<HTMLElement>('#replay-time')!.textContent =
+      `${formatClock(state.currentTick)} / ${formatClock(state.endTick)}`;
+    const playBtn = bar.querySelector<HTMLButtonElement>('#replay-play-btn')!;
+    const label = state.playing ? 'Pause' : 'Play';
+    if (playBtn.textContent !== label) playBtn.textContent = label;
+    const aria = state.playing ? 'Pause replay' : 'Play replay';
+    if (playBtn.getAttribute('aria-label') !== aria) playBtn.setAttribute('aria-label', aria);
+    bar.querySelectorAll<HTMLButtonElement>('[data-replay-speed]').forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(Number(btn.dataset.replaySpeed) === state.speed));
+    });
+  }
+  dispose(): void {
+    this.offlineCleanup?.();
+    this.offlineCleanup = null;
+    this.releaseMinimapCamera();
+    this.abort.abort();
+    this.attackStatTooltip.dispose();
+    this.itemTooltip.dispose();
+    this.floating.remove();
+    this.root.remove();
+  }
   private spellSpec(a: Ability) {
     if (
       isSummonerSlot(a) ||
       this.world.hero.champion === 'ahri' ||
-      this.world.hero.champion === 'masteryi'
+      this.world.hero.champion === 'masteryi' ||
+      isMilestone6Champion(this.world.hero.champion)
     )
       return this.world.abilitySpec(a);
     if (this.world.hero.champion === 'garen' && isGarenSpell(a)) return GAREN_SPELLS[a];
@@ -260,6 +470,13 @@ export class Hud {
   private tooltipResources(a: Ability) {
     if (this.isLuxRecast(a)) return { mana: 0, cooldownSeconds: 0 };
     if (a === 'd' || a === 'f' || this.world.abilityRank(a)) return this.world.abilityResources(a);
+    if (isMilestone6Champion(this.world.hero.champion)) {
+      const spec = this.world.abilitySpec(a);
+      return {
+        mana: spec.cost,
+        cooldownSeconds: (spec.cooldown * 100) / (100 + this.world.abilityHaste()),
+      };
+    }
     if (this.world.hero.champion === 'masteryi' && isMasterYiSpell(a)) {
       const preview = masterYiPreviewResources(a);
       return {
@@ -369,6 +586,8 @@ export class Hud {
       return luxDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
     if (this.world.hero.champion === 'leona' && isLeonaSpell(ability))
       return leonaDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
+    if (isMilestone6Champion(this.world.hero.champion) && ability !== 'd' && ability !== 'f')
+      return this.world.abilitySpec(ability).description;
     if (ability === 'q') {
       const values = asheFocusValues(rank);
       return `Build 4 Focus with attacks. Consume Focus to gain ${Math.round(values.bonusAttackSpeed * 100)}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(values.damageMultiplier * 100)}% damage. Activating resets your attack timer.`;
@@ -425,15 +644,26 @@ export class Hud {
         reason ??
         (kind === 'ward'
           ? 'Free. Place hidden wards that grant team vision.'
-          : 'Free. Scan for 8 seconds to reveal and disable enemy wards and warn of hidden champions.');
+          : kind === 'farsight'
+            ? 'Free (Level 9+). Place untargetable long-range vision up to 4,000 units away.'
+            : 'Free. Scan for 8 seconds to reveal and disable enemy wards and warn of hidden champions.');
       button.querySelector('b')!.textContent =
         this.world.player.trinket.kind === kind ? 'Equipped' : 'Free';
     });
+    const undoBtn = this.root.querySelector<HTMLButtonElement>('[data-action="undo-shop"]');
+    if (undoBtn) {
+      const canUndo =
+        !this.buyingItem &&
+        !!this.world.player.itemState?.undoHistory.length &&
+        this.world.canShop();
+      undoBtn.disabled = !canUndo;
+    }
   }
   private updateShopOwnedItems(): void {
     const owned = this.root.querySelector<HTMLElement>('.shop-owned');
     if (!owned) return;
-    const key = JSON.stringify(this.world.player.inventory);
+    const stacks = this.world.player.itemState?.slotStacks ?? {};
+    const key = JSON.stringify({ inv: this.world.player.inventory, stacks });
     if (owned.dataset.inventory === key) return;
     const focused = owned.contains(document.activeElement)
       ? (document.activeElement as HTMLButtonElement)
@@ -444,14 +674,17 @@ export class Hud {
     this.world.player.inventory.forEach((id, slot) => {
       if (!id) return;
       const item = ITEMS.find((entry) => entry.id === id)!;
+      const stackCount = stacks[slot] ?? 1;
+      const stackTag = `${id}:${stackCount}`;
       let button = existing.find(
-        (entry) => entry.dataset.sell === String(slot) && entry.dataset.item === id
+        (entry) => entry.dataset.sell === String(slot) && entry.dataset.stackTag === stackTag
       );
       if (!button) {
         button = document.createElement('button');
         button.className = 'shop-item';
         button.dataset.sell = String(slot);
         button.dataset.item = id;
+        button.dataset.stackTag = stackTag;
         const unsellable = !!companionItemKind(item.id);
         button.setAttribute('aria-disabled', String(unsellable));
         button.title = unsellable ? 'Jungle companions cannot be sold' : 'Sell item';
@@ -459,9 +692,9 @@ export class Hud {
           'aria-label',
           unsellable
             ? `${item.name}, slot ${slot + 1}, cannot be sold`
-            : `Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold`
+            : `Sell ${item.name}${stackCount > 1 ? ` (${stackCount} stacked)` : ''}, slot ${slot + 1}, for ${item.sell} gold`
         );
-        button.innerHTML = `<img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${unsellable ? 'Cannot be sold' : `Sell · slot ${slot + 1}`}</small></span><b>${unsellable ? '—' : `◆ ${item.sell}`}</b>`;
+        button.innerHTML = `<img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}${stackCount > 1 ? ` ×${stackCount}` : ''}</strong><small>${unsellable ? 'Cannot be sold' : `Sell · slot ${slot + 1}`}</small></span><b>${unsellable ? '—' : `◆ ${item.sell}`}</b>`;
       }
       buttons.push(button);
     });
@@ -483,14 +716,15 @@ export class Hud {
     }
   }
   private bind(): void {
-    window.addEventListener('resize', () => this.positionTooltip());
+    const signal = this.abort.signal;
+    window.addEventListener('resize', () => this.positionTooltip(), { signal });
     const inventory = this.root.querySelector<HTMLElement>('#inventory')!;
     let dragged: { slot: number; item: string } | null = null;
     inventory.addEventListener('dragstart', (event) => {
       const slot = (event.target as HTMLElement).closest<HTMLElement>('[data-inventory-slot]');
       const index = Number(slot?.dataset.inventorySlot);
       const item = this.world.player.inventory[index];
-      if (!slot || !item || this.modal || this.paused || this.world.winner) {
+      if (!slot || !item || this.replaying || this.modal || this.paused || this.world.winner) {
         event.preventDefault();
         return;
       }
@@ -499,7 +733,7 @@ export class Hud {
       event.dataTransfer!.setData('text/plain', String(index));
     });
     inventory.addEventListener('dragover', (event) => {
-      if (!dragged || this.modal || this.paused) return;
+      if (!dragged || this.replaying || this.modal || this.paused) return;
       event.preventDefault();
       event.dataTransfer!.dropEffect = 'move';
     });
@@ -509,6 +743,7 @@ export class Hud {
       if (
         dragged &&
         target &&
+        !this.replaying &&
         !this.modal &&
         !this.paused &&
         this.world.player.inventory[dragged.slot] === dragged.item
@@ -524,21 +759,43 @@ export class Hud {
     const on = (id: string, fn: () => void) =>
       this.root.querySelector(`#${id}`)!.addEventListener('click', fn);
     on('pause-button', () => this.toggleModal('pause'));
-    on('shop-button', () => this.toggleModal('shop'));
+    on('shop-button', () => {
+      if (!this.replaying) this.toggleModal('shop');
+    });
     on('help-button', () => this.toggleModal('help'));
-    on('practice-button', () => this.toggleModal('practice'));
+    on('practice-button', () => {
+      if (!this.replaying) this.toggleModal('practice');
+    });
     on('camera-button', () => this.toggleCamera());
     on('sound-button', () => {
       this.sound = !this.sound;
       this.actions.sound(this.sound);
       this.updateSoundButton();
     });
+    this.root.querySelector('#replay-bar')!.addEventListener('click', (event) => {
+      const btn = (event.target as HTMLElement).closest<HTMLButtonElement>('button');
+      if (!btn) return;
+      const cmd = btn.dataset.replayCmd;
+      if (cmd === 'toggle-play') this.actions.replayControl?.({ type: 'toggle-play' });
+      else if (cmd === 'restart') this.actions.replayControl?.({ type: 'restart' });
+      else if (cmd === 'back-5s')
+        this.actions.replayControl?.({ type: 'seek-delta', deltaTicks: -5 * TICK_RATE });
+      else if (cmd === 'forward-5s')
+        this.actions.replayControl?.({ type: 'seek-delta', deltaTicks: 5 * TICK_RATE });
+      else if (cmd === 'exit') this.actions.replayControl?.({ type: 'exit' });
+      else if (btn.dataset.replaySpeed) {
+        this.actions.replayControl?.({
+          type: 'speed',
+          speed: Number(btn.dataset.replaySpeed) as ReplaySpeed,
+        });
+      }
+    });
     this.mini.addEventListener('contextmenu', (e) => e.preventDefault());
     this.mini.addEventListener('pointerdown', (e) => {
-      if (this.modal || this.paused) return;
+      if (this.modal || (this.paused && !this.replaying)) return;
       const point = this.minimapPoint(e.clientX, e.clientY);
       if (!point) return;
-      if (e.button === 2)
+      if (e.button === 2 && !this.replaying && !this.paused)
         this.world.enqueue({
           type: 'order',
           unit: this.world.player.id,
@@ -555,7 +812,7 @@ export class Hud {
     });
     this.mini.addEventListener('pointermove', (e) => {
       if (e.pointerId !== this.minimapPointer) return;
-      if (this.modal || this.paused || !(e.buttons & 1)) {
+      if (this.modal || (this.paused && !this.replaying) || !(e.buttons & 1)) {
         this.releaseMinimapCamera();
         return;
       }
@@ -574,10 +831,13 @@ export class Hud {
       this.mini.addEventListener(type, (e) => {
         if (e.pointerId === this.minimapPointer) this.releaseMinimapCamera();
       });
-    window.addEventListener('blur', () => this.releaseMinimapCamera());
+    window.addEventListener('blur', () => this.releaseMinimapCamera(), { signal });
+    this.bindAbilityButtons();
+  }
+  private bindAbilityButtons(): void {
     this.root.querySelectorAll<HTMLButtonElement>('[data-learn]').forEach((button) => {
       button.addEventListener('click', () => {
-        if (this.paused || this.modal) return;
+        if (this.replaying || this.paused || this.modal) return;
         this.world.enqueue({
           type: 'learn',
           unit: this.world.player.id,
@@ -604,7 +864,7 @@ export class Hud {
         this.refreshTooltip();
       });
       button.addEventListener('click', () => {
-        if (this.paused || this.modal) return;
+        if (this.replaying || this.paused || this.modal) return;
         if (instantSpell(this.world, ability)) {
           this.onInstantCast?.();
           this.world.enqueue({
@@ -685,7 +945,9 @@ export class Hud {
   setGraphicsState(state: Hud['graphicsState']): void {
     this.graphicsState = state;
     this.modal = null;
-    this.toggleModal(state ? 'graphics' : this.world.winner ? 'result' : 'pause');
+    this.toggleModal(
+      state ? 'graphics' : !this.replaying && this.world.winner ? 'result' : 'pause'
+    );
     this.focusModal();
   }
   focusModal(): void {
@@ -694,7 +956,14 @@ export class Hud {
   toggleModal(which: string): void {
     if (this.replacingMatch && which !== 'graphics') return;
     if (this.graphicsState && which !== 'graphics') return;
-    if (this.world.winner && which !== 'result' && which !== 'graphics') return;
+    if (
+      !this.replaying &&
+      this.world.winner &&
+      which !== 'result' &&
+      which !== 'graphics' &&
+      which !== 'replay'
+    )
+      return;
     this.releaseMinimapCamera();
     if (this.modal === which) {
       this.closeModal();
@@ -709,19 +978,27 @@ export class Hud {
     this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
-    const fullRoster = !!(
-      this.world.battlefield.publicRift || this.world.battlefield.developmentRosterBots
-    );
-    const playerChoices: readonly ChampionIdentity[] = fullRoster
-      ? ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']
-      : ['ashe', 'lux'];
+    const playerChoices: readonly ChampionIdentity[] = this.world.battlefield.publicRift
+      ? PUBLIC_SELECTABLE_CHAMPIONS
+      : this.world.battlefield.developmentRosterBots
+        ? ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']
+        : ['ashe', 'lux'];
     const currentChampion = this.world.hero.champion;
     let chosenChampion: ChampionIdentity =
       currentChampion && playerChoices.includes(currentChampion) ? currentChampion : 'ashe';
     let chosenDifficulty: BotDifficulty = this.world.botDifficulty;
+    let runesCustomized = !!this.world.player.runeState;
+    let chosenRunes: RuneLoadout = this.world.player.runeState
+      ? {
+          keystone: this.world.player.runeState.loadout.keystone,
+          secondary: this.world.player.runeState.loadout.secondary,
+          shards: { ...this.world.player.runeState.loadout.shards },
+        }
+      : defaultRuneLoadoutForRole(PLAYER_CHAMPION_ROLES[chosenChampion]);
+    const isJunglerChoice = (champ: ChampionIdentity) => champ === 'masteryi' || champ === 'vi';
     const laneDescription = () =>
       this.world.battlefield.publicRift
-        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents across top, jungle, mid, bottom and support. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Baron Nashor enters the top river pit at 20:00.`
+        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents across all 10 distinct champions (zero mirrors). Role Quests, Elemental Drakes, Voidgrubs (06:00), Rift Herald (15:00), and Baron Nashor (20:00) are active.${isJunglerChoice(chosenChampion) ? ' Smite is required to buy your own jungle companion.' : ''}`
         : this.world.battlefield.developmentRosterBots
           ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the ${this.rosterPlaytest ? 'playtest' : 'development'} roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
           : `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
@@ -736,6 +1013,18 @@ export class Hud {
       `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
     const botSkillChoices = () =>
       `<div class="summoner-selection bot-difficulty-selection" role="group" aria-label="Choose bot skill"><fieldset><legend>Bot skill</legend><div class="summoner-choices bot-difficulty-choices">${(Object.keys(BOT_DIFFICULTIES) as BotDifficulty[]).map((level) => `<button class="menu-button" data-action="choose-bot-difficulty" data-bot-difficulty="${level}" aria-pressed="${chosenDifficulty === level}" title="${BOT_DIFFICULTIES[level].description}">${BOT_DIFFICULTIES[level].name}</button>`).join('')}</div></fieldset></div>`;
+    const runeChoices = () =>
+      this.world.battlefield.publicRift
+        ? `<div class="rune-selection" role="group" aria-label="Choose runes and stat shards">
+            <h4>Keystone &amp; Secondary Rune</h4>
+            <div class="rune-row">${KEYSTONE_IDS.map((k) => `<button type="button" class="menu-button rune-choice" data-action="choose-keystone" data-keystone="${k}" aria-pressed="${chosenRunes.keystone === k}" title="${KEYSTONES[k].description}"><img src="assets/icons/${KEYSTONES[k].icon}.png" alt="">${KEYSTONES[k].name}</button>`).join('')}</div>
+            <div class="rune-row">${SECONDARY_RUNE_IDS.map((s) => `<button type="button" class="menu-button rune-choice" data-action="choose-secondary-rune" data-secondary-rune="${s}" aria-pressed="${chosenRunes.secondary === s}" title="${SECONDARY_RUNES[s].description}">${SECONDARY_RUNES[s].name}</button>`).join('')}</div>
+            <h4>Stat Shards</h4>
+            <div class="rune-row">${OFFENSE_SHARD_IDS.map((o) => `<button type="button" class="menu-button rune-choice" data-action="choose-shard" data-shard-row="offense" data-shard-id="${o}" aria-pressed="${chosenRunes.shards.offense === o}">${STAT_SHARD_LABELS.offense[o]}</button>`).join('')}</div>
+            <div class="rune-row">${FLEX_SHARD_IDS.map((f) => `<button type="button" class="menu-button rune-choice" data-action="choose-shard" data-shard-row="flex" data-shard-id="${f}" aria-pressed="${chosenRunes.shards.flex === f}">${STAT_SHARD_LABELS.flex[f]}</button>`).join('')}</div>
+            <div class="rune-row">${DEFENSE_SHARD_IDS.map((d) => `<button type="button" class="menu-button rune-choice" data-action="choose-shard" data-shard-row="defense" data-shard-id="${d}" aria-pressed="${chosenRunes.shards.defense === d}">${STAT_SHARD_LABELS.defense[d]}</button>`).join('')}</div>
+          </div>`
+        : '';
     let content = '',
       title = '',
       subtitle = '';
@@ -750,24 +1039,59 @@ export class Hud {
           ? 'Waiting for graphics to recover. Your match is kept in this tab.'
           : this.graphicsState === 'restoring'
             ? 'Preparing the battlefield. You can resume once it is ready.'
-            : 'Graphics could not be restored. Restart to try again.';
-      content = `<p class="practice-note" role="status">${message}</p><button class="menu-button" data-action="export">Download current match</button><button class="primary-button" data-action="reset">Restart match</button><p class="practice-note">Restarting starts a new match.</p>`;
+            : 'Graphics could not be restored. Save your match or restart to try again.';
+      content = `<p class="practice-note" role="status">${message}</p>${this.replaying ? '' : '<button class="menu-button" data-action="save">Save match</button>'}<button class="menu-button" data-action="export">Download current match</button><button class="primary-button" data-action="reset">Restart match</button><p class="practice-note">Restarting starts a new match.</p>`;
     } else if (which === 'result') {
       title = this.world.winner === 'blue' ? 'Victory' : 'Defeat';
       subtitle =
         this.world.winner === 'blue' ? 'The enemy Nexus has fallen.' : 'Your Nexus has fallen.';
       content =
-        '<button class="primary-button" data-action="reset">Play again</button><button class="menu-button" data-action="export">Download current match</button>';
+        '<button class="primary-button" data-action="reset">Play again</button><button class="menu-button" data-action="watch-replay">Watch replay</button><button class="menu-button" data-action="export-replay">Download replay</button><button class="menu-button" data-action="export">Download current match</button>';
     } else if (which === 'pause') {
-      title = 'Game paused';
-      subtitle = 'A moment of clarity before the next move.';
-      content = `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="offline">Offline files</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart 5v5 match' : 'Restart practice'}</button>`;
+      title = this.replaying ? 'Replay paused' : 'Game paused';
+      subtitle = this.replaying
+        ? 'Deterministic command-log playback.'
+        : 'A moment of clarity before the next move.';
+      content = this.replaying
+        ? '<button class="primary-button" data-action="resume">Return to replay</button><button class="menu-button" data-action="replay">Replay files</button><button class="menu-button" data-action="audio">Sound & mix</button><button class="menu-button" data-action="reference-audit">Reference &amp; patch 26.18</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="exit-replay">Exit replay</button>'
+        : `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="replay">Replay</button><button class="menu-button" data-action="audio">Sound & mix</button><button class="menu-button" data-action="offline">Offline files</button><button class="menu-button" data-action="reference-audit">Reference &amp; patch 26.18</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart 5v5 match' : 'Restart practice'}</button>`;
+    } else if (which === 'reference-audit') {
+      const summary = summarizeReferenceCoverage();
+      title = 'Reference & Patch 26.18';
+      subtitle =
+        'Pinned reference coverage, intentional adaptations, and player-visible deviations.';
+      content = `<div class="audit-summary" role="group" aria-label="Reference ledger summary">
+        <span class="audit-pill"><b>${summary.byCategory.champion}</b> champions (${summary.byCategory.ability} abilities)</span>
+        <span class="audit-pill"><b>${summary.byStatus['verified-behavior']}</b> verified behavior</span>
+        <span class="audit-pill"><b>${summary.byStatus['verified-data']}</b> verified data</span>
+        <span class="audit-pill"><b>${summary.byStatus.approximation}</b> approximations</span>
+        <span class="audit-pill"><b>${summary.byStatus.unimplemented}</b> deferred</span>
+      </div>
+      <div class="shop-categories" role="group" aria-label="Filter reference ledger">
+        ${(['all', 'verified-behavior', 'verified-data', 'approximation', 'unimplemented'] as const).map((f) => `<button type="button" class="menu-button shop-category-btn" data-audit-filter="${f}" aria-pressed="${f === 'all'}">${f === 'all' ? 'All entries' : f}</button>`).join('')}
+      </div>
+      <div class="audit-scroll" id="audit-list">
+        ${REFERENCE_COVERAGE_LEDGER.map((entry) => `<div class="audit-entry" data-audit-kind="${entry.status}"><div><span class="audit-badge">${entry.status}</span><strong>${entry.name}</strong></div><small>${entry.category} · Source: ${entry.sourceReference}${entry.playerDeviationNote ? ` · Deviation: ${entry.playerDeviationNote}` : ''}</small></div>`).join('')}
+      </div>
+      <button class="menu-button" data-action="back">Back to pause menu</button>`;
+    } else if (which === 'replay') {
+      title = 'Match replay';
+      subtitle = 'Deterministic command-log verification and spectator playback.';
+      content = `${this.replaying ? '' : '<button class="primary-button" data-action="watch-replay">Watch current replay</button><button class="menu-button" data-action="export-replay">Download replay file</button>'}<button class="menu-button" data-action="choose-replay-file">Choose replay file</button><input type="file" accept=".json,application/json" aria-label="Replay file" hidden><p class="practice-note replay-file-status" role="status">Choose a replay file from this game version and ruleset to verify and watch it.</p><button class="primary-button" data-action="load-replay-file" hidden>Watch loaded replay</button><button class="menu-button" data-action="${!this.replaying && this.world.winner ? 'result-back' : 'back'}">${!this.replaying && this.world.winner ? 'Back to match result' : 'Back to pause menu'}</button>`;
+    } else if (which === 'audio') {
+      title = 'Sound & mix';
+      subtitle = 'Balance combat effects, feedback cues, and busy-fight limiting.';
+      const mix = this.actions.soundMix?.() ?? DEFAULT_SOUND_MIX;
+      const presets = [0, 0.25, 0.5, 0.75, 1] as const;
+      const mixRow = (channel: 'master' | 'combat' | 'feedback', label: string) =>
+        `<div class="mix-group" role="group" aria-label="${label}"><span class="mix-label">${label}</span><div class="mix-presets">${presets.map((val) => `<button type="button" class="menu-button mix-preset" data-mix-channel="${channel}" data-mix-value="${val}" aria-pressed="${Math.abs(mix[channel] - val) < 0.01}">${Math.round(val * 100)}%</button>`).join('')}</div></div>`;
+      content = `<button type="button" class="menu-button" data-action="toggle-sound-modal" aria-pressed="${this.sound}">${this.sound ? 'Sound: Enabled (click to mute)' : 'Sound: Muted (click to unmute)'}</button>${mixRow('master', 'Master volume')}${mixRow('combat', 'Combat SFX')}${mixRow('feedback', 'UI & feedback cues')}<button type="button" class="menu-button" data-action="toggle-limiter" aria-pressed="${mix.dynamicLimiter}">${mix.dynamicLimiter ? 'Dynamic fight limiter: On' : 'Dynamic fight limiter: Off'}</button><button type="button" class="menu-button" data-action="reset-mix">Reset mix defaults</button><button type="button" class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'new-match') {
       title = 'Choose your match';
       subtitle = this.rosterPlaytest
         ? 'Internal roster playtest. Saves are separate from the public game.'
         : 'Play locally. Your browser runs the match.';
-      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}${botSkillChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}${botSkillChoices()}${runeChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'offline') {
       title = 'Offline files';
       subtitle = 'Keep a complete game pack on this browser.';
@@ -817,14 +1141,47 @@ export class Hud {
                       ['Hold Q / W / E / R', 'Aim, then release to cast'],
                       ['E again', 'Detonate Lucent Singularity'],
                     ]
-                  : [
-                      ['Q', 'Activate Focus at 4 stacks'],
-                      ['Hold W / E / R', 'Aim, then release to cast'],
-                      ['E / R over minimap', 'Aim across the map without moving the camera'],
-                    ]),
+                  : this.world.hero.champion === 'darius'
+                    ? [
+                        ['Q / W', 'Activate Decimate / Crippling Strike'],
+                        ['Hold E', 'Aim Apprehend cone pull, then release'],
+                        ['Hold R', 'Point at an enemy champion for Noxian Guillotine'],
+                      ]
+                    : this.world.hero.champion === 'vi'
+                      ? [
+                          ['Hold Q', 'Aim Vault Breaker dash, then release'],
+                          ['E', 'Empower next attack with Relentless Force'],
+                          ['Hold R', 'Point at an enemy champion for Cease and Desist'],
+                        ]
+                      : this.world.hero.champion === 'ezreal'
+                        ? [
+                            [
+                              'Hold Q / W / E / R',
+                              'Aim Mystic Shot / Essence Flux / Arcane Shift / Trueshot Barrage',
+                            ],
+                            ['R over minimap', 'Aim Trueshot Barrage globally across the map'],
+                          ]
+                        : this.world.hero.champion === 'morgana'
+                          ? [
+                              ['Hold Q / W', 'Aim Dark Binding / Tormented Shadow, then release'],
+                              [
+                                'Hold E',
+                                'Hover an ally (or empty ground for self) to grant Black Shield',
+                              ],
+                              ['R', 'Bind nearby enemy champions with Soul Shackles'],
+                            ]
+                          : [
+                              ['Q', 'Activate Focus at 4 stacks'],
+                              ['Hold W / E / R', 'Aim, then release to cast'],
+                              [
+                                'E / R over minimap',
+                                'Aim across the map without moving the camera',
+                              ],
+                            ]),
         ['D / F', `${this.spellSpec('d').name} / ${this.spellSpec('f').name}`],
+        ['1–3, 5–8', 'Use active or consumable item in slot'],
         ['B', 'Recall to fountain'],
-        ['4', 'Hold to aim Stealth Ward; press to activate Oracle Lens'],
+        ['4', 'Stealth Ward / Farsight Alteration (aim) or Oracle Lens (instant)'],
         ['P', 'Open item shop'],
         ['Space / Y', 'Recenter / lock camera'],
         ['Drag minimap', 'Move camera; right-click to move your champion'],
@@ -844,11 +1201,44 @@ export class Hud {
       title = 'Practice tools';
       subtitle = 'Make room for the next perfect play.';
       content =
-        '<div class="practice-grid"><button class="menu-button" data-action="restore">Restore health & mana</button><button class="menu-button" data-action="cooldowns">Reset cooldowns</button><button class="menu-button" data-action="gold">Add 1,000 gold</button><button class="menu-button" data-action="dummy">Restore target dummy</button></div><p class="practice-note">Spend skill points to learn and upgrade abilities. Reset cooldowns readies learned abilities, summoners and your trinket, while preserving your skill choices. The champion kit, terrain, vision, items, and timing are still under development.</p><button class="primary-button" data-action="resume">Return to the Rift</button>';
+        '<div class="practice-grid"><button class="menu-button" data-action="restore">Restore health & mana</button><button class="menu-button" data-action="cooldowns">Reset cooldowns</button><button class="menu-button" data-action="gold">Add 1,000 gold</button><button class="menu-button" data-action="dummy">Restore target dummy</button><button class="menu-button" data-action="level-up">Level up (+1)</button><button class="menu-button" data-action="max-level">Max level (18)</button><button class="menu-button" data-action="reset-enemy">Restore opponent</button><button class="menu-button" data-action="fast-forward-30s">Advance 30s</button></div><p class="practice-note">Spend skill points to learn and upgrade abilities. Reset cooldowns readies learned abilities, summoners and your trinket, while preserving your skill choices.</p><button class="primary-button" data-action="resume">Return to the Rift</button>';
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
-      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-panels"><section class="shop-catalog-panel" aria-label="Item catalog"><h3>All items</h3><div class="shop-catalog shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${this.world.purchasePlan(item.id)!.cost}</b></button>`).join('')}</div></section><section class="shop-inventory-panel" aria-label="Owned items"><h3>Owned items</h3><div class="shop-owned shop-items"></div><h3>Trinkets</h3><div class="shop-trinkets shop-items">${(Object.keys(TRINKETS) as TrinketKind[]).map((kind) => `<button class="shop-item" data-trinket="${kind}"><img src="assets/icons/${TRINKETS[kind].icon}.png" alt=""><span><strong>${TRINKETS[kind].name}</strong><small>${kind === 'ward' ? 'Place wards' : '8s sweep'}</small></span><b>Free</b></button>`).join('')}</div></section></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
+      const role =
+        this.world.player.role ?? PLAYER_CHAMPION_ROLES[this.world.hero.champion ?? 'ashe'];
+      const shopCategories = [
+        ['all', 'All'],
+        ['recommended', 'Recommended'],
+        ['starter', 'Starter & Consumable'],
+        ['boots', 'Boots'],
+        ['attack', 'Attack'],
+        ['magic', 'Magic'],
+        ['defense', 'Defense'],
+        ['support', 'Support'],
+      ] as const;
+      content = `<div class="shop-balance"><span>Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></span><button type="button" class="menu-button shop-undo-button" data-action="undo-shop" ${this.world.player.itemState?.undoHistory.length && this.world.canShop() ? '' : 'disabled'}>↶ Undo</button></div><div class="shop-panels"><section class="shop-catalog-panel" aria-label="Item catalog"><h3>All items</h3><div class="shop-categories" role="group" aria-label="Item categories">${shopCategories.map(([id, label]) => `<button type="button" class="menu-button shop-category-btn" data-shop-category="${id}" aria-pressed="${id === 'all'}">${label}</button>`).join('')}</div><div class="shop-catalog shop-items">${ITEMS.map(
+        (item) => {
+          const exp = getExpandedItem(item.id);
+          const cat =
+            exp?.category ??
+            (item.id === 'boots'
+              ? 'boots'
+              : item.id === 'blade'
+                ? 'starter'
+                : companionItemKind(item.id)
+                  ? 'starter'
+                  : 'component');
+          const rec =
+            exp?.recommendedRoles?.includes(role) ||
+            (role === 'jungle' && !!companionItemKind(item.id)) ||
+            (role === 'carry' && (item.id === 'infinity-edge' || item.id === 'blade')) ||
+            (role === 'mid' && (item.id === 'chapter' || item.id === 'deathcap'));
+          return `<button class="shop-item" data-buy="${item.id}" data-item-category="${cat}" data-item-recommended="${rec ? 'true' : 'false'}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${this.world.purchasePlan(item.id)!.cost}</b></button>`;
+        }
+      ).join(
+        ''
+      )}</div></section><section class="shop-inventory-panel" aria-label="Owned items"><h3>Owned items</h3><div class="shop-owned shop-items"></div><h3>Trinkets</h3><div class="shop-trinkets shop-items">${(Object.keys(TRINKETS) as TrinketKind[]).map((kind) => `<button class="shop-item" data-trinket="${kind}"><img src="assets/icons/${TRINKETS[kind].icon}.png" alt=""><span><strong>${TRINKETS[kind].name}</strong><small>${kind === 'ward' ? 'Place wards' : kind === 'farsight' ? 'Lv. 9+ 4k sight' : '8s sweep'}</small></span><b>Free</b></button>`).join('')}</div></section></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
@@ -920,6 +1310,32 @@ export class Hud {
           const champion = button.dataset.champion as ChampionIdentity;
           if (!playerChoices.includes(champion)) return;
           chosenChampion = champion;
+          if (!runesCustomized) {
+            chosenRunes = defaultRuneLoadoutForRole(PLAYER_CHAMPION_ROLES[chosenChampion]);
+            backdrop
+              .querySelectorAll<HTMLButtonElement>('[data-keystone]')
+              .forEach((btn) =>
+                btn.setAttribute(
+                  'aria-pressed',
+                  String(btn.dataset.keystone === chosenRunes.keystone)
+                )
+              );
+            backdrop
+              .querySelectorAll<HTMLButtonElement>('[data-secondary-rune]')
+              .forEach((btn) =>
+                btn.setAttribute(
+                  'aria-pressed',
+                  String(btn.dataset.secondaryRune === chosenRunes.secondary)
+                )
+              );
+            backdrop.querySelectorAll<HTMLButtonElement>('[data-shard-row]').forEach((btn) => {
+              const row = btn.dataset.shardRow as 'offense' | 'flex' | 'defense';
+              btn.setAttribute(
+                'aria-pressed',
+                String(btn.dataset.shardId === chosenRunes.shards[row])
+              );
+            });
+          }
           backdrop
             .querySelectorAll<HTMLButtonElement>('[data-champion]')
             .forEach((choice) =>
@@ -936,6 +1352,62 @@ export class Hud {
             .classList.toggle('practice-unavailable', !canPractice());
           backdrop.querySelector('.practice-description')!.textContent = practiceDescription();
         }
+        if (action === 'choose-keystone') {
+          const k = button.dataset.keystone as KeystoneId;
+          if (!KEYSTONE_IDS.includes(k)) return;
+          runesCustomized = true;
+          chosenRunes = { ...chosenRunes, keystone: k };
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-keystone]')
+            .forEach((btn) =>
+              btn.setAttribute(
+                'aria-pressed',
+                String(btn.dataset.keystone === chosenRunes.keystone)
+              )
+            );
+        }
+        if (action === 'choose-secondary-rune') {
+          const s = button.dataset.secondaryRune as SecondaryRuneId;
+          if (!SECONDARY_RUNE_IDS.includes(s)) return;
+          runesCustomized = true;
+          chosenRunes = { ...chosenRunes, secondary: s };
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-secondary-rune]')
+            .forEach((btn) =>
+              btn.setAttribute(
+                'aria-pressed',
+                String(btn.dataset.secondaryRune === chosenRunes.secondary)
+              )
+            );
+        }
+        if (action === 'choose-shard') {
+          const row = button.dataset.shardRow as 'offense' | 'flex' | 'defense';
+          const id = button.dataset.shardId!;
+          runesCustomized = true;
+          if (row === 'offense' && (OFFENSE_SHARD_IDS as readonly string[]).includes(id))
+            chosenRunes = {
+              ...chosenRunes,
+              shards: { ...chosenRunes.shards, offense: id as OffenseShardId },
+            };
+          if (row === 'flex' && (FLEX_SHARD_IDS as readonly string[]).includes(id))
+            chosenRunes = {
+              ...chosenRunes,
+              shards: { ...chosenRunes.shards, flex: id as FlexShardId },
+            };
+          if (row === 'defense' && (DEFENSE_SHARD_IDS as readonly string[]).includes(id))
+            chosenRunes = {
+              ...chosenRunes,
+              shards: { ...chosenRunes.shards, defense: id as DefenseShardId },
+            };
+          backdrop
+            .querySelectorAll<HTMLButtonElement>(`[data-shard-row="${row}"]`)
+            .forEach((btn) =>
+              btn.setAttribute(
+                'aria-pressed',
+                String(btn.dataset.shardId === chosenRunes.shards[row])
+              )
+            );
+        }
         if (action === 'start-lanes' || action === 'start-practice') {
           if (action === 'start-practice' && !canPractice()) return;
           this.replacingMatch = true;
@@ -950,10 +1422,22 @@ export class Hud {
           status.textContent = 'Starting match…';
           dialog.querySelector('.dialog-rule')!.after(status);
           const mode = action === 'start-lanes' ? 'lanes' : 'practice';
+          const passRunes =
+            this.world.battlefield.publicRift && (mode === 'lanes' || runesCustomized)
+              ? chosenRunes
+              : undefined;
           void (
-            chosenDifficulty === DEFAULT_BOT_DIFFICULTY
-              ? this.actions.startMatch(mode, chosenChampion, chosenSummoners)
-              : this.actions.startMatch(mode, chosenChampion, chosenSummoners, chosenDifficulty)
+            passRunes
+              ? this.actions.startMatch(
+                  mode,
+                  chosenChampion,
+                  chosenSummoners,
+                  chosenDifficulty,
+                  passRunes
+                )
+              : chosenDifficulty === DEFAULT_BOT_DIFFICULTY
+                ? this.actions.startMatch(mode, chosenChampion, chosenSummoners)
+                : this.actions.startMatch(mode, chosenChampion, chosenSummoners, chosenDifficulty)
           ).catch((error) => {
             this.replacingMatch = false;
             this.importError =
@@ -961,15 +1445,96 @@ export class Hud {
             this.setGraphicsState(this.graphicsState);
           });
         }
+        if (action === 'reference-audit') this.toggleModal('reference-audit');
+        if (action === 'undo-shop') {
+          const err = this.world.undoShop();
+          const msgEl = backdrop.querySelector<HTMLElement>('.shop-message');
+          if (msgEl) {
+            msgEl.textContent = err ?? 'Last shop transaction undone';
+            msgEl.classList.toggle('error', !!err);
+          }
+          const bal = backdrop.querySelector('.shop-balance b');
+          if (bal) bal.textContent = `◆ ${Math.floor(this.world.player.gold)}`;
+          this.updateShopOwnedItems();
+          this.updateShopPurchases();
+        }
         if (action === 'offline') this.toggleModal('offline');
         if (action === 'files') this.toggleModal('files');
+        if (action === 'replay') this.toggleModal('replay');
+        if (action === 'audio') this.toggleModal('audio');
         if (action === 'back') this.toggleModal('pause');
+        if (action === 'result-back') this.toggleModal('result');
+        if (action === 'exit-replay') {
+          this.closeModal();
+          this.actions.replayControl?.({ type: 'exit' });
+        }
         if (action === 'export') {
           try {
             this.actions.exportMatch();
           } catch {
             this.toast('Match could not be downloaded.');
           }
+        }
+        if (action === 'export-replay') {
+          button.disabled = true;
+          void (this.actions.exportReplay?.() ?? Promise.resolve())
+            .then(() => this.toast('Replay file downloaded.'))
+            .catch((error) =>
+              this.toast(error instanceof Error ? error.message : 'Replay could not be downloaded.')
+            )
+            .finally(() => {
+              if (button.isConnected) button.disabled = false;
+            });
+        }
+        if (action === 'watch-replay') {
+          button.disabled = true;
+          void (this.actions.watchCurrentReplay?.() ?? Promise.resolve())
+            .catch((error) =>
+              this.toast(error instanceof Error ? error.message : 'Replay could not be started.')
+            )
+            .finally(() => {
+              if (button.isConnected) button.disabled = false;
+            });
+        }
+        if (action === 'toggle-sound-modal') {
+          this.sound = !this.sound;
+          this.actions.sound(this.sound);
+          this.updateSoundButton();
+          button.setAttribute('aria-pressed', String(this.sound));
+          button.textContent = this.sound
+            ? 'Sound: Enabled (click to mute)'
+            : 'Sound: Muted (click to unmute)';
+        }
+        if (action === 'toggle-limiter') {
+          const current = this.actions.soundMix?.() ?? DEFAULT_SOUND_MIX;
+          const updated = this.actions.updateSoundMix?.({
+            dynamicLimiter: !current.dynamicLimiter,
+          }) ?? { ...current, dynamicLimiter: !current.dynamicLimiter };
+          button.setAttribute('aria-pressed', String(updated.dynamicLimiter));
+          button.textContent = updated.dynamicLimiter
+            ? 'Dynamic fight limiter: On'
+            : 'Dynamic fight limiter: Off';
+        }
+        if (action === 'reset-mix') {
+          const updated =
+            this.actions.updateSoundMix?.({ ...DEFAULT_SOUND_MIX }) ?? DEFAULT_SOUND_MIX;
+          backdrop.querySelectorAll<HTMLButtonElement>('[data-mix-channel]').forEach((preset) => {
+            const channel = preset.dataset.mixChannel as 'master' | 'combat' | 'feedback';
+            preset.setAttribute(
+              'aria-pressed',
+              String(Math.abs(updated[channel] - Number(preset.dataset.mixValue)) < 0.01)
+            );
+          });
+          const limiterBtn = backdrop.querySelector<HTMLButtonElement>(
+            '[data-action="toggle-limiter"]'
+          );
+          if (limiterBtn) {
+            limiterBtn.setAttribute('aria-pressed', String(updated.dynamicLimiter));
+            limiterBtn.textContent = updated.dynamicLimiter
+              ? 'Dynamic fight limiter: On'
+              : 'Dynamic fight limiter: Off';
+          }
+          this.toast('Sound mix reset to defaults.');
         }
         if (action === 'resume') this.closeModal();
         if (action === 'help') this.toggleModal('help');
@@ -986,52 +1551,120 @@ export class Hud {
               button.disabled = false;
             });
         }
-        if (action === 'restore') {
-          const h = this.world.hero;
-          if (h.hp > 0) {
-            h.hp = h.maxHp;
-            h.mana = h.maxMana;
-          }
-          this.toast('Health and mana restored');
-        }
-        if (action === 'cooldowns') {
-          for (const a of Object.keys(this.world.player.cooldowns) as Ability[])
-            this.world.player.cooldowns[a] = 0;
-          const state = this.world.player;
-          state.qStacks =
-            this.world.hero.champion === 'ashe' && state.spellRanks.q > 0 ? ASHE_Q.maxStacks : 0;
-          state.qStackExpiry = state.qStacks
-            ? this.world.tick + ASHE_Q.stackSeconds * TICK_RATE
-            : 0;
-          state.eCharges =
-            this.world.hero.champion === 'ashe' && state.spellRanks.e > 0
-              ? ASHE_E.maximumCharges
-              : 0;
-          this.world.player.eRechargeTick = null;
-          if (this.world.hero.champion === 'garen' && this.world.hero.deadAt === null)
-            state.garenPassiveReadyTick = 0;
-          resetTrinket(state.trinket);
-          if (state.smite) {
-            state.smite.charges = SUMMONER_SMITE.maxCharges;
-            state.smite.rechargeTick = null;
-          }
-          this.toast('Learned abilities are ready');
-        }
-        if (action === 'gold') {
-          this.world.player.gold += 1000;
-          this.toast('Added 1,000 gold');
-        }
-        if (action === 'dummy') {
-          for (const u of this.world.units)
-            if (u.kind === 'dummy') {
-              u.hp = u.maxHp;
-              u.deadAt = null;
-              u.respawnTick = null;
-            }
-          this.toast('Target dummy restored');
+        if (isImmediatePracticeAction(action) || action === 'fast-forward-30s') {
+          const feedback = this.actions.practiceTool
+            ? this.actions.practiceTool(action)
+            : action === 'fast-forward-30s'
+              ? (() => {
+                  this.world.step(30 * TICK_RATE);
+                  return 'Advanced match by 30 seconds';
+                })()
+              : applyImmediatePracticeTool(this.world, action);
+          this.toast(feedback);
         }
       })
     );
+    if (which === 'reference-audit') {
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-audit-filter]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.auditFilter!;
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-audit-filter]')
+            .forEach((b) =>
+              b.setAttribute('aria-pressed', String(b.dataset.auditFilter === filter))
+            );
+          backdrop.querySelectorAll<HTMLElement>('[data-audit-kind]').forEach((row) => {
+            const kind = row.dataset.auditKind!;
+            row.hidden = filter === 'all' ? false : kind !== filter;
+          });
+        });
+      });
+    }
+    if (which === 'shop') {
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-shop-category]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cat = btn.dataset.shopCategory!;
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-shop-category]')
+            .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.shopCategory === cat)));
+          backdrop.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((itemBtn) => {
+            const itemCat = itemBtn.dataset.itemCategory!;
+            const isRec = itemBtn.dataset.itemRecommended === 'true';
+            itemBtn.hidden =
+              cat === 'all'
+                ? false
+                : cat === 'recommended'
+                  ? !isRec
+                  : cat === 'starter'
+                    ? itemCat !== 'starter' && itemCat !== 'consumable'
+                    : itemCat !== cat;
+          });
+        });
+      });
+    }
+    if (which === 'audio') {
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-mix-channel]').forEach((preset) => {
+        preset.addEventListener('click', () => {
+          const channel = preset.dataset.mixChannel as 'master' | 'combat' | 'feedback';
+          const value = Number(preset.dataset.mixValue);
+          const updated = this.actions.updateSoundMix?.({ [channel]: value }) ?? DEFAULT_SOUND_MIX;
+          backdrop
+            .querySelectorAll<HTMLButtonElement>(`[data-mix-channel="${channel}"]`)
+            .forEach((btn) =>
+              btn.setAttribute(
+                'aria-pressed',
+                String(Math.abs(updated[channel] - Number(btn.dataset.mixValue)) < 0.01)
+              )
+            );
+        });
+      });
+    }
+    if (which === 'replay') {
+      const dialog = backdrop.querySelector<HTMLElement>('.game-dialog')!;
+      const fileInput = dialog.querySelector<HTMLInputElement>('input[type="file"]')!;
+      const choose = dialog.querySelector<HTMLButtonElement>('[data-action="choose-replay-file"]')!;
+      const watchLoaded = dialog.querySelector<HTMLButtonElement>(
+        '[data-action="load-replay-file"]'
+      )!;
+      const status = dialog.querySelector<HTMLElement>('.replay-file-status')!;
+      let preparedLog: MatchReplayLog | null = null;
+      let selection = 0;
+      choose.onclick = () => fileInput.click();
+      fileInput.onchange = () => {
+        const file = fileInput.files?.[0];
+        fileInput.value = '';
+        if (!file || !this.actions.prepareReplay) return;
+        const generation = ++selection;
+        preparedLog = null;
+        watchLoaded.hidden = true;
+        status.textContent = 'Verifying replay file…';
+        void this.actions
+          .prepareReplay(file)
+          .then((result) => {
+            if (!dialog.isConnected || generation !== selection) return;
+            preparedLog = result.log;
+            status.textContent = result.description;
+            watchLoaded.hidden = false;
+            watchLoaded.focus();
+          })
+          .catch((error) => {
+            if (!dialog.isConnected || generation !== selection) return;
+            status.textContent =
+              error instanceof Error ? error.message : 'Replay file could not be read.';
+          });
+      };
+      watchLoaded.onclick = () => {
+        if (!preparedLog || !this.actions.watchPreparedReplay) return;
+        watchLoaded.disabled = true;
+        status.textContent = 'Opening replay…';
+        void this.actions.watchPreparedReplay(preparedLog).catch((error) => {
+          if (!dialog.isConnected) return;
+          watchLoaded.disabled = false;
+          status.textContent =
+            error instanceof Error ? error.message : 'Replay could not be opened.';
+        });
+      };
+    }
     if (which === 'files') {
       const dialog = backdrop.querySelector<HTMLElement>('.game-dialog')!;
       const fileInput = dialog.querySelector<HTMLInputElement>('input[type="file"]')!;
@@ -1233,7 +1866,13 @@ export class Hud {
     };
   }
   closeModal(): void {
-    if (this.replacingMatch || this.world.winner || this.graphicsState || document.hidden) return;
+    if (
+      this.replacingMatch ||
+      (!this.replaying && this.world.winner) ||
+      this.graphicsState ||
+      document.hidden
+    )
+      return;
     this.offlineCleanup?.();
     this.offlineCleanup = null;
     this.modal = null;
@@ -1302,12 +1941,64 @@ export class Hud {
     const message = statuses.join(' · ') || 'Scout the river for Scuttlers.';
     if (panel.textContent !== message) panel.textContent = message;
   }
+  private updateEpicObjectives(panel: HTMLElement): void {
+    const w = this.world;
+    const obj = w.riftObjectives;
+    panel.hidden = !obj;
+    if (!obj) return;
+    const parts: string[] = [];
+    const drakeUnit = obj.dragon.unitId === null ? undefined : w.unit(obj.dragon.unitId);
+    const elem = obj.dragon.nextElement;
+    if (obj.dragon.soulTeam && obj.dragon.soulElement) {
+      const soulLabel = `${obj.dragon.soulTeam === 'blue' ? 'Blue' : 'Red'} ${DRAGON_SOUL_NAMES[obj.dragon.soulElement]}`;
+      parts.push(soulLabel);
+      if (drakeUnit && w.alive(drakeUnit) && w.visible(drakeUnit, w.hero.team)) {
+        parts.push('Elder Dragon in sight');
+      } else if (w.tick < obj.dragon.nextReadyTick) {
+        parts.push(`Elder Dragon in ${this.objectiveTimeLeft(obj.dragon.nextReadyTick)}`);
+      } else {
+        parts.push('Scout bottom pit for Elder Dragon');
+      }
+    } else if (w.tick < EPIC_OBJECTIVE_TIMING.dragonFirstReadyTick) {
+      parts.push(
+        `${DRAGON_ELEMENT_NAMES[elem]} in ${this.objectiveTimeLeft(EPIC_OBJECTIVE_TIMING.dragonFirstReadyTick)}`
+      );
+    } else if (drakeUnit && w.alive(drakeUnit) && w.visible(drakeUnit, w.hero.team)) {
+      parts.push(`${DRAGON_ELEMENT_NAMES[elem]} in sight`);
+    } else if (w.tick < obj.dragon.nextReadyTick) {
+      parts.push(
+        `${DRAGON_ELEMENT_NAMES[elem]} in ${this.objectiveTimeLeft(obj.dragon.nextReadyTick)}`
+      );
+    } else {
+      parts.push(`Scout bottom pit for ${DRAGON_ELEMENT_NAMES[elem]}`);
+    }
+    parts.push(`Drakes B:${obj.dragon.stacks.blue.length} R:${obj.dragon.stacks.red.length}`);
+    if (w.tick < EPIC_OBJECTIVE_TIMING.voidgrubDespawnTick && obj.voidgrubs.spawnsCompleted < 2) {
+      if (obj.voidgrubs.unitIds.length > 0) parts.push('Voidgrubs active');
+      else if (obj.voidgrubs.nextReadyTick !== null && w.tick < obj.voidgrubs.nextReadyTick)
+        parts.push(`Voidgrubs in ${this.objectiveTimeLeft(obj.voidgrubs.nextReadyTick)}`);
+    } else if (
+      w.tick < EPIC_OBJECTIVE_TIMING.heraldDespawnTick &&
+      obj.herald.clearedTick === null
+    ) {
+      if (w.tick < EPIC_OBJECTIVE_TIMING.heraldFirstReadyTick)
+        parts.push(
+          `Rift Herald in ${this.objectiveTimeLeft(EPIC_OBJECTIVE_TIMING.heraldFirstReadyTick)}`
+        );
+      else parts.push('Rift Herald in top pit');
+    }
+    if (obj.voidgrubs.stacks.blue || obj.voidgrubs.stacks.red) {
+      parts.push(`Grubs B:${obj.voidgrubs.stacks.blue} R:${obj.voidgrubs.stacks.red}`);
+    }
+    const message = parts.join(' · ');
+    if (panel.textContent !== message) panel.textContent = message;
+  }
   scoreboard(show: boolean): void {
     let panel = this.root.querySelector<HTMLDivElement>('.scoreboard');
     if (!panel) {
       panel = document.createElement('div');
       panel.className = 'scoreboard';
-      panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><section class="scoreboard-objectives" aria-label="River objectives" hidden></section><section class="scoreboard-objectives" aria-label="Baron Nashor" hidden></section><div class="scoreboard-teams"></div>`;
+      panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><section class="scoreboard-objectives" aria-label="River objectives" hidden></section><section class="scoreboard-objectives" aria-label="Epic objectives" hidden></section><section class="scoreboard-objectives" aria-label="Baron Nashor" hidden></section><div class="scoreboard-teams"></div>`;
       panel.addEventListener('contextmenu', (event) => event.preventDefault());
       this.root.append(panel);
     }
@@ -1319,6 +2010,7 @@ export class Hud {
     this.updateRiverObjectives(
       panel.querySelector<HTMLElement>('[aria-label="River objectives"]')!
     );
+    this.updateEpicObjectives(panel.querySelector<HTMLElement>('[aria-label="Epic objectives"]')!);
     this.updateBaronObjective(panel.querySelector<HTMLElement>('[aria-label="Baron Nashor"]')!);
     const rows = this.world.units
       .filter((u) => u.kind === 'champion')
@@ -1426,9 +2118,11 @@ export class Hud {
       row.querySelector('.scoreboard-cs')!.textContent =
         `${data.cs === null ? '?' : Math.floor(data.cs)} CS`;
       const inventory = row.querySelector('.scoreboard-items')!;
+      const slotCount = Math.max(6, data.inventory?.length ?? 6);
+      inventory.classList.toggle('seven-slots', slotCount === 7);
       inventory.setAttribute('role', 'group');
       inventory.setAttribute('aria-label', data.inventory === null ? 'Inventory unknown' : 'Items');
-      for (let slot = 0; slot < 6; slot++) {
+      for (let slot = 0; slot < slotCount; slot++) {
         const cell = document.createElement('span');
         cell.className = 'scoreboard-item';
         const item = ITEMS.find((item) => item.id === data.inventory?.[slot]);
@@ -1456,7 +2150,7 @@ export class Hud {
   }
 
   update(fps: number | null): void {
-    if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
+    if (!this.replaying && this.world.winner && this.modal !== 'result') this.toggleModal('result');
     this.updateAllyCameras();
     this.attackStatTooltip.refresh(this.modal === null);
     this.floating.hidden = !!this.world.winner;
@@ -1477,8 +2171,15 @@ export class Hud {
     const recharge =
       p.trinket.rechargeEndTick === null ? 0 : Math.max(0, p.trinket.rechargeEndTick - w.tick);
     const placed = w.units.filter(
-      (u) => u.kind === 'ward' && u.ward!.ownerId === h.id && w.alive(u)
+      (u) =>
+        u.kind === 'ward' &&
+        u.ward!.ownerId === h.id &&
+        (u.ward!.variant ?? 'stealth') === 'stealth' &&
+        w.alive(u)
     ).length;
+    const maxPlaced = maxStealthWardsForQuest(p.roleQuest);
+    const maxCharges =
+      kind === 'ward' ? WARD_SOURCE.maxCharges : kind === 'farsight' ? 1 : ORACLE_SOURCE.maxCharges;
     trinket.querySelector('.trinket-charges')!.textContent = String(charges);
     trinket.querySelector('.trinket-cooldown')!.textContent =
       cooldown > 0
@@ -1491,12 +2192,14 @@ export class Hud {
     trinket.classList.toggle('active', scanLeft > 0);
     trinket.setAttribute(
       'aria-label',
-      `${definition.name}: ${charges}/${WARD_SOURCE.maxCharges} charges${kind === 'ward' ? `, ${placed}/${WARD_SOURCE.maxPlaced} placed` : scanLeft > 0 ? `, scan active ${Math.ceil(scanLeft / 60)} seconds` : ''}`
+      `${definition.name}: ${charges}/${maxCharges} charges${kind === 'ward' ? `, ${placed}/${maxPlaced} placed` : scanLeft > 0 ? `, scan active ${Math.ceil(scanLeft / 60)} seconds` : ''}`
     );
     trinket.title =
       kind === 'ward'
-        ? `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${WARD_SOURCE.maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${WARD_SOURCE.maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`
-        : `Oracle Lens (4) · ${charges}/${ORACLE_SOURCE.maxCharges} charges. Press 4 or click to scan for ${ORACLE_SOURCE.durationSeconds}s. Reveals and disables enemy wards; warns of hidden champions without granting sight. ${scanLeft > 0 ? `Scan active: ${Math.ceil(scanLeft / 60)}s. ` : ''}Next charge: ${Math.ceil(recharge / 60)}s.`;
+        ? `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`
+        : kind === 'farsight'
+          ? `Farsight Alteration (4) · ${charges}/1 charge. Hold 4 and release over the battlefield or minimap up to ${FARSIGHT_POLICY.range} units away to reveal the target area and leave an untargetable visible Farsight Ward (${FARSIGHT_POLICY.sightRadius} sight). Next charge: ${Math.ceil(recharge / 60)}s.`
+          : `Oracle Lens (4) · ${charges}/${ORACLE_SOURCE.maxCharges} charges. Press 4 or click to scan for ${ORACLE_SOURCE.durationSeconds}s. Reveals and disables enemy wards; warns of hidden champions without granting sight. ${scanLeft > 0 ? `Scan active: ${Math.ceil(scanLeft / 60)}s. ` : ''}Next charge: ${Math.ceil(recharge / 60)}s.`;
     // Seek the announcement with match time so loading, pause and time jumps
     // cannot advance or replay its presentation independently of the simulation.
     const welcomeTick = Math.min(w.tick, 8 * TICK_RATE);
@@ -1550,8 +2253,26 @@ export class Hud {
         baronBuff.setAttribute('aria-label', description);
       }
     }
+    const elderActive =
+      w.riftObjectives?.dragon.elderBuff &&
+      w.riftObjectives.dragon.elderBuff.team === h.team &&
+      w.riftObjectives.dragon.elderBuff.endTick > w.tick &&
+      w.riftObjectives.dragon.elderBuff.holders.includes(h.id)
+        ? w.riftObjectives.dragon.elderBuff
+        : null;
+    const elderBuff = this.root.querySelector<HTMLElement>('#elder-buff')!;
+    elderBuff.hidden = !elderActive;
+    if (elderActive) {
+      const time = this.objectiveTimeLeft(elderActive.endTick);
+      text('elder-buff-time', time);
+      const description = `Aspect of the Dragon: attacks and abilities burn enemies and execute enemy champions below ${Math.round(EPIC_OBJECTIVE_TIMING.elderExecuteThreshold * 100)}% HP. ${time} remaining.`;
+      if (elderBuff.title !== description) {
+        elderBuff.title = description;
+        elderBuff.setAttribute('aria-label', description);
+      }
+    }
     this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden =
-      !blueBuff && !redBuff && baronEnd === null;
+      !blueBuff && !redBuff && baronEnd === null && !elderActive;
     this.root.querySelector<HTMLElement>('#blue-buff')!.hidden = !blueBuff;
     this.root.querySelector<HTMLElement>('#red-buff')!.hidden = !redBuff;
     if (blueBuff) {
@@ -1597,7 +2318,8 @@ export class Hud {
         : 'COURAGE UNLEARNED';
       text('garen-passive', `${passive} · ${courage}`);
     }
-    width('xp-fill', p.level === MAX_LEVEL ? 1 : p.xp / experienceToNextLevel(p.level));
+    const maxHeroLevel = maxChampionLevelForQuest(p.roleQuest);
+    width('xp-fill', p.level >= maxHeroLevel ? 1 : p.xp / experienceToNextLevel(p.level));
     text('level', p.level);
     this.updateGold();
     const shopBalance = this.modal === 'shop' ? this.root.querySelector('.shop-balance b') : null;
@@ -1781,6 +2503,27 @@ export class Hud {
         companionStatus.textContent = `${COMPANION_SOURCE.profiles[companion.kind].name} · ${companion.fed}/35 treats · ${companion.bonusTreats} bonus · Smite ${companionSmiteDamage(companion.fed)}${effect}`;
       }
     }
+    let roleQuestStatus = this.root.querySelector<HTMLElement>('#role-quest-status');
+    if (p.roleQuest && !roleQuestStatus) {
+      roleQuestStatus = document.createElement('div');
+      roleQuestStatus.id = 'role-quest-status';
+      roleQuestStatus.className = 'role-quest-status';
+      this.root.append(roleQuestStatus);
+    }
+    if (roleQuestStatus) {
+      roleQuestStatus.hidden = !p.roleQuest;
+      if (p.roleQuest) {
+        const meta = ROLE_QUESTS[p.roleQuest.role];
+        const done = isRoleQuestComplete(p.roleQuest);
+        roleQuestStatus.classList.toggle('completed', done);
+        const runeTag = p.runeState ? ` · ${KEYSTONES[p.runeState.loadout.keystone].name}` : '';
+        const textValue = done
+          ? `✓ ${meta.name}: ${meta.rewardName}${runeTag}`
+          : `${meta.name}: ${Math.floor(p.roleQuest.progress)} / ${p.roleQuest.target} ${meta.unitLabel}${runeTag}`;
+        if (roleQuestStatus.textContent !== textValue) roleQuestStatus.textContent = textValue;
+        roleQuestStatus.title = `${meta.summary} → ${meta.rewardSummary}`;
+      }
+    }
     const recall = this.root.querySelector<HTMLDivElement>('.recall-progress')!;
     recall.hidden = p.recallEnd === null;
     if (p.recallEnd !== null)
@@ -1801,12 +2544,36 @@ export class Hud {
       (panel.querySelector('.target-health i') as HTMLElement).style.width =
         `${(target.hp / target.maxHp) * 100}%`;
     }
-    if (this.lastInventory !== p.inventory.join(',')) {
-      this.lastInventory = p.inventory.join(',');
-      this.root.querySelector('#inventory')!.innerHTML = Array.from({ length: 6 }, (_, i) => {
-        const item = ITEMS.find((item) => item.id === p.inventory[i]);
-        return `<div class="item-slot" data-inventory-slot="${i}" draggable="${!!item}" title="${item ? `${item.name} · Drag to move` : 'Empty item slot'}">${item ? `<img draggable="false" src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`;
-      }).join('');
+    const maxSlots = maxInventorySlotsForQuest(p.roleQuest);
+    this.root.querySelector('.inventory-panel')?.classList.toggle('seven-slots', maxSlots === 7);
+    const activeCdSignature = p.inventory
+      .map((id, idx) => {
+        if (!id) return '';
+        const st = p.itemState?.slotStacks[idx] ?? 1;
+        const cdReady = p.itemState?.activeCooldowns[id] ?? 0;
+        const cdSec = cdReady > w.tick ? Math.ceil((cdReady - w.tick) / TICK_RATE) : 0;
+        return `${id}:${st}:${cdSec}`;
+      })
+      .join('|');
+    const invKey = `${maxSlots}::${p.inventory.join(',')}::${activeCdSignature}`;
+    if (this.lastInventory !== invKey) {
+      this.lastInventory = invKey;
+      const slotKeys = [1, 2, 3, 5, 6, 7, 8];
+      this.root.querySelector('#inventory')!.innerHTML = Array.from(
+        { length: maxSlots },
+        (_, i) => {
+          const item = ITEMS.find((item) => item.id === p.inventory[i]);
+          const exp = item ? getExpandedItem(item.id) : undefined;
+          const stacks = item ? (p.itemState?.slotStacks[i] ?? 1) : 1;
+          const cdReady = item ? (p.itemState?.activeCooldowns[item.id] ?? 0) : 0;
+          const cdSec = cdReady > w.tick ? Math.ceil((cdReady - w.tick) / TICK_RATE) : 0;
+          const activeReady = !!exp?.active && cdSec === 0;
+          const title = item
+            ? `${item.name}${stacks > 1 ? ` ×${stacks}` : ''}${exp?.active ? ` · Press ${slotKeys[i]} to activate ${exp.active.name}` : ''} · Drag to move`
+            : 'Empty item slot';
+          return `<div class="item-slot${activeReady ? ' active-ready' : ''}" data-inventory-slot="${i}" draggable="${!!item}" title="${title}">${item ? `<img draggable="false" src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}${stacks > 1 ? `<b class="item-stack">×${stacks}</b>` : ''}${cdSec > 0 ? `<time class="item-cooldown">${cdSec}</time>` : ''}<span>${slotKeys[i]}</span></div>`;
+        }
+      ).join('');
     }
     if (Math.floor(w.time) !== this.lastSecond) {
       this.lastSecond = Math.floor(w.time);
@@ -1865,26 +2632,67 @@ export class Hud {
       ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
       ctx.stroke();
     }
+    if (w.battlefield.publicRift && w.matchMode === 'lanes') {
+      const transformed = isElementalRiftTransformed(w);
+      for (const ring of FAELIGHT_NODES) {
+        if (ring.elementalOnly && !transformed) continue;
+        if (!w.pointVisible(ring, w.hero.team)) continue;
+        const rp = xy(ring);
+        ctx.strokeStyle = 'rgba(110, 243, 255, 0.55)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, 2.5, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    }
     for (const u of w.units) {
       const knownDestroyed = w.knownStructureDestroyed(u);
       if (knownDestroyed === true || (knownDestroyed === null && (!w.alive(u) || !w.visible(u))))
         continue;
+      const isEpicMonster =
+        u.kind === 'monster' &&
+        (u.monster.species === 'baron' ||
+          u.monster.species === 'elder-dragon' ||
+          u.monster.species.startsWith('dragon-') ||
+          u.monster.species === 'riftherald' ||
+          u.monster.species === 'voidgrub');
       const p = xy(u),
-        r = u.kind === 'champion' ? 5 : isStructureKind(u.kind) ? 4 : u.kind === 'ward' ? 3 : 1.5;
+        r =
+          u.kind === 'champion'
+            ? 5
+            : isStructureKind(u.kind)
+              ? 4
+              : isEpicMonster
+                ? 4
+                : u.kind === 'ward'
+                  ? 3
+                  : 1.5;
       ctx.fillStyle =
         u.id === w.player.id
           ? '#f4dc88'
-          : u.team === 'neutral'
-            ? '#dfba6a'
-            : u.team === 'blue'
-              ? '#60d1e5'
-              : '#ee7b81';
+          : isEpicMonster
+            ? u.monster!.species.startsWith('dragon-') || u.monster!.species === 'elder-dragon'
+              ? '#ff9d3b'
+              : '#c37aff'
+            : u.team === 'neutral'
+              ? '#dfba6a'
+              : u.team === 'blue'
+                ? '#60d1e5'
+                : '#ee7b81';
       ctx.strokeStyle = '#102228';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
       if (u.kind === 'ward') {
-        ctx.fillStyle = u.team === 'blue' ? '#aed986' : '#ee7b81';
+        const variant = u.ward?.variant ?? 'stealth';
+        ctx.fillStyle =
+          u.team === 'blue'
+            ? variant === 'farsight'
+              ? '#66c9ff'
+              : variant === 'control'
+                ? '#ff75a0'
+                : '#aed986'
+            : '#ee7b81';
         ctx.fill();
         ctx.stroke();
         ctx.beginPath();

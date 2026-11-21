@@ -44,12 +44,23 @@ import { lingerAudioState, lingerFade } from './hawkshot-linger-state';
 import { TICK_RATE } from '../content/rules';
 import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
+import {
+  DEFAULT_SOUND_MIX,
+  normalizeSoundMix,
+  type SoundMixPreferences,
+} from '../storage/sound-preference';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding, Illumination, Garen and Leona SFX.
- * Other cues retain synthesized feedback. */
+/** Source Hawkshot, Light Binding, Illumination, Garen, Master Yi, Leona, Ahri, Baron and Oracle SFX,
+ * routed through dedicated combat/feedback mix buses and a dynamic teamfight limiter. */
 export class GameAudio {
   context: AudioContext | null = null;
+  private combatContext: AudioContext | null = null;
+  private masterBus: GainNode | null = null;
+  private combatBus: GainNode | null = null;
+  private combatCompressor: DynamicsCompressorNode | null = null;
+  private feedbackBus: GainNode | null = null;
+  private mixState: SoundMixPreferences = { ...DEFAULT_SOUND_MIX };
   luxE = new LuxSingularityAudio();
   private luxEWorld?: World;
   private luxETerminalStart = 0;
@@ -131,6 +142,106 @@ export class GameAudio {
   set enabled(value: boolean) {
     this.audible = value;
     if (!value) this.stopVoices();
+  }
+  get mix(): Readonly<SoundMixPreferences> {
+    return this.mixState;
+  }
+  setMix(partial: Partial<SoundMixPreferences>): SoundMixPreferences {
+    const previousLimiter = this.mixState.dynamicLimiter;
+    this.mixState = normalizeSoundMix(partial, this.mixState);
+    if (this.context && this.masterBus && this.combatBus && this.feedbackBus) {
+      const now = this.context.currentTime;
+      this.masterBus.gain.cancelScheduledValues(now);
+      this.masterBus.gain.value = this.mixState.master;
+      this.masterBus.gain.setValueAtTime(this.mixState.master, now);
+      this.combatBus.gain.cancelScheduledValues(now);
+      this.combatBus.gain.value = this.mixState.combat;
+      this.combatBus.gain.setValueAtTime(this.mixState.combat, now);
+      this.feedbackBus.gain.cancelScheduledValues(now);
+      this.feedbackBus.gain.value = this.mixState.feedback;
+      this.feedbackBus.gain.setValueAtTime(this.mixState.feedback, now);
+      if (previousLimiter !== this.mixState.dynamicLimiter) this.wireCombatBus();
+    }
+    return { ...this.mixState };
+  }
+  private ensureMixBus(): void {
+    const context = this.context;
+    if (!context || this.masterBus) return;
+    this.masterBus = context.createGain();
+    this.combatBus = context.createGain();
+    this.feedbackBus = context.createGain();
+    if (typeof context.createDynamicsCompressor === 'function') {
+      this.combatCompressor = context.createDynamicsCompressor();
+      this.combatCompressor.threshold.value = -6;
+      this.combatCompressor.knee.value = 12;
+      this.combatCompressor.ratio.value = 4;
+      this.combatCompressor.attack.value = 0.003;
+      this.combatCompressor.release.value = 0.15;
+      this.combatCompressor.connect(this.masterBus);
+    } else {
+      this.combatCompressor = null;
+    }
+    this.masterBus.gain.value = this.mixState.master;
+    this.combatBus.gain.value = this.mixState.combat;
+    this.feedbackBus.gain.value = this.mixState.feedback;
+    this.masterBus.connect(context.destination);
+    this.feedbackBus.connect(this.masterBus);
+    this.wireCombatBus(false);
+    const combatDestination = this.combatBus;
+    this.combatContext = new Proxy(context, {
+      get(target, prop) {
+        if (prop === 'destination') return combatDestination;
+        const value = Reflect.get(target, prop, target);
+        return typeof value === 'function' ? value.bind(target) : value;
+      },
+    });
+  }
+  private wireCombatBus(rewire = true): void {
+    if (!this.combatBus || !this.masterBus) return;
+    if (rewire) this.combatBus.disconnect();
+    if (this.mixState.dynamicLimiter && this.combatCompressor) {
+      this.combatBus.connect(this.combatCompressor);
+    } else {
+      this.combatBus.connect(this.masterBus);
+    }
+  }
+  private combatDestination(): AudioNode {
+    this.ensureMixBus();
+    return this.combatBus ?? this.context!.destination;
+  }
+  private feedbackDestination(): AudioNode {
+    this.ensureMixBus();
+    return this.feedbackBus ?? this.context!.destination;
+  }
+  private routedCombatContext(): AudioContext | null {
+    if (!this.context) return null;
+    this.ensureMixBus();
+    return this.combatContext ?? this.context;
+  }
+  syncWorld(world: World): void {
+    this.stopVoices();
+    this.lastId = Math.max(0, ...world.events.map((event) => event.id));
+  }
+  async dispose(): Promise<void> {
+    this.stopVoices();
+    this.combatBus?.disconnect();
+    this.combatCompressor?.disconnect();
+    this.feedbackBus?.disconnect();
+    this.masterBus?.disconnect();
+    this.combatBus = null;
+    this.combatCompressor = null;
+    this.feedbackBus = null;
+    this.masterBus = null;
+    this.combatContext = null;
+    const context = this.context;
+    this.context = null;
+    if (context && context.state !== 'closed') {
+      try {
+        await context.close();
+      } catch {
+        // Ignore already-closed audio context errors during teardown.
+      }
+    }
   }
   async load({
     garenPresent,
@@ -228,7 +339,7 @@ export class GameAudio {
       gain = context.createGain();
     voice.buffer = buffer;
     gain.gain.value = this.bindingCastGain(event, listener);
-    voice.connect(gain).connect(context.destination);
+    voice.connect(gain).connect(this.combatDestination());
     this.own(voice, gain);
     this.bindingCastVoices.set(voice, { x: event.x, y: event.y });
     voice.start(
@@ -278,7 +389,7 @@ export class GameAudio {
       gain = context.createGain();
     voice.buffer = buffer;
     gain.gain.value = this.illuminationGain(event, listener);
-    voice.connect(gain).connect(context.destination);
+    voice.connect(gain).connect(this.combatDestination());
     this.own(voice, gain);
     this.illuminationVoices.set(voice, { x: event.x, y: event.y });
     voice.start(context.currentTime, offset);
@@ -462,7 +573,7 @@ export class GameAudio {
     voice.buffer = buffer;
     // 0.2 is the local presentation mix. Native shared-bus gain is unresolved.
     gain.gain.value = 0.2 * 10 ** (profile.gainDb / 20);
-    voice.connect(gain).connect(context.destination);
+    voice.connect(gain).connect(this.combatDestination());
     this.own(voice, gain);
     voice.start(context.currentTime + Math.max(0, profile.delaySeconds - age), offset);
   }
@@ -507,7 +618,7 @@ export class GameAudio {
         curve[i] = level * lingerFade((age - state.stopAge) / HAWKSHOT_LINGER_AUDIO.fadeSeconds);
       }
       gain.gain.setValueCurveAtTime(curve, now + fadeStart - state.age, state.endAge - fadeStart);
-      voice.connect(gain).connect(context.destination);
+      voice.connect(gain).connect(this.combatDestination());
       this.own(voice, gain);
       this.lingerVoices.set(effect.flight.id, voice);
       voice.start(now, state.offset);
@@ -521,7 +632,7 @@ export class GameAudio {
     listener: { x: number; y: number }
   ): void {
     this.bindingFlight.update(
-      this.context,
+      this.routedCombatContext(),
       this.enabled && !this.paused,
       projectiles,
       stops,
@@ -572,7 +683,7 @@ export class GameAudio {
         if (state.age < state.stopAge)
           gain.gain.setValueAtTime(level, now + state.stopAge - state.age);
         gain.gain.linearRampToValueAtTime(0, now + state.endAge - state.age);
-        source.connect(gain).connect(context.destination);
+        source.connect(gain).connect(this.combatDestination());
         this.own(source, gain);
         this.flightVoices.set(key, source);
         source.start(now, loop ? state.age % buffer.duration : state.age);
@@ -581,11 +692,12 @@ export class GameAudio {
   }
   unlock(): void {
     this.context ??= new AudioContext();
+    this.ensureMixBus();
     this.syncContext();
   }
   updateBaronPreview(world: World, listener = { x: 0, y: 0 }) {
     this.baronBasic.update(
-      this.context,
+      this.routedCombatContext(),
       this.enabled && !this.paused,
       world.baronAttackVisuals.map((r) => ({
         id: r.id,
@@ -632,8 +744,9 @@ export class GameAudio {
       (point) => world.pointVisible(point, world.hero.team),
       (id) => world.unit(id)
     );
+    const combatContext = this.routedCombatContext();
     this.ahriCharm.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       records,
       states,
@@ -647,7 +760,7 @@ export class GameAudio {
       casterPoint: (id: number) => world.unit(id),
     };
     this.ahriOrb.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriOrbAudio,
       tick,
@@ -656,7 +769,7 @@ export class GameAudio {
       scene
     );
     this.ahriFoxFire.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriFoxFireAudio,
       tick,
@@ -665,7 +778,7 @@ export class GameAudio {
       scene
     );
     this.ahriLifecycle.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriLifecycleAudio,
       tick,
@@ -674,7 +787,7 @@ export class GameAudio {
       scene
     );
     this.ahriRecall.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriRecallAudio,
       tick,
@@ -683,7 +796,7 @@ export class GameAudio {
       scene
     );
     this.ahriAA.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriAttackAudio,
       tick,
@@ -692,7 +805,7 @@ export class GameAudio {
       scene
     );
     this.ahriPassive.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriPassiveAudio,
       tick,
@@ -701,7 +814,7 @@ export class GameAudio {
       scene
     );
     this.ahriSpiritRush.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.ahriSpiritRushAudio,
       tick,
@@ -732,7 +845,13 @@ export class GameAudio {
       (s) =>
         allied.has(s.key.slice(0, s.key.lastIndexOf(':'))) || world.pointVisible(s, world.hero.team)
     );
-    this.luxE.update(this.context, this.enabled && !this.paused, records, states, listener);
+    this.luxE.update(
+      this.routedCombatContext(),
+      this.enabled && !this.paused,
+      records,
+      states,
+      listener
+    );
   }
   updateOracle(world: World, listener = { x: 0, y: 0 }) {
     const records = world.units.flatMap((u) => {
@@ -762,7 +881,13 @@ export class GameAudio {
       }
       tick += Math.max(0, this.context.currentTime - this.oracleTerminalStart) * 60;
     }
-    this.oracle.update(this.context, this.enabled && !this.paused, records, tick, listener);
+    this.oracle.update(
+      this.routedCombatContext(),
+      this.enabled && !this.paused,
+      records,
+      tick,
+      listener
+    );
   }
   updateLeona(world: World, listener = { x: 0, y: 0 }) {
     const leonas = world.units.filter((u) => u.champion === 'leona');
@@ -794,9 +919,10 @@ export class GameAudio {
       }
       tick += Math.max(0, this.context.currentTime - this.leonaTerminalStart) * 60;
     }
-    this.leonaW.update(this.context, this.enabled && !this.paused, records, tick, listener);
+    const combatContext = this.routedCombatContext();
+    this.leonaW.update(combatContext, this.enabled && !this.paused, records, tick, listener);
     this.leonaDeath.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       leonas.flatMap((u) =>
         world.championState(u.id)!.leonaDeathVisuals.map((r) => ({ ...r, id: u.id }))
@@ -806,7 +932,7 @@ export class GameAudio {
       team
     );
     this.leonaSunlight.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       world.sunlightVisuals,
       tick,
@@ -815,7 +941,7 @@ export class GameAudio {
       team
     );
     this.leonaAA.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       leonas.flatMap((u) =>
         world.championState(u.id)!.leonaAAVisuals.map((r) => ({ ...r, id: u.id }))
@@ -826,7 +952,7 @@ export class GameAudio {
       team
     );
     this.leonaQ.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       leonas.flatMap((u) =>
         world.championState(u.id)!.leonaQVisuals.map((r) => ({ ...r, id: u.id }))
@@ -837,7 +963,7 @@ export class GameAudio {
       team
     );
     this.leonaE.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       leonas.flatMap((u) =>
         world.championState(u.id)!.leonaEVisuals.map((r) => ({ ...r, id: u.id }))
@@ -848,7 +974,7 @@ export class GameAudio {
       team
     );
     this.leonaR.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       leonas.flatMap((u) =>
         world.championState(u.id)!.leonaRVisuals.map((r) => ({ ...r, id: u.id }))
@@ -891,8 +1017,9 @@ export class GameAudio {
     if (yiUnits.length && this.masterYiW.status === 'idle') void this.masterYiW.load();
     if (yiUnits.length && this.masterYiR.status === 'idle') void this.masterYiR.load();
     if (yiUnits.length && this.masterYiQ.status === 'idle') void this.masterYiQ.load();
+    const combatContext = this.routedCombatContext();
     this.masterYiQ.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       yiUnits.flatMap((u) =>
         world.championState(u.id)!.alphaAudio.map((r) => ({
@@ -921,14 +1048,14 @@ export class GameAudio {
       }))
     );
     this.masterYiAA.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       yiAttacks,
       recoveryTick,
       listener
     );
     this.masterYiR.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       yiUnits.flatMap((u) =>
         world.championState(u.id)!.highlanderAudio.map((r) => ({
@@ -946,7 +1073,7 @@ export class GameAudio {
       listener
     );
     this.masterYiW.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       yiUnits.flatMap((u) =>
         world.championState(u.id)!.meditateAudio.map((r) => ({
@@ -964,7 +1091,7 @@ export class GameAudio {
       listener
     );
     this.masterYiE.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       yiUnits.flatMap((u) =>
         world.championState(u.id)!.wujuStyleAudio.map((r) => ({
@@ -995,14 +1122,14 @@ export class GameAudio {
       }))
     );
     this.garenAA.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       attacks,
       recoveryTick,
       listener
     );
     this.garenP.update(
-      this.context,
+      combatContext,
       this.enabled && !this.paused,
       recovery,
       recoveryTick,
@@ -1018,7 +1145,7 @@ export class GameAudio {
         visible: u.team === 'blue' || world.visible(u),
       }))
     );
-    this.garenQ.update(this.context, this.enabled && !this.paused, decisive, world.tick, listener);
+    this.garenQ.update(combatContext, this.enabled && !this.paused, decisive, world.tick, listener);
     if (garens.length && this.garenE.status === 'idle') void this.garenE.load();
     if (garens.length && this.garenR.status === 'idle') void this.garenR.load();
     if (garens.length && this.garenW.status === 'idle') void this.garenW.load();
@@ -1028,7 +1155,7 @@ export class GameAudio {
         ? [{ ...effect, id: u.id, x: u.x, y: u.y, visible: u.team === 'blue' || world.visible(u) }]
         : [];
     });
-    this.garenW.update(this.context, this.enabled && !this.paused, courage, world.tick, listener);
+    this.garenW.update(combatContext, this.enabled && !this.paused, courage, world.tick, listener);
     const records = garens
       .filter((u) => world.visible(u))
       .flatMap((u) => {
@@ -1046,7 +1173,7 @@ export class GameAudio {
             ]
           : [];
       });
-    this.garenE.update(this.context, this.enabled && !this.paused, records, world.tick, listener);
+    this.garenE.update(combatContext, this.enabled && !this.paused, records, world.tick, listener);
     const justice = garens.flatMap((u) => {
       const effect = world.championState(u.id)?.garenRVisual;
       return effect
@@ -1064,7 +1191,7 @@ export class GameAudio {
           ]
         : [];
     });
-    this.garenR.update(this.context, this.enabled && !this.paused, justice, world.tick, listener);
+    this.garenR.update(combatContext, this.enabled && !this.paused, justice, world.tick, listener);
   }
   update(events: SimEvent[], tick: number, listener = { x: 0, y: 0 }): void {
     for (const [voice, point] of this.illuminationVoices) {
@@ -1095,7 +1222,8 @@ export class GameAudio {
         if (!this.enabled || this.paused || !this.context || this.context.state !== 'running')
           continue;
         if (event.type === 'illumination') this.illumination(event, tick, listener);
-        if (event.type === 'judgment-hit') this.garenE.hit(this.context, event, tick, listener);
+        if (event.type === 'judgment-hit')
+          this.garenE.hit(this.routedCombatContext()!, event, tick, listener);
         if (event.type === 'attack') {
           if (
             event.leonaQStartTick !== undefined &&
@@ -1280,8 +1408,53 @@ export class GameAudio {
               this.garenR.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'garen' && event.unit !== undefined)
               this.garenW.suppressCast(event.unit, event.tick);
-            this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
+            if (event.champion === 'darius') {
+              this.tone(
+                event.text === 'r' ? 110 : 210,
+                event.text === 'r' ? 55 : 140,
+                0.24,
+                0.032,
+                'sawtooth'
+              );
+            } else if (event.champion === 'vi') {
+              this.tone(
+                event.text === 'r' ? 140 : 280,
+                event.text === 'r' ? 420 : 520,
+                0.22,
+                0.03,
+                'triangle'
+              );
+            } else if (event.champion === 'ezreal') {
+              this.tone(
+                event.text === 'r' ? 520 : 760,
+                event.text === 'r' ? 1320 : 1480,
+                0.19,
+                0.026,
+                'sine'
+              );
+            } else if (event.champion === 'morgana') {
+              this.tone(
+                event.text === 'r' ? 190 : 310,
+                event.text === 'r' ? 95 : 195,
+                0.26,
+                0.028,
+                'triangle'
+              );
+            } else {
+              this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
+            }
           }
+        }
+        if (
+          event.type === 'message' &&
+          event.text &&
+          (event.text.includes('Soul') ||
+            event.text.includes('Elder Dragon') ||
+            event.text.includes('Quest Complete') ||
+            event.text.includes('Rift Herald') ||
+            event.text.includes('Stasis'))
+        ) {
+          this.tone(440, 880, 0.3, 0.024, 'triangle');
         }
         if (event.type === 'scout-arrival' && this.arrivalBuffer)
           this.sample(this.arrivalBuffer, event, tick, HAWKSHOT_ARRIVAL_AUDIO);
@@ -1306,7 +1479,7 @@ export class GameAudio {
     oscillator.frequency.exponentialRampToValueAtTime(to, t + duration);
     gain.gain.setValueAtTime(volume, t);
     gain.gain.exponentialRampToValueAtTime(0.001, t + duration);
-    oscillator.connect(gain).connect(c.destination);
+    oscillator.connect(gain).connect(this.feedbackDestination());
     this.own(oscillator, gain);
     oscillator.start(t);
     oscillator.stop(t + duration);

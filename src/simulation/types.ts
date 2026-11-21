@@ -8,7 +8,8 @@ import type { RiverSide } from '../content/scuttler-policy';
 import type { RiftCampId } from '../content/rift-camps';
 import type { MonsterSpecies, MonsterSpawnClip } from '../content/monsters';
 export type Team = 'blue' | 'red';
-export type ChampionIdentity = 'ashe' | 'lux' | 'garen' | 'leona' | 'ahri' | 'masteryi';
+export type ChampionIdentity =
+  'ashe' | 'lux' | 'garen' | 'leona' | 'ahri' | 'masteryi' | 'darius' | 'vi' | 'ezreal' | 'morgana';
 export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
 export const isLaneMinionKind = (kind: UnitKind): kind is LaneMinionKind =>
@@ -98,6 +99,8 @@ export interface WardState {
   createdTick: number;
   expireTick: number;
   revealUntil: number;
+  variant?: 'farsight' | 'control';
+  faelightId?: string;
 }
 export interface WardPlacement {
   origin: Vec2;
@@ -107,6 +110,8 @@ export interface WardPlacement {
   startTick: number;
   readyTick: number;
   lifeTicks: number;
+  variant?: 'farsight' | 'control';
+  faelightId?: string;
 }
 export interface OracleVisual {
   startTick: number;
@@ -242,7 +247,20 @@ export interface UnitBase extends Vec2 {
     endTick: number;
     prismaticCastTick?: number;
     companionGrantTick?: number;
+    blackShield?: true;
+    mountainSoul?: true;
   }[];
+  hemorrhage?: { sourceId: number; stacks: number; endTick: number; nextTick: number };
+  essenceFlux?: { sourceId: number; rank: number; endTick: number };
+  cleaverStacks?: number;
+  cleaverUntilTick?: number;
+  liandryBurn?: { sourceId: number; endTick: number; nextTick: number };
+  grievousWoundsUntil?: number;
+  viArmorShredUntil?: number;
+  ptaExposedUntil?: number;
+  voidTouchBurn?: { sourceId: number; dps: number; endTick: number; nextTick: number };
+  elderBurn?: { sourceId: number; dps: number; endTick: number; nextTick: number };
+  dariusWRefundPending?: { casterId: number; tick: number; rank: number };
   scorchclawBurns: {
     sourceId: number;
     startTick: number;
@@ -424,7 +442,9 @@ export type Command =
   | { type: 'cast'; unit: number; ability: Ability; point: Vec2; targetId?: number }
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'ward'; unit: number; point: Vec2 }
+  | { type: 'farsight'; unit: number; point: Vec2 }
   | { type: 'oracle'; unit: number }
+  | { type: 'use-item'; unit: number; slot: number; point?: Vec2 }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
@@ -686,6 +706,13 @@ export interface ChampionState {
     damage: number;
   } | null;
   inventory: (string | null)[];
+  roleQuest?: import('../content/role-quests').RoleQuestState;
+  runeState?: import('./runes').ChampionRuneState;
+  itemState?: import('./item-effects').ChampionItemRuntimeState;
+  darius?: import('./milestone6-champions').DariusState;
+  vi?: import('./milestone6-champions').ViState;
+  ezreal?: import('./milestone6-champions').EzrealState;
+  morgana?: import('./milestone6-champions').MorganaState;
 }
 
 /** Human HUD/input view of its champion-owned state. */

@@ -1,10 +1,88 @@
 # Development status
 
-Last updated: November 19, 2026 (UTC).
+Last updated: November 21, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
+
+**Roadmap Milestone 6 (reference-mode audit and 10-champion expansion) is complete**
+at save schema **185**, ruleset `e5e3cc7f70fae406cd8bf03ba5a5a90fc7dc87ab2e931ad190b5fe099897cad0`,
+and production offline pack `e74775d99c3a41065334112dbbfce01e7176e880ee3b2549f19655a8760d4c16`
+(`1,519` files / `581,692,009` bytes, worker policy `41e26572…`):
+
+- **10-Champion Zero-Mirror 5v5 Roster (`src/content/milestone6-champions.ts`, `src/simulation/milestone6-champions.ts`):**
+  Adds **Darius** (Top), **Vi** (Jungle), **Ezreal** (Carry), and **Morgana** (Support)
+  alongside **Ashe, Lux, Garen, Master Yi, Leona, and Ahri**, each with skeletal GLB
+  2.0 rigs, icons, 3D VFX (`src/render/milestone6-visuals.ts`), synthesized Web Audio
+  cues, bot tactics, save/restore schema `185` validation, and deterministic replay.
+  Default 5v5 (`createLaneMatch`) assigns all 10 distinct champions with zero mirror
+  matchups (Blue: Darius/Vi/Ahri/Ezreal/Leona vs Red: Garen/Master Yi/Lux/Ashe/Morgana).
+- **Season 2026 Role Quests, Epic Objectives & Vision Variants:** Implements all five
+  Role Quests (Top level `20` cap + `210 s` Teleport, Jungle `40`-treat Primal Smite
+  `1,200`, Mid Tier 3 boots + `4 s` Empowered Recall, Carry **7th item slot** + `+2g`
+  CS bonus, Support evolved World Atlas + `2`-Control-Ward capacity), Voidgrubs +
+  Voidmites (`5:00`), Rift Herald + Eye of the Herald summon (`14:00`), 6 Elemental
+  Drakes + Elemental Rift + 6 Dragon Souls + Elder Dragon (`20%` execute), Farsight
+  Alteration (`3363`), Control Ward (`2055`), and `8` Season 2026 Faelights (`+25%`
+  ward vision + `45 s` reveal pulse).
+- **58-Item Shop, Fountain Undo, Runes & 158-Entry Patch 26.18 Coverage Ledger:**
+  Expands the shop to `58` items with uniqueness groups, active items (`1–3, 5–8`
+  including Zhonya's Stasis, Youmuu's Wraith Step, Locket AoE Shield, Health Potion,
+  Control Ward), named passives, Fountain Undo, editable **New match** Runes & Stat
+  Shards (`6` keystones, `5` secondary runes, `3` shard rows), and **Pause → Reference
+  & patch 26.18** displaying all `158` audited entries (`49` `verified-behavior`, `34`
+  `verified-data`, `75` `approximation`, `0` `unimplemented`).
+- **Multi-Browser Matrix, `pagehide` GPU Disposal, Offline Pack & `morluto/rea` Certification:**
+  Hooks idempotent `pagehide` → `disposeSession()` to release WebGL 2 contexts across
+  rapid reloads, passes `3/3` multi-browser Milestone 6 E2E specs (**Chrome `157`,
+  Firefox `155`, WebKit `26.6`**), `25/25` Milestone 6 unit/roster-contract tests,
+  `57,600`-tick 10-champion 5v5 simulation (`0` violations, `restoredEqual: true`),
+  nested subpath/offline-pack gates (`1,518` SW responses, `0` errors), and
+  `morluto/rea` (`rea-agents@6.10.1`) certification (`12` Evidence records, bundle
+  SHA-256 `7dbdfc6f…`). See [Milestone 6 report](MILESTONE-6.md) and
+  [Milestone 6 verification ledger](reference/milestone6-verification.json). A
+  post-Milestone-6 full-roster and native-asset calibration program follows this gate.
+
+### Milestone 5 baseline (retained on schema 184 / ruleset `1cf6e4e9…`)
+
+**Roadmap Milestone 5 (presentation, browser reliability, and offline delivery) is complete**
+at save schema **184**, ruleset `1cf6e4e9b814a10bcd727579afc7485af55df0f870b7deed6cfdaadb58989ce7`,
+and production offline pack `2fe8cc4211e2c14208afef5a21c416e9f98248639de98b6bb694ebd1a2e7f102`
+(`1,432` files / `581,220,111` bytes, worker policy `41e26572…`):
+
+- **Deterministic Command-Log Replay (`src/replay/match-replay.ts`):** Records external
+  human commands, shop purchases/sales/swaps, and practice mutations (`rift-match-replay`
+  v1) with periodic `300`-tick SHA-256 state checkpoints and `finalSha256`, keyframe
+  seeking (`Restart`, `-5s`, `Pause`/`Play`, `+5s`), `0.5×`–`4×` playback speeds,
+  read-only input locking, live `#replay-bar` hash badges, **Pause → Replay** and
+  **Victory**/**Defeat** replay controls, and fail-closed version/ruleset/map/tamper
+  import validation.
+- **Combat Sound Mix & Practice Tools (`src/audio/audio.ts`, `src/practice/practice-tools.ts`):**
+  Adds `masterBus`, `combatBus` (`Proxy`-routed across all champion and Baron source
+  audio controllers without touching `rulesetFiles`), `-6 dBFS` `DynamicsCompressorNode`
+  teamfight peak limiter, and `feedbackBus`, persisted under `rift:sound-mix:v1` with
+  **Pause → Sound & mix** controls, plus an expanded 8-action **Practice tools** panel
+  (`Restore HP/MP`, `Reset cooldowns`, `+500g`, `Spawn/move dummy`, `Level up`,
+  `Level 18`, `Reset enemy`, `Fast-forward 30s`).
+- **Context-Loss Recovery & Zero-Leak Sequential Sessions:** `webglcontextlost`
+  releases all eight `SceneDepth` FBOs and `ParticleDistortionPass` buffers, clears
+  stale `softDepth` uniforms, pauses the intact `World`, and offers **Save match**
+  alongside **Download current match** and **Restart match** before restoring cleanly
+  on `webglcontextrestored`. Sequential 5v5 restarts release unit meshes, GPU buffers,
+  and `AbortController` DOM/window listeners without unbounded accumulation.
+- **Multi-Browser Matrix, Offline Delivery, Stress Profile & `morluto/rea` Evidence:**
+  Passes **9/9** multi-browser acceptance scenarios across **Google Chrome (`157.0.8103.78`),
+  Firefox (`155`), and WebKit (`26.6`)** with an 8-screenshot visual review set and
+  `.webm` video, all `333/333` Node QA tests, `12/12` offline UI ownership specs,
+  production subpath/HUD keyboard/offline-pack gates (`1,494` service-worker offline
+  responses, `0` errors), a `72,900`-tick (`20:15`) 6-champion 5v5 stress profile, and
+  `morluto/rea` (`rea-agents@6.10.1`) static + runtime Evidence certification (`14`
+  records, bundle SHA-256 `4e9710a5…`). See [Milestone 5 report](MILESTONE-5.md) and
+  [Milestone 5 verification ledger](reference/milestone5-verification.json). Milestone 6
+  (reference-mode audit and 10-champion expansion) is next.
+
+### Milestone 4 baseline (retained on schema 184 / ruleset `1cf6e4e9…`)
 
 **Roadmap Milestone 4 (six-character local 5v5) is complete** at save schema **184**,
 ruleset `1cf6e4e9b814a10bcd727579afc7485af55df0f870b7deed6cfdaadb58989ce7`, and
@@ -257,7 +335,6 @@ accepted renderer branch. Existing acceptance applies to identical source; no
 full-suite repetition is needed. Work stays local. See
 [primary integration](reference/ahri/q-projectile-main-integration.json).
 
-
 The [projectile renderer](AHRI-Q-PROJECTILES.md) uses all 151 authored texture
 mips and three source mesh geometries, borrowing two textures and the caster
 swirls. It preserves back-to-front trail smoothing, source erosion/secondary UVs,
@@ -268,7 +345,6 @@ its original 157,116-tick victory, 44 restores / 43 future checks and 45 matchin
 projections. Its [source delta](reference/ahri/q-projectile-rendering-source-delta.json)
 retains 637/639 files unchanged and records the two compatibility/presentation
 changes plus six added runtime modules. No hundred-seed result is relabeled.
-
 
 Primary `work` fast-forwards from `b1d5b8f` to `059734d` with no merge edits.
 Its fresh build and full pack/worker audit reproduce `44d4243d` exactly; the
@@ -505,7 +581,6 @@ movement/range/hidden-state invalidation. Existing energy-idle and terminal
 wall-clock browser checks pass, as do build/TypeScript and 39 Node QA cases.
 This is a scoped operation-count reduction, without a full-match FPS, native
 fidelity or new offline-delivery claim. Rules and saved state are unchanged.
-
 
 Fresh offline delivery now passes for the result-clock build `7a347e7`, pack
 `16429f3c30452493f95c68cff4805c1b86113a273f51350ae2da3b53216795b1`
@@ -3112,7 +3187,6 @@ cancellation, listener/bus mix and listening comparison remain unverified. Sourc
 Q particles, W character-surface operations, basic/voice audio and full production/
 match acceptance remain open; Garen remains outside production selection.
 
-
 ## Decisive Strike particle source closure — October 21, 2026
 
 [Q particle sources](GAREN-Q-PARTICLES.md) now pin every base Q resource key:
@@ -3137,7 +3211,6 @@ Live target/animation dispatch requires confirmed impact and cancellation
 history beyond the current audio commitment clocks. Native timing/materials,
 Q playback, W body effects and full production/match acceptance remain open.
 
-
 All 21 unique focused Chrome scenarios pass across sequential runs: the two new
 source-inspection/startup cases, Q source/live audio and PCM, Q mechanics,
 Garen player controls and match-file continuation. The inspector also shows all
@@ -3151,7 +3224,6 @@ threshold was also replaced with comparison against each Q mesh's measured bound
 Production build/nested-host smoke passes with 17 ordinary recordings, real
 Ashe/Lux input and the Garen gate retained. The ordinary game entry remains
 579.60 KB (159.49 KB gzip); the existing large-bundle warning remains.
-
 
 ## Decisive Strike weapon trail and attack outcomes — October 21, 2026
 
@@ -3199,14 +3271,12 @@ from a checkpoint, disposes owned materials while retaining shared geometry,
 obeys actual unit fog, and suppresses future graphics after target loss. The
 source gold-trail gameplay capture was visually reviewed at 1440×900.
 
-
 Production build and nested static-host smoke pass with the ordinary seventeen
 recordings, real Ashe/Lux input and the Garen fixture/roster gate retained. The
 new Garen-only particle chunk is 3.65 KB (1.86 KB gzip); the ordinary game entry
 is 582.87 KB (160.28 KB gzip), including the expanded history/validation and lazy
 wrapper. The existing large-bundle warning remains. No source PNG, GLB, WAV or
 pinned BIN bytes changed.
-
 
 ## Decisive Strike activation and armed particles — October 21, 2026
 
@@ -4145,7 +4215,6 @@ Volley champion hits now apply source-backed 40–60% enhanced slow strength, ea
 
 All 213 simulation checks, five focused Chrome cases, static build and production smoke pass. New checks cover level endpoints, decay/tail/expiry, saved continuation, subsequent basic hits and malformed component bounds. Export regeneration is byte-identical. General slow priority, critical basic attacks, movement caps and full champion/match/pixel fidelity remain unfinished; the production goal remains active.
 
-
 ## Hawkshot ammunition milestone
 
 Hawkshot now stores two charges with a five-second cast delay and serial 90-second rank-one recharge, replacing its provisional 45-second single cooldown. Spending the second charge does not restart recharge; death and respawn preserve it. Snapshot version 12 validates and saves charge count/deadline. The HUD displays ammunition, recharge progress and actual cast availability; practice reset restores both charges. Complete selected spell/tooltip records are pinned, and the verified exporter excludes nonstandard rank entries. [Hawkshot evidence and remaining scope](ASHE-E.md).
@@ -4153,7 +4222,6 @@ Hawkshot now stores two charges with a five-second cast delay and serial 90-seco
 All 218 simulation checks, all 71 Chrome scenarios, static build and production smoke pass. Five new simulation cases cover serial recharge, boundary ordering, rejection, recall, death/respawn, save continuation and malformed state. Browser coverage exercises actual keyboard casts, charge/countdown display, accessible feedback and practice reset; charge-state screenshots were visually inspected. Export regeneration is byte-identical. These are local checks, not reference timing or pixel-parity certification.
 
 Hawkshot still needs travel, range enforcement, complete vision geometry/persistence, cast windup and audiovisual fidelity. Starting charges and recharge event ordering remain documented policies pending reference capture. Passive research also confirmed that the pinned zero-crit calculation does not justify adding an old flat Frost Shot amplification; crit-stat support remains missing. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
-
 
 ## Hawkshot flight milestone
 
@@ -4163,20 +4231,17 @@ All 222 simulation checks, nine focused Chrome cases, static build and productio
 
 The bird is an authored temporary proxy, and sight retains the earlier provisional 650 radius. Lingering trail vision, source cast windup, reference geometry, minimap targeting and original audiovisual effects remain unfinished, as detailed in [ASHE-E.md](ASHE-E.md). Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
 
-
 ## Minimap targeting milestone
 
 E and R now aim and cast from minimap world coordinates without moving the camera, using their verified source flags. A shared conversion keeps map navigation and casting aligned. Pointer transitions no longer retain stale battlefield aim over HUD panels; unsupported minimap spells submit no cast. Right-click minimap movement and Escape cancel held targeting. Heal only picks a hovered unit on the battlefield canvas. The controls panel documents minimap spell use.
 
 All 222 simulation checks, 16 focused Chrome scenarios, static build and production smoke pass. Four new browser scenarios cover full-Rift E/R direction and endpoint, laptop geometry, unchanged camera, surface transitions, unsupported spells and cancellation; existing controls and ally Heal remain passing. Both source exports regenerate byte-identically. Full Chrome coverage was not repeated. Alternate cast modes, broader champion systems and full match/pixel fidelity remain unfinished; the production goal remains active.
 
-
 ## Effective movement-speed readout milestone
 
 The HUD now displays the same effective speed used by movement and run playback, including active slows, enhanced decay and Heal haste. Whole-number display uses six-decimal normalization before rounding, preventing a binary-noise error at the 227.5 midpoint. Stored speed and movement calculations are unchanged.
 
 All 222 simulation checks, three focused Chrome scenarios, static build and production smoke pass. Browser checks cover a real attack slow, Heal composition, expiry and the enhanced-slow midpoint; existing run-playback coverage remains passing. Full Chrome coverage was not repeated. Movement soft caps, exact reference rounding, full champion/match systems and pixel fidelity remain unfinished; the production goal remains active.
-
 
 ## Hawkshot original-effect source recovery
 
@@ -4222,7 +4287,6 @@ All 225 simulation/source-state checks, 11 focused Chrome cases, asset validatio
 
 The wind remains subtle and reference visual calibration is still needed. Exact RNG, emission phase, drag integration, placement/height and shutdown semantics are explicitly attributed or local policies in ASHE-E.md; passing tests prove our reconstruction is consistent, not complete League parity. Remaining Hawkshot layers, champion/match systems and pixel fidelity remain unfinished; the production goal remains active.
 
-
 ## Pinned base Ashe milestone
 
 Replaced the archived champion GLB with the base skin mesh, rig, texture and complete atomic clip set from the pinned 16.18 Ashe archive. The reproducible extractor verifies 27 files, both binary definition records and all 25 atomic mappings. The new GLB is 3,953,864 bytes, with 7,406 triangles, 85 bones and 25 clips. Source skin scale 1.1 is now applied consistently; zero-weight joint slots are canonicalized without changing contributing weights. The retired runtime asset is removed and its provenance retained under docs/reference.
@@ -4233,7 +4297,6 @@ All 225 simulation checks, all 85 Chrome scenarios, asset validation, production
 
 This replaces the archived source dependency; full champion/match systems, remaining effects, lighting/capture calibration and performance targets remain outstanding. The production goal remains active. See [the Ashe asset pipeline](ASSETS.md#pinned-base-ashe).
 
-
 ## Ashe recall sequence milestone
 
 Replaced the looping Channel approximation with the source Recall sequence, Idle5 followed by Idle2 at their original clip durations. Rendering seeks from the simulation recall deadline, so late frames, pause and restored rigs retain the same phase. Cancellation, restart, completion, damage and death release or reset the recall pose correctly. Simulation and rendering share the existing eight-second duration; gameplay timing and snapshot schema are unchanged.
@@ -4241,7 +4304,6 @@ Replaced the looping Channel approximation with the source Recall sequence, Idle
 All 226 simulation/source checks, six distinct focused Chrome scenarios, production build and production smoke pass. Tests verify the sequence against the binary-verified graph, both stages and exact paused/restored bone transforms, plus attack/death/run regressions. Both recall stage screenshots were inspected. The full browser suite and asset validation were not repeated; assets did not change.
 
 Native transition blending, recall VFX/audio and reference-pixel calibration remain unfinished. The complete production goal remains active. See [recall evidence and playback scope](ASHE-RECALL.md).
-
 
 ## Ashe empowered attack animation milestone
 
@@ -4251,7 +4313,6 @@ All 229 simulation/source checks, 14 distinct focused Chrome scenarios, producti
 
 The Q flurry still uses aggregate projectile damage. Five-arrow sequencing, source release-frame alignment, activation/reset behavior, complete spell cast timing and pixel calibration remain outstanding. This milestone does not complete the production goal. See [Q evidence and scope](ASHE-Q.md#source-empowered-attack-animation).
 
-
 ## Q attack-reset milestone
 
 Successful Q activation now resets the attack timer, supported by the pinned spell tag and Riot's patch 9.19 notes. It replaces an unreleased windup or recovery while retaining the current order/path and preserving already released arrows. The next eligible attack starts empowered on the activation tick. Idle/movement and rejected casts do not acquire unintended attacks or reset valid cycles.
@@ -4260,13 +4321,11 @@ All 233 simulation checks, nine focused Chrome scenarios, production build and p
 
 Same-tick ordering and precise native release-frame alignment still need reference calibration. Q activation animation, five-arrow flurry and complete spell cast timing remain unfinished; the production goal remains active. See [the reset evidence and semantics](ASHE-Q.md#q-attack-reset).
 
-
 ## Ashe cast-timing source audit
 
 Added a reproducible join of the four spellbook-selected source records, base animation graph and shipped GLB. The checked profile preserves absent fields and distinguishes declared cast time, animator-frame selection, cast frame, cancellation flags and full clip duration. It exposes E's different frame value/absent animator flag and Q's special reset/flags despite the shared declared 0.25-second value. These findings prevent a generic delay or full-clip movement lock from being mistaken for verified native timing.
 
 The audit verifies all source/definition/model hashes and all four graph mappings, and regenerates byte-identically. Runtime files and assets did not change, so gameplay, browser and asset suites were not repeated. W/E/R still launch immediately; pending cast state, release epochs, deferred orders, interruption semantics and reference capture checks are specified in [the casting implementation requirements](ASHE-CASTING.md). This is a research milestone, not completed cast playback; the full production goal remains active.
-
 
 ## Volley windup milestone
 
@@ -4276,7 +4335,6 @@ All 237 simulation checks, all 90 Chrome scenarios, production build and product
 
 This first windup implementation covers W only. During windup Heal remains available; other abilities and recall are rejected rather than buffered. Those interaction policies, cast-start damage/cooldown sampling, refunds and precise native frame alignment remain capture-calibration work. Full post-release animation recovery and E/R windups remain outstanding. The production goal remains active. See [casting evidence and implementation](ASHE-CASTING.md#volley-windup-implementation).
 
-
 ## Enchanted Crystal Arrow windup milestone
 
 R now uses the saved pending-cast path, spending resources once and releasing after its verified 0.25-second windup. Rendering seeks the source Spell4 pose. Snapshot version 18 supports both W and R with source-selected duration validation. Existing movement/attack deferral, stun/death and restricted spell-input policies apply to both.
@@ -4284,7 +4342,6 @@ R now uses the saved pending-cast path, spending resources once and releasing af
 All 241 simulation checks, 15 focused Chrome scenarios, production build and production smoke pass. Shared windup coverage now exercises both spells, including no early missile, one release, saved continuation, frozen/restored bones and interruption rules. R flight fixtures use actual release as their epoch while retaining acceleration, range, splash, collision, sight and stun assertions. Minimap aiming/release passes. The source-pose screenshot was inspected and R parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated after the prior 90-case full pass.
 
 Hawkshot windup, full post-release animation, general spell buffering/Flash interactions and exact native frame calibration remain unfinished. R damage still uses the prior 200 baseline pending rank/AP work. The production goal remains active. See [R windup evidence and scope](ASHE-CASTING.md#enchanted-crystal-arrow-windup).
-
 
 ## Hawkshot windup milestone
 
@@ -4632,20 +4689,17 @@ Execution research found inconsistent 13/15-second community descriptions withou
 
 Two new cases cover same-tick repeated-attacker order through checkpoint continuation and rejection of reversed chronology. The existing timestamp test now expects latest-hit order. All 356 source/simulation checks, three focused contribution/assist browser scenarios and the production nested-host smoke pass. Full browser/performance sweeps were not repeated. Execution reward eligibility is still unfinished; this change preserves evidence needed to resolve it correctly.
 
-
 ## Champion base kill gold by victim level
 
 Replaced flat 300 champion base gold with the pinned standard-mode level table: 300 at levels 1–6, then 310–420 at levels 7–18. Official 25.09 bounty tuning independently corroborates the progression. The exporter checks the full cached map hash, mode/config link and retained configuration before producing the runtime table. Rewards use the victim level before XP distribution and belong to the opposing champion source, including posthumous sources; explicit practice overrides remain supported.
 
 All 361 source/simulation checks, two focused Chrome scenarios and the nested-path production smoke pass. Coverage includes all 18 victim levels on both teams, different killer levels, duplicate death protection, saved continuation, posthumous rewards, overrides, nonchampion final blows and the HUD balance. The full browser suite and performance benchmark were not rerun. First blood, positive/negative bounties, assist gold, execution attribution and champion-death XP remain incomplete. See [economy evidence](ECONOMY.md#champion-base-kill-gold).
 
-
 ## First-blood gold and persisted claim
 
 Implemented the pinned +100 first-blood bonus, corroborated by official 26.1 notes. The first credited opposing champion kill adds the bonus to its gold event and marks a match-wide claim before processing subsequent deaths. Both teams and posthumous killers are supported; assistants receive no bonus. Nonchampion targets, same-team debug kills and uncredited deaths do not claim it. Snapshot 27 stores the required boolean and restores without replaying rewards.
 
 All 366 source/simulation checks, six focused Chrome cases (reward display, assists and save flows), and the nested-path production smoke pass. New scenarios cover same-tick trades in both team orders, assistant exclusion, nonqualifying deaths and checkpoint continuation before/after the claim. The full browser suite and performance sweep were not repeated. Native simultaneous-kill ordering, execution attribution, remaining bounty rules and announcement presentation remain unfinished; the full production objective remains active.
-
 
 ## Full browser verification after champion reward changes
 
@@ -4655,13 +4709,11 @@ Refreshed the 90-second full-Rift practice benchmark on Chrome 152 / Apple M5 Pr
 
 Updated [runtime evidence](reference/runtime-verification.json), retaining the previous record separately. This short development-build observation does not establish a performance regression or improvement, native pixel parity, full 5v5 performance, or cross-browser certification. Frame p95 remains above 16.7 ms. Complete camps, nine role bots and heavy spell stress remain absent, and the production objective remains active.
 
-
 ## Assist-gold source and mode audit
 
 Compared full standard-mode bounty records from 15.24 and 16.18 and retained hashed source files/configuration records with every matching mode link. Two unnamed candidate timing fields changed from 90/210 to 55/175 in standard mode; 16.18 URF, Swiftplay and Ultimate Spellbook still retain 90/210. Three adjacent fractional fields remain 0.25/0.5/1. The checked CommunityDragon field-name dictionary does not resolve these five hashes.
 
 Added an executable verifier for both map hashes, complete records, mode links, expected cross-version differences and dictionary coverage. It passes; documentation diff checks pass. The [assist-gold audit](ASSIST-GOLD.md) separates those verified values from speculative formula meanings, records official bounty/first-blood dependencies, and specifies controlled timing and reward experiments. No runtime payout was changed and no browser rerun was needed. A simple half-of-final-kill-gold formula would mix first-blood/positive bonuses with the assist pool and ignore unresolved time/devaluation rules. Assist gold remains unfinished; the full production objective remains active.
-
 
 ## Owned-item selling
 
@@ -4669,13 +4721,11 @@ Added `sell(slot, championId)` and owned-item sale buttons in the shop. Each tra
 
 Pinned and verified Data Dragon 16.18.1 values: Blade 180, Boots 210, Long Sword 245, Pickaxe 613. All 370 source/simulation checks, two focused browser scenarios, the subsequent screenshot capture run and the nested-path production smoke pass. Inspected the shop capture with an owned Long Sword; text, prices and action remain readable. Full-suite/performance checks were not repeated. Living health removal uses an explicitly documented local policy; native inventory slot retention, undo, recipes, Doran's passive and complete shop fidelity remain unfinished. See [selling rules and source](ECONOMY.md#selling-owned-items).
 
-
 ## Inventory slots remain stable after selling
 
 Sales now clear an inventory position instead of shifting later items. Purchases fill the first empty position before appending. The six-slot limit counts available positions correctly even when the stored array has interior gaps. Shop sale rows retain original slot indices, and the HUD already renders each position independently. Snapshot 28 permits null empty positions while retaining item-ID validation and the six-entry limit; only trailing empties are omitted.
 
 All 373 source/simulation checks, six focused Chrome cases (sales/HUD slot placement and saves) and the nested-path production smoke pass. New tests cover both teams, multiple gaps in full inventories, rejected repeat sales, buy placement after restore and invalid snapshot slots. Browser input verifies that selling slot 1 leaves Boots in slot 2 and a subsequent Pickaxe purchase fills slot 1. Full-suite/performance checks were not repeated. Drag/reorder, item actives, undo, recipes and complete native shop presentation remain unfinished; the production objective remains active.
-
 
 ## Drag-and-drop inventory ordering
 
@@ -4683,13 +4733,11 @@ Added champion-owned `moveItem` swaps and moves into empty slots, available away
 
 All 375 source/simulation checks, three focused Chrome cases and the nested-path production smoke pass. The initial real-mouse test exposed inherited HUD pointer transparency; enabling inventory-grid pointer handling fixed the intercepted drag, and the rerun passed. Browser coverage swaps occupied slots, moves to slot 6 and verifies unchanged stats/gold plus the shop's updated sale label. Unit coverage includes enemy/dead ownership, invalid operations and saved restoration. Full-suite/performance checks were not repeated. Item actives, keyboard reordering, undo, recipes and native presentation calibration remain unfinished; the full production objective remains active.
 
-
 ## Component purchases and first health recipe
 
 Added Ruby Crystal and Giant's Belt with pinned stats, prices, sell values and local source icons. Buying Belt consumes one owned Crystal and charges 500 remaining gold; direct purchase costs 900. Purchase planning uses distinct component slots and validates the complete transaction before mutation. Full inventories can upgrade through a consumed slot, duplicate components remain independent, and only net flat stats are added. Shop price labels use the same plan and refresh after purchases/sales.
 
 All 379 source/simulation checks, four focused browser scenarios, both source verifiers and the nested-path production smoke pass. Inspected the expanded shop capture: both new icons, stat descriptions, balance, owned item and sale value are readable. Tests cover both teams, full inventory upgrades, insufficient funds, duplicate components, checkpoint restoration and dead owners. Full-suite/performance tests were not repeated. Recursive recipes, native slot-selection/health calibration, undo, broader item effects and full-match systems remain unfinished; the production objective remains active.
-
 
 ## Live shop purchase feedback
 
@@ -4697,20 +4745,17 @@ Extracted a read-only `purchaseError` query shared by the purchase transaction a
 
 All 380 source/simulation checks, 13 Chrome scenarios and the nested-path production smoke pass. The new browser scenario covers an open shop transitioning through unaffordable, full-inventory recipe, out-of-fountain and available states. A fractional-funds scenario checks read-only validation and atomic rejection. Inspected the captured shop after a purchase: unavailable catalog icons/prices are muted while the owned item remains distinct. Full-suite/performance checks were not repeated. Native shop layout, persistent reason panels, recursive recipes, undo and the full production scope remain unfinished.
 
-
 ## Doran's Blade omnivamp
 
 Implemented the pinned 2.5% omnivamp and one-Doran-item ownership group. The shop description now includes the effect. Damage processing differentiates direct hits from area spells so current Volley and Crystal Arrow area damage against minions heals at the official 26.1 33% effectiveness, while attacks and champion damage use full effectiveness. Healing follows current inventory ownership, does not revive dead sources and stops after sale.
 
 All 384 source/simulation checks, three focused Chrome scenarios and the nested-path production smoke pass; the item/group source verifier also passes. Tests cover both teams, mitigated damage, minion direct/area differences, selling, duplicate ownership, missing-health cap, posthumous sources, save continuation and visible HUD healing. Full-suite/performance checks were not repeated. Overkill treatment, event timing and unsupported dummy targets are explicit local policies; shields, heal modifiers, damage-over-time/pet systems and native comparison remain unfinished. The full production objective remains active.
 
-
 ## Omnivamp through projectile collision and saved casts
 
 Added integration scenarios that queue real W/R casts, save after projectile release, and run collisions against a champion and nearby minion. Identical control worlds retain flat stats and regeneration while omitting only Doran ownership, isolating the healing effect. Both spells apply full champion healing and reduced minion area healing, with byte-identical saved continuation. A separate in-flight Volley scenario sells Doran before impact and verifies that damage still lands without healing.
 
 All 387 source/simulation checks pass. A deliberate local fault injection changed the two spell damage classifications to direct: both new W/R cases failed, confirming that the tests detect missing minion area scaling. The original runtime was restored in a finally block and the final diff contains no runtime edits. Browser and production checks were not rerun for this test-only change. Native overkill/event timing, complete healing modifiers and the overall production objective remain unfinished.
-
 
 ## Cloth Armor and Chain Vest
 
@@ -5326,7 +5371,6 @@ Two test assumptions were corrected: the pause-menu Tab cycle now includes Match
 
 All 612 source/simulation checks, nine focused audio cases and production smoke also pass. Source animation equivalence remains zero sampled matrix error with 114 pixel comparisons. Fresh laptop, full-roster scoreboard and full-Rift recovery-dialog captures were visually inspected. The full production goal remains incomplete. See [audit findings](BROWSER-REGRESSION.md) and [verification record](reference/browser-regression-221-verification.json).
 
-
 ## Selectable local lane match
 
 **Pause → New match → Start lane match** creates a human Ashe in the blue team with four allied bots and five opponents. Both teams use two top, one mid and two bottom assignments, with Lux mid and Ashe elsewhere. The human receives no automatic lane order. All champions start at their team's source fountain; original structures, wave rules and navigation remain intact. The existing bots buy, travel and fight using their current policies. Practice controls are hidden in this mode, and the HUD and scoreboard identify it as a lane match.
@@ -5336,7 +5380,6 @@ Starting replaces the browser checkpoint after explaining that consequence in th
 This milestone exposes existing lane AI in the normal game UI. It does not add jungle roles, camps, neutral objectives, human champion selection, the remaining planned roster, or native visual certification. Those remain required work.
 
 Validation: `npm run check` passed 615 tests across 126 files. The focused Chrome integration run passed 29 scenarios, including match selection/restart, failed replacement writes, save/file recovery, pause focus and scoreboard behavior. Nested-path production smoke passed nine audio recordings, navigation, real Hawkshot input and absence of the development hook. The 1366×768 selection and ten-player scoreboard screenshots were inspected. Evidence hashes are in `docs/reference/lane-match-verification.json`.
-
 
 ## Natural lane-match completion audit
 
@@ -5355,7 +5398,6 @@ node tools/qa/restore-match.mjs http://127.0.0.1:5173 artifacts/lane-match-termi
 
 The restore diagnostic requires a development server and a terminal lane-mode checkpoint from the same simulation build. No native client comparison or broader production completion is implied.
 
-
 ## Champion-aware player input foundation
 
 The input path no longer assumes that every Q is Ashe's instant Focus or every W is Volley. Lux Q/W/E/R use hold-to-aim and release-to-cast through the existing command queue. Her active E switches to a point-free instant recast, including queued detonation during flight, using only her own undetonated zone. Heal remains instant and Ashe's existing control behavior remains intact. Lux aimed spells currently require a battlefield cursor; inheriting the global Ashe E/R minimap policy would be incorrect without separate verification.
@@ -5366,7 +5408,6 @@ The development fixture exercises a human-controlled Lux via the diagnostic hook
 
 Validation: all 615 source/simulation checks passed. Nineteen existing Ashe tooltip, attack-move and minimap browser cases passed; the final four Lux input cases passed after correcting test timing around the first rendered guide and W's existing cast lock. Production smoke passed on the final input revision. Simulation schema 49 and its fingerprint remain unchanged. Evidence hashes: `docs/reference/lux-player-input-verification.json`.
 
-
 ## Lux player HUD and source spell icons
 
 The restored Lux-player HUD now shows Lux's portrait/title and four pinned source spell icons, correct spell and upgrade names, current rank/AP/level descriptions, rank-one previews and champion-specific health regeneration. E switches between normal cooldown and a free **RECAST** state, including live tooltip updates and clickable detonation. Ashe Focus and Hawkshot charge widgets are absent for Lux; practice reset keeps those Ashe-only fields zero. Controls now describe Lux's aimed Q and E recast. See [LUX-HUD.md](LUX-HUD.md) for provenance and boundaries.
@@ -5374,7 +5415,6 @@ The restored Lux-player HUD now shows Lux's portrait/title and four pinned sourc
 This completes the HUD dependency for the next champion-selection step; ordinary match initialization still selects Ashe. Native tooltip/effect parity and the wider production scope remain incomplete.
 
 Validation: 615 source/simulation checks, 14 focused Chrome scenarios and nested-path production smoke passed. The Lux rank-one Q preview and active E recast screenshots were inspected at 1366×768. Simulation format 49 and fingerprint are unchanged. Evidence: `docs/reference/lux-hud-verification.json`.
-
 
 ## Selectable Ashe and Lux
 
@@ -5385,7 +5425,6 @@ The World constructor initializes the chosen champion's real profile and indepen
 A browser scenario selects Lux with the keyboard, starts her actual lane match, learns Q through the HUD, hits a controlled dummy with real Q input, saves/restores the exact world, restarts the lane match, switches to Lux practice and restarts again. Source-grid simulation cases verify the Lux roster, practice stats/spells and exact saved continuation. Native champion/effect parity, the remaining roster and full role/objective play remain unfinished. Schema 49 is unchanged; simulation fingerprint compatibility changes.
 
 Validation: 617 source/simulation checks and 13 focused browser scenarios passed, covering champion choice, target picking, lane startup/failure handling, Lux HUD and save restoration. The production smoke now also selects Lux, learns/casts Binding with real input, loads all four Lux icons under the nested static prefix, and verifies a Lux lane restart with no development hook. The 1366×768 selector and live Binding screenshots and 1600×1000 production Lux view were inspected. Evidence: `docs/reference/champion-choice-verification.json`.
-
 
 ## Lux basic-attack source package
 
@@ -5423,7 +5462,6 @@ Implemented the hoop's correlated birth distributions, fixed-grid emission, per-
 
 Validation: 627 tests across 128 files, three focused browser cases (including all 36 shader GPU samples), production build and a reviewed 1440×900 screenshot. The cloud adds one draw call above the reference grid; seeded seek/restore, playback, restart, retirement and geometry-count stability pass. Native RNG/update rate, orientation/extent and final blend appearance remain unverified. Missile attachment, the crescent/trail emitters and gameplay integration remain next. See [PARTICLE-PLAYBACK.md](PARTICLE-PLAYBACK.md).
 
-
 ## Saved Lux attack trajectories
 
 Real Lux basic attacks now retain their launch origin and a contiguous, bounded history of missile positions and headings. Each frame records the post-step pose at its world tick. Swept hits retain the contact point rather than the full-step overshoot; disappearing targets stop the effect at its last position. Stopped records survive 37 ticks, covering the longest currently reconstructed natural particle lifetime. The 40-frame history includes interpolation margin. These limits are reconstruction policy, not a verified native linger rule.
@@ -5431,7 +5469,6 @@ Real Lux basic attacks now retain their launch origin and a contiguous, bounded 
 The frame evaluator interpolates position and the shortest angular turn, rejects requests before the retained prefix and freezes at the terminal pose. Schema 50 saves this history and rejects missing active records, duplicate identities, invalid owners, inconsistent endpoints/origins, gaps and expired tails. The records do not apply damage or replay sounds. Gameplay particle attachment is still the next step; the generic Lux projectile remains visible.
 
 Validation: 632 checks across 129 files, nine focused browser cases and the nested-path production smoke passed. Real browser checkpoints restored exact world state both during flight and after impact, continued deterministically and retired the tail on schedule. Other focused cases covered existing saves, champion selection and Lux HUD. No visual rendering changed in this step. Evidence: `docs/reference/lux-attack-history-verification.json`.
-
 
 ## Hoop particles attached to real Lux attacks
 
@@ -5443,7 +5480,6 @@ This is one integrated emitter of three. The generic missile core still remains 
 
 Validation: 635 checks across 130 files, two focused browser scenarios and nested-path production smoke passed. Model checks verify birth-position/heading transforms, independence from later path changes, JSON replay, stop behavior and unavailable-history handling. The real attack checkpoint scenario verifies identical instance counts and matrices after post-impact reload, enemy visibility removal/reappearance and complete scene-object retirement. The stationary inspector remains deterministic. Both 1440×900 in-flight and post-impact gameplay screenshots were inspected. Evidence: `docs/reference/lux-attack-hoops-verification.json`.
 
-
 ## Lux ribbon birth state and persistent wake distance
 
 The pinned trail definition uses mode 1 (WAKE): the ribbon's longitudinal UV depends on emitter distance at particle birth. Recomputing distance from the retained path would make the texture shift when old frames retire. Each Lux attack history frame now stores absolute cumulative planar travel, including the first launch step and the swept contact segment. Format 51 validates the distance progression and preserves it through saves and bounded-history retirement. The frame evaluator interpolates that counter alongside position and heading. This is planar simulation distance; native height-dependent travel still needs an actual missile-height trajectory.
@@ -5453,7 +5489,6 @@ The pinned trail definition uses mode 1 (WAKE): the ribbon's longitudinal UV dep
 The source interpretation follows the previously pinned [LeagueToolkit ribbon research, sections 2.12 and T7](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/docs/plans/vfx-particle-renderer.md). The implementation is independent and its profile tests compare directly with the binary-verified local Lux definition. Geometry expansion along each point's local +X, walked cutoff, UV packing/addressing, native material selection and blend validation remain subsequent work. The ribbon is not yet rendered in gameplay; the hoop integration is unchanged.
 
 Validation: 641 checks across 131 files, six focused browser save cases and nested-path production smoke passed. The tests cover curved cumulative travel, bounded history, clipped impact, malformed distance records, exact source curves, separate birth/age clocks, wake-coordinate stability after prefix removal, exact JSON replay and terminal retirement. An initial test exposed the age-boundary rounding defect; the final run includes the repair. No new visual claim is made for this state-only step. Evidence: `docs/reference/lux-trail-state-verification.json`.
-
 
 ## Integrated Lux ribbon geometry and material
 
@@ -5466,7 +5501,6 @@ The material uses raw source textures, top-row UVs, linear repeat sampling and p
 Validation: 645 tests across 132 files, four focused browser scenarios and nested-path production smoke passed. Geometry tests cover rotated widths, cutoff, wake-cell packing, independent multiplier scroll and hidden-point gaps. Synthetic GPU probes check all RGBA channels of both the vertex-tinted product and source-alpha additive result within one byte; all 36 prior source-texture GPU comparisons also pass. The GPU probe explicitly disables premultiplied canvas alpha so its nonopaque clear color matches the independent reference. Real checkpoints restore all ribbon attributes/counts exactly after impact, preserve fog hide/reveal and retire both effect maps. The preview verifies deterministic seeks, play/pause, retirement, two scene calls (one grid, one ribbon) and stable geometry counts. Gameplay flight/tail and close-up textured/wireframe screenshots were inspected at 1440×900.
 
 Remaining: crescent integration and removal of the generic projectile core, native birth orientation/height, sampler/material capture, full native linger policy and pixel comparison. Terrain height is still sampled beneath the geometry using the current reconstructed missile height. This completes a rendered ribbon component, not full native attack parity. Evidence: `docs/reference/lux-trail-ribbon-verification.json`.
-
 
 ## Integrated crescent and complete three-emitter playback
 
@@ -5482,7 +5516,6 @@ Validation: 650 tests across 133 files, three focused browser scenarios and nest
 
 Remaining fidelity work includes native frame/binding-clock and missile-height comparison, source mesh metadata interpretation, exact RNG/update scheduling, native sampler/blend capture and stop/linger modes. The 37-tick retained tail covers the reconstructed natural maximum lifetime; it does not implement the authored 10.6-second crescent linger. This completes the three-emitter reconstruction in gameplay, while native authenticity and the wider game remain unfinished. Evidence: `docs/reference/lux-crescent-verification.json`.
 
-
 ## Resolved type-0 lifetime caps
 
 The basic attack's authored linger numbers do **not** request that many additional seconds after impact. All three emitters omit `particleLingerType` and `emitterLinger`, including their hashed field identities. The pinned [LeagueToolkit schema](https://github.com/LeagueToolkit/LeagueToolkit/blob/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit.Meta.Classes/Classes.cs) defaults these to type 0 and zero wait. The [pinned enum](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts) names type 0 `maxLifetimeAfterEmitterDies`; the [settlement reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts) caps total particle lifetime rather than resetting it from the stop. The [complex-emitter cap](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/systemModel.ts) also limits authored linger to nominal particle life plus ten seconds.
@@ -5495,7 +5528,6 @@ Validation: 654 tests across 134 files, two browser scenarios and nested-path pr
 
 The primary schema/default evidence and external engine reconstruction are distinct from native-client observation. Whether a native Lux missile requests an ordinary soft stop or another termination operation remains to be captured. Exact attachment, orientation, height, binding clock, RNG/timing and shader/sampler comparison also remain open. Evidence: `docs/reference/lux-linger-verification.json`.
 
-
 ## Corrected trail shape/frame rotation separation
 
 The initial ribbon state incorrectly added `SpawnShape.emitRotationAngles` to the particle's own facing. The [pinned birth path](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts) instead applies the shape turn to its offset and birth velocity, saves the emitter frame separately, and reads particle rotation from `birthRotation0`. Lux Trail has no shape offset, birth velocity or birth rotation, so its Y-axis shape turn contributes no geometric rotation. Its emitter offset is added after the shape operation. The field is now named `shapeRotationDegrees` in the source profile, and each ribbon point keeps its birth heading. This supersedes the earlier claim that this curve should rotate the ribbon's local +X width.
@@ -5505,7 +5537,6 @@ Validation: 655 tests across 134 files, three browser scenarios and nested-path 
 The parent-orientation default is a separate, unresolved question. Both sources default `particleIsLocalOrientation` to false, supporting retained rather than live particle heading. But the pinned [generated schema](https://github.com/LeagueToolkit/LeagueToolkit/blob/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit.Meta.Classes/Classes.cs) gives `isLocalOrientation` false, whereas the newer pinned [renderer reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts) and its plan use true. The current parent birth-heading policy is unchanged pending stronger evidence. Native-client orientation parity is not claimed.
 
 Two further differences found in this audit remain next: the reference forces at least one particle on first emission, and its emitter odometer measures between emission batches, whereas current scheduling waits for a full rate interval and current saved distance sums every simulation step. These need explicit reconstruction changes and regression coverage; they are not treated as already implemented. Evidence: `docs/reference/lux-trail-orientation-verification.json`.
-
 
 ## First emission and batch-based wake distance
 
@@ -5518,7 +5549,6 @@ Schema 52 names and validates this changed meaning. Validation checks early zero
 Validation: 659 tests across 135 files, four browser scenarios and nested-path production smoke passed. An independent integer-credit stepper checks all three rates for 600 updates and every resulting birth tick. Tests separate lifetime and stop boundaries, verify real first-update particles, suppress impact-update births, and compare a long curved flight against an explicit trail emission schedule through prefix retirement. Malformed odometers are rejected; checkpoint continuation and all three renderer restores remain exact. Combined, ribbon and hoop previews retain deterministic seeks and retirement. Updated combined and isolated-ribbon screenshots were reviewed at 1440×900.
 
 The fixed 60 Hz grid and arithmetic remain this reconstruction's policy; exact native update frequency, float accumulation and missile termination ordering still require observation. The saved batch distance remains planar because a native height trajectory is not yet captured. Parent-orientation defaults, attachment, binding clock, RNG and shader/sampler parity also remain open. These changes resolve the two specific scheduling/odometer differences identified in the previous audit. Evidence: `docs/reference/lux-emission-verification.json`.
-
 
 ## Gromp legacy particle source and live death flash — October 21, 2026
 
@@ -5554,7 +5584,6 @@ remain passing. The 1440×900 death capture was visually reviewed; it uses expli
 17 source audio files and requests no Gromp module, rig or effect texture. No
 full browser-suite rerun or native pixel-parity claim is made. Commands, scope
 and file hashes are in `reference/gromp-death-verification.json`.
-
 
 ## Eight-emitter Gromp death burst — October 21, 2026
 
@@ -5594,7 +5623,6 @@ alongside the broader standard camp scheduler, jungle roles and full-match
 requirements. This advances the original goal without certifying completion.
 Commands, source assumptions, diagnostics and hashes are retained in
 `reference/gromp-death-burst-verification.json`.
-
 
 ## Gromp source missiles and retained flight — October 21, 2026
 
@@ -5703,7 +5731,6 @@ The original 100-seed corpus retains its older ruleset and 70/30 result. No new
 100-seed gate, complete six-character milestone or full-project completion is
 claimed. Remaining champion content, role quests/objectives, native comparison
 and full browser/offline/performance coverage remain required work.
-
 
 ## Garen basic-swing and target particles — October 23, 2026
 
@@ -5894,7 +5921,6 @@ the broader project requirements remain open. See [Leona](LEONA.md), the
 [policy audit](reference/leona/combat-policy-audit.json) and the
 [verification ledger](reference/leona/sunlight-verification.json).
 
-
 ## Eclipse defenses, burst and saved phases — October 23, 2026
 
 Leona's non-player development simulation now implements W through World cast
@@ -5949,7 +5975,6 @@ source iterations, logs, checkpoints and captures remain separate and immutable.
 All owned runners drained before final review/commit. See [Leona](LEONA.md), the
 [open policy audit](reference/leona/combat-policy-audit.json) and the
 [Eclipse verification ledger](reference/leona/eclipse-verification.json).
-
 
 ## Zenith Blade flight, last-champion pursuit and saved phases — October 23, 2026
 
@@ -6013,7 +6038,6 @@ exited before final review/commit. See [Leona](LEONA.md), the
 [open policy audit](reference/leona/combat-policy-audit.json) and the
 [Zenith verification ledger](reference/leona/zenith-verification.json).
 
-
 ## Solar Flare delayed impact and independent control — October 23, 2026
 
 Leona's non-player development fixture now implements R command validation,
@@ -6075,7 +6099,6 @@ presentation, player/support-bot integration, native calibration and the broad
 project requirements remain open. See [Leona](LEONA.md), the
 [policy audit](reference/leona/combat-policy-audit.json) and the
 [Solar verification ledger](reference/leona/solar-verification.json).
-
 
 ## Leona source rig and saved body poses — October 23, 2026
 
@@ -6142,7 +6165,6 @@ W variants, Q retiming and shared fades remain local policies. See
 [Leona rig integration](LEONA-RIG.md) and the updated policy audit. Nothing was
 pushed; the full project goal remains active.
 
-
 ## Sunlight source marks, detonation and saved audiences — October 23, 2026
 
 The development browser now renders all nine Sunlight emitters: one ordinary
@@ -6208,7 +6230,6 @@ audio is not integrated. Q/W/E/R VFX/audio, human controls/selection, support AI
 full roster/match/browser/offline/performance and native acceptance remain
 required. Nothing was pushed; the full goal stays active. See
 [Sunlight source presentation](LEONA-SUNLIGHT-VFX.md) and the policy audit.
-
 
 ## Daybreak shield/contact source particles — October 23, 2026
 
@@ -6286,7 +6307,6 @@ complete champion interactions and full roster/match/browser/offline/performance
 native acceptance remain required. Production roster gates remain unchanged.
 Nothing was pushed; the full goal stays active. See [Daybreak](LEONA-Q-VFX.md).
 
-
 ## Complete Eclipse source dependency preparation — October 23, 2026
 
 All five standard-game W systems are retained with fifty complete emitter
@@ -6352,7 +6372,6 @@ E/R presentation, complete champion interactions, controls/support AI and the
 full six-champion/full-match/browser/offline/performance acceptance also remain
 open. Nothing was pushed; the full goal stays active. See
 [Eclipse source dependencies](LEONA-W-SOURCE.md).
-
 
 ## Eclipse attached-skin arithmetic and diagnostic rig — October 23, 2026
 
@@ -6529,7 +6548,6 @@ support integration, the current full cohort and the six-champion match/browser/
 offline/performance requirements remain open. This agent did not push; the goal
 remains active.
 
-
 ## Eclipse source audio and saved finite phases — October 24, 2026
 
 The development Leona fixture now plays all five Eclipse SFX roles from eighteen
@@ -6583,7 +6601,6 @@ missing presentation, player/support integration, the full current cohort and al
 six-champion match acceptance remain required. Nothing was pushed; the goal
 remains active.
 
-
 ## Zenith Blade complete source dependency preparation — October 24, 2026
 
 All five E systems are re-decoded from four frozen Riot BINs. All 33 emitter
@@ -6629,7 +6646,6 @@ and its [ledger](reference/leona/e-source-verification.json). This is source
 preparation, not E/native playback acceptance. The complete kit, player/support,
 full current cohort and six-champion match/browser/offline/performance gates
 remain required. Nothing was pushed; the full goal stays active.
-
 
 ## Zenith Blade saved phase histories — October 24, 2026
 
@@ -7268,7 +7284,6 @@ player Leona/support and full six-character match remain open. See
 [verification record](reference/leona/r-surface-verification.json). Nothing is
 pushed; the full project goal stays active.
 
-
 ## Solar Flare attached owner skin — October 24, 2026
 
 The authored Cas_WeaponGlow overlays a private complete Leona rig from saved
@@ -7495,7 +7510,6 @@ Native Leona dispatch/defaults, weapon attachment frames, reflection normals,
 native frame acceptance, player/support and the full six-character match gates
 remain open. Nothing is pushed and the project goal remains active.
 
-
 ## Native emitter constructors and registered fields — October 24, 2026
 
 The matching arm64 executable now ties source-named BIN type/field registrations
@@ -7528,7 +7542,6 @@ run. Weapon frames, reflection inputs, native-frame acceptance, player/support
 and full six-character match work remain open. The goal stays active; nothing
 is pushed.
 
-
 ## Native generic BIN loading and Activate omission — October 24, 2026
 
 The frozen R buff BIN now supplies exact wire evidence: LIST80 of STRUCT82,
@@ -7557,7 +7570,6 @@ stays41/44. Runtime/assets/schema126/ruleset591ddf38 remain unchanged, with no n
 browser, production, cohort or performance run. Weapon frames, reflection inputs,
 native frames, player/support and full roster work remain open. Work continues
 under the active goal; nothing is pushed.
-
 
 ## Native generic SCB normals and source sword comparison — October 24, 2026
 
@@ -7589,7 +7601,6 @@ No native target/shader execution or provider restart occurred. Reflection
 resources/uniform bindings, E draw dispatch, weapon frames, native acceptance,
 player/support and full roster work remain open. No new production/offline,
 cohort or performance run is claimed. The active goal continues; nothing is pushed.
-
 
 ## Native reflection inputs and rim-only mesh shaders — October 24, 2026
 
@@ -7630,7 +7641,6 @@ resource lifecycle, weapon frames, native acceptance, player/support and full
 roster work remain open. No fresh production/cohort/performance result is claimed.
 The goal continues; nothing is pushed.
 
-
 ## Zenith rim-only ordinary mesh material — October 24, 2026
 
 The explicit-input material now offers a no-cube rim-only factory for retained
@@ -7661,7 +7671,6 @@ new production/offline run, normal cohort or performance acceptance is claimed.
 Explicit normal delivery and saved E source presentation integration are next;
 actual native dispatch/lifecycle/resources, weapon attachments, native frames,
 player/support and full roster gates remain open. The goal continues; no push.
-
 
 ## Zenith source sword, SCB material semantics and complete local visible coverage — October 24, 2026
 
@@ -8361,7 +8370,6 @@ comparison, missing R families, full player/support/roster, ordinary Rift cohort
 and performance gates remain open. Work continues under the active goal; nothing
 pushed.
 
-
 ## 2026-10-25 — Sunlight source audio prepared
 
 The declared Sunlight hit event is mapped through nine selected/inherited nodes
@@ -8398,8 +8406,7 @@ audiences preserve stable media, moving placement and hidden-start silence.
 Numeric serial order keeps same-tick cap admission deterministic. The controller
 uses source gain −12 dB, cap two, untouched masters and shared spell attenuation;
 all clips fit the existing 65-tick history. No snapshot fields were added. The
-compatibility fingerprint now includes Sunlight audio state rules; schema stays
-128. Mute/visibility cleanup, finite completion and result audio-clock draining
+compatibility fingerprint now includes Sunlight audio state rules; schema stays 128. Mute/visibility cleanup, finite completion and result audio-clock draining
 preserve saved gameplay. Source failures settle quietly without retries.
 
 Seven new units bring the full check to 2,006 tests in 324 files, TypeScript and
@@ -8419,7 +8426,6 @@ Offline integrity, repair, saved boot and atomic version switching pass with
 listening/frame comparison, missing R families, full player/support/roster,
 ordinary Rift cohort and performance gates remain open. Work continues under
 the active goal; nothing pushed.
-
 
 ## 2026-10-25 — Death3D layered source audio prepared
 
@@ -8451,7 +8457,6 @@ Offline integrity, repair, saved boot and atomic version switching pass with
 listening, missing R families, full player/support/roster, ordinary Rift cohort
 and performance gates remain open. Work continues under the active goal; nothing
 pushed.
-
 
 ## 2026-10-25 — Saved death facts and layered playback
 
@@ -8488,7 +8493,6 @@ listening/frame comparison, missing R families, full player/support/roster and
 ordinary Rift cohort/performance acceptance remain open. Work continues under
 the active goal; nothing pushed.
 
-
 ## 2026-10-25 — Development Leona support on the actual Rift
 
 The explicit development scene `/?scene=leona-rift` now puts human Leona in the
@@ -8522,7 +8526,6 @@ generated bytes and evidence. This accepts a development map integration, not a
 full roster release or normal-match cohort/performance gate. Native comparison,
 three R families and the remaining roster remain open. Work continues under the
 active goal; nothing pushed.
-
 
 ## 2026-10-25 — Explicit Leona support corpus and preserved baseline
 
@@ -8832,7 +8835,6 @@ sources, output, original failures and successful evidence. E/R, passive,
 player/role integration, full roster, native, performance and overall project
 acceptance remain open. Work continues; nothing pushed.
 
-
 ## 2026-10-25 — Development Charm, first-hit missile and saved forced walking
 
 [Ahri E](AHRI-E.md) adds manual NPC learning/casting with pinned metadata/icon,
@@ -8878,7 +8880,6 @@ closure. Pink missile rendering, width/range interpretation, control priority,
 post-death ownership, directional animation and E/Flash interaction are explicit
 local policies or open work. Native behavior/presentation, full Ahri kit, roster,
 performance and full-project completion remain false.
-
 
 ## 2026-10-25 — Spirit Rush base, independent dashes/recasts/bolts and angled arrival
 
@@ -8926,7 +8927,6 @@ The pinned BIN parser and its local import companions are also retained. Passive
 Essence resets, full Ahri kit, native behavior/presentation, roster expansion,
 performance and full-project completion flags remain false. Next work is the
 separately audited passive and its connection to R.
-
 
 ## 2026-10-25 — Essence Theft, saved healing and champion-consumption R restoration
 
@@ -9266,7 +9266,6 @@ contains 1,068 files / 526,616,922 bytes. No fresh offline/full-browser/native/
 performance certification is claimed. Q/R, full Master Yi and full project
 completion stay open. Highlander declaration preparation remains staging-only.
 
-
 ## 2026-10-25 — development Master Yi Highlander
 
 The manual NPC fixture now supports [Highlander](MASTER-YI-R.md): frozen own
@@ -9313,7 +9312,6 @@ interruption, slow-policy correction, final proofs and production results. No
 fresh full-browser/offline/native/performance or full-project completion claim.
 Alpha Strike source projection/guard preparation remains outside runtime inputs.
 
-
 ## 2026-10-25 — Alpha Strike source preparation
 
 `export-masteryi-q.py` adds a guarded projection for the frozen root/children,
@@ -9332,7 +9330,6 @@ movement durations. New-target untargetability must be separated from the
 existing damage/protection check so Q does not become blanket invulnerability.
 Q remains unavailable while these controllers and saved interaction policies are
 implemented and checked. No new game behavior or native calibration is claimed.
-
 
 ## 2026-10-25 — restore three Garen source audit groups in cloud
 
@@ -9353,7 +9350,6 @@ native/research-input, distortion-source/disassembly and Lux sampler-digest grou
 are not repaired by this restore; no fresh full-suite pass is claimed. Schema142,
 Highlander ruleset and production pack remain unchanged, so no game build or
 browser rerun was needed for these tool/cache-only changes.
-
 
 ## 2026-10-25 — development Master Yi Alpha Strike
 

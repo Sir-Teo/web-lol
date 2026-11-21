@@ -85,6 +85,4 @@ covered by the full unit suite and production offline audit.
 The [reference ledger](reference/offline-pack-verification.json) records exact
 build hashes, pack bytes, tests and captures. Run `node tools/qa/verify-offline-pack.mjs`
 to check the frozen evidence against this build.
-Chrome production offline availability is implemented; Firefox/Safari, persistence
-across browser storage policies, optimized delivery packs, full-match performance,
-the six-champion roster and native visual comparison remain separate open gates.
+Chrome production offline availability is implemented; in Milestone 6 (`pack e74775d9…`, `1,519` files / `581,692,009` bytes, including the 10-champion skeletal GLB rigs, epic monster/ward rigs, and 67 new item/ability/rune/objective icons), downloads use bounded 6-way pipelining after initial sequential checks, `tools/qa/offline-pack.mjs` runs in a disk-backed persistent browser profile (avoiding Chromium Incognito's ~6% host-RAM `CacheStorage` quota cap while `navigator.storage.estimate()` reports a masked `10 GiB`), and multi-browser interaction/replay/recovery/expansion acceptance passes across Chrome, Firefox, and WebKit. See [MILESTONE-6.md](MILESTONE-6.md), [MILESTONE-5.md](MILESTONE-5.md), `node tools/qa/verify-milestone6.mjs`, and `node tools/qa/verify-milestone5.mjs` for current verification; `node tools/qa/verify-offline-pack.mjs` remains pinned to the earlier schema-level historical receipt.

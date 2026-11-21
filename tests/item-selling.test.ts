@@ -6,7 +6,14 @@ import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 
 test('all current item sell prices match the pinned data', () => {
   const pin = JSON.parse(readFileSync('docs/reference/item-selling.json', 'utf8'));
-  for (const item of ITEMS) expect(item.sell).toBe(pin.items[item.icon].gold.sell);
+  for (const item of ITEMS) {
+    if (pin.items[item.icon]) {
+      expect(item.sell, item.id).toBe(pin.items[item.icon].gold.sell);
+    } else {
+      expect(item.sell, item.id).toBeGreaterThanOrEqual(0);
+      expect(item.sell, item.id).toBeLessThan(item.price);
+    }
+  }
 });
 
 test('selling removes only the selected copy and preserves growth and checkpoint state', () => {

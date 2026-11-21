@@ -1,0 +1,25 @@
+{
+  "referenceVersion": "26.18-authored-milestone6",
+  "provenance": "authored-local-milestone6",
+  "status": "Authored skeletal GLB 2.0 rig and atomic animations for Milestone 6 offline compatibility; native Riot WAD skin/pose calibration documented as a deviation.",
+  "output": {
+    "path": "/assets/models/controlward-base.glb",
+    "bytes": 9356,
+    "sha256": "f3365d326413960f3d3e880dae39770dc1761d0c2d0da72baaee6d3f0644ee51"
+  },
+  "triangles": 48,
+  "clips": [
+    {
+      "name": "attack1",
+      "durationSeconds": 1.6
+    },
+    {
+      "name": "entry_3a224d98",
+      "durationSeconds": 0.4
+    },
+    {
+      "name": "entry_bd28bd4d",
+      "durationSeconds": 0.77
+    }
+  ]
+}

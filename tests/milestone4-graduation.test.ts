@@ -25,7 +25,7 @@ const rift = createRift(
 );
 const publicRift = { ...rift, publicRift: true as const };
 
-test('public Summoner’s Rift admits all six champions in 5v5 with live Baron and in practice without Baron', () => {
+test('public Summoner’s Rift admits all ten champions in 5v5 with live Baron and in practice without Baron', () => {
   expect(PUBLIC_SELECTABLE_CHAMPIONS).toEqual([
     'ashe',
     'lux',
@@ -33,13 +33,19 @@ test('public Summoner’s Rift admits all six champions in 5v5 with live Baron a
     'masteryi',
     'leona',
     'ahri',
+    'darius',
+    'vi',
+    'ezreal',
+    'morgana',
   ]);
   for (const champion of PUBLIC_SELECTABLE_CHAMPIONS) {
     expect(publicSelectableChampion(champion)).toBe(champion);
     const lanes = createLaneMatch(
       publicRift,
       champion,
-      champion === 'masteryi' ? { d: 'smite', f: 'flash' } : { d: 'flash', f: 'heal' }
+      champion === 'masteryi' || champion === 'vi'
+        ? { d: 'smite', f: 'flash' }
+        : { d: 'flash', f: 'heal' }
     );
     expect(lanes.hero).toMatchObject({ champion, ai: false, lane: null });
     expect(lanes.player.role).toBe(PLAYER_CHAMPION_ROLES[champion]);

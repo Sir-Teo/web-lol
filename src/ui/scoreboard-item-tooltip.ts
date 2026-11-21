@@ -7,8 +7,10 @@ export class ScoreboardItemTooltip {
   private focused: HTMLElement | null = null;
   private owner: HTMLElement | null = null;
   private preferred: 'hovered' | 'focused' = 'hovered';
+  private readonly abort = new AbortController();
 
   constructor(private root: HTMLElement) {
+    const signal = this.abort.signal;
     this.tip.className = 'tooltip scoreboard-item-tooltip';
     this.tip.id = 'scoreboard-item-tooltip';
     this.tip.setAttribute('role', 'tooltip');
@@ -17,27 +19,49 @@ export class ScoreboardItemTooltip {
     root.append(this.tip);
     const target = (value: EventTarget | null) =>
       value instanceof Element ? value.closest<HTMLElement>('[data-scoreboard-item]') : null;
-    root.addEventListener('pointerover', (event) => {
-      this.hovered = target(event.target);
-      this.preferred = 'hovered';
-      this.refresh();
-    });
-    root.addEventListener('pointerout', (event) => {
-      this.hovered = target(event.relatedTarget);
-      this.refresh();
-    });
-    root.addEventListener('focusin', (event) => {
-      this.focused = target(event.target);
-      this.preferred = 'focused';
-      this.refresh();
-    });
-    root.addEventListener('focusout', (event) => {
-      this.focused = target(event.relatedTarget);
-      this.refresh();
-    });
-    root.addEventListener('scroll', () => this.refresh(), true);
-    window.addEventListener('resize', () => this.refresh());
-    window.addEventListener('blur', () => this.clear());
+    root.addEventListener(
+      'pointerover',
+      (event) => {
+        this.hovered = target(event.target);
+        this.preferred = 'hovered';
+        this.refresh();
+      },
+      { signal }
+    );
+    root.addEventListener(
+      'pointerout',
+      (event) => {
+        this.hovered = target(event.relatedTarget);
+        this.refresh();
+      },
+      { signal }
+    );
+    root.addEventListener(
+      'focusin',
+      (event) => {
+        this.focused = target(event.target);
+        this.preferred = 'focused';
+        this.refresh();
+      },
+      { signal }
+    );
+    root.addEventListener(
+      'focusout',
+      (event) => {
+        this.focused = target(event.relatedTarget);
+        this.refresh();
+      },
+      { signal }
+    );
+    root.addEventListener('scroll', () => this.refresh(), { capture: true, signal });
+    window.addEventListener('resize', () => this.refresh(), { signal });
+    window.addEventListener('blur', () => this.clear(), { signal });
+  }
+
+  dispose(): void {
+    this.clear();
+    this.abort.abort();
+    this.tip.remove();
   }
 
   clear(): void {

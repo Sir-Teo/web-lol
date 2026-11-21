@@ -1,0 +1,33 @@
+{
+  "referenceVersion": "26.18-authored-milestone6",
+  "provenance": "authored-local-milestone6",
+  "status": "Authored skeletal GLB 2.0 rig and atomic animations for Milestone 6 offline compatibility; native Riot WAD skin/pose calibration documented as a deviation.",
+  "output": {
+    "path": "/assets/models/sru-riftherald-base.glb",
+    "bytes": 19172,
+    "sha256": "01abddb680b2fb1d5871aa75f482ac9d98a76c18eafaa59e58ffe0dd428bd737"
+  },
+  "triangles": 100,
+  "clips": [
+    {
+      "name": "spawn",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "idle1",
+      "durationSeconds": 2.2
+    },
+    {
+      "name": "run",
+      "durationSeconds": 1
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 1.1
+    },
+    {
+      "name": "death",
+      "durationSeconds": 2
+    }
+  ]
+}

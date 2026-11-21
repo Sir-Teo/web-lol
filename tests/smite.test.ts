@@ -61,6 +61,15 @@ test('base Smite accepts source large/medium tags and rejects small monsters wit
       'krug-medium',
       'scuttler',
       'baron',
+      'dragon-fire',
+      'dragon-earth',
+      'dragon-water',
+      'dragon-air',
+      'dragon-hextech',
+      'dragon-chemtech',
+      'elder-dragon',
+      'riftherald',
+      'voidgrub',
     ].includes(species);
     expect(smiteTarget(w, w.hero, u), species).toBe(allowed);
     cast(w, u);

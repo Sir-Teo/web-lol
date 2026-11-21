@@ -53,13 +53,143 @@ const referenceNames = [
   'blue-inhibitor',
   'red-inhibitor',
 ];
+const pendingLoads = new Map<string, Promise<void>>();
+
+async function loadSingleReferenceModel(loader: GLTFLoader, name: string): Promise<void> {
+  if (references.has(name)) return;
+  const inFlight = pendingLoads.get(name);
+  if (inFlight) return inFlight;
+  const task = (async () => {
+    const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
+    const monster = Object.values(MONSTERS).find((p) => p.rig === name);
+    if (monster) gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
+    if (monster || name === 'ahri-base') {
+      gltf.scene.traverse((object) => {
+        if (object instanceof THREE.Mesh) {
+          const materials = Array.isArray(object.material) ? object.material : [object.material];
+          if (materials.some((material) => material.userData.defaultHidden)) object.visible = false;
+        }
+      });
+    }
+    for (const required of name === 'sightward-base' ||
+    name === 'farsightward-base' ||
+    name === 'controlward-base'
+      ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
+      : /-(turret|nexus|inhibitor)$/.test(name)
+        ? ['idle1']
+        : name === 'ashe-base'
+          ? [
+              'idle1',
+              'run',
+              'attack1',
+              'crit',
+              'death',
+              'idle5',
+              'idle2',
+              'spell1',
+              'spell2',
+              'spell3',
+              'spell4',
+            ]
+          : name === 'lux-base'
+            ? [
+                'idle1',
+                'run',
+                'attack1',
+                'crit',
+                'attack2',
+                'death',
+                'spell1',
+                'spell2',
+                'spell3',
+                'spell4',
+                'idle3',
+                'entry_b4dcde19',
+              ]
+            : name === 'masteryi-base'
+              ? [
+                  ...Object.values(MASTER_YI_COMBAT_POLICY).filter(
+                    (value) => typeof value === 'string'
+                  ),
+                  'death',
+                ]
+              : name === 'ahri-base'
+                ? [
+                    AHRI_COMBAT_POLICY.idleClip,
+                    AHRI_COMBAT_POLICY.runClip,
+                    AHRI_COMBAT_POLICY.attackClip,
+                    AHRI_COMBAT_POLICY.criticalClip,
+                    AHRI_COMBAT_POLICY.recallClip,
+                    'death',
+                  ]
+                : name === 'leona-base'
+                  ? LEONA_REQUIRED_CLIPS
+                  : name === 'garen-base'
+                    ? [
+                        'idle1_base',
+                        'run_base',
+                        'attack1',
+                        'attack2',
+                        'crit',
+                        'spell1',
+                        'spell4_base',
+                        'spell3_0',
+                        'death',
+                        'recall',
+                      ]
+                    : name === 'darius-base' ||
+                        name === 'vi-base' ||
+                        name === 'ezreal-base' ||
+                        name === 'morgana-base'
+                      ? [
+                          'idle1',
+                          'run',
+                          'attack1',
+                          'crit',
+                          'death',
+                          'spell1',
+                          'spell2',
+                          'spell3',
+                          'spell4',
+                          'channel',
+                        ]
+                      : name === 'sru-crab-base'
+                        ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
+                        : ['idle1', 'run', 'attack1', 'death'])
+      if (!gltf.animations.some((clip) => clip.name === required))
+        throw new Error(`${name} lacks required ${required} animation`);
+    prepareAnimationBounds(
+      gltf.scene,
+      gltf.animations,
+      name !== 'leona-base' && !/-(turret|nexus|inhibitor)$/.test(name)
+    );
+    references.set(name, {
+      scene: gltf.scene,
+      clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
+    });
+  })();
+  pendingLoads.set(name, task);
+  try {
+    await task;
+  } finally {
+    pendingLoads.delete(name);
+  }
+}
+
+export async function ensureModelLoaded(name: string): Promise<void> {
+  if (references.has(name)) return;
+  await loadSingleReferenceModel(new GLTFLoader(), name);
+}
+
 export async function loadReferenceModels(
   includeMonsters: boolean | readonly MonsterSpecies[] = false,
   includeLeona = false,
   includeAhri = false,
   includeMasterYi = false,
   includeGaren = true,
-  includeLux = true
+  includeLux = true,
+  extraChampions: readonly ('darius' | 'vi' | 'ezreal' | 'morgana')[] = [],
+  includeVisionVariants = false
 ): Promise<void> {
   const loader = new GLTFLoader();
   const species =
@@ -69,8 +199,8 @@ export async function loadReferenceModels(
         ? []
         : includeMonsters;
   const monsterNames = [...new Set(species.map((s) => MONSTERS[s].rig))];
-  await Promise.all(
-    [
+  const names = [
+    ...new Set([
       ...referenceNames,
       ...(includeLux ? ['lux-base'] : []),
       ...(includeGaren ? ['garen-base'] : []),
@@ -78,99 +208,11 @@ export async function loadReferenceModels(
       ...(includeLeona ? ['leona-base'] : []),
       ...(includeAhri ? ['ahri-base'] : []),
       ...(includeMasterYi ? ['masteryi-base'] : []),
-    ].map(async (name) => {
-      const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
-      const monster = Object.values(MONSTERS).find((p) => p.rig === name);
-      if (monster) gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
-      if (monster || name === 'ahri-base') {
-        gltf.scene.traverse((object) => {
-          if (object instanceof THREE.Mesh) {
-            const materials = Array.isArray(object.material) ? object.material : [object.material];
-            if (materials.some((material) => material.userData.defaultHidden))
-              object.visible = false;
-          }
-        });
-      }
-      for (const required of name === 'sightward-base'
-        ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
-        : /-(turret|nexus|inhibitor)$/.test(name)
-          ? ['idle1']
-          : name === 'ashe-base'
-            ? [
-                'idle1',
-                'run',
-                'attack1',
-                'crit',
-                'death',
-                'idle5',
-                'idle2',
-                'spell1',
-                'spell2',
-                'spell3',
-                'spell4',
-              ]
-            : name === 'lux-base'
-              ? [
-                  'idle1',
-                  'run',
-                  'attack1',
-                  'crit',
-                  'attack2',
-                  'death',
-                  'spell1',
-                  'spell2',
-                  'spell3',
-                  'spell4',
-                  'idle3',
-                  'entry_b4dcde19',
-                ]
-              : name === 'masteryi-base'
-                ? [
-                    ...Object.values(MASTER_YI_COMBAT_POLICY).filter(
-                      (value) => typeof value === 'string'
-                    ),
-                    'death',
-                  ]
-                : name === 'ahri-base'
-                  ? [
-                      AHRI_COMBAT_POLICY.idleClip,
-                      AHRI_COMBAT_POLICY.runClip,
-                      AHRI_COMBAT_POLICY.attackClip,
-                      AHRI_COMBAT_POLICY.criticalClip,
-                      AHRI_COMBAT_POLICY.recallClip,
-                      'death',
-                    ]
-                  : name === 'leona-base'
-                    ? LEONA_REQUIRED_CLIPS
-                    : name === 'garen-base'
-                      ? [
-                          'idle1_base',
-                          'run_base',
-                          'attack1',
-                          'attack2',
-                          'crit',
-                          'spell1',
-                          'spell4_base',
-                          'spell3_0',
-                          'death',
-                          'recall',
-                        ]
-                      : name === 'sru-crab-base'
-                        ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
-                        : ['idle1', 'run', 'attack1', 'death'])
-        if (!gltf.animations.some((clip) => clip.name === required))
-          throw new Error(`${name} lacks required ${required} animation`);
-      prepareAnimationBounds(
-        gltf.scene,
-        gltf.animations,
-        name !== 'leona-base' && !/-(turret|nexus|inhibitor)$/.test(name)
-      );
-      references.set(name, {
-        scene: gltf.scene,
-        clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
-      });
-    })
-  );
+      ...extraChampions.map((c) => `${c}-base`),
+      ...(includeVisionVariants ? ['farsightward-base', 'controlward-base'] : []),
+    ]),
+  ];
+  await Promise.all(names.map((name) => loadSingleReferenceModel(loader, name)));
 }
 /** Sampler owns a private skeleton; loaded geometry, materials and clips stay shared. */
 export function createTargetPoseSampler(
@@ -219,7 +261,11 @@ export function makeModel(u: Unit): UnitModel {
   ) {
     const key =
       u.kind === 'ward'
-        ? WARD_SOURCE.rig
+        ? u.ward?.variant === 'farsight' && references.has('farsightward-base')
+          ? 'farsightward-base'
+          : u.ward?.variant === 'control' && references.has('controlward-base')
+            ? 'controlward-base'
+            : WARD_SOURCE.rig
         : u.kind === 'monster'
           ? MONSTERS[u.monster.species].rig
           : u.kind === 'champion'

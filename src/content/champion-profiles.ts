@@ -8,6 +8,12 @@ import { LUX } from './lux-progression';
 import { LEONA } from './leona-progression';
 import { LEONA_COMBAT_POLICY } from './leona-combat-policy';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from './ashe-projectiles';
+import {
+  DARIUS_PROGRESSION,
+  VI_PROGRESSION,
+  EZREAL_PROGRESSION,
+  MORGANA_PROGRESSION,
+} from './milestone6-champions';
 
 /** Explicit supported stat profiles: no fallback to another champion's kit. */
 export const CHAMPION_PROFILES = {
@@ -34,6 +40,10 @@ export const CHAMPION_PROFILES = {
     missileSpeed: 0,
     windupTicks: LEONA_COMBAT_POLICY.ordinaryWindupTicks,
   },
+  darius: { ...DARIUS_PROGRESSION, name: 'Darius' },
+  vi: { ...VI_PROGRESSION, name: 'Vi' },
+  ezreal: { ...EZREAL_PROGRESSION, name: 'Ezreal' },
+  morgana: { ...MORGANA_PROGRESSION, name: 'Morgana' },
 } as const;
 
 export function championProfile(identity: keyof typeof CHAMPION_PROFILES) {
@@ -47,6 +57,8 @@ export function isMeleeChampion(identity: keyof typeof CHAMPION_PROFILES | undef
   return identity !== undefined && CHAMPION_PROFILES[identity].missileSpeed === 0;
 }
 
+export const MILESTONE4_CHAMPIONS = ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri'] as const;
+
 export const PUBLIC_SELECTABLE_CHAMPIONS = [
   'ashe',
   'lux',
@@ -54,11 +66,15 @@ export const PUBLIC_SELECTABLE_CHAMPIONS = [
   'masteryi',
   'leona',
   'ahri',
+  'darius',
+  'vi',
+  'ezreal',
+  'morgana',
 ] as const;
 
 export type PublicSelectableChampion = (typeof PUBLIC_SELECTABLE_CHAMPIONS)[number];
 
-/** Public Summoner’s Rift selection across all six integrated Milestone 4 kits. */
+/** Public Summoner’s Rift selection across all ten integrated Milestone 6 kits. */
 export function publicSelectableChampion(
   identity: keyof typeof CHAMPION_PROFILES | undefined
 ): PublicSelectableChampion {
@@ -77,5 +93,9 @@ export function selectableChampion(
   if (identity === 'leona') throw new Error('Leona player kit is still in development');
   if (identity === 'masteryi') throw new Error('Master Yi player kit is still in development');
   if (identity === 'ahri') throw new Error('Ahri player kit is still in development');
+  if (identity === 'darius') throw new Error('Darius player kit requires Summoner’s Rift');
+  if (identity === 'vi') throw new Error('Vi player kit requires Summoner’s Rift');
+  if (identity === 'ezreal') throw new Error('Ezreal player kit requires Summoner’s Rift');
+  if (identity === 'morgana') throw new Error('Morgana player kit requires Summoner’s Rift');
   return identity;
 }

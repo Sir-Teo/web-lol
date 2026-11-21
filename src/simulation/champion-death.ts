@@ -16,7 +16,11 @@ export function championDeathTicks(level: number, deathTick: number): number {
     multiplier += Math.ceil(elapsed / (intervalSeconds * TICK_RATE)) * band.increase;
   }
   // Round only the final duration to a tick, never shorten the requested wait.
+  const baseIdx = Math.min(CHAMPION_BASE_DEATH_SECONDS.length, Math.max(1, level)) - 1;
+  const extraSeconds = Math.max(0, level - CHAMPION_BASE_DEATH_SECONDS.length) * 2.5;
   const ticks =
-    CHAMPION_BASE_DEATH_SECONDS[level - 1] * Math.min(maximumMultiplier, multiplier) * TICK_RATE;
+    (CHAMPION_BASE_DEATH_SECONDS[baseIdx] + extraSeconds) *
+    Math.min(maximumMultiplier, multiplier) *
+    TICK_RATE;
   return Math.ceil(Math.round(ticks * 1e8) / 1e8);
 }

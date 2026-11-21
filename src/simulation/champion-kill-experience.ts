@@ -15,7 +15,10 @@ export function championKillExperience(
   recipientCount: number
 ): number {
   if (!Number.isInteger(recipientCount) || recipientCount < 1) return 0;
-  const base = CHAMPION_KILL_XP.baseByVictimLevel[victim.level - 1];
+  const baseIdx =
+    Math.min(CHAMPION_KILL_XP.baseByVictimLevel.length, Math.max(1, victim.level)) - 1;
+  const extraXp = Math.max(0, victim.level - CHAMPION_KILL_XP.baseByVictimLevel.length) * 45;
+  const base = CHAMPION_KILL_XP.baseByVictimLevel[baseIdx] + extraXp;
   const shared =
     recipientCount > 1
       ? CHAMPION_KILL_XP.sharedMultiplierByLevel[

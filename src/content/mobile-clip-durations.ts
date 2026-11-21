@@ -1,10 +1,33 @@
 import type { Unit } from '../simulation/types';
 import durations from './mobile-clip-durations.json';
+import { MILESTONE6_CHAMPION_CLIP_DURATIONS } from './milestone6-champions';
 import { MONSTERS } from './monsters';
 export const MOBILE_CLIP_DURATIONS = {
   'sru-baron-base': Object.fromEntries(
     Object.entries(MONSTERS.baron.clips).map(([alias, clip]) => [alias, clip.durationSeconds])
   ),
+  'sru-dragon-base': Object.fromEntries(
+    Object.entries(MONSTERS['dragon-fire'].clips).map(([alias, clip]) => [
+      alias,
+      clip.durationSeconds,
+    ])
+  ),
+  'sru-elder-dragon-base': Object.fromEntries(
+    Object.entries(MONSTERS['elder-dragon'].clips).map(([alias, clip]) => [
+      alias,
+      clip.durationSeconds,
+    ])
+  ),
+  'sru-riftherald-base': Object.fromEntries(
+    Object.entries(MONSTERS.riftherald.clips).map(([alias, clip]) => [alias, clip.durationSeconds])
+  ),
+  'sru-voidgrub-base': Object.fromEntries(
+    Object.entries(MONSTERS.voidgrub.clips).map(([alias, clip]) => [alias, clip.durationSeconds])
+  ),
+  'darius-base': MILESTONE6_CHAMPION_CLIP_DURATIONS.darius,
+  'vi-base': MILESTONE6_CHAMPION_CLIP_DURATIONS.vi,
+  'ezreal-base': MILESTONE6_CHAMPION_CLIP_DURATIONS.ezreal,
+  'morgana-base': MILESTONE6_CHAMPION_CLIP_DURATIONS.morgana,
   'sru-crab-base': Object.fromEntries(
     Object.entries(MONSTERS.scuttler.clips).map(([a, c]) => [a, c.durationSeconds])
   ),

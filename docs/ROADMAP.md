@@ -38,40 +38,40 @@ Complete Garen, Master Yi, Leona, and Ahri research coverage or corresponding pr
 
 **Exit (verified on schema 184 / ruleset `1cf6e4e9…`):** one human plus nine bots play a full match on public Summoner’s Rift across all six champions and five roles, with configurable **Intro** / **Standard** bot reaction and aim limits, on-demand asset loading, and live Baron Nashor contests/empowered sieges. The 100-seed public regression suite passes (`hundredSeedInvariantGate: true`, 99 natural victories, 1 retained 60-minute diagnostic horizon on seed 75, 0 failures; see [100-seed ledger](reference/1cf6e4-public-milestone4-hundred-ledger.json)).
 
-## Milestone 5 — presentation, browser reliability, and offline delivery
+## Milestone 5 — presentation, browser reliability, and offline delivery (Completed)
 
 Complete the cohesive map art, rigged roster, effect library, combat sound mix, and match HUD. Add practice tools, replay, checkpoint saves, export/import, offline packs, and explicit failure/recovery states. Profile the real full-match stress fixture.
 
-**Exit:** browser interaction and screenshot/video review pass; a cached match works with network disabled; imports reject incompatible versions; context loss recovers or offers a valid save; repeated matches do not accumulate undisposed assets. Meet the performance budgets or publish revised, measured device-specific limits.
+**Exit (verified on schema 184 / ruleset `1cf6e4e9…` / pack `2fe8cc42…`):** deterministic command-log replay (`rift-match-replay` v1 with periodic SHA-256 state verification, keyframe seeking, `0.5×`–`4×` speed, and fail-closed version/ruleset import validation), Web Audio combat/feedback submix with `-6 dBFS` teamfight limiter (`rift:sound-mix:v1`), expanded 8-action Practice Tools, WebGL context-loss soft-depth cleanup + intact-world `Save match` offering + clean restore, and zero-leak sequential match disposal pass across **Google Chrome (`157.0.8103.78`), Firefox (`155`), and WebKit (`26.6`)** (`9/9` multi-browser acceptance cases + 8-capture visual review set + `.webm` video). Full `581.2 MB` (`1,432`-file) offline pack download, repair, version handoff, and network-off 5v5 boot pass (`1,494` service-worker responses, `0` errors), with Chromium Incognito RAM quota limits (`~6%` host RAM vs persistent profile storage) and full-match 6-champion 5v5 stress-profile budgets (`1.46 ms/tick` Node simulation mean, `135` median / `167` p95 draw calls, `261.6 MiB` post-GC production JS heap → revised `≤ 280 MiB` budget) documented and certified with `morluto/rea` (`rea-agents@6.10.1`). See [Milestone 5 report](MILESTONE-5.md) and [verification ledger](reference/milestone5-verification.json).
 
-## Milestone 6 — reference-mode audit and expansion
+## Milestone 6 — reference-mode audit and expansion (Completed)
 
 Finish all applicable role quests, objectives, vision variants, items, and selected runes for the frozen patch. Reconcile source changes and measured exceptions. Expand to ten distinct characters only after the match retains its earlier quality.
 
-**Exit:** every advertised rule and content entry has a coverage status, and the supported reference scenarios pass. Present remaining deviations to the player where they affect expectations. A full-roster program follows this gate and repeats the same content tests per addition.
+**Exit (verified on schema 185 / ruleset `e5e3cc7f…` / pack `e74775d9…`):** all five Season 2026 Role Quests (Top level `20` cap + `210 s` Teleport, Jungle `40`-treat Primal Smite `1,200`, Mid Tier 3 boots + `4 s` Empowered Recall, Carry **7th item slot** + `+2g` CS bonus, Support evolved World Atlas + `2`-Control-Ward capacity), full Epic Objectives (Voidgrubs + Voidmites, Rift Herald + Eye of the Herald summon, 6 Elemental Drakes, Elemental Rift transformation, 6 Dragon Souls, Elder Dragon *Aspect of the Dragon* `20%` execute, and Baron Nashor), Vision Variants (Farsight Alteration, Control Ward, `8` Season 2026 Faelights), a `58`-item catalog with uniqueness/actives/passives and Fountain Undo, editable Runes & Stat Shards, and **ten distinct champions** (`Ashe`, `Lux`, `Garen`, `Master Yi`, `Leona`, `Ahri`, `Darius`, `Vi`, `Ezreal`, `Morgana`) forming a zero-mirror 5v5 pass across unit, 10-champion roster contract, production subpath, offline pack (`1,519` files / `581.69 MB`, `1,518` SW responses), `960 s` 5v5 simulation (`57,600` ticks, `0` violations), and **Chrome (`157`) + Firefox (`155`) + WebKit (`26.6`)** E2E gates (`3/3`). All `158` advertised Patch 26.18 rules and content entries carry explicit coverage statuses (`49` `verified-behavior`, `34` `verified-data`, `75` `approximation`, `0` `unimplemented`) under **Pause → Reference & patch 26.18**, certified with `morluto/rea` (`rea-agents@6.10.1`, `12` Evidence records, bundle SHA-256 `7dbdfc6f…`). See [Milestone 6 report](MILESTONE-6.md) and [verification ledger](reference/milestone6-verification.json).
 
 ## Test cases that protect fidelity
 
-| Scenario | Required property |
-|---|---|
-| Move during windup, then after release | Correct cancellation without deleting an already released missile |
-| Repeated attack-move input | Movement does not bypass attack cooldown |
-| Target dies before missile arrival | Explicit, stable target-loss behavior |
-| Fast skillshot crosses a small target in one tick | Swept collision registers eligible hits |
-| Returning missile hits in both directions | Separate outbound/inbound hit accounting |
-| Dash or blink at a wall corner | Ability-specific landing/crossing policy is respected |
-| Overlapping stun, root, and silence | Capabilities recover at correct times |
-| Lethal damage and heal at the same timestamp | Documented event priority; no order-dependent resurrection |
-| Enemy leaves vision | No mesh, health bar, minimap, selection, ordinary audio, or AI data leak |
-| Attacker draws turret aggression | Correct transition and recovery under reference conditions |
-| Inhibitor destroyed then returns | Correct target exposure and future wave composition |
-| Buy recipe with owned components and limited space | Gold and inventory update atomically and consistently |
-| Role reward changes inventory or level cap | UI and simulation use the same updated capacity policy |
-| Save during projectile travel, then restore | Pending events and eventual state match uninterrupted simulation |
-| Replay the same command log | Checkpoint hashes match within the certified runtime matrix |
-| Tab becomes hidden then returns | Match time stays paused and held keys do not stick |
-| First use of an ultimate after loading | No missing animation, sound, or unacceptable shader stall |
-| Run several matches sequentially | Stable resource counts and no persistent-input leakage |
+| Scenario                                           | Required property                                                        |
+| -------------------------------------------------- | ------------------------------------------------------------------------ |
+| Move during windup, then after release             | Correct cancellation without deleting an already released missile        |
+| Repeated attack-move input                         | Movement does not bypass attack cooldown                                 |
+| Target dies before missile arrival                 | Explicit, stable target-loss behavior                                    |
+| Fast skillshot crosses a small target in one tick  | Swept collision registers eligible hits                                  |
+| Returning missile hits in both directions          | Separate outbound/inbound hit accounting                                 |
+| Dash or blink at a wall corner                     | Ability-specific landing/crossing policy is respected                    |
+| Overlapping stun, root, and silence                | Capabilities recover at correct times                                    |
+| Lethal damage and heal at the same timestamp       | Documented event priority; no order-dependent resurrection               |
+| Enemy leaves vision                                | No mesh, health bar, minimap, selection, ordinary audio, or AI data leak |
+| Attacker draws turret aggression                   | Correct transition and recovery under reference conditions               |
+| Inhibitor destroyed then returns                   | Correct target exposure and future wave composition                      |
+| Buy recipe with owned components and limited space | Gold and inventory update atomically and consistently                    |
+| Role reward changes inventory or level cap         | UI and simulation use the same updated capacity policy                   |
+| Save during projectile travel, then restore        | Pending events and eventual state match uninterrupted simulation         |
+| Replay the same command log                        | Checkpoint hashes match within the certified runtime matrix              |
+| Tab becomes hidden then returns                    | Match time stays paused and held keys do not stick                       |
+| First use of an ultimate after loading             | No missing animation, sound, or unacceptable shader stall                |
+| Run several matches sequentially                   | Stable resource counts and no persistent-input leakage                   |
 
 Use boundary scenarios and complete match invariants rather than tests that simply repeat implementation arithmetic. For visual correctness, DOM assertions are insufficient: capture the playfield, fog, aiming, a busy fight, the shop, death state, and result screen.
 

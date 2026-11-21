@@ -45,4 +45,8 @@ export class LazyLeonaEclipseSurfaces {
   disposeDepth() {
     this.renderer?.depth.dispose();
   }
+  dispose() {
+    this.renderer?.dispose();
+    this.renderer = undefined;
+  }
 }

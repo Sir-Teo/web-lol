@@ -486,7 +486,88 @@ import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { CRITICAL_ATTACKS } from '../content/critical-attacks';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
-import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
+import { CONTROL_WARD_POLICY, FARSIGHT_POLICY } from '../content/faelights';
+import { ITEM_EFFECT_TIMING, ROLE_BOT_BUILDS } from '../content/expanded-items';
+import {
+  MID_EMPOWERED_RECALL_TICKS,
+  isRoleQuestComplete,
+  maxChampionLevelForQuest,
+  maxInventorySlotsForQuest,
+} from '../content/role-quests';
+import { DRAGON_SLAYER_BUFFS } from '../content/epic-objectives';
+import { MORGANA_KIT, VI_KIT } from '../content/milestone6-champions';
+import {
+  advanceRiftObjectives,
+  dragonBonusAttackSpeed,
+  dragonBonusHaste,
+  dragonBonusMoveSpeedMultiplier,
+  dragonOffenseMultiplier,
+  dragonTenacity,
+  hasHeraldEmpoweredRecall,
+  onEpicObjectiveKilled,
+  onObjectivePostHitEffects,
+  onUltimateCastDragonSoul,
+  type RiftObjectivesState,
+} from './epic-objectives';
+import {
+  advanceRoleQuests,
+  recordRoleQuestCombatHit,
+  recordRoleQuestMinionKill,
+  recordRoleQuestTakedown,
+} from './role-quests';
+import {
+  advanceRunes,
+  applyBonePlatingReduction,
+  onRuneCombatDamaged,
+  onRuneFarmKill,
+  onRuneHitDealt,
+  onRuneTakedown,
+  runeAdaptiveStats,
+  runeBonusAttackSpeed,
+  runeSummonerHaste,
+  runeTenacity,
+  syncScalingHpShard,
+  type ActiveComet,
+} from './runes';
+import {
+  advanceItemRuntime,
+  checkUniqueGroupConflict,
+  consumeItemOnHitDamage,
+  ensureItemState,
+  findStackableSlot,
+  invalidateShopUndo,
+  itemArmorPenPercent,
+  itemBonusAttackSpeed,
+  itemLethality,
+  itemMagicPen,
+  itemTenacity,
+  onItemPostDamageEffects,
+  recordShopUndo,
+  undoShopAction,
+  useItemSlot,
+} from './item-effects';
+import {
+  advanceMilestone6Champions,
+  castMilestone6Ability,
+  dariusNoxianMightBonusAd,
+  dariusPassiveArmorPen,
+  hasBlackShield,
+  initMilestone6ChampionState,
+  isMilestone6Champion,
+  isViUnstoppable,
+  markBlackShieldBrokenOnTick,
+  milestone6AbilitySpec,
+  milestone6BaseResources,
+  milestone6BonusAttackSpeed,
+  milestone6BotSkillPriority,
+  onMilestone6BasicAttackLanded,
+  onMilestone6TargetKilled,
+  runMilestone6BotTactics,
+  type Milestone6Missile,
+  type MorganaPool,
+} from './milestone6-champions';
+import { requestFarsight } from './wards';
+import { experienceToNextLevel, growthAtLevel, statPrecision } from './progression';
 import { direction, distance, segmentDistance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
 import { isStructureKind, isLaneMinionKind } from './types';
@@ -522,6 +603,10 @@ export class World {
     lastClear: { tick: number; team: Team | null } | null;
     holders: number[];
   } | null = null;
+  riftObjectives: RiftObjectivesState | null = null;
+  activeComets?: ActiveComet[];
+  m6Missiles?: Milestone6Missile[];
+  morganaPools?: MorganaPool[];
   jungleCamps: JungleCampState[] = [];
   pendingWards: WardPlacement[] = [];
   scuttlers: RiverScuttlers | null = null;
@@ -902,12 +987,14 @@ export class World {
     if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
       if (identity === 'masteryi') own.doubleStrike = createDoubleStrikeState();
+      if (isMilestone6Champion(identity)) initMilestone6ChampionState(identity, own);
       own.eCharges = 0;
       if (
         identity === 'garen' ||
         identity === 'leona' ||
         identity === 'ahri' ||
-        identity === 'masteryi'
+        identity === 'masteryi' ||
+        isMilestone6Champion(identity)
       ) {
         own.spellRanks = { q: 0, w: 0, e: 0, r: 0 };
         own.skillPoints = 1;
@@ -916,13 +1003,21 @@ export class World {
     return u;
   }
   spawnWard(placement: WardPlacement): TeamUnit {
+    const isFarsight = placement.variant === 'farsight';
+    const isControl = placement.variant === 'control';
+    const hp = isFarsight ? 1 : isControl ? CONTROL_WARD_POLICY.health : WARD_SOURCE.health;
+    const bounty = isFarsight
+      ? FARSIGHT_POLICY.killGold
+      : isControl
+        ? CONTROL_WARD_POLICY.killGold
+        : WARD_POLICY.killGold;
     const u: TeamUnit = {
       ...this.createUnitBase('ward', placement.team, placement.point),
       kind: 'ward',
       team: placement.team,
-      name: 'Stealth Ward',
-      hp: WARD_SOURCE.health,
-      maxHp: WARD_SOURCE.health,
+      name: isFarsight ? 'Farsight Ward' : isControl ? 'Control Ward' : 'Stealth Ward',
+      hp,
+      maxHp: hp,
       radius: WARD_SOURCE.radius,
       speed: 0,
       damage: 0,
@@ -933,13 +1028,17 @@ export class World {
       ai: false,
       idleClock: null,
       corpseLifetimeTicks: WARD_POLICY.corpseTicks,
-      goldBounty: WARD_POLICY.killGold,
+      goldBounty: bounty,
       experienceBounty: WARD_SOURCE.sourceXP,
       ward: {
         ownerId: placement.ownerId,
         createdTick: this.tick,
-        expireTick: this.tick + placement.lifeTicks,
-        revealUntil: this.tick + WARD_POLICY.revealTicks,
+        expireTick: Number.isFinite(placement.lifeTicks)
+          ? this.tick + placement.lifeTicks
+          : Infinity,
+        revealUntil: isFarsight || isControl ? Infinity : this.tick + WARD_POLICY.revealTicks,
+        ...(placement.variant ? { variant: placement.variant } : {}),
+        ...(placement.faelightId ? { faelightId: placement.faelightId } : {}),
       },
     };
     this.units.push(u);
@@ -1304,6 +1403,19 @@ export class World {
         unit: command.unit,
         point: { x: command.point.x, y: command.point.y },
       });
+    } else if (command.type === 'farsight') {
+      this.commands.push({
+        type: 'farsight',
+        unit: command.unit,
+        point: { x: command.point.x, y: command.point.y },
+      });
+    } else if (command.type === 'use-item') {
+      this.commands.push({
+        type: 'use-item',
+        unit: command.unit,
+        slot: command.slot,
+        ...(command.point ? { point: { x: command.point.x, y: command.point.y } } : {}),
+      });
     } else if (command.type === 'learn') {
       this.commands.push({ type: 'learn', unit: command.unit, ability: command.ability });
     } else if (command.type === 'oracle') {
@@ -1531,16 +1643,18 @@ export class World {
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
-        const recommendation =
-          this.unit(state.id)?.champion === 'garen'
+        const champ = this.unit(state.id)?.champion;
+        const recommendation = isMilestone6Champion(champ)
+          ? { early: ['q', 'w', 'e'] as const, priority: milestone6BotSkillPriority(champ) }
+          : champ === 'garen'
             ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
-            : this.unit(state.id)?.champion === 'lux'
+            : champ === 'lux'
               ? LUX_BOT_POLICY
-              : this.unit(state.id)?.champion === 'ahri'
+              : champ === 'ahri'
                 ? AHRI_BOT_POLICY
-                : this.unit(state.id)?.champion === 'masteryi'
+                : champ === 'masteryi'
                   ? MASTER_YI_BOT_POLICY
-                  : this.unit(state.id)?.champion === 'leona'
+                  : champ === 'leona'
                     ? LEONA_BOT_POLICY
                     : ASHE_SKILL_RECOMMENDATION;
         const early = recommendation.early[allocated];
@@ -1601,7 +1715,10 @@ export class World {
         continue;
       }
       if (!this.alive(u)) continue;
-      const alpha = u.champion === 'masteryi' && this.championState(u.id)?.alphaStrike;
+      const uState = this.championState(u.id);
+      if ((uState?.itemState?.stasisUntilTick ?? 0) > this.tick) continue;
+      if (uState?.ezreal?.rChannel && command.type !== 'cast') continue;
+      const alpha = u.champion === 'masteryi' && uState?.alphaStrike;
       if (
         alpha &&
         command.type !== 'order' &&
@@ -1624,6 +1741,12 @@ export class World {
       } else if (command.type === 'ward') {
         const error = requestWard(this, u, command.point);
         if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
+      } else if (command.type === 'farsight') {
+        const error = requestFarsight(this, u, command.point);
+        if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
+      } else if (command.type === 'use-item') {
+        const error = useItemSlot(this, command.slot, command.point, u.id);
+        if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
       } else if (command.type === 'order') {
         this.setOrder(u, command.order);
         if (command.order.type === 'move' || command.order.type === 'attackMove')
@@ -1644,8 +1767,16 @@ export class World {
           u.silenceUntil <= this.tick
         ) {
           this.setOrder(u, { type: 'idle' });
-          state.recallEnd = this.tick + RECALL_DURATION_TICKS;
-          this.emit('message', u, { text: 'Recalling…', unit: u.id, team: u.team });
+          const empoweredRecall =
+            (state.roleQuest?.role === 'mid' && isRoleQuestComplete(state.roleQuest)) ||
+            hasHeraldEmpoweredRecall(this, state);
+          state.recallEnd =
+            this.tick + (empoweredRecall ? MID_EMPOWERED_RECALL_TICKS : RECALL_DURATION_TICKS);
+          this.emit('message', u, {
+            text: empoweredRecall ? 'Empowered Recall…' : 'Recalling…',
+            unit: u.id,
+            team: u.team,
+          });
           beginAhriRecallAudio(this, u, this.events[this.events.length - 1]!);
         }
       }
@@ -1669,10 +1800,15 @@ export class World {
     this.advanceJungleCamps();
     advanceRiverScuttlers(this);
     this.advanceRiftBaron();
+    advanceRiftObjectives(this);
     grantRiverSpeed(this);
     this.advanceTeamPlans();
     this.advanceCinderBurns();
     advanceScorchclawBurns(this);
+    advanceRoleQuests(this);
+    advanceRunes(this);
+    advanceItemRuntime(this);
+    advanceMilestone6Champions(this);
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -2089,6 +2225,7 @@ export class World {
     return (
       this.alive(unit) &&
       this.vulnerable(unit) &&
+      (this.championState(unit.id)?.itemState?.stasisUntilTick ?? 0) <= this.tick &&
       (unit.champion !== 'masteryi' || !alphaVanished(this.championState(unit.id)))
     );
   }
@@ -2097,6 +2234,11 @@ export class World {
       unit.kind === 'monster' &&
       unit.monster.phase === 'spawning' &&
       this.tick < (unit.monster.spawn?.readyTick ?? Infinity)
+    )
+      return false;
+    if (
+      unit.kind === 'champion' &&
+      (this.championState(unit.id)?.itemState?.stasisUntilTick ?? 0) > this.tick
     )
       return false;
     if (!unit.structure) return true;
@@ -2756,6 +2898,41 @@ export class World {
   }
   private nextBotPurchase(u: Unit) {
     const state = this.championState(u.id)!;
+    if (this.battlefield.publicRift && state.role) {
+      if (state.role === 'jungle' && !ownedCompanion(this, u.id)) {
+        return ITEMS.find((item) => item.id === 'mosstomper');
+      }
+      const route = ROLE_BOT_BUILDS[state.role];
+      for (const targetId of route) {
+        if (state.inventory.includes(targetId)) continue;
+        // Skip boots if another boots item is already owned
+        if (
+          checkUniqueGroupConflict(
+            state.inventory,
+            this.purchasePlan(targetId, u.id)?.consumed ?? [],
+            targetId
+          )
+        )
+          continue;
+        const plan = this.purchasePlan(targetId, u.id);
+        if (!plan) continue;
+        if (state.gold >= plan.cost && !this.purchaseError(targetId, u.id)) {
+          return ITEMS.find((item) => item.id === targetId);
+        }
+        const components = ITEM_RECIPES[targetId] ?? [];
+        const missing = components
+          .filter((comp) => !state.inventory.includes(comp))
+          .map((comp) => ITEMS.find((item) => item.id === comp)!)
+          .filter(Boolean)
+          .sort((a, b) => b.price - a.price);
+        const affordable = missing.find(
+          (item) => item.price <= state.gold && !this.purchaseError(item.id, u.id)
+        );
+        if (affordable) return affordable;
+        return missing.at(-1) ?? ITEMS.find((item) => item.id === targetId);
+      }
+      return undefined;
+    }
     if (state.role === 'jungle') {
       const id = !ownedCompanion(this, u.id)
         ? 'mosstomper'
@@ -3599,6 +3776,40 @@ export class World {
               attackable: this.targetable(baron) && baron.monster?.phase !== 'returning',
             }
           : undefined,
+        ...(this.riftObjectives
+          ? {
+              epicMonsters: seen
+                .filter(
+                  (u): u is Unit & { kind: 'monster'; monster: NonNullable<Unit['monster']> } =>
+                    u.kind === 'monster' &&
+                    !!u.monster &&
+                    this.alive(u) &&
+                    (u.monster.species === 'elder-dragon' ||
+                      u.monster.species.startsWith('dragon-') ||
+                      u.monster.species === 'riftherald' ||
+                      u.monster.species === 'voidgrub')
+                )
+                .map((u) => ({
+                  id: u.id,
+                  x: u.x,
+                  y: u.y,
+                  attackable: this.targetable(u) && u.monster.phase !== 'returning',
+                  minLevel:
+                    u.monster.species === 'elder-dragon'
+                      ? 11
+                      : u.monster.species === 'riftherald'
+                        ? 7
+                        : 5,
+                  minAllies: u.monster.species === 'elder-dragon' ? 3 : 2,
+                  priority:
+                    u.monster.species === 'elder-dragon'
+                      ? 210
+                      : u.monster.species.startsWith('dragon-')
+                        ? 165
+                        : 155,
+                })),
+            }
+          : {}),
         knownStructures: this.units
           .filter((u) => u.team !== team && !!u.structure)
           .map((u) => ({
@@ -3666,15 +3877,22 @@ export class World {
   }
   private followBaronGoal(u: Unit, goal: TeamGoal): boolean {
     const baron = this.unit(goal.targetId);
+    const validEpic =
+      baron?.kind === 'monster' &&
+      (baron.monster.species === 'baron' ||
+        baron.monster.species === 'elder-dragon' ||
+        baron.monster.species.startsWith('dragon-') ||
+        baron.monster.species === 'riftherald' ||
+        baron.monster.species === 'voidgrub');
     if (
-      baron?.monster?.species !== 'baron' ||
+      !validEpic ||
       !this.visible(baron, u.team) ||
       !this.targetable(baron) ||
       baron.monster.phase === 'returning' ||
       this.nearest(u, 650, true)
     )
       return false;
-    if (goal.kind === 'baron' && this.safeAttackPosition(u, baron)) {
+    if ((goal.kind === 'baron' || goal.kind === 'epic') && this.safeAttackPosition(u, baron)) {
       if (u.order.type !== 'attack' || u.order.target !== baron.id)
         this.setOrder(u, { type: 'attack', target: baron.id });
       const state = this.championState(u.id);
@@ -4068,16 +4286,21 @@ export class World {
       return;
     }
     const state = this.championState(u.id)!;
+    const maxSlots = maxInventorySlotsForQuest(state.roleQuest);
     const nextPurchase = this.nextBotPurchase(u);
     const nextPlan = nextPurchase ? this.purchasePlan(nextPurchase.id, u.id) : null;
     const canShop =
       nextPlan &&
       state.gold >= Math.max(900, nextPlan.cost) &&
-      (state.inventory.length < 6 ||
+      (state.inventory.length < maxSlots ||
         state.inventory.includes(null) ||
         nextPlan.consumed.length > 0);
     const goal = this.teamGoal(u);
-    const baronPlan = goal?.kind === 'baron' || goal?.kind === 'baron-rally';
+    const baronPlan =
+      goal?.kind === 'baron' ||
+      goal?.kind === 'baron-rally' ||
+      goal?.kind === 'epic' ||
+      goal?.kind === 'epic-rally';
     if (state.recallEnd !== null || (canShop && !baronPlan)) {
       const safe = this.safeToRecall(u);
       if (state.recallEnd !== null) {
@@ -4099,6 +4322,22 @@ export class World {
     )
       return;
     if (this.planBaronWard(u) || this.planRoleWard(u)) return;
+    if (isMilestone6Champion(u.champion)) {
+      const visibleEnemies = this.units.filter(
+        (foe) =>
+          foe.team !== u.team &&
+          foe.kind !== 'ward' &&
+          this.targetable(foe) &&
+          this.visible(foe, u.team) &&
+          distance(u, foe) <= 1350
+      );
+      if (
+        runMilestone6BotTactics(this, u, state, visibleEnemies, u.aiRetreating, (pt) =>
+          this.botAimPoint(u, pt)
+        )
+      )
+        return;
+    }
     if (this.planLeonaE(u)) return;
     if (this.planLeonaR(u)) return;
     if (this.planLeonaSupportedE(u)) return;
@@ -4107,7 +4346,13 @@ export class World {
     if (this.planGarenE(u)) return;
     if (this.planMasterYiCombat(u)) return;
     if (this.planAhriCombat(u, false) || this.planLuxCombat(u, false)) return;
-    if ((goal?.kind === 'baron' || goal?.kind === 'baron-rally') && this.followBaronGoal(u, goal))
+    if (
+      (goal?.kind === 'baron' ||
+        goal?.kind === 'baron-rally' ||
+        goal?.kind === 'epic' ||
+        goal?.kind === 'epic-rally') &&
+      this.followBaronGoal(u, goal)
+    )
       return;
     if (this.planAhriWaveClear(u) || this.planLuxWaveClear(u)) return;
     this.planGarenQ(u, false);
@@ -5025,18 +5270,29 @@ export class World {
     const owner = this.championState(u.id);
     const q = owner?.garenQ;
     const highlander = u.champion === 'masteryi' ? activeHighlander(owner, this.tick) : null;
+    const youmuus =
+      (owner?.itemState?.youmuusUntilTick ?? 0) > this.tick
+        ? ITEM_EFFECT_TIMING.youmuusActiveSpeedBonus
+        : 0;
+    const shacklesSpeed =
+      u.champion === 'morgana' && owner?.morgana?.shackles ? MORGANA_KIT.r.bonusSpeedFraction : 0;
     const haste =
       1 +
       (u.summonerHealSpeedUntil > this.tick ? SUMMONER_HEAL.speedBonus : 0) +
       (q && q.speedUntil > this.tick ? GAREN_Q.movementSpeedBonus : 0) +
       foxFireMovementBonus(this, u) +
-      (highlander ? MASTER_YI_R.movementSpeedPercentByRank[highlander.rank - 1] / 100 : 0);
+      (highlander ? MASTER_YI_R.movementSpeedPercentByRank[highlander.rank - 1] / 100 : 0) +
+      youmuus +
+      shacklesSpeed;
     const river =
       this.alive(u) &&
       this.scuttlers?.speedBuffs.some((s) => s.unitId === u.id && s.endTick > this.tick)
         ? SCUTTLER_POLICY.shrineSpeedFraction
         : 0;
-    return u.speed * this.slowFactor(u) * (haste + river + companionMovementBonus(this, u));
+    const dragonMult = dragonBonusMoveSpeedMultiplier(this, u);
+    return (
+      u.speed * dragonMult * this.slowFactor(u) * (haste + river + companionMovementBonus(this, u))
+    );
   }
   perseveranceRegenPerSecond(u: Unit): number {
     if (u.champion !== 'garen' || !this.alive(u)) return 0;
@@ -5173,14 +5429,20 @@ export class World {
   /** Local tenacity policy: sample at application, with a 0.3s floor that
    * never lengthens an already shorter control. See docs/GAREN-W.md. */
   private controlDurationTicks(target: Unit, durationTicks: number): number {
-    const courage = this.championState(target.id)?.garenW;
-    if (!courage || this.tick >= courage.upfrontUntil) return durationTicks;
+    const owner = this.championState(target.id);
+    const courage = owner?.garenW;
+    const garenTenacity = courage && this.tick < courage.upfrontUntil ? GAREN_W.upfrontTenacity : 0;
+    const extraTenacity = owner
+      ? 1 -
+        (1 - itemTenacity(owner)) *
+          (1 - runeTenacity(owner)) *
+          (1 - (target.team !== 'neutral' ? dragonTenacity(this, target.team) : 0))
+      : 0;
+    if (garenTenacity === 0 && extraTenacity === 0) return durationTicks;
+    const combinedKeep = (1 - garenTenacity) * (1 - extraTenacity);
     return Math.min(
       durationTicks,
-      Math.max(
-        Math.round(0.3 * TICK_RATE),
-        Math.round(durationTicks * (1 - GAREN_W.upfrontTenacity))
-      )
+      Math.max(Math.round(0.3 * TICK_RATE), Math.round(durationTicks * combinedKeep))
     );
   }
   /** Local CC policy: latest Charm replaces prior Charm, sampling shared tenacity on impact.
@@ -5275,11 +5537,18 @@ export class World {
     target: Unit,
     control: 'root' | 'stun' | 'silence' | 'charm' | 'slow'
   ): boolean {
-    return (
+    if (hasBlackShield(target, this.tick)) return true;
+    if (isViUnstoppable(this.championState(target.id))) return true;
+    if (
       target.kind === 'monster' &&
-      target.monster.species === 'baron' &&
-      BARON.policy.immuneControls.includes(control)
-    );
+      (target.monster.species === 'baron' ||
+        target.monster.species === 'elder-dragon' ||
+        target.monster.species.startsWith('dragon-') ||
+        target.monster.species === 'riftherald')
+    ) {
+      return BARON.policy.immuneControls.includes(control);
+    }
+    return false;
   }
   applyRoot(target: Unit, durationTicks: number): boolean {
     if (
@@ -6203,21 +6472,34 @@ export class World {
   }
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
     const state = this.championState(source.id);
+    let extraRatio = 0;
+    if (state && source.champion) {
+      extraRatio +=
+        itemBonusAttackSpeed(state) +
+        runeBonusAttackSpeed(state) +
+        milestone6BonusAttackSpeed(this, state) +
+        (source.team !== 'neutral' ? dragonBonusAttackSpeed(this, source.team) : 0);
+    }
+    const extraBonus =
+      state && source.champion && extraRatio > 0
+        ? (championProfile(source.champion).attackSpeedRatio * extraRatio * source.attackPeriod) /
+          TICK_RATE
+        : 0;
     const highlander = source.champion === 'masteryi' ? activeHighlander(state, this.tick) : null;
     if (highlander) {
       const bonus =
         (MASTER_YI.attackSpeedRatio * MASTER_YI_R.attackSpeedPercentByRank[highlander.rank - 1]) /
         100;
-      return 1 + (bonus * source.attackPeriod) / TICK_RATE;
+      return 1 + (bonus * source.attackPeriod) / TICK_RATE + extraBonus;
     }
     if (state && state.qUntil > this.tick) {
       // Q adds ratio-scaled attacks/second, not a multiplier on existing bonuses.
       const bonus = ASHE_Q.attackSpeedRatio * asheFocusValues(state.spellRanks.q).bonusAttackSpeed;
-      return 1 + (bonus * source.attackPeriod) / TICK_RATE;
+      return 1 + (bonus * source.attackPeriod) / TICK_RATE + extraBonus;
     }
     if (source.kind === 'siege' && target?.kind === 'turret' && target.structure?.lane === 'mid')
       return 1 + (this.battlefield.siegeMidTurretAttackSpeedBonus ?? 0);
-    return 1;
+    return 1 + extraBonus;
   }
   private releaseFinalSpark(source: Unit, origin: Vec2, point: Vec2, raw: number): void {
     this.luxBeams.push({
@@ -6383,10 +6665,27 @@ export class World {
     if (illuminated) this.captureIlluminationVisual(source, target);
     if (illuminated)
       target.illumination = target.illumination.filter((mark) => mark.sourceId !== source.id);
+    const sourceOwner = this.championState(source.id);
+    let m6ExtraPhysical = 0;
+    let itemOnHitPhysical = 0;
+    if (sourceOwner && source.champion && this.targetable(target)) {
+      if (isMilestone6Champion(source.champion) && !isStructureKind(target.kind)) {
+        m6ExtraPhysical = onMilestone6BasicAttackLanded(this, source, sourceOwner, target);
+      }
+      const prof = championProfile(source.champion);
+      const baseAd = prof.damage + prof.damageGrowth * growthAtLevel(sourceOwner.level);
+      itemOnHitPhysical = consumeItemOnHitDamage(this, source, sourceOwner, target, baseAd);
+    }
+    const runeAd =
+      sourceOwner && source.champion ? runeAdaptiveStats(this, source, sourceOwner).bonusAd : 0;
+    const mightAd =
+      sourceOwner && source.champion === 'darius' ? dariusNoxianMightBonusAd(this, sourceOwner) : 0;
     this.damage(
       source,
       target,
-      raw * multiplier * baronSiege + target.hp * healthRatio,
+      (raw + runeAd + mightAd + m6ExtraPhysical) * multiplier * baronSiege +
+        target.hp * healthRatio +
+        itemOnHitPhysical,
       'physical'
     );
     if (illuminated && this.alive(target)) {
@@ -6511,10 +6810,14 @@ export class World {
   }
   /** Same named armor reduction does not stack across Garen owners. */
   effectiveArmor(target: Unit): number {
-    const armor = this.armorWithBuffs(target);
-    return armor > 0 && target.garenEShreds.some((shred) => shred.endTick > this.tick)
-      ? armor * (1 - GAREN_E.armorReduction)
-      : armor;
+    let armor = this.armorWithBuffs(target);
+    if (armor > 0 && target.garenEShreds.some((shred) => shred.endTick > this.tick))
+      armor *= 1 - GAREN_E.armorReduction;
+    if (armor > 0 && (target.viArmorShredUntil ?? 0) > this.tick)
+      armor *= 1 - VI_KIT.w.armorShredFraction;
+    if (armor > 0 && (target.cleaverUntilTick ?? 0) > this.tick && (target.cleaverStacks ?? 0) > 0)
+      armor *= 1 - Math.min(5, target.cleaverStacks!) * 0.06;
+    return armor;
   }
   effectiveMagicResist(target: Unit): number {
     return (
@@ -6524,8 +6827,34 @@ export class World {
         : 0)
     );
   }
+  private penetratedResistance(
+    source: Unit | undefined,
+    target: Unit,
+    kind: 'physical' | 'magic'
+  ): number {
+    const baseRes =
+      kind === 'physical' ? this.effectiveArmor(target) : this.effectiveMagicResist(target);
+    const srcState = source ? this.championState(source.id) : undefined;
+    if (!srcState || !source || source.team === target.team || baseRes <= 0) return baseRes;
+    if (kind === 'physical') {
+      const pctPen =
+        1 -
+        (1 - itemArmorPenPercent(srcState)) *
+          (1 - (source.champion === 'darius' ? dariusPassiveArmorPen(srcState) : 0));
+      const afterPct = baseRes * (1 - pctPen);
+      const leth = itemLethality(srcState);
+      return Math.max(0, afterPct - leth);
+    }
+    const mp = itemMagicPen(srcState);
+    return Math.max(0, baseRes * (1 - mp.percent) - mp.flat);
+  }
   /** Shared with observed spell forecasts; outgoing amplification precedes this. */
-  mitigatedDamage(target: Unit, raw: number, kind: 'physical' | 'magic' | 'true'): number {
+  mitigatedDamage(
+    target: Unit,
+    raw: number,
+    kind: 'physical' | 'magic' | 'true',
+    source?: Unit
+  ): number {
     if (kind === 'true') return raw;
     const owner = this.championState(target.id);
     if (target.champion === 'leona' && owner) raw = eclipseReducedRaw(raw, owner, this.tick);
@@ -6535,12 +6864,32 @@ export class World {
         ? GAREN_W.damageReductionByRank[courage.rank - 1]
         : 0;
     return (
-      damageAfterResistance(
-        raw,
-        kind === 'physical' ? this.effectiveArmor(target) : this.effectiveMagicResist(target)
-      ) *
-      (1 - reduction)
+      damageAfterResistance(raw, this.penetratedResistance(source, target, kind)) * (1 - reduction)
     );
+  }
+  healUnit(target: Unit, rawAmount: number): number {
+    if (!this.alive(target) || rawAmount <= 0 || !Number.isFinite(rawAmount)) return 0;
+    let amount = rawAmount;
+    if ((target.grievousWoundsUntil ?? 0) > this.tick) amount *= 0.6;
+    if (target.team !== 'neutral' && this.riftObjectives) {
+      const chemStacks = this.riftObjectives.dragon.stacks[target.team].filter(
+        (e) => e === 'chemtech'
+      ).length;
+      if (chemStacks > 0)
+        amount *= 1 + chemStacks * DRAGON_SLAYER_BUFFS.chemtechHealShieldPowerPerStack;
+    }
+    const gained = Math.min(target.maxHp - target.hp, amount);
+    if (gained > 0) {
+      target.hp = statPrecision(target.hp + gained);
+      this.emit('heal', target, { value: Math.round(gained) });
+    }
+    return gained;
+  }
+  startCastAnimation(state: ChampionState, ability: 'q' | 'w' | 'e' | 'r'): void {
+    state.castAnimation = { ability, startTick: this.tick };
+  }
+  onChampionUltimateCast(caster: Unit): void {
+    onUltimateCastDragonSoul(this, caster);
   }
   private advanceLeonaSolarFlare(state: ChampionState): void {
     const flare = state.leonaR!,
@@ -6651,7 +7000,11 @@ export class World {
       | 'summoner'
       | 'companion'
       | 'proc'
-      | 'companion-passive' = 'direct',
+      | 'companion-passive'
+      | 'ability'
+      | 'item'
+      | 'rune'
+      | 'objective' = 'direct',
     creditSource?: Unit
   ): void {
     // Delegation currently belongs only to Sunlight. Ordinary callers retain
@@ -6673,25 +7026,82 @@ export class World {
       target.kind === 'ward' ||
       !this.alive(target) ||
       !this.vulnerable(target) ||
+      (category !== 'cleanup' &&
+        (this.championState(target.id)?.itemState?.stasisUntilTick ?? 0) > this.tick) ||
       (target.kind === 'monster' && target.monster.phase === 'returning')
     )
       return;
-    const courage = this.championState(target.id)?.garenW;
+    const sourceStatePre = this.championState(source.id);
+    const targetStatePre = this.championState(target.id);
+    if (category !== 'cleanup' && source.team !== target.team) {
+      invalidateShopUndo(sourceStatePre);
+      invalidateShopUndo(targetStatePre);
+    }
+    let adjustedRaw = raw;
+    if (
+      category !== 'cleanup' &&
+      source.team !== 'neutral' &&
+      source.team !== target.team &&
+      this.riftObjectives
+    ) {
+      adjustedRaw *= dragonOffenseMultiplier(this, source.team);
+      if (
+        this.riftObjectives.dragon.soulTeam === source.team &&
+        this.riftObjectives.dragon.soulElement === 'chemtech' &&
+        source.hp / source.maxHp < DRAGON_SLAYER_BUFFS.chemtechSoulLowHpThreshold
+      ) {
+        adjustedRaw *= DRAGON_SLAYER_BUFFS.chemtechSoulBonusDamageMultiplier;
+      }
+      if (
+        target.team !== 'neutral' &&
+        this.riftObjectives.dragon.soulTeam === target.team &&
+        this.riftObjectives.dragon.soulElement === 'chemtech' &&
+        target.hp / target.maxHp < DRAGON_SLAYER_BUFFS.chemtechSoulLowHpThreshold
+      ) {
+        adjustedRaw *= DRAGON_SLAYER_BUFFS.chemtechSoulDamageTakenMultiplier;
+      }
+    }
+    if ((target.ptaExposedUntil ?? 0) > this.tick && category !== 'cleanup') {
+      adjustedRaw *= 1.08;
+    }
+    if (
+      category === 'direct' &&
+      kind === 'physical' &&
+      targetStatePre?.inventory.includes('steelcaps')
+    ) {
+      adjustedRaw *= 0.9;
+    }
+    const courage = targetStatePre?.garenW;
     const reduction =
       kind !== 'true' && courage && this.tick < courage.defenseUntil
         ? GAREN_W.damageReductionByRank[courage.rank - 1]
         : 0;
     const channelReduction =
       kind !== 'true' && target.champion === 'masteryi'
-        ? meditateReduction(this.championState(target.id), this.tick, source.kind === 'turret')
+        ? meditateReduction(targetStatePre, this.tick, source.kind === 'turret')
         : 0;
-    const amount = this.mitigatedDamage(
+    let amount = this.mitigatedDamage(
       target,
-      raw *
-        companionDamageMultiplier(this, source, target, category, kind) *
+      adjustedRaw *
+        companionDamageMultiplier(
+          this,
+          source,
+          target,
+          category === 'ability' ||
+            category === 'item' ||
+            category === 'rune' ||
+            category === 'objective'
+            ? 'area'
+            : category,
+          kind
+        ) *
         (1 - channelReduction),
-      kind
+      kind,
+      source
     );
+    if (category !== 'cleanup') {
+      amount = applyBonePlatingReduction(this, source, target, targetStatePre, amount);
+    }
     // Explicit local W_Dmg policy: coalesce positive reduced damage once per owner/tick.
     // Includes linger, shields and lethal damage; true/zero damage creates no reaction.
     if (amount > 0 && channelReduction > 0)
@@ -6713,8 +7123,12 @@ export class World {
     target.shields.sort((a, b) => a.endTick - b.endTick);
     for (const shield of target.shields) {
       if (shield.endTick <= this.tick) continue;
+      if (shield.blackShield && kind !== 'magic') continue;
       const used = Math.min(shield.amount, remainder);
       shield.amount -= used;
+      if (shield.blackShield && shield.amount <= 0) {
+        markBlackShieldBrokenOnTick(target, this.tick);
+      }
       remainder -= used;
       absorbed += used;
       if (remainder === 0) break;
@@ -7071,6 +7485,10 @@ export class World {
             : undefined;
       const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
       if (this.riftBaron?.unitId === target.id) this.clearRiftBaron(rewardSource);
+      if (target.kind === 'monster' && this.riftObjectives) {
+        onEpicObjectiveKilled(this, target, rewardSource);
+      }
+      onMilestone6TargetKilled(this, target);
       const transferringBlue = targetState?.blueBuff && targetState.blueBuff.endTick > this.tick;
       const transferringRed = targetState?.redBuff && redBuffActive(targetState, this.tick);
       if (targetState?.redBuff && (!transferringRed || rewardSource || source.kind !== 'monster'))
@@ -7107,7 +7525,9 @@ export class World {
         let gold =
           target.goldBounty ??
           (target.kind === 'champion'
-            ? CHAMPION_BASE_KILL_GOLD[targetState!.level - 1]
+            ? CHAMPION_BASE_KILL_GOLD[
+                Math.min(CHAMPION_BASE_KILL_GOLD.length, Math.max(1, targetState!.level)) - 1
+              ]
             : target.kind === 'dummy'
               ? 0
               : target.kind === 'turret'
@@ -7133,6 +7553,8 @@ export class World {
         if (target.kind === 'champion') {
           sourceState.kills++;
           highlanderTakedown(this, rewardSource, sourceState, target);
+          recordRoleQuestTakedown(this, rewardSource.id);
+          onRuneTakedown(this, rewardSource.id);
           for (const id of takedownContributors) {
             if (id === rewardSource.id) continue;
             const contributor = this.unit(id);
@@ -7140,6 +7562,8 @@ export class World {
             if (record && contributor?.team === rewardSource.team) {
               record.assists++;
               highlanderTakedown(this, contributor, record, target);
+              recordRoleQuestTakedown(this, id);
+              onRuneTakedown(this, id);
             }
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) {
@@ -7147,6 +7571,10 @@ export class World {
             sourceState.cs +
               (target.kind === 'monster' ? MONSTERS[target.monster.species].minionScore : 1)
           );
+          onRuneFarmKill(sourceState);
+          if (isLaneMinionKind(target.kind)) {
+            recordRoleQuestMinionKill(this, rewardSource, target);
+          }
           if (target.kind === 'monster') {
             this.gainExperience(target.experienceBounty ?? 0, rewardSource.id);
             if (category !== 'cleanup') companionKilledMonster(this, rewardSource, target);
@@ -7205,18 +7633,39 @@ export class World {
     // cannot trigger the mark; cleanup is not a combat hit.
     if (target.sunlight && amount > 0 && Number.isFinite(amount) && category !== 'cleanup')
       this.consumeSunlight(source, target);
-    if (amount > 0) triggerScorchclaw(this, source, target, category);
+    if (amount > 0 && category !== 'companion-passive')
+      triggerScorchclaw(
+        this,
+        source,
+        target,
+        category === 'ability' ||
+          category === 'item' ||
+          category === 'rune' ||
+          category === 'objective'
+          ? 'area'
+          : category
+      );
+    if (amount > 0 && (category === 'direct' || category === 'area' || category === 'ability')) {
+      const isBasic = category === 'direct';
+      const isAbil = category === 'area' || category === 'ability';
+      recordRoleQuestCombatHit(this, source, target, isAbil);
+      onRuneCombatDamaged(this, source, target);
+      onRuneHitDealt(this, source, target, healthLost + absorbed, isBasic, isAbil);
+      onItemPostDamageEffects(this, source, target, healthLost + absorbed, kind, isBasic, isAbil);
+      onObjectivePostHitEffects(this, source, target, healthLost + absorbed, isBasic);
+    }
   }
   gainExperience(amount: number, championId = this.player.id): void {
     const state = this.championState(championId);
     if (!state) return;
-    if (this.winner || !Number.isFinite(amount) || amount <= 0 || state.level >= MAX_LEVEL) return;
+    const levelCap = maxChampionLevelForQuest(state.roleQuest);
+    if (this.winner || !Number.isFinite(amount) || amount <= 0 || state.level >= levelCap) return;
     state.xp += amount;
-    while (state.level < MAX_LEVEL && state.xp >= experienceToNextLevel(state.level)) {
+    while (state.level < levelCap && state.xp >= experienceToNextLevel(state.level)) {
       state.xp -= experienceToNextLevel(state.level);
       state.level++;
-      state.skillPoints++;
-      const factor = ASHE.growthFactors[state.level - 1];
+      if (state.level <= 18) state.skillPoints++;
+      const factor = ASHE.growthFactors[Math.min(ASHE.growthFactors.length - 1, state.level - 1)];
       const h = this.unit(championId)!,
         living = this.alive(h);
       const profile = championProfile(h.champion!);
@@ -7234,6 +7683,7 @@ export class World {
             totalMana: h.maxMana * LOST_CHAPTER.manaFraction,
           };
       }
+      syncScalingHpShard(this, h, state);
       h.damage = statPrecision(h.damage + profile.damageGrowth * factor);
       h.armor = statPrecision(h.armor + profile.armorGrowth * factor);
       h.magicResist = statPrecision(h.magicResist + profile.magicResistGrowth * factor);
@@ -7247,7 +7697,7 @@ export class World {
           : Math.round((profile.windupTicks * profile.attackSpeed) / attackSpeed);
       this.emit('level', h, { text: 'Level up!', unit: h.id, team: h.team });
     }
-    if (state.level === MAX_LEVEL) state.xp = 0;
+    if (state.level >= levelCap) state.xp = 0;
   }
   private respawn(u: Unit): void {
     const deathTick = u.deadAt;
@@ -7305,8 +7755,15 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
+    const targetChampion = this.unit(championId)?.champion;
     if (
-      this.unit(championId)?.champion === 'masteryi' &&
+      isMilestone6Champion(targetChampion) &&
+      (ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r')
+    ) {
+      return milestone6AbilitySpec(this, targetChampion, ability, championId);
+    }
+    if (
+      targetChampion === 'masteryi' &&
       (ability === 'q' || ability === 'e' || ability === 'w' || ability === 'r')
     ) {
       const spell =
@@ -7438,24 +7895,32 @@ export class World {
   }
   abilityHaste(championId = this.player.id): number {
     const owner = this.championState(championId);
-    return owner ? totalAbilityHaste(owner, this.tick) : 0;
+    const unit = this.unit(championId);
+    const extra = unit && unit.team !== 'neutral' ? dragonBonusHaste(this, unit.team) : 0;
+    return owner ? totalAbilityHaste(owner, this.tick, extra) : 0;
   }
   abilityResources(ability: Ability, championId = this.player.id) {
     const resources = this.baseAbilityResources(ability, championId);
     const owner = this.championState(championId);
+    if (!owner) return resources;
+    if (ability === 'd' || ability === 'f') {
+      const sumHaste =
+        runeSummonerHaste(owner) + (owner.inventory.includes('ionian-boots') ? 10 : 0);
+      if (sumHaste <= 0) return resources;
+      return {
+        ...resources,
+        cooldownSeconds: (resources.cooldownSeconds * 100) / (100 + sumHaste),
+      };
+    }
     if (
-      !owner ||
-      ability === 'd' ||
-      ability === 'f' ||
-      (ability === 'r' &&
-        this.unit(championId)?.champion === 'ahri' &&
-        activeSpiritRush(this, championId))
+      ability === 'r' &&
+      this.unit(championId)?.champion === 'ahri' &&
+      activeSpiritRush(this, championId)
     )
       return resources;
     return {
       ...resources,
-      cooldownSeconds:
-        (resources.cooldownSeconds * 100) / (100 + totalAbilityHaste(owner, this.tick)),
+      cooldownSeconds: (resources.cooldownSeconds * 100) / (100 + this.abilityHaste(championId)),
     };
   }
   private baseAbilityResources(ability: Ability, championId: number) {
@@ -7464,8 +7929,12 @@ export class World {
         mana: this.abilitySpec(ability, championId).cost,
         cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
       };
+    const champ = this.unit(championId)?.champion;
+    if (isMilestone6Champion(champ)) {
+      return milestone6BaseResources(this, champ, ability, championId);
+    }
     const rank = this.abilityRank(ability, championId);
-    if (this.unit(championId)?.champion === 'masteryi') {
+    if (champ === 'masteryi') {
       return {
         mana: !rank
           ? 0
@@ -7599,6 +8068,14 @@ export class World {
         );
         for (const victim of victims) this.damage(u, victim, damage, 'true', 'summoner');
       } else this.damage(u, target, damage, 'true', 'summoner');
+      return;
+    }
+    if (
+      isMilestone6Champion(u.champion) &&
+      (ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r')
+    ) {
+      this.clearRecall(state);
+      castMilestone6Ability(this, u, state, ability, point, targetId);
       return;
     }
     if (
@@ -8331,6 +8808,12 @@ export class World {
     }
     return { cost, consumed };
   }
+  canShop(championId = this.player.id): boolean {
+    if (this.winner) return false;
+    const champion = this.unit(championId);
+    if (!champion || champion.kind !== 'champion') return false;
+    return distance(champion, this.battlefield.spawns[champion.team]) <= 400 || champion.hp <= 0;
+  }
   purchaseError(itemId: string, championId = this.player.id): string | null {
     if (this.winner) return 'The game has ended';
     const state = this.championState(championId);
@@ -8353,30 +8836,40 @@ export class World {
       if (isDoranStarter(itemId) && pet)
         return 'Your jungle companion occupies the starter item group';
     }
-    const emptySlot = state.inventory.findIndex(
-      (id, slot) => id === null || plan.consumed.includes(slot)
-    );
-    if (emptySlot === -1 && state.inventory.length >= 6) return 'Inventory is full';
+    const maxSlots = maxInventorySlotsForQuest(state.roleQuest);
+    const stackInfo = findStackableSlot(state, itemId);
+    if (stackInfo && stackInfo.slot === -1) {
+      return `Maximum ${stackInfo.maxStack} ${item.name} allowed`;
+    }
+    const emptySlot =
+      stackInfo && stackInfo.slot >= 0
+        ? stackInfo.slot
+        : state.inventory.findIndex((id, slot) => id === null || plan.consumed.includes(slot));
+    if (emptySlot === -1 && state.inventory.length >= maxSlots) return 'Inventory is full';
     if (state.gold < plan.cost) return 'Not enough gold';
     if (item.id === 'deathcap' && state.inventory.includes('deathcap'))
       return 'You already own Rabadon’s Deathcap';
     if (item.id === 'infinity-edge' && state.inventory.includes('infinity-edge'))
       return 'You already own Infinity Edge';
-    if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
     if (item.id === 'chapter' && state.inventory.includes('chapter'))
       return 'You already own Lost Chapter';
-    if (item.id === 'blade' && state.inventory.includes('blade'))
-      return 'You already own a Doran item';
+    const groupErr = checkUniqueGroupConflict(state.inventory, plan.consumed, item.id);
+    if (groupErr) return groupErr;
     return null;
   }
   abilityPower(u: Unit = this.hero): number {
-    const inventory = this.championState(u.id)?.inventory ?? [];
-    const flat = inventory.reduce<number>(
-      (total, id) => total + (ITEMS.find((item) => item.id === id)?.abilityPower ?? 0),
-      0
-    );
+    const state = this.championState(u.id);
+    const inventory = state?.inventory ?? [];
+    const runeAp = state && u.champion ? runeAdaptiveStats(this, u, state).bonusAp : 0;
+    const flat =
+      inventory.reduce<number>(
+        (total, id) => total + (ITEMS.find((item) => item.id === id)?.abilityPower ?? 0),
+        0
+      ) + runeAp;
+    const dragonMult =
+      u.team !== 'neutral' && this.riftObjectives ? dragonOffenseMultiplier(this, u.team) : 1;
     return statPrecision(
-      flat * (inventory.includes('deathcap') ? 1 + DEATHCAP_AP_AMPLIFICATION : 1)
+      flat * dragonMult * (inventory.includes('deathcap') ? 1 + DEATHCAP_AP_AMPLIFICATION : 1)
     );
   }
   criticalChance(u: Unit = this.hero): number {
@@ -8386,7 +8879,7 @@ export class World {
       statPrecision(
         inventory.reduce<number>((sum, id) => {
           const item = ITEMS.find((entry) => entry.id === id);
-          return sum + (item && 'criticalChance' in item ? item.criticalChance : 0);
+          return sum + (item && 'criticalChance' in item ? (item.criticalChance ?? 0) : 0);
         }, 0)
       )
     );
@@ -8397,7 +8890,7 @@ export class World {
     const bonus = statPrecision(
       inventory.reduce<number>((sum, id) => {
         const item = ITEMS.find((entry) => entry.id === id);
-        return sum + (item && 'bonusCriticalDamage' in item ? item.bonusCriticalDamage : 0);
+        return sum + (item && 'bonusCriticalDamage' in item ? (item.bonusCriticalDamage ?? 0) : 0);
       }, 0)
     );
     if (u.champion === 'ashe')
@@ -8443,6 +8936,17 @@ export class World {
     const champion = this.unit(championId)!;
     const item = ITEMS.find((entry) => entry.id === itemId)!;
     const plan = this.purchasePlan(itemId, championId)!;
+    const kind = companionItemKind(itemId);
+    if (this.battlefield.publicRift && !champion.ai) {
+      recordShopUndo(this, state, champion, 'buy', kind ? championId : null);
+    }
+    const stackInfo = findStackableSlot(state, itemId);
+    if (stackInfo && stackInfo.slot >= 0) {
+      state.gold -= plan.cost;
+      const is = ensureItemState(state);
+      is.slotStacks[stackInfo.slot] = (is.slotStacks[stackInfo.slot] ?? 1) + 1;
+      return null;
+    }
     const emptySlot = state.inventory.findIndex(
       (id, slot) => id === null || plan.consumed.includes(slot)
     );
@@ -8451,7 +8955,7 @@ export class World {
       magicResist: number = item.magicResist,
       damage: number = item.damage,
       hp: number = item.hp,
-      mana: number = 'mana' in item ? item.mana : 0,
+      mana: number = 'mana' in item ? (item.mana ?? 0) : 0,
       speed: number = item.speed;
     for (const slot of plan.consumed) {
       const component = ITEMS.find((entry) => entry.id === state.inventory[slot])!;
@@ -8459,8 +8963,9 @@ export class World {
       magicResist -= component.magicResist;
       damage -= component.damage;
       hp -= component.hp;
-      mana -= 'mana' in component ? component.mana : 0;
+      mana -= 'mana' in component ? (component.mana ?? 0) : 0;
       speed -= component.speed;
+      if (state.itemState) delete state.itemState.slotStacks[slot];
       state.inventory[slot] = null;
     }
     if (emptySlot === -1) state.inventory.push(item.id);
@@ -8472,7 +8977,6 @@ export class World {
     if (this.alive(champion)) champion.hp += hp;
     this.changeItemMana(champion, mana);
     champion.speed += speed;
-    const kind = companionItemKind(itemId);
     if (kind) grantCompanion(this, kind, championId, { kind: 'purchase', consumedTick: null });
     return null;
   }
@@ -8488,12 +8992,21 @@ export class World {
     if (this.winner) return 'The game has ended';
     const owner = this.championState(championId);
     if (!owner) return 'Unknown champion';
-    if (![from, to].every((slot) => Number.isInteger(slot) && slot >= 0 && slot < 6))
+    const maxSlots = maxInventorySlotsForQuest(owner.roleQuest);
+    if (![from, to].every((slot) => Number.isInteger(slot) && slot >= 0 && slot < maxSlots))
       return 'Invalid inventory slot';
     if (!owner.inventory[from]) return 'Choose an owned item';
     if (from === to) return null;
     while (owner.inventory.length <= Math.max(from, to)) owner.inventory.push(null);
     [owner.inventory[from], owner.inventory[to]] = [owner.inventory[to], owner.inventory[from]];
+    if (owner.itemState) {
+      const sFrom = owner.itemState.slotStacks[from];
+      const sTo = owner.itemState.slotStacks[to];
+      if (sFrom === undefined) delete owner.itemState.slotStacks[to];
+      else owner.itemState.slotStacks[to] = sFrom;
+      if (sTo === undefined) delete owner.itemState.slotStacks[from];
+      else owner.itemState.slotStacks[from] = sTo;
+    }
     while (owner.inventory.length && owner.inventory.at(-1) === null) owner.inventory.pop();
     return null;
   }
@@ -8509,6 +9022,16 @@ export class World {
     const item = ITEMS.find((entry) => entry.id === state.inventory[slot]);
     if (!item) return 'Unknown item';
     if (companionItemKind(item.id)) return 'Jungle companions cannot be sold';
+    if (this.battlefield.publicRift && !champion.ai) {
+      recordShopUndo(this, state, champion, 'sell', null);
+    }
+    const stacks = state.itemState?.slotStacks[slot] ?? 1;
+    if (stacks > 1 && state.itemState) {
+      state.itemState.slotStacks[slot] = stacks - 1;
+      state.gold += item.sell;
+      return null;
+    }
+    if (state.itemState) delete state.itemState.slotStacks[slot];
     state.inventory[slot] = null;
     // Omitted trailing slots are empty too; interior holes retain slot identity.
     while (state.inventory.length && state.inventory.at(-1) === null) state.inventory.pop();
@@ -8518,11 +9041,14 @@ export class World {
     champion.damage -= item.damage;
     champion.speed -= item.speed;
     champion.maxHp -= item.hp;
-    this.changeItemMana(champion, -('mana' in item ? item.mana : 0));
+    this.changeItemMana(champion, -('mana' in item ? (item.mana ?? 0) : 0));
     // Local health-removal policy; native missing-health behavior needs calibration.
     if (this.alive(champion))
       champion.hp = Math.min(champion.maxHp, Math.max(1, champion.hp - item.hp));
     return null;
+  }
+  undoShop(championId = this.player.id): string | null {
+    return undoShopAction(this, championId);
   }
   static fromSnapshot(text: string, battlefield: Battlefield): World {
     const state = decodeSnapshot(text, battlefield);
@@ -8579,6 +9105,10 @@ export class World {
         : {}),
       encounter: this.encounter,
       ...(this.riftBaron ? { riftBaron: this.riftBaron } : {}),
+      ...(this.riftObjectives ? { riftObjectives: this.riftObjectives } : {}),
+      ...(this.activeComets?.length ? { activeComets: this.activeComets } : {}),
+      ...(this.m6Missiles?.length ? { m6Missiles: this.m6Missiles } : {}),
+      ...(this.morganaPools?.length ? { morganaPools: this.morganaPools } : {}),
       jungleCamps: this.jungleCamps,
       pendingWards: this.pendingWards,
       scuttlers: this.scuttlers,

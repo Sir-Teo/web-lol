@@ -2,6 +2,7 @@ import { MAGE_ITEMS } from './mage-items';
 import { COMPANION_ITEMS } from './companion-items';
 import { CRITICAL_ATTACKS } from './critical-attacks';
 import { CRITICAL_ITEMS } from './critical-items';
+import { EXPANDED_ITEMS, EXPANDED_ITEM_RECIPES } from './expanded-items';
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
@@ -265,6 +266,7 @@ export const ITEMS = [
   ...MAGE_ITEMS,
   ...CRITICAL_ITEMS,
   ...COMPANION_ITEMS,
+  ...EXPANDED_ITEMS,
 ] as const;
 export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = {
   'infinity-edge': ['bf-sword', 'pickaxe', 'agility'],
@@ -274,4 +276,5 @@ export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = {
   belt: ['ruby'],
   vest: ['cloth'],
   cloak: ['mantle'],
+  ...EXPANDED_ITEM_RECIPES,
 };

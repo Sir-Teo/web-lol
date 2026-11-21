@@ -157,7 +157,18 @@ test('public Rift enables all six champions in 5v5 and practice while separate t
     await page
       .locator('[data-action="choose-champion"]')
       .evaluateAll((nodes) => nodes.map((n) => (n as HTMLElement).dataset.champion))
-  ).toEqual(['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']);
+  ).toEqual([
+    'ashe',
+    'lux',
+    'garen',
+    'masteryi',
+    'leona',
+    'ahri',
+    'darius',
+    'vi',
+    'ezreal',
+    'morgana',
+  ]);
   await page.getByRole('button', { name: 'Garen', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start practice', exact: true })).toBeEnabled();
   await page

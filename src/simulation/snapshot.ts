@@ -182,10 +182,22 @@ import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
 import { LEONA_SPELLS, LEONA_SUNLIGHT } from '../content/leona-spells';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
-import { MAX_LEVEL, statPrecision } from './progression';
+import { ABSOLUTE_MAX_LEVEL, MAX_LEVEL, statPrecision } from './progression';
+import {
+  CARRY_QUEST_INVENTORY_SLOTS,
+  maxChampionLevelForQuest,
+  maxInventorySlotsForQuest,
+} from '../content/role-quests';
+import { DRAGON_ELEMENTS } from '../content/epic-objectives';
+import {
+  DEFENSE_SHARD_IDS,
+  FLEX_SHARD_IDS,
+  KEYSTONE_IDS,
+  OFFENSE_SHARD_IDS,
+  SECONDARY_RUNE_IDS,
+} from '../content/runes';
 import { LOST_CHAPTER } from '../content/mage-items';
 import { hastedCooldownTicks } from './ability-haste';
-import { CREST_OF_INSIGHT } from '../content/crest-of-insight';
 import { CREST_OF_CINDERS } from '../content/crest-of-cinders';
 import { BLUE_BUFF_DURATION_TICKS, BLUE_BUFF_REGEN_TICKS } from './blue-buff';
 import {
@@ -200,7 +212,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 184;
+export const SNAPSHOT_VERSION = 185;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -244,22 +256,12 @@ const savedPoseFrame = z.strictObject({
   animationTimeline: animationTimeline.nullable(),
 });
 const deadline = z.union([tick, z.literal('Infinity').transform(() => Infinity)]);
-// A captured recharge may outlive a sale or rank change. Accept every duration the
-// catalog can produce in six slots, rather than comparing against current gear.
-let reachableHaste = new Set([0]);
-for (let slot = 0; slot < 6; slot++) {
-  const next = new Set(reachableHaste);
-  for (const haste of reachableHaste)
-    for (const item of ITEMS) next.add(haste + ('abilityHaste' in item ? item.abilityHaste : 0));
-  reachableHaste = next;
-}
+// A captured recharge may outlive a sale, quest, drake or rune change. Accept every
+// duration produced by integer haste in 0..300 across up to 7 slots.
+const reachableHaste = Array.from({ length: 301 }, (_, i) => i);
 const rechargeDurations = new Set(
   ASHE_E.rechargeSecondsByRank.flatMap((seconds) =>
-    [...reachableHaste].flatMap((haste) =>
-      [0, ...CREST_OF_INSIGHT.hasteTiers.map((tier) => tier.haste)].map((buffHaste) =>
-        hastedCooldownTicks(seconds, haste + buffHaste)
-      )
-    )
+    reachableHaste.map((totalHaste) => hastedCooldownTicks(seconds, totalHaste))
   )
 );
 const team = z.enum(['blue', 'red']);
@@ -314,9 +316,29 @@ const unit = z
     id,
     kind,
     ward: z
-      .strictObject({ ownerId: id, createdTick: tick, expireTick: tick, revealUntil: tick })
+      .strictObject({
+        ownerId: id,
+        createdTick: tick,
+        expireTick: deadline,
+        revealUntil: deadline,
+        variant: z.enum(['farsight', 'control']).optional(),
+        faelightId: z.string().max(64).optional(),
+      })
       .optional(),
-    champion: z.enum(['ashe', 'lux', 'garen', 'leona', 'ahri', 'masteryi']).optional(),
+    champion: z
+      .enum([
+        'ashe',
+        'lux',
+        'garen',
+        'leona',
+        'ahri',
+        'masteryi',
+        'darius',
+        'vi',
+        'ezreal',
+        'morgana',
+      ])
+      .optional(),
     team: faction,
     monster: z
       .strictObject({
@@ -333,6 +355,15 @@ const unit = z
           'krug-mini',
           'scuttler',
           'baron',
+          'dragon-fire',
+          'dragon-earth',
+          'dragon-water',
+          'dragon-air',
+          'dragon-hextech',
+          'dragon-chemtech',
+          'elder-dragon',
+          'riftherald',
+          'voidgrub',
         ]),
         scuttle: z
           .strictObject({
@@ -497,9 +528,41 @@ const unit = z
           endTick: tick,
           prismaticCastTick: tick.optional(),
           companionGrantTick: tick.optional(),
+          blackShield: z.literal(true).optional(),
+          mountainSoul: z.literal(true).optional(),
         })
       )
       .max(10000),
+    hemorrhage: z
+      .strictObject({
+        sourceId: id,
+        stacks: z.number().int().min(1).max(5),
+        endTick: tick,
+        nextTick: tick,
+      })
+      .optional(),
+    essenceFlux: z
+      .strictObject({
+        sourceId: id,
+        rank: z.number().int().min(1).max(5),
+        endTick: tick,
+      })
+      .optional(),
+    cleaverStacks: z.number().int().min(0).max(5).optional(),
+    cleaverUntilTick: tick.optional(),
+    liandryBurn: z.strictObject({ sourceId: id, endTick: tick, nextTick: tick }).optional(),
+    grievousWoundsUntil: tick.optional(),
+    viArmorShredUntil: tick.optional(),
+    ptaExposedUntil: tick.optional(),
+    voidTouchBurn: z
+      .strictObject({ sourceId: id, dps: z.number().positive(), endTick: tick, nextTick: tick })
+      .optional(),
+    elderBurn: z
+      .strictObject({ sourceId: id, dps: z.number().positive(), endTick: tick, nextTick: tick })
+      .optional(),
+    dariusWRefundPending: z
+      .strictObject({ casterId: id, tick, rank: z.number().int().min(1).max(5) })
+      .optional(),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
     sunlight: z.strictObject({ sourceId: id, startTick: tick, endTick: tick }).nullable(),
     scorchclawBurns: z
@@ -524,7 +587,9 @@ const unit = z
         damagePerTick: z
           .number()
           .refine((v) =>
-            Array.from({ length: 18 }, (_, i) => cinderDamagePerTick(i + 1)).includes(v)
+            Array.from({ length: ABSOLUTE_MAX_LEVEL }, (_, i) =>
+              cinderDamagePerTick(Math.min(MAX_LEVEL, i + 1))
+            ).includes(v)
           ),
       })
       .nullable(),
@@ -625,7 +690,7 @@ const inventorySchema = z
       .refine((value) => ITEMS.some((item) => item.id === value))
       .nullable()
   )
-  .max(6)
+  .max(CARRY_QUEST_INVENTORY_SLOTS)
   .refine(
     (items) => items.filter((item) => item === 'chapter').length <= 1,
     'Only one Lost Chapter is ownable'
@@ -690,7 +755,7 @@ const player: z.ZodType<PlayerState> = z
       })
       .nullable(),
     trinket: z.strictObject({
-      kind: z.enum(['ward', 'oracle']),
+      kind: z.enum(['ward', 'oracle', 'farsight']),
       createdTick: tick,
       charges: z.number().int().min(0).max(WARD_SOURCE.maxCharges),
       rechargeStartTick: tick.nullable(),
@@ -746,18 +811,18 @@ const player: z.ZodType<PlayerState> = z
     kills: tick,
     deaths: tick,
     xp: nonnegative,
-    level: z.number().int().min(1).max(MAX_LEVEL),
+    level: z.number().int().min(1).max(ABSOLUTE_MAX_LEVEL),
     observedStats: z.strictObject({
       blue: z
         .strictObject({
-          level: z.number().int().min(1).max(MAX_LEVEL),
+          level: z.number().int().min(1).max(ABSOLUTE_MAX_LEVEL),
           cs: score,
           inventory: inventorySchema,
         })
         .nullable(),
       red: z
         .strictObject({
-          level: z.number().int().min(1).max(MAX_LEVEL),
+          level: z.number().int().min(1).max(ABSOLUTE_MAX_LEVEL),
           cs: score,
           inventory: inventorySchema,
         })
@@ -1774,11 +1839,161 @@ const player: z.ZodType<PlayerState> = z
       )
       .nullable(),
     inventory: inventorySchema,
+    roleQuest: z
+      .strictObject({
+        role: z.enum(MATCH_ROLES),
+        progress: nonnegative,
+        target: z.number().positive(),
+        completedTick: tick.nullable(),
+        charges: z.number().int().min(0).max(5),
+        nextChargeTick: tick,
+      })
+      .optional(),
+    runeState: z
+      .strictObject({
+        loadout: z.strictObject({
+          keystone: z.enum(KEYSTONE_IDS),
+          secondary: z.enum(SECONDARY_RUNE_IDS),
+          shards: z.strictObject({
+            offense: z.enum(OFFENSE_SHARD_IDS),
+            flex: z.enum(FLEX_SHARD_IDS),
+            defense: z.enum(DEFENSE_SHARD_IDS),
+          }),
+        }),
+        ptaTargetId: id.nullable(),
+        ptaStacks: z.number().int().min(0).max(3),
+        ptaLastHitTick: tick,
+        ptaReadyTick: tick,
+        conquerorStacks: z.number().int().min(0).max(12),
+        conquerorEndTick: tick,
+        electrocuteTargetId: id.nullable(),
+        electrocuteHits: z.number().int().min(0).max(3),
+        electrocuteWindowEndTick: tick,
+        electrocuteReadyTick: tick,
+        cometReadyTick: tick,
+        graspCombatSinceTick: tick.nullable(),
+        graspLastCombatTick: tick,
+        graspReady: z.boolean(),
+        graspPermanentHp: nonnegative,
+        firstStrikeReadyTick: tick,
+        firstStrikeActiveUntil: tick,
+        firstStrikeCombatLockTick: tick,
+        alacrityStacks: z.number().int().min(0).max(10),
+        bonePlatingReadyTick: tick,
+        bonePlatingActiveUntil: tick,
+        bonePlatingCharges: z.number().int().min(0).max(3),
+        appliedScalingHp: nonnegative,
+      })
+      .optional(),
+    itemState: z
+      .strictObject({
+        slotStacks: z.record(z.string(), z.number().int().min(1).max(5)),
+        activeCooldowns: z.record(z.string(), tick),
+        potionEndTick: tick,
+        spellbladeUntilTick: tick,
+        spellbladeReadyTick: tick,
+        spellbladeTier: z.enum(['sheen', 'triforce']).nullable(),
+        krakenStacks: z.number().int().min(0).max(3),
+        ludensReadyTick: tick,
+        lifelineReadyTick: tick,
+        youmuusUntilTick: tick,
+        stasisUntilTick: tick,
+        undoHistory: z
+          .array(
+            z.strictObject({
+              kind: z.enum(['buy', 'sell']),
+              goldBefore: nonnegative,
+              inventoryBefore: inventorySchema,
+              stackCountsBefore: z.record(z.string(), z.number().int().min(1).max(5)),
+              armorBefore: z.number(),
+              magicResistBefore: z.number(),
+              damageBefore: z.number(),
+              maxHpBefore: z.number().positive(),
+              hpBefore: nonnegative,
+              maxManaBefore: nonnegative,
+              manaBefore: nonnegative,
+              speedBefore: nonnegative,
+              companionAddedOwnerId: id.nullable(),
+            })
+          )
+          .max(10),
+      })
+      .optional(),
+    darius: z
+      .strictObject({
+        noxianMightUntil: tick,
+        qWindupEndTick: tick.nullable(),
+        qRank: z.number().int().min(1).max(5),
+        wEmpoweredUntil: tick,
+        wRank: z.number().int().min(1).max(5),
+        rResetUntil: tick,
+      })
+      .optional(),
+    vi: z
+      .strictObject({
+        blastShieldReadyTick: tick,
+        qDash: z
+          .strictObject({
+            origin: point,
+            destination: point,
+            speed: z.number().positive(),
+            rank: z.number().int().min(1).max(5),
+            hitIds: z.array(id).max(200),
+          })
+          .nullable(),
+        dentingTargetId: id.nullable(),
+        dentingStacks: z.number().int().min(0).max(3),
+        dentingAsUntil: tick,
+        eEmpoweredUntil: tick,
+        eRank: z.number().int().min(1).max(5),
+        rDash: z
+          .strictObject({
+            targetId: id,
+            rank: z.number().int().min(1).max(3),
+            speed: z.number().positive(),
+          })
+          .nullable(),
+      })
+      .optional(),
+    ezreal: z
+      .strictObject({
+        risingStacks: z.number().int().min(0).max(5),
+        risingUntil: tick,
+        rChannel: z
+          .strictObject({
+            endTick: tick,
+            direction: point,
+            rank: z.number().int().min(1).max(3),
+          })
+          .nullable(),
+      })
+      .optional(),
+    morgana: z
+      .strictObject({
+        shackles: z
+          .strictObject({
+            endTick: tick,
+            rank: z.number().int().min(1).max(3),
+            targetIds: z.array(id).max(10),
+          })
+          .nullable(),
+      })
+      .optional(),
   })
   .refine(
     (p) =>
+      p.level <= maxChampionLevelForQuest(p.roleQuest) &&
+      p.inventory.length <= maxInventorySlotsForQuest(p.roleQuest),
+    'Champion level or inventory exceeds current Role Quest capacity'
+  )
+  .refine(
+    (p) =>
       Object.values(p.observedStats).every(
-        (stats) => stats === null || (stats.level <= p.level && stats.cs <= p.cs)
+        (stats) =>
+          stats === null ||
+          (stats.level <= p.level &&
+            stats.cs <= p.cs &&
+            stats.inventory.length <= maxInventorySlotsForQuest(p.roleQuest))
       ),
     'Observed stats cannot exceed current stats'
   )
@@ -1944,7 +2159,17 @@ const teamPlan = z.strictObject({
     .array(
       z.strictObject({
         unitId: id,
-        kind: z.enum(['defend', 'push', 'gank', 'river', 'advance', 'baron-rally', 'baron']),
+        kind: z.enum([
+          'defend',
+          'push',
+          'gank',
+          'river',
+          'advance',
+          'baron-rally',
+          'baron',
+          'epic-rally',
+          'epic',
+        ]),
         targetId: id,
         point,
         issuedTick: tick,
@@ -2017,6 +2242,116 @@ const snapshot = z.strictObject({
     .nullable()
     .optional()
     .transform((v) => v ?? null),
+  riftObjectives: z
+    .strictObject({
+      dragon: z.strictObject({
+        unitId: id.nullable(),
+        activeKind: z.enum([...DRAGON_ELEMENTS, 'elder']).nullable(),
+        nextElement: z.enum(DRAGON_ELEMENTS),
+        seenInitialElements: z.array(z.enum(DRAGON_ELEMENTS)).min(1).max(6),
+        lockedRiftElement: z.enum(DRAGON_ELEMENTS).nullable(),
+        nextReadyTick: tick,
+        lastClear: z
+          .strictObject({
+            tick,
+            team: team.nullable(),
+            kind: z.enum([...DRAGON_ELEMENTS, 'elder']),
+          })
+          .nullable(),
+        stacks: z.strictObject({
+          blue: z.array(z.enum(DRAGON_ELEMENTS)).max(20),
+          red: z.array(z.enum(DRAGON_ELEMENTS)).max(20),
+        }),
+        soulTeam: team.nullable(),
+        soulElement: z.enum(DRAGON_ELEMENTS).nullable(),
+        elderBuff: z
+          .strictObject({
+            team,
+            endTick: tick,
+            holders: z.array(id).max(5),
+          })
+          .nullable(),
+        soulCooldowns: z.record(z.string(), tick),
+        cloudUltBurstUntil: z.record(z.string(), tick),
+      }),
+      voidgrubs: z.strictObject({
+        unitIds: z.array(id).max(6),
+        spawnsCompleted: z.number().int().min(0).max(4),
+        nextReadyTick: tick.nullable(),
+        stacks: z.strictObject({
+          blue: z.number().int().min(0).max(12),
+          red: z.number().int().min(0).max(12),
+        }),
+      }),
+      herald: z.strictObject({
+        unitId: id.nullable(),
+        spawned: z.boolean(),
+        clearedTick: tick.nullable(),
+        chargeHolder: z
+          .strictObject({
+            unitId: id,
+            team,
+            endTick: tick,
+          })
+          .nullable(),
+      }),
+    })
+    .nullable()
+    .optional()
+    .transform((v) => v ?? null),
+  activeComets: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        origin: point,
+        target: point,
+        launchTick: tick,
+        impactTick: tick,
+        damage: z.number().positive(),
+      })
+    )
+    .max(200)
+    .optional(),
+  m6Missiles: z
+    .array(
+      z.strictObject({
+        id,
+        kind: z.enum(['ezreal-q', 'ezreal-w', 'ezreal-r', 'morgana-q']),
+        sourceId: id,
+        team,
+        x: z.number(),
+        y: z.number(),
+        previous: point,
+        direction: point,
+        speed: z.number().positive(),
+        radius: z.number().positive(),
+        remaining: nonnegative,
+        rank: z.number().int().min(1).max(5),
+        damage: nonnegative,
+        hitIds: z.array(id).max(500),
+      })
+    )
+    .max(500)
+    .optional(),
+  morganaPools: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        x: z.number(),
+        y: z.number(),
+        radius: z.number().positive(),
+        rank: z.number().int().min(1).max(5),
+        startTick: tick,
+        endTick: tick,
+        nextTick: tick,
+      })
+    )
+    .max(100)
+    .optional(),
   pendingWards: z
     .array(
       z.strictObject({
@@ -2026,7 +2361,9 @@ const snapshot = z.strictObject({
         origin: point,
         startTick: tick,
         readyTick: tick,
-        lifeTicks: tick,
+        lifeTicks: deadline,
+        variant: z.enum(['farsight', 'control']).optional(),
+        faelightId: z.string().max(64).optional(),
       })
     )
     .max(1000),
@@ -3696,9 +4033,14 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const unit of state.units) {
     if (unit.charm) {
       const c = unit.charm,
-        courage = [state.player, ...state.otherChampions].find((o) => o.id === unit.id)?.garenW,
-        tenacityApplied =
+        victimOwner = [state.player, ...state.otherChampions].find((o) => o.id === unit.id),
+        courage = victimOwner?.garenW,
+        garenTenacityApplied =
           !!courage && c.startTick >= courage.startTick && c.startTick < courage.upfrontUntil,
+        hasExtraTenacity =
+          !!victimOwner?.runeState ||
+          !!victimOwner?.inventory.some((item) => item === 'mercs' || item === 'steraks') ||
+          !!state.riftObjectives,
         source = state.units.find((u) => u.id === c.sourceId),
         owner = [state.player, ...state.otherChampions].find((o) => o.id === c.sourceId),
         duration = Math.round(AHRI_E.charmSecondsByRank[c.rank - 1] * TICK_RATE),
@@ -3711,6 +4053,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
               )
             )
           : duration;
+      const tenacityValid = hasExtraTenacity
+        ? c.endTick >= c.startTick + Math.min(duration, Math.round(0.3 * TICK_RATE)) &&
+          c.endTick <= c.startTick + duration &&
+          c.tenacityApplied === c.endTick < c.startTick + duration
+        : c.tenacityApplied === garenTenacityApplied && c.endTick === c.startTick + sampled;
       if (
         state.winner ||
         unit.hp <= 0 ||
@@ -3719,7 +4066,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         source.team === unit.team ||
         !owner ||
         owner.spellRanks.e < c.rank ||
-        c.tenacityApplied !== tenacityApplied ||
+        !tenacityValid ||
         ['ward', 'turret', 'nexus', 'inhibitor'].includes(unit.kind) ||
         (unit.kind === 'monster' &&
           (unit.monster.phase === 'returning' ||
@@ -3728,8 +4075,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
               state.tick < unit.monster.spawn.readyTick))) ||
         !['idle', 'move'].includes(unit.order.type) ||
         c.startTick > state.tick ||
-        c.endTick <= state.tick ||
-        c.endTick !== c.startTick + sampled
+        c.endTick <= state.tick
       )
         throw new Error('Saved match contains invalid Charm control.');
     }
@@ -4937,7 +5283,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           owner.spellRanks.w +
           owner.spellRanks.e +
           owner.spellRanks.r !==
-          owner.level ||
+          Math.min(MAX_LEVEL, owner.level) ||
         (['q', 'w', 'e', 'r'] as const).some(
           (ability) => !owner.spellRanks[ability] && owner.cooldowns[ability] !== 0
         ) ||
@@ -4957,7 +5303,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           owner.spellRanks.e +
           owner.spellRanks.w +
           owner.spellRanks.r !==
-          owner.level ||
+          Math.min(MAX_LEVEL, owner.level) ||
         (owner.spellRanks.r > 0 && owner.level < 6 + (owner.spellRanks.r - 1) * 5) ||
         (!owner.spellRanks.r && owner.cooldowns.r !== 0) ||
         (['q', 'w', 'e'] as const).some(
@@ -4975,7 +5321,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     for (const owner of owners) {
       if (
         owner.skillPoints + Object.values(owner.spellRanks).reduce((sum, rank) => sum + rank, 0) !==
-        owner.level
+        Math.min(MAX_LEVEL, owner.level)
       )
         throw new Error('Saved match contains an invalid skill-point budget.');
       for (const ability of ['q', 'w', 'e', 'r'] as const) {
@@ -5033,9 +5379,19 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
                     g.point.x === RIFT_BARON.point.x &&
                     g.point.y === RIFT_BARON.point.y &&
                     (!target || target.monster?.species === 'baron')
-                  : g.targetId < state.nextId &&
-                    (!target ||
-                      (target.kind === 'monster' && target.monster.species === 'scuttler'));
+                  : g.kind === 'epic' || g.kind === 'epic-rally'
+                    ? !!state.riftObjectives &&
+                      actor?.ai &&
+                      g.targetId < state.nextId &&
+                      (!target ||
+                        (target.kind === 'monster' &&
+                          (target.monster.species === 'elder-dragon' ||
+                            target.monster.species.startsWith('dragon-') ||
+                            target.monster.species === 'riftherald' ||
+                            target.monster.species === 'voidgrub')))
+                    : g.targetId < state.nextId &&
+                      (!target ||
+                        (target.kind === 'monster' && target.monster.species === 'scuttler'));
         if (
           !actor ||
           actor.team !== team ||
@@ -5206,7 +5562,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     )
       throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
-      champion.champion === 'ahri'
+      champion.champion === 'ahri' ||
+      champion.champion === 'darius' ||
+      champion.champion === 'vi' ||
+      champion.champion === 'ezreal' ||
+      champion.champion === 'morgana'
         ? ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r'
         : champion.champion === 'leona'
           ? ['w', 'e', 'r'].includes(ability)
@@ -5657,24 +6017,37 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
               Math.round(silenceTicks * (1 - GAREN_W.upfrontTenacity))
             ),
           ];
-        if (
-          (a.silenceEndTick === null
-            ? a.impact &&
-              recipient &&
-              !isStructureKind(recipient.kind) &&
-              recipient.kind !== 'ward' &&
-              recipient.monster?.species !== 'baron' &&
-              ((recipient.deadAt === null && state.tick < a.impact.tick + silenceTicks) ||
-                (recipient.deadAt !== null && recipient.deadAt > a.impact.tick))
-            : !a.impact ||
-              !silenceDurations.includes(a.silenceEndTick - a.impact.tick) ||
-              (recipient &&
+        const silenceValid = state.riftObjectives
+          ? a.silenceEndTick === null ||
+            (!!a.impact &&
+              a.silenceEndTick >=
+                a.impact.tick + Math.min(silenceTicks, Math.round(0.3 * TICK_RATE)) &&
+              a.silenceEndTick <= a.impact.tick + silenceTicks)
+          : a.silenceEndTick === null
+            ? !(
+                a.impact &&
+                recipient &&
+                !isStructureKind(recipient.kind) &&
+                recipient.kind !== 'ward' &&
+                recipient.monster?.species !== 'baron' &&
+                ((recipient.deadAt === null && state.tick < a.impact.tick + silenceTicks) ||
+                  (recipient.deadAt !== null && recipient.deadAt > a.impact.tick))
+              )
+            : !!a.impact &&
+              silenceDurations.includes(a.silenceEndTick - a.impact.tick) &&
+              !(
+                recipient &&
                 (isStructureKind(recipient.kind) ||
                   recipient.kind === 'ward' ||
-                  recipient.monster?.species === 'baron')) ||
-              (recipient?.deadAt === null &&
+                  recipient.monster?.species === 'baron')
+              ) &&
+              !(
+                recipient?.deadAt === null &&
                 a.silenceEndTick > state.tick &&
-                recipient.silenceUntil < a.silenceEndTick)) ||
+                recipient.silenceUntil < a.silenceEndTick
+              );
+        if (
+          !silenceValid ||
           (a.landing === null ? landed : !canLand || a.landing.tick !== landingTick) ||
           a.startTick <= previousAttack ||
           a.startTick < r.startTick ||
@@ -5850,6 +6223,9 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     if (
       !(source?.champion === 'garen' && command.ability === 'r') &&
       !(source?.champion === 'masteryi' && command.ability === 'q') &&
+      !(source?.champion === 'darius' && command.ability === 'r') &&
+      !(source?.champion === 'vi' && command.ability === 'r') &&
+      !(source?.champion === 'morgana' && command.ability === 'e') &&
       !(owner && isSummonerSlot(command.ability) && owner.summoners[command.ability] === 'smite')
     )
       throw new Error('Saved match contains incompatible targeted cast data.');

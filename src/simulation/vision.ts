@@ -1,3 +1,4 @@
+import { CONTROL_WARD_POLICY, FAELIGHT_POLICY, FARSIGHT_POLICY } from '../content/faelights';
 import { BRUSH, OBSTACLES } from '../content/map';
 import { distance, segmentDistance, type Vec2 } from './math';
 import type { Faction, Unit, ScoutFlight } from './types';
@@ -17,7 +18,16 @@ export interface VisionArea extends VisionSource {
 }
 
 export function sightRadius(unit: Unit): number {
-  return unit.kind === 'ward' ? 900 : unit.kind === 'champion' ? 1300 : 1000;
+  if (unit.kind === 'ward') {
+    const base =
+      unit.ward?.variant === 'farsight'
+        ? FARSIGHT_POLICY.sightRadius
+        : unit.ward?.variant === 'control'
+          ? CONTROL_WARD_POLICY.sightRadius
+          : 900;
+    return unit.ward?.faelightId ? Math.round(base * FAELIGHT_POLICY.sightMultiplier) : base;
+  }
+  return unit.kind === 'champion' ? 1300 : 1000;
 }
 
 /** Uses the same authored terrain as movement, without movement clearance padding. */

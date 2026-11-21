@@ -1,3 +1,4 @@
+import { CONTROL_WARD_POLICY } from '../content/faelights';
 import { ORACLE_POLICY as P, trinketScaling } from '../content/trinkets';
 import type { World } from './world';
 import type { Faction, Unit } from './types';
@@ -30,17 +31,30 @@ export function requestOracle(w: World, owner: Unit): string | null {
   };
   return null;
 }
-/** Detection is independent of ordinary terrain sight and does not reveal ground. */
+/** Detection is independent of ordinary terrain sight for Oracle Lens; Control Wards jam Stealth Wards in sight. */
 export function wardDetected(w: World, ward: Unit, team: Faction): boolean {
   if (ward.kind !== 'ward' || team === 'neutral' || ward.team === team || !w.alive(ward))
     return false;
-  return w.units.some((owner) => {
+  // Control and Farsight wards are visible wards; sweepers/control wards jam Stealth Wards only.
+  if (ward.ward?.variant === 'control' || ward.ward?.variant === 'farsight') return false;
+  const oracleSeen = w.units.some((owner) => {
     if (owner.kind !== 'champion' || owner.team !== team) return false;
     const scan = w.championState(owner.id)!.trinket.scan;
     return !!scan && scan.endTick > w.tick && distance(owner, ward) <= scan.radius;
   });
+  if (oracleSeen) return true;
+  return w.units.some(
+    (other) =>
+      other.kind === 'ward' &&
+      other.team === team &&
+      other.ward?.variant === 'control' &&
+      w.alive(other) &&
+      distance(other, ward) <= CONTROL_WARD_POLICY.jamRadius &&
+      w.battlefield.lineOfSight(other, ward)
+  );
 }
 export function wardDisabled(w: World, ward: Unit): boolean {
+  if (ward.ward?.variant === 'control' || ward.ward?.variant === 'farsight') return false;
   return wardDetected(w, ward, ward.team === 'blue' ? 'red' : 'blue');
 }
 export function advanceOracles(w: World): void {

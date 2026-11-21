@@ -4,7 +4,15 @@ import { direction, distance, type Vec2 } from './math';
 import { botCombatStrength, type Combatant } from './bot-disengage';
 import type { StructureState } from './types';
 export type TeamGoalKind =
-  'defend' | 'push' | 'gank' | 'river' | 'advance' | 'baron-rally' | 'baron';
+  | 'defend'
+  | 'push'
+  | 'gank'
+  | 'river'
+  | 'advance'
+  | 'baron-rally'
+  | 'baron'
+  | 'epic-rally'
+  | 'epic';
 export interface TeamGoal {
   unitId: number;
   kind: TeamGoalKind;
@@ -70,6 +78,13 @@ export interface TeamObservation {
   knownStructures: readonly KnownStructure[];
   scuttlers: readonly (Vec2 & { id: number; hp: number; maxHp: number; attackable: boolean })[];
   baron?: Vec2 & { id: number; attackable: boolean };
+  epicMonsters?: readonly (Vec2 & {
+    id: number;
+    attackable: boolean;
+    minLevel: number;
+    minAllies: number;
+    priority: number;
+  })[];
   /** Remembered intact tower placements, including towers currently under fog. */
   towers: readonly (Vec2 & { range: number })[];
   gone: ReadonlySet<number>;
@@ -346,8 +361,49 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
           offer(a, commit ? 'baron' : 'baron-rally', baron.id, baron, commit ? 205 : 185);
     }
   }
+  for (const epic of o.epicMonsters ?? []) {
+    if (!epic.attackable) continue;
+    const party = o.actors.filter(
+      (a) =>
+        a.available &&
+        !a.clearing &&
+        !proposals.get(a.id)?.some((g) => g.kind === 'defend') &&
+        a.level >= epic.minLevel &&
+        a.hp / a.maxHp >= 0.5 &&
+        distance(a, epic) <= 4400
+    );
+    const atPit = party.filter((a) => distance(a, epic) <= 1050);
+    const hostile = o.enemies
+      .filter((e) => distance(e, epic) <= 1600)
+      .reduce((sum, e) => sum + botCombatStrength(e), 0);
+    const partyStrength = party.reduce((sum, a) => sum + botCombatStrength(a), 0);
+    if (
+      party.length >= epic.minAllies &&
+      party.some((a) => a.role === 'jungle') &&
+      hostile <= partyStrength * 0.95
+    ) {
+      const commit = atPit.length >= Math.max(1, epic.minAllies - 1);
+      for (const a of party) {
+        if (a.controlled && a.role !== null) {
+          offer(
+            a,
+            commit ? 'epic' : 'epic-rally',
+            epic.id,
+            epic,
+            commit ? epic.priority : epic.priority - 15
+          );
+        }
+      }
+    }
+  }
   const seen = new Set(
-    [...o.enemies, ...o.ownStructures, ...o.enemyStructures, ...o.scuttlers].map((t) => t.id)
+    [
+      ...o.enemies,
+      ...o.ownStructures,
+      ...o.enemyStructures,
+      ...o.scuttlers,
+      ...(o.epicMonsters ?? []),
+    ].map((t) => t.id)
   );
   const result: TeamGoal[] = [];
   for (const a of eligible) {

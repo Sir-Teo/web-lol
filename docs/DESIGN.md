@@ -26,15 +26,15 @@ These priorities govern development order, not the final feature ceiling. A poli
 
 All authoritative match state runs inside the player's browser: units, combat, AI, random numbers, timers, economy, and victory. A static HTTPS host distributes HTML, JavaScript, WASM decoders, audio, models, and versioned data. A development server is tooling, not an application backend.
 
-| Capability | Decision |
-|---|---|
-| Solo 5v5 with bots | Full target |
-| Offline matches | Supported after the selected content pack finishes caching |
-| Saves, preferences, match history | Local to this browser profile, with export/import |
-| Practice, pause, replay | Full target; useful advantages of local simulation |
-| Accounts, matchmaking, trusted rankings | Outside this architecture |
-| Competitive anti-cheat | Cannot be guaranteed when the player owns all state |
-| Internet PvP | Separate future architecture decision |
+| Capability                              | Decision                                                   |
+| --------------------------------------- | ---------------------------------------------------------- |
+| Solo 5v5 with bots                      | Full target                                                |
+| Offline matches                         | Supported after the selected content pack finishes caching |
+| Saves, preferences, match history       | Local to this browser profile, with export/import          |
+| Practice, pause, replay                 | Full target; useful advantages of local simulation         |
+| Accounts, matchmaking, trusted rankings | Outside this architecture                                  |
+| Competitive anti-cheat                  | Cannot be guaranteed when the player owns all state        |
+| Internet PvP                            | Separate future architecture decision                      |
 
 WebRTC can transport peer data, but peers still need signaling, and some networks require TURN relays. Manual connection exchange can support experiments; it is not a dependable ten-player, zero-infrastructure service. Do not put multiplayer into the critical path. [MDN WebRTC connectivity](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity)
 
@@ -67,19 +67,19 @@ Do not plan around screenshots as map textures, ripped voice packs, or public da
 
 ## 5. Stack and architecture
 
-| Layer | Choice | Reason for this project |
-|---|---|---|
-| Language/build | TypeScript, strict mode, Vite | Inspectable local simulation and static output |
-| Renderer | Three.js, WebGLRenderer | Direct control over the fixed camera, skinned models, effects, and fog |
-| Simulation | Pure TypeScript modules with stable entity IDs | Headless testing, replay, and renderer independence |
-| Navigation | Pinned source grid, radius-aware A*, swept capsule clearance, path smoothing | Preserve the imported map's collision semantics; add dynamic overlays and local avoidance |
-| Collision | 2D circles, capsules, swept queries, authored obstacles | Explicit game rules without rigid-body drift |
-| UI | HTML/CSS with typed view models | Clear text, rebinding, shop, settings, tooltips |
-| Audio | Web Audio | Event scheduling, mixing, voice limits |
-| Models | GLB/glTF 2.0 | Consistent mesh, skeleton, and animation delivery |
-| Optimization | glTF Transform, Meshopt where beneficial, KTX2 textures | Control download size and GPU memory |
-| Storage | IndexedDB, versioned Cache API entries | Saves and offline content |
-| Verification | Unit/scenario tests, Playwright, SpectorJS | Rules, interaction, visual QA, and GPU inspection |
+| Layer          | Choice                                                                       | Reason for this project                                                                   |
+| -------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Language/build | TypeScript, strict mode, Vite                                                | Inspectable local simulation and static output                                            |
+| Renderer       | Three.js, WebGLRenderer                                                      | Direct control over the fixed camera, skinned models, effects, and fog                    |
+| Simulation     | Pure TypeScript modules with stable entity IDs                               | Headless testing, replay, and renderer independence                                       |
+| Navigation     | Pinned source grid, radius-aware A*, swept capsule clearance, path smoothing | Preserve the imported map's collision semantics; add dynamic overlays and local avoidance |
+| Collision      | 2D circles, capsules, swept queries, authored obstacles                      | Explicit game rules without rigid-body drift                                              |
+| UI             | HTML/CSS with typed view models                                              | Clear text, rebinding, shop, settings, tooltips                                           |
+| Audio          | Web Audio                                                                    | Event scheduling, mixing, voice limits                                                    |
+| Models         | GLB/glTF 2.0                                                                 | Consistent mesh, skeleton, and animation delivery                                         |
+| Optimization   | glTF Transform, Meshopt where beneficial, KTX2 textures                      | Control download size and GPU memory                                                      |
+| Storage        | IndexedDB, versioned Cache API entries                                       | Saves and offline content                                                                 |
+| Verification   | Unit/scenario tests, Playwright, SpectorJS                                   | Rules, interaction, visual QA, and GPU inspection                                         |
 
 Phaser is Game Studio's default for 2D games. Its own documentation describes a 2D framework without built-in 3D rendering. For this request, 3D presentation is the recommendation derived from prioritizing League's visual fidelity. Three.js is a renderer, so navigation, match rules, and tooling remain work we must build. [Phaser scope](https://docs.phaser.io/phaser/getting-started/what-is-phaser), [Three.js renderer](https://threejs.org/docs/pages/WebGLRenderer.html)
 
@@ -129,21 +129,21 @@ Expiry, equal-timestamp lethal hits, resets, and posthumous projectiles need exp
 
 ### Controls
 
-| Action | Proposed familiar default |
-|---|---|
-| Move / attack valid target | Right-click |
-| Inspect/select | Left-click |
-| Abilities | Q W E R |
-| Summoner spells | D F |
-| Attack move | A then click; configurable direct cast |
-| Stop | S |
-| Recall | B |
-| Shop | P |
-| Scoreboard | Hold Tab |
-| Recenter / camera lock | Hold Space / Y |
-| Level an ability | Ctrl + ability key, rebindable |
-| Inventory / trinket | Configurable slot bindings |
-| Cancel aim / close top modal | Escape |
+| Action                       | Proposed familiar default              |
+| ---------------------------- | -------------------------------------- |
+| Move / attack valid target   | Right-click                            |
+| Inspect/select               | Left-click                             |
+| Abilities                    | Q W E R                                |
+| Summoner spells              | D F                                    |
+| Attack move                  | A then click; configurable direct cast |
+| Stop                         | S                                      |
+| Recall                       | B                                      |
+| Shop                         | P                                      |
+| Scoreboard                   | Hold Tab                               |
+| Recenter / camera lock       | Hold Space / Y                         |
+| Level an ability             | Ctrl + ability key, rebindable         |
+| Inventory / trinket          | Configurable slot bindings             |
+| Cancel aim / close top modal | Escape                                 |
 
 Provide normal cast, quick cast, quick cast with indicator, self-cast, attack-move target preference, target-champions-only, edge-pan sensitivity, and camera-lock preferences. Treat these as explicit settings; verify exact reference interactions instead of conflating target-champions-only with all attack-move behavior.
 
@@ -224,14 +224,14 @@ CC is a capability system: whether an actor can move, attack, cast, turn, or rec
 
 Use six champions as reference cases covering all five roles, with mirror picks initially. Each gets a complete passive and Q/W/E/R behavior set, suitable animations, effects, sounds, and bot support before being called playable.
 
-| Reference | Role in initial test roster | What it forces the engine to support |
-|---|---|---|
-| Ashe | Bot carry; first movement/attack reference | Ranged attacks, slows, attack enhancement, multi-projectile aim, scouting |
-| Lux | Mid or support; first spell reference | Multi-target binding, returning shield, persistent/recast zone, beam |
-| Garen | Top | Melee reset, defensive timing, moving area damage, finisher |
-| Master Yi | Jungle | On-hit sequencing, temporary untargetability, channel, buff/reset interactions |
-| Leona | Support | Engage dash, empowered attack, defensive buff, differentiated area CC |
-| Ahri | Additional mid; animation benchmark | Returning projectile, charm, multi-cast mobility, takedown interactions |
+| Reference | Role in initial test roster                | What it forces the engine to support                                           |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------ |
+| Ashe      | Bot carry; first movement/attack reference | Ranged attacks, slows, attack enhancement, multi-projectile aim, scouting      |
+| Lux       | Mid or support; first spell reference      | Multi-target binding, returning shield, persistent/recast zone, beam           |
+| Garen     | Top                                        | Melee reset, defensive timing, moving area damage, finisher                    |
+| Master Yi | Jungle                                     | On-hit sequencing, temporary untargetability, channel, buff/reset interactions |
+| Leona     | Support                                    | Engage dash, empowered attack, defensive buff, differentiated area CC          |
+| Ahri      | Additional mid; animation benchmark        | Returning projectile, charm, multi-cast mobility, takedown interactions        |
 
 These are research cases, not an asset-use license. The first two establish combat foundations. Ahri is an early visual target because a character with moving secondary forms and clear spell identity exposes weak animation production quickly. Her full kit follows basic projectile and dash infrastructure. [Ashe](https://www.leagueoflegends.com/en-us/champions/ashe/), [Lux](https://www.leagueoflegends.com/en-us/champions/lux/), [Ahri](https://www.leagueoflegends.com/en-us/champions/ahri/)
 
@@ -263,12 +263,12 @@ Stage one item coverage around six sensible builds and meaningful alternatives, 
 
 Use local hierarchical utility AI with reusable actions and champion-specific tactical evaluators. An online LLM is incompatible with offline matches and unnecessary for frame-level decisions.
 
-| Layer | Proposed frequency | Responsibility |
-|---|---|---|
-| Shared team planner | 1–2 Hz, plus urgent events | Defend lanes, assign objective participation, push, split, regroup |
-| Individual tactics | 5–10 Hz, staggered | Farm, trade, kite, retreat, recall, ward, approach a fight |
-| Action execution | Every simulation tick | Follow paths, honor cast/attack states, execute committed orders |
-| Perception memory | Tick events + bounded refresh | Track only observable facts with age and uncertainty |
+| Layer               | Proposed frequency            | Responsibility                                                     |
+| ------------------- | ----------------------------- | ------------------------------------------------------------------ |
+| Shared team planner | 1–2 Hz, plus urgent events    | Defend lanes, assign objective participation, push, split, regroup |
+| Individual tactics  | 5–10 Hz, staggered            | Farm, trade, kite, retreat, recall, ward, approach a fight         |
+| Action execution    | Every simulation tick         | Follow paths, honor cast/attack states, execute committed orders   |
+| Perception memory   | Tick events + bounded refresh | Track only observable facts with age and uncertainty               |
 
 These are starting budgets. Tune reaction delay separately from update frequency. Proposed difficulty bands are roughly 180–350 ms reaction delay for strong bots and 350–600 ms for easier bots, with aim/decision errors; these are design settings, not measured human benchmarks.
 
@@ -343,21 +343,21 @@ On WebGL context loss, pause and restore presentation from the intact simulation
 
 All figures below are engineering targets requiring a real benchmark, not existing results.
 
-| Metric | Initial target |
-|---|---|
-| Target display | 60 fps at 1920×1080 on a named integrated-GPU laptop |
-| Frame time | p95 ≤16.7 ms; p99 ≤25 ms in the defined combat benchmark |
-| Simulation cost | p95 ≤4 ms/tick with all lanes active |
-| Input response | Command processed by the next tick; local feedback by next frame |
-| Core match download | ≤60 MB compressed for the first six-character pack |
-| UI shell download | ≤3 MB compressed before optional content |
-| Cold ready-to-play | ≤20 s at a controlled 50 Mbps connection, including decode |
-| Warm ready-to-play | ≤5 s on the target device |
-| Initial JS heap budget | ≤256 MB in a representative full match |
-| Estimated texture allocation | ≤256 MB, tracked separately from JS heap |
-| Draw-call guide | Aim below 250 in the main gameplay view |
+| Metric                       | Initial target                                                                                                                                                                                      |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Target display               | 60 fps at 1920×1080 on a named integrated-GPU laptop                                                                                                                                                |
+| Frame time                   | p95 ≤16.7 ms; p99 ≤25 ms in the defined combat benchmark                                                                                                                                            |
+| Simulation cost              | p95 ≤4 ms/tick with all lanes active                                                                                                                                                                |
+| Input response               | Command processed by the next tick; local feedback by next frame                                                                                                                                    |
+| Core match download          | ≤60 MB compressed for the first six-character pack                                                                                                                                                  |
+| UI shell download            | ≤3 MB compressed before optional content                                                                                                                                                            |
+| Cold ready-to-play           | ≤20 s at a controlled 50 Mbps connection, including decode                                                                                                                                          |
+| Warm ready-to-play           | ≤5 s on the target device                                                                                                                                                                           |
+| Initial JS heap budget       | ≤280 MiB in a representative 6-champion 5v5 match (revised in Milestone 5 from 256 MB provisional after measuring 261.6 MiB post-GC on production `dist/`)                                          |
+| Estimated texture allocation | ≤256 MB, tracked separately from JS heap (`181` active Three.js textures / `114` geometries in the 6-champion 5v5 stress profile; map source textures documented in [MAP-ASSETS.md](MAP-ASSETS.md)) |
+| Draw-call guide              | Aim below 250 in the main gameplay view (measured `median 135`, `p95 167`, `p99 172` in Milestone 5 6-champion 5v5 stress fixture)                                                                  |
 
-At 50 Mbps, a 60 MB pack needs roughly 9.6 seconds just for ideal transfer; the remaining load budget is for latency, decode, upload, and initialization. Download targets must be revisited after the first art pack, not met by quietly removing quality-critical animation.
+At 50 Mbps, a 60 MB pack needs roughly 9.6 seconds just for ideal transfer; the remaining load budget is for latency, decode, upload, and initialization. Download targets must be revisited after the first art pack, not met by quietly removing quality-critical animation. In Milestone 5, the complete unstripped 6-champion source-quality offline deployment measures **581.2 MB** (`1,432` files; revised full-pack ceiling **≤600 MB**), requiring a standard persistent browser profile on ≤8 GiB RAM hosts because Chromium Incognito caps RAM-backed `CacheStorage` to ~6% of system memory (~458 MB on 8 GiB hosts) despite reporting a masked 10 GiB `navigator.storage.estimate()` quota. See [MILESTONE-5.md](MILESTONE-5.md).
 
 Stress fixture: ten champions fighting, three active lanes, at least 150 live lane units across the map, active jungle camps, and an intentionally heavy effects scene. The exact unit count is a test fixture, not a claim about typical League matches.
 

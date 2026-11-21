@@ -14,6 +14,7 @@ const rawBoneTracks = process.argv.slice(5).includes('--raw-bone-tracks');
 const gpuTiming = process.argv.slice(5).includes('--gpu');
 const developmentLeona = process.argv.slice(5).includes('--development-leona');
 const rosterBaron = process.argv.slice(5).includes('--roster-baron');
+const publicRift = process.argv.slice(5).includes('--public-rift');
 const followPlayer = process.argv.slice(5).includes('--follow-player');
 const systemChromium = process.argv.slice(5).includes('--system-chromium');
 const headed = process.argv.slice(5).includes('--headed');
@@ -53,8 +54,13 @@ if (snapshot) {
     saved.units.filter((u) => u.kind === 'champion').length !== 10
   )
     throw new Error('Match benchmark requires an unfinished ten-champion Rift checkpoint');
-  if (saved.units.some((u) => u.champion === 'leona') && !(developmentLeona || rosterBaron))
-    throw new Error('Leona checkpoints require the explicit --development-leona context.');
+  if (
+    saved.units.some((u) => u.champion === 'leona') &&
+    !(developmentLeona || rosterBaron || publicRift)
+  )
+    throw new Error(
+      'Leona checkpoints require --public-rift, --development-leona, or --roster-baron.'
+    );
   if (
     rosterBaron &&
     !saved.units.some(
@@ -96,7 +102,7 @@ try {
     await page.waitForFunction(() => window.__GAME__?.ready, null, { timeout: 120_000 });
     await page.locator('#loading').waitFor({ state: 'detached' });
   };
-  if (rosterBaron) {
+  if (rosterBaron || publicRift) {
     // Load the checkpoint before initializing the map, rigs and WebGL context.
     const bootstrap = new URL('/__baron_benchmark_storage__', targetUrl).href;
     await page.route(bootstrap, (route) =>
@@ -118,7 +124,7 @@ try {
   await page.goto(targetUrl.href);
   await ready();
   if (snapshot) {
-    if (!rosterBaron) {
+    if (!rosterBaron && !publicRift) {
       canonicalSnapshot = await page.evaluate(
         async ({ input, saveKey }) => {
           const g = window.__GAME__;
@@ -400,6 +406,18 @@ try {
         renderedTriangles: summarize(triangles),
         calls: v.renderer.info.render.calls,
         triangles: v.renderer.info.render.triangles,
+        gpuMemory: {
+          geometries: v.renderer.info.memory.geometries,
+          textures: v.renderer.info.memory.textures,
+          programs: v.renderer.info.programs?.length ?? null,
+        },
+        jsHeapBytes: performance.memory
+          ? {
+              used: performance.memory.usedJSHeapSize,
+              total: performance.memory.totalJSHeapSize,
+              limit: performance.memory.jsHeapSizeLimit,
+            }
+          : null,
         fogResolution: v.fogPixels.width,
       };
     },

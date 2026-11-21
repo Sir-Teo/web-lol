@@ -2,9 +2,18 @@
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { createHash } from 'node:crypto';
-import { createReadStream, readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import {
+  createReadStream,
+  readFileSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import { stat } from 'node:fs/promises';
-import { extname, resolve, sep } from 'node:path';
+import { tmpdir } from 'node:os';
+import { extname, join, resolve, sep } from 'node:path';
 import ts from 'typescript';
 import { chromium } from '@playwright/test';
 import { parseArgs } from 'node:util';
@@ -177,20 +186,23 @@ async function storedMatch(page) {
     }
   });
 }
-let browser;
+let browser, persistentContext;
+const profileDir = mkdtempSync(join(tmpdir(), 'rift-offline-pack-'));
 const report = {
   browser: values['system-chromium'] ? 'system-chromium' : 'google-chrome',
   manifest: { id: manifest.id, files: manifest.files.length, bytes: manifest.bytes },
   checks: {},
 };
 try {
-  browser = await chromium.launch(
-    values['system-chromium']
-      ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'], headless: true }
-      : { channel: 'chrome', headless: true }
-  );
-  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } }),
-    page = await context.newPage();
+  const launchOpts = values['system-chromium']
+    ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'], headless: true }
+    : { channel: 'chrome', headless: true };
+  persistentContext = await chromium.launchPersistentContext(profileDir, {
+    ...launchOpts,
+    viewport: { width: 1440, height: 1000 },
+  });
+  const context = persistentContext,
+    page = context.pages()[0] ?? (await context.newPage());
   const errors = [],
     serviceResponses = [];
   page.on('pageerror', (e) => errors.push(e.message));
@@ -358,9 +370,11 @@ try {
   assert.deepEqual(errors, []);
   report.checks.removalKeepsSavedBytes = true;
   await context.close();
+  persistentContext = undefined;
   console.log(
     JSON.stringify({ stage: 'production offline controls passed; testing two-version activation' })
   );
+  browser = await chromium.launch(launchOpts);
   const versions = await browser.newContext(),
     first = await versions.newPage();
   await first.goto(origin + fixture);
@@ -435,6 +449,8 @@ try {
   );
   throw error;
 } finally {
+  await persistentContext?.close();
   await browser?.close();
+  rmSync(profileDir, { recursive: true, force: true });
   await new Promise((yes) => server.close(yes));
 }

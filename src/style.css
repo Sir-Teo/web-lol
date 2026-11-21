@@ -2094,3 +2094,266 @@ button {
   border-color: #c89b3c;
   box-shadow: 0 0 8px #c89b3c55;
 }
+
+.replay-bar {
+  pointer-events: auto;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: linear-gradient(180deg, rgba(6, 20, 24, 0.95), rgba(4, 14, 17, 0.92));
+  border: 1px solid #a89660;
+  box-shadow: 0 6px 24px #0009;
+  z-index: 11;
+  font-variant-numeric: tabular-nums;
+}
+.replay-badge {
+  font:
+    700 10px 'Beaufort for LOL',
+    serif;
+  letter-spacing: 2px;
+  color: #f1de9e;
+  background: #234242;
+  border: 1px solid #8c8057;
+  padding: 2px 6px;
+}
+.replay-verify {
+  font-size: 11px;
+  color: #8fd4b8;
+}
+.replay-verify.error {
+  color: #e68a7c;
+}
+.replay-time {
+  font-size: 12px;
+  color: #dfd8bd;
+  min-width: 88px;
+  text-align: center;
+}
+.replay-buttons,
+.replay-speeds {
+  display: flex;
+  gap: 4px;
+}
+.replay-btn {
+  padding: 3px 8px;
+  font-size: 11px;
+  background: #10272a;
+  border: 1px solid #4c645c;
+  color: #d0dbce;
+}
+.replay-btn:hover,
+.replay-btn[aria-pressed='true'] {
+  background: #254849;
+  border-color: #d6c58b;
+  color: #f4e9be;
+}
+.replay-exit {
+  border-color: #8f6b56;
+  color: #eed0bd;
+}
+.mix-group {
+  margin-top: 12px;
+  text-align: left;
+}
+.mix-label {
+  display: block;
+  font-size: 12px;
+  color: #d9c99a;
+  margin-bottom: 6px;
+}
+.mix-presets {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+.mix-presets .mix-preset {
+  margin-top: 0;
+  padding: 8px 4px;
+  font-size: 12px;
+}
+.mix-presets .mix-preset[aria-pressed='true'] {
+  border-color: #d9d29d;
+  background: #254646;
+  color: #f2e8bf;
+}
+
+/* Milestone 6: 7-slot inventory, shop categories & undo, runes, role quests, reference audit */
+.inventory-panel.seven-slots {
+  width: 172px;
+}
+.inventory-panel.seven-slots .inventory-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+.item-slot .item-stack {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #f8ebbd;
+  text-shadow: 0 1px 2px #000;
+}
+.item-slot .item-cooldown {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 13, 16, 0.74);
+  color: #f5e6b6;
+  font-size: 11px;
+  font-weight: 700;
+}
+.item-slot.active-ready {
+  border-color: #a89660;
+  cursor: pointer;
+}
+.shop-balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.shop-undo-button {
+  margin: 0 !important;
+  padding: 5px 12px !important;
+  font-size: 12px !important;
+  width: auto !important;
+}
+.shop-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+.shop-category-btn {
+  margin: 0 !important;
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  width: auto !important;
+}
+.shop-category-btn[aria-pressed='true'] {
+  border-color: #dfcf98;
+  background: #214042;
+  color: #f4e8be;
+}
+.shop-panels .shop-trinkets {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.role-quest-status {
+  position: absolute;
+  left: 24px;
+  top: 76px;
+  padding: 6px 11px;
+  color: #eadcb0;
+  background: #091a20e0;
+  border: 1px solid #6b6b4d;
+  font-size: 11.5px;
+  max-width: 340px;
+  pointer-events: auto;
+}
+.role-quest-status.completed {
+  border-color: #d9c57d;
+  color: #f7ecc5;
+}
+.rune-selection {
+  margin-top: 10px;
+  text-align: left;
+  border: 1px solid #354e50;
+  background: #0a1b20aa;
+  padding: 8px 10px;
+}
+.rune-selection h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: #d8c796;
+  letter-spacing: 0.04em;
+}
+.rune-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+.rune-row:last-child {
+  margin-bottom: 0;
+}
+.rune-choice {
+  margin: 0 !important;
+  padding: 5px 8px !important;
+  font-size: 11px !important;
+  width: auto !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.rune-choice img {
+  width: 18px;
+  height: 18px;
+}
+.rune-choice[aria-pressed='true'] {
+  border-color: #decb92;
+  background: #1d3c40;
+  color: #f6ecc7;
+}
+.game-dialog.new-match {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.game-dialog.reference-audit {
+  width: min(860px, 94vw);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
+}
+.audit-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #dfd3aa;
+}
+.audit-pill {
+  padding: 3px 8px;
+  border: 1px solid #4d635d;
+  background: #0f2529;
+}
+.audit-scroll {
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
+  padding-right: 4px;
+}
+.audit-entry {
+  border-bottom: 1px solid #223b40;
+  padding: 8px 4px;
+  font-size: 12px;
+}
+.audit-entry strong {
+  color: #efe2ba;
+}
+.audit-entry small {
+  display: block;
+  color: #9cb3ad;
+  margin-top: 2px;
+}
+.audit-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  border: 1px solid #56706a;
+  margin-right: 6px;
+  color: #dce7df;
+}
+.scoreboard-items.seven-slots {
+  grid-template-columns: repeat(7, 22px);
+}

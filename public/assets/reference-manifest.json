@@ -760,6 +760,408 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/Highlander.png",
       "sha256": "0e56c7df1cc9ad719c4c1004ce7307567d428b7746bbb5b6c79076fc49696a88",
       "bytes": 6238
+    },
+    {
+      "path": "/assets/icons/darius.png",
+      "source": "authored-local-milestone6",
+      "sha256": "15697c15db1dac7c5c666ea51d0496e156315027889b4712a4618ca881d8e55e",
+      "bytes": 1170
+    },
+    {
+      "path": "/assets/icons/DariusPassive.png",
+      "source": "authored-local-milestone6",
+      "sha256": "09a1f7369f093a70007f4f3dfdd29c16c357538847d989edee25f3c73e1b8d9a",
+      "bytes": 860
+    },
+    {
+      "path": "/assets/icons/DariusQ.png",
+      "source": "authored-local-milestone6",
+      "sha256": "a63442b6e52db5d835475f8010157d670cccffa2be3889ccc53f59fcae8d40c1",
+      "bytes": 1270
+    },
+    {
+      "path": "/assets/icons/DariusW.png",
+      "source": "authored-local-milestone6",
+      "sha256": "3c0ccbbd1b95ce309ce1113c3373fff736ae470420ccbbd2ca4b6fb94574f728",
+      "bytes": 1182
+    },
+    {
+      "path": "/assets/icons/DariusE.png",
+      "source": "authored-local-milestone6",
+      "sha256": "48db0c06d442dead590a6e8572444cc6373bf4c451b443187d481b23a09e07da",
+      "bytes": 1080
+    },
+    {
+      "path": "/assets/icons/DariusR.png",
+      "source": "authored-local-milestone6",
+      "sha256": "b5e9de164d3b5cda3df1fe3f7d283a8fcf3e3704a44c7aa609ec7dfdb6ada145",
+      "bytes": 1362
+    },
+    {
+      "path": "/assets/icons/vi.png",
+      "source": "authored-local-milestone6",
+      "sha256": "2167c80b9719aa97fcad13ca7108bbd5c938813f5e467505c52657d255beb1b2",
+      "bytes": 1164
+    },
+    {
+      "path": "/assets/icons/ViPassive.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f5de1c4a0b6839a7655058d5e04dc753a3e7c5c795a8f73b50b6b26915342df6",
+      "bytes": 1272
+    },
+    {
+      "path": "/assets/icons/ViQ.png",
+      "source": "authored-local-milestone6",
+      "sha256": "4d56b084ebbb8d5c29bbc5fba565b2f014485e9ac4efb39c9702b9a3680dd436",
+      "bytes": 1253
+    },
+    {
+      "path": "/assets/icons/ViW.png",
+      "source": "authored-local-milestone6",
+      "sha256": "7a518c95b3b16d3e0e35682425e6af2eca0c79e845b2936e387652924ed324eb",
+      "bytes": 1196
+    },
+    {
+      "path": "/assets/icons/ViE.png",
+      "source": "authored-local-milestone6",
+      "sha256": "51409d10630c397645956ed1decc9a139853cab8a57debd4cb96a2b3c9afe4d7",
+      "bytes": 1321
+    },
+    {
+      "path": "/assets/icons/ViR.png",
+      "source": "authored-local-milestone6",
+      "sha256": "9ecc11cb3f107d2cb524ee2d155c2d30dbf2f82b3e695649d76ec3527304f493",
+      "bytes": 1278
+    },
+    {
+      "path": "/assets/icons/ezreal.png",
+      "source": "authored-local-milestone6",
+      "sha256": "994863d9594f9b67d3ed3b57afd2728c7c6a7faddf3680d5c6c1e53949039782",
+      "bytes": 1354
+    },
+    {
+      "path": "/assets/icons/EzrealPassive.png",
+      "source": "authored-local-milestone6",
+      "sha256": "8a3df5e9e2f8d9f87c145bd82b5de1f9d1ad6aa8c40bd536753075a37b4a13a4",
+      "bytes": 1223
+    },
+    {
+      "path": "/assets/icons/EzrealQ.png",
+      "source": "authored-local-milestone6",
+      "sha256": "2b290a0465c39f0912568c5a38a1091c97d5b7b26604d7cc352d5f849aef60cf",
+      "bytes": 1658
+    },
+    {
+      "path": "/assets/icons/EzrealW.png",
+      "source": "authored-local-milestone6",
+      "sha256": "cd6f42e6a1a00832444b126fb638e74f06e2848f5cba5ffa15294a763a7499ca",
+      "bytes": 1297
+    },
+    {
+      "path": "/assets/icons/EzrealE.png",
+      "source": "authored-local-milestone6",
+      "sha256": "9458bd37652e7b146ffc7e8deb43adfa62b14bb6b81643d4fa5ccebd114f2a77",
+      "bytes": 1284
+    },
+    {
+      "path": "/assets/icons/EzrealR.png",
+      "source": "authored-local-milestone6",
+      "sha256": "5518a9d6c96a39af05e5bfd556663f44f506a1fe6eda01071a4f1632bd8588c9",
+      "bytes": 1559
+    },
+    {
+      "path": "/assets/icons/morgana.png",
+      "source": "authored-local-milestone6",
+      "sha256": "749defde469a85bc3026718e8e17904220be1e5ff84efc599ddb8a051292f33c",
+      "bytes": 1476
+    },
+    {
+      "path": "/assets/icons/MorganaPassive.png",
+      "source": "authored-local-milestone6",
+      "sha256": "e0d78fb1f133c318d6cd556262d2320683940d7e48f5f0901cda8fdc8606957d",
+      "bytes": 1036
+    },
+    {
+      "path": "/assets/icons/MorganaQ.png",
+      "source": "authored-local-milestone6",
+      "sha256": "c3a99617e0b0ee6f070eff5da4cdeb2fcffb85866bcf43400cba23702af5a24e",
+      "bytes": 1297
+    },
+    {
+      "path": "/assets/icons/MorganaW.png",
+      "source": "authored-local-milestone6",
+      "sha256": "95585491ca01a3fd873d7961cad2807cd7919f773ab1005d29b680bcf17ebf2e",
+      "bytes": 940
+    },
+    {
+      "path": "/assets/icons/MorganaE.png",
+      "source": "authored-local-milestone6",
+      "sha256": "ba46b14c07702cfd8f4819f4e56295bb5aefbcaeea884d1ff0cf1e8911c5bd12",
+      "bytes": 1379
+    },
+    {
+      "path": "/assets/icons/MorganaR.png",
+      "source": "authored-local-milestone6",
+      "sha256": "45ff7846fd488325337aab2f1539f1abdd83d09a0bcef35d61715cb1a0befdc3",
+      "bytes": 1633
+    },
+    {
+      "path": "/assets/icons/3363.png",
+      "source": "authored-local-milestone6",
+      "sha256": "cb629550f5c552eff9a9a28f13b243770880eb9f10d9208d5a248f037f9a85fe",
+      "bytes": 1146
+    },
+    {
+      "path": "/assets/icons/2055.png",
+      "source": "authored-local-milestone6",
+      "sha256": "e8ad4cee608b4541f5033ddff7f21e2054b428ab996a646ad330b8194471e5a5",
+      "bytes": 1059
+    },
+    {
+      "path": "/assets/icons/2003.png",
+      "source": "authored-local-milestone6",
+      "sha256": "d4da3accbeaf72b19b45f23d32ed4bcf892beec9eab5814cd0fadc586d03a92b",
+      "bytes": 1023
+    },
+    {
+      "path": "/assets/icons/1056.png",
+      "source": "authored-local-milestone6",
+      "sha256": "8cdaf96db7faa933778ba8b49d9223f8b69a581e323dff576f74334de988a668",
+      "bytes": 1288
+    },
+    {
+      "path": "/assets/icons/1054.png",
+      "source": "authored-local-milestone6",
+      "sha256": "7ffedf9a65726e668d6764f3170f295006ccd4a713426b5dcdcbbd5eff91d988",
+      "bytes": 1189
+    },
+    {
+      "path": "/assets/icons/1042.png",
+      "source": "authored-local-milestone6",
+      "sha256": "2a7c1ed1a59ac45d28f7883837489b5fdc36f90dff79e71795c0b98aac973530",
+      "bytes": 1403
+    },
+    {
+      "path": "/assets/icons/1043.png",
+      "source": "authored-local-milestone6",
+      "sha256": "6962a2584d6bbec84336d280a1d0c00d4362e854d64bb3d254809a2406a40509",
+      "bytes": 1255
+    },
+    {
+      "path": "/assets/icons/1053.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f0304e64cda9dec7d714472184a4827db6032a78ca0f1817a8ef749b286afd58",
+      "bytes": 1320
+    },
+    {
+      "path": "/assets/icons/3057.png",
+      "source": "authored-local-milestone6",
+      "sha256": "dca92c203a851c942ebbd7aeebc65e640345dfddc948e45ccd8c827e268405c2",
+      "bytes": 1580
+    },
+    {
+      "path": "/assets/icons/3067.png",
+      "source": "authored-local-milestone6",
+      "sha256": "99aca98880f05630f7712c0ea89b5b6a385ebf9836237c60a898203cf54d56fb",
+      "bytes": 1033
+    },
+    {
+      "path": "/assets/icons/3134.png",
+      "source": "authored-local-milestone6",
+      "sha256": "c93e28e4a3410a22d51254d3ac9537b5ae64ab803df330fa2888ebe85ba7336c",
+      "bytes": 1287
+    },
+    {
+      "path": "/assets/icons/6660.png",
+      "source": "authored-local-milestone6",
+      "sha256": "e7b12e7940d9d0ec6fd04b395b590a870d3dd6b72f512de6fb152076413a923d",
+      "bytes": 1140
+    },
+    {
+      "path": "/assets/icons/3006.png",
+      "source": "authored-local-milestone6",
+      "sha256": "108ce7a3f1726fbb43bb2f610a93d70bbcc7c8df309c0dab2f9fbdb79145caa6",
+      "bytes": 1271
+    },
+    {
+      "path": "/assets/icons/3020.png",
+      "source": "authored-local-milestone6",
+      "sha256": "952b19c10604de6dd0e93f3e7834947a146ee7804441ec5989377c8c3072224e",
+      "bytes": 1313
+    },
+    {
+      "path": "/assets/icons/3047.png",
+      "source": "authored-local-milestone6",
+      "sha256": "7271a146dde4d135d687780bdb60448d5c74e751d6499923cae1751f321d79c4",
+      "bytes": 1260
+    },
+    {
+      "path": "/assets/icons/3111.png",
+      "source": "authored-local-milestone6",
+      "sha256": "5168e499f9fde7d68dae5b9efb10268b476bb519ff9fba5f18864628df4a5f25",
+      "bytes": 1339
+    },
+    {
+      "path": "/assets/icons/3158.png",
+      "source": "authored-local-milestone6",
+      "sha256": "c3bee9c751d846cd9062638f59ca3e5765b93220d18d1e1f0a660d80fd286aa1",
+      "bytes": 1272
+    },
+    {
+      "path": "/assets/icons/6672.png",
+      "source": "authored-local-milestone6",
+      "sha256": "1759fc28348956b302b9469ae240d472132f0f2f2f6998352ef246158845414c",
+      "bytes": 1548
+    },
+    {
+      "path": "/assets/icons/3046.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f697e4397ea0c608bd895294049410fd691925d7d02489341fea08cca8700acc",
+      "bytes": 1558
+    },
+    {
+      "path": "/assets/icons/3036.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f68e26d4aefe76543dea8c557a9bf3a102e88303ea6800d4b05c592941f13dcb",
+      "bytes": 1384
+    },
+    {
+      "path": "/assets/icons/3072.png",
+      "source": "authored-local-milestone6",
+      "sha256": "4b86e20ef84aeefd0847f3fe885da24af7e2cb679255101f73f711090edfff9a",
+      "bytes": 1327
+    },
+    {
+      "path": "/assets/icons/6655.png",
+      "source": "authored-local-milestone6",
+      "sha256": "081f894f42b52fe48ba2895b91d33d7804fb6cf079e4cc60543210e365d7752c",
+      "bytes": 1317
+    },
+    {
+      "path": "/assets/icons/3157.png",
+      "source": "authored-local-milestone6",
+      "sha256": "358dab00c5e89bbe1ee53fcd5cbcd47e345ea0687eb3a74c05afde96d45b844d",
+      "bytes": 1185
+    },
+    {
+      "path": "/assets/icons/3135.png",
+      "source": "authored-local-milestone6",
+      "sha256": "3c7f485fe591ffc69ed9850160370f413faf93f01d45999bb8a114d71a3f2b17",
+      "bytes": 1442
+    },
+    {
+      "path": "/assets/icons/6653.png",
+      "source": "authored-local-milestone6",
+      "sha256": "556bbe17ef30ca312e69df23d69ce15f19f2503f2bc3556b61ca79790959d37a",
+      "bytes": 1183
+    },
+    {
+      "path": "/assets/icons/3078.png",
+      "source": "authored-local-milestone6",
+      "sha256": "df2a3616ee3f3da85faa0a24460c7fb931e35804c307144413f2bca7502270a0",
+      "bytes": 1246
+    },
+    {
+      "path": "/assets/icons/3071.png",
+      "source": "authored-local-milestone6",
+      "sha256": "5b7173f29898e308811e65a9d1dae5301a15e43fcd11e69f31c2cc0afcc51f00",
+      "bytes": 1295
+    },
+    {
+      "path": "/assets/icons/3053.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f38a0610ef0d990c1a1d72cce9869c9be60368f5a5d76114f86f2b983e5b0845",
+      "bytes": 1150
+    },
+    {
+      "path": "/assets/icons/3153.png",
+      "source": "authored-local-milestone6",
+      "sha256": "78bdb61008b35c10b23c9060cd15b47562809482fb4060de8d9185e313c070da",
+      "bytes": 1482
+    },
+    {
+      "path": "/assets/icons/3142.png",
+      "source": "authored-local-milestone6",
+      "sha256": "2314957d9412de1325ff30ad283744812850f8ea76d609ab4e09d8f270175a11",
+      "bytes": 1568
+    },
+    {
+      "path": "/assets/icons/3068.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f963cafd8d0b226f3e8843f0349becb708d684b9f30b7366a67283990359b66d",
+      "bytes": 1318
+    },
+    {
+      "path": "/assets/icons/4401.png",
+      "source": "authored-local-milestone6",
+      "sha256": "e84e1466ef623e6b49598639d616d1879551e960adcbe78d82e2adb39eb1a2aa",
+      "bytes": 1277
+    },
+    {
+      "path": "/assets/icons/3190.png",
+      "source": "authored-local-milestone6",
+      "sha256": "ee3445e64031f09e75ee566ed6de7b29d6095bbfc5121c3bcf60c7204ce122e8",
+      "bytes": 1348
+    },
+    {
+      "path": "/assets/icons/3075.png",
+      "source": "authored-local-milestone6",
+      "sha256": "2449384c56a84838873f94d9df8490d0c0a9c145d9a2030786d1bd9f2d717113",
+      "bytes": 993
+    },
+    {
+      "path": "/assets/icons/RunePTA.png",
+      "source": "authored-local-milestone6",
+      "sha256": "bf00d86ea1cac3c23f5b03bc945bc927ec3aff27c4a90eb7e7407ba08519bfdf",
+      "bytes": 1191
+    },
+    {
+      "path": "/assets/icons/RuneConqueror.png",
+      "source": "authored-local-milestone6",
+      "sha256": "f82c511250d1ead97d31106a6bd4117ca0e2f4d5ad2411a7291426dbd5826fdd",
+      "bytes": 1503
+    },
+    {
+      "path": "/assets/icons/RuneElectrocute.png",
+      "source": "authored-local-milestone6",
+      "sha256": "cc91817f8779fa959f23450732870837d4a9f484705176dd0b534af5a1143365",
+      "bytes": 1138
+    },
+    {
+      "path": "/assets/icons/RuneComet.png",
+      "source": "authored-local-milestone6",
+      "sha256": "ad5e0c760fbdf9d1b91b18358700c701405b689238acabcffecc289d8c981d10",
+      "bytes": 1322
+    },
+    {
+      "path": "/assets/icons/RuneGrasp.png",
+      "source": "authored-local-milestone6",
+      "sha256": "038d6748f84f570673a0f7e13ab49aeebd2baaa68cee7ddd23a4b2637ae1228d",
+      "bytes": 1156
+    },
+    {
+      "path": "/assets/icons/RuneFirstStrike.png",
+      "source": "authored-local-milestone6",
+      "sha256": "1c38bb11a4ba2cc3bbb9a887b6cd4b3f9984dae4a27cba3d8346b9af5775aafa",
+      "bytes": 1166
+    },
+    {
+      "path": "/assets/icons/ObjectiveDragon.png",
+      "source": "authored-local-milestone6",
+      "sha256": "69fd993c3b96e4556d6c122f23758e32e8ca38bebe6d5cd3e68470f5f5292818",
+      "bytes": 1434
+    },
+    {
+      "path": "/assets/icons/ObjectiveHerald.png",
+      "source": "authored-local-milestone6",
+      "sha256": "e7a45398c20cb15a431276c63a759fd44774af37304b638cc8df8b1692e9dcac",
+      "bytes": 1215
+    },
+    {
+      "path": "/assets/icons/ObjectiveGrubs.png",
+      "source": "authored-local-milestone6",
+      "sha256": "a995c90a4da90ef471deb87a972ffbb9b82d94a58b9e9aa19de59c777da0e10c",
+      "bytes": 1200
     }
   ]
 }

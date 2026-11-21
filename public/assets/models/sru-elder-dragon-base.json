@@ -1,0 +1,33 @@
+{
+  "referenceVersion": "26.18-authored-milestone6",
+  "provenance": "authored-local-milestone6",
+  "status": "Authored skeletal GLB 2.0 rig and atomic animations for Milestone 6 offline compatibility; native Riot WAD skin/pose calibration documented as a deviation.",
+  "output": {
+    "path": "/assets/models/sru-elder-dragon-base.glb",
+    "bytes": 16484,
+    "sha256": "6b2b39d428a6f083502694211bb96feb33a3c9896a4db0b81e2b58faddc432cc"
+  },
+  "triangles": 88,
+  "clips": [
+    {
+      "name": "spawn",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "idle1",
+      "durationSeconds": 2.2
+    },
+    {
+      "name": "run",
+      "durationSeconds": 1
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 1.1
+    },
+    {
+      "name": "death",
+      "durationSeconds": 2
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import { SCUTTLER_SOURCE as scuttler, SCUTTLER_CLIPS, SCUTTLER_POLICY } from './
 import { GROMP, GROMP_POLICY, GROMP_SPAWN_LEADUP_TICKS, GROMP_SPAWN_CLIP_TICKS } from './gromp';
 import { TICK_RATE } from './rules';
 import { BARON } from './baron';
+import { EPIC_MONSTER_PROFILES } from './epic-objectives';
 
 function packProfile(species: 'wolf' | 'wolf-mini' | 'raptor' | 'raptor-mini') {
   const p =
@@ -128,6 +129,7 @@ export const MONSTERS = {
     spawnClipTicks: Math.ceil(red.clips.spawn.durationSeconds * TICK_RATE),
     spawnSubmesh: null,
   },
+  ...EPIC_MONSTER_PROFILES,
 } as const;
 export type MonsterSpecies = keyof typeof MONSTERS;
 export type MonsterSpawnClip =

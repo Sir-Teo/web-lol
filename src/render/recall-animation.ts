@@ -18,9 +18,14 @@ export function recallAnimationPose(
           ? [AHRI_COMBAT_POLICY.recallClip]
           : champion === 'garen'
             ? ['recall']
-            : champion === 'lux'
-              ? ['idle3', 'entry_b4dcde19']
-              : ASHE_RECALL_CLIPS;
+            : champion === 'darius' ||
+                champion === 'vi' ||
+                champion === 'ezreal' ||
+                champion === 'morgana'
+              ? ['channel']
+              : champion === 'lux'
+                ? ['idle3', 'entry_b4dcde19']
+                : ASHE_RECALL_CLIPS;
   for (let i = 0; i < clips.length; i++) {
     const clip = clips[i],
       duration = durations[clip];

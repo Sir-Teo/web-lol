@@ -13,8 +13,21 @@ import { loadLuxAttackTextures } from './render/lux-attack-hoops';
 import './style.css';
 import { readMatch, writeMatch, replaceMatch, recoveryMatchKey } from './storage/match-store';
 import { RecoveryCheckpoints } from './storage/recovery-checkpoints';
-import { readSoundEnabled, writeSoundEnabled } from './storage/sound-preference';
+import {
+  readSoundEnabled,
+  writeSoundEnabled,
+  readSoundMix,
+  writeSoundMix,
+} from './storage/sound-preference';
 import { downloadMatch, prepareMatchImport } from './storage/match-files';
+import { applyImmediatePracticeTool, type PracticeToolAction } from './practice/practice-tools';
+import {
+  MatchReplayPlayer,
+  MatchReplayRecorder,
+  downloadReplayLog,
+  prepareReplayImport,
+  type MatchReplayLog,
+} from './replay/match-replay';
 import { DT, TICK_RATE } from './content/rules';
 import { World } from './simulation/world';
 import { createGrompEncounter } from './simulation/gromp-encounter';
@@ -39,7 +52,9 @@ import { loadLuxChargeRayTextures } from './render/lux-charge-rays';
 import { loadLuxBokehTextures } from './render/lux-bokeh';
 import { loadLuxRStreakTextures } from './render/lux-r-streaks';
 import { loadLuxBeamTextures } from './render/lux-beams';
-import { loadReferenceModels } from './render/models';
+import { ensureModelLoaded, loadReferenceModels } from './render/models';
+import type { RuneLoadout } from './content/runes';
+import { applyInitialRuneShards, createChampionRuneState } from './simulation/runes';
 import { RIFT_CAMPS } from './content/rift-camps';
 import type { MonsterSpecies } from './content/monsters';
 import { loadHawkshotWind } from './render/hawkshot-wind';
@@ -262,8 +277,15 @@ async function boot(): Promise<void> {
     return;
   }
   const soundEnabled = readSoundEnabled();
+  const soundMix = readSoundMix();
   const audio = new GameAudio(world.events);
   audio.enabled = soundEnabled;
+  audio.setMix(soundMix);
+  const recorder = new MatchReplayRecorder(world, 30 * TICK_RATE);
+  let replayPlayer: MatchReplayPlayer | null = null;
+  const activeWorld = () => replayPlayer?.world ?? world;
+  const sessionAbort = new AbortController();
+  const signal = sessionAbort.signal;
   const frameRate = new FrameRate();
   let paused = false,
     accumulator = 0,
@@ -273,11 +295,29 @@ async function boot(): Promise<void> {
   let checkpoints: RecoveryCheckpoints | undefined;
   let requestFrame = () => {};
   view.onAssetsReady = () => requestFrame();
+  const syncReplayHud = () => {
+    if (!replayPlayer) {
+      hud.setReplayState(null);
+      return;
+    }
+    hud.setReplayState({
+      active: true,
+      playing: replayPlayer.playing && !paused,
+      speed: replayPlayer.speed,
+      startTick: replayPlayer.log.startTick,
+      currentTick: replayPlayer.world.tick,
+      endTick: replayPlayer.log.endTick,
+      verifiedCheckpoints: replayPlayer.verifiedCheckpoints,
+      totalCheckpoints: replayPlayer.log.checkpoints.length,
+      error: replayPlayer.divergenceError,
+    });
+  };
   const setPaused = (value: boolean) => {
     paused = value || document.hidden || !!hud.graphicsState;
     hud.paused = paused;
+    const current = activeWorld();
     // Freeze the result's simulation while its scheduled audio tails finish.
-    audio.setPaused((paused && !world.winner) || document.hidden || !!hud.graphicsState);
+    audio.setPaused((paused && !current.winner) || document.hidden || !!hud.graphicsState);
     accumulator = 0;
     previous = performance.now();
     frameRate.reset();
@@ -285,8 +325,9 @@ async function boot(): Promise<void> {
     if (paused) {
       input?.release();
       hud.releaseMinimapCamera();
-      checkpoints?.checkpoint(world.tick, true);
+      if (!replayPlayer) checkpoints?.checkpoint(world.tick, true);
     }
+    syncReplayHud();
     requestFrame();
   };
   const prepareImport = (file: File) =>
@@ -307,6 +348,35 @@ async function boot(): Promise<void> {
       masterYiNpc ? 'masteryi' : undefined,
       baronEncounter ? 'baron' : undefined
     );
+  let prepareRosterAssets!: (targetWorld: World, includeEnvironment: boolean) => Promise<unknown>;
+  const startReplay = async (log: MatchReplayLog) => {
+    const nextPlayer = new MatchReplayPlayer(log, battlefield);
+    await prepareRosterAssets(nextPlayer.world, false);
+    replayPlayer = nextPlayer;
+    hud.modal = null;
+    hud.root.querySelector<HTMLElement>('#modal')!.hidden = true;
+    hud.setWorld(nextPlayer.world, true);
+    input!.setWorld(nextPlayer.world, true);
+    audio.syncWorld(nextPlayer.world);
+    view.recenter(nextPlayer.world.hero);
+    setPaused(false);
+    hud.update(frameRate.value);
+    requestFrame();
+  };
+  const exitReplay = () => {
+    if (!replayPlayer) return;
+    replayPlayer = null;
+    hud.setReplayState(null);
+    hud.setWorld(world, false);
+    input!.setWorld(world, false);
+    audio.syncWorld(world);
+    view.recenter(world.hero);
+    hud.toggleModal(world.winner ? 'result' : 'pause');
+    hud.focusModal();
+    setPaused(true);
+    hud.update(frameRate.value);
+    requestFrame();
+  };
   const hud = new Hud(
     host,
     world,
@@ -323,7 +393,16 @@ async function boot(): Promise<void> {
             return 'Oracle Lens could not be prepared. Try again.';
           }
         }
-        return swapTrinket(world, kind);
+        if (kind === 'farsight') {
+          try {
+            await ensureModelLoaded('farsightward-base');
+          } catch {
+            return 'Farsight Alteration could not be prepared. Try again.';
+          }
+        }
+        const swapError = swapTrinket(world, kind);
+        if (swapError === null) recorder.recordTrinketSwap(kind, world.player.id);
+        return swapError;
       },
       buyItem: async (itemId) => {
         const error = world.purchaseError(itemId);
@@ -336,8 +415,29 @@ async function boot(): Promise<void> {
             return 'Companion could not be prepared. Try again.';
           }
         }
+        if (itemId === 'control-ward') {
+          try {
+            await ensureModelLoaded('controlward-base');
+          } catch {
+            return 'Control Ward could not be prepared. Try again.';
+          }
+        }
         // The match continues while preparing; revalidate gold, ownership and shop access.
         return world.buy(itemId);
+      },
+      practiceTool: (action: PracticeToolAction) => {
+        if (action === 'fast-forward-30s') {
+          recorder.step(30 * TICK_RATE);
+          checkpoints?.checkpoint(world.tick, !!world.winner);
+          hud.update(frameRate.value);
+          requestFrame();
+          return 'Advanced match by 30 seconds';
+        }
+        const message = applyImmediatePracticeTool(world, action);
+        recorder.recordPractice(action);
+        hud.update(frameRate.value);
+        requestFrame();
+        return message;
       },
       reset: () => {
         void checkpoints!
@@ -359,20 +459,24 @@ async function boot(): Promise<void> {
                               ? 'garen'
                               : selectableChampion(world.hero.champion),
                   world.player.summoners,
-                  world.botDifficulty
+                  world.botDifficulty,
+                  world.player.runeState?.loadout
                 ).snapshot()
               : grompEncounter ||
                   world.botDifficulty !== DEFAULT_BOT_DIFFICULTY ||
-                  world.hero.champion === 'lux' ||
-                  world.hero.champion === 'garen' ||
-                  world.hero.champion === 'leona' ||
-                  world.hero.champion === 'ahri' ||
-                  world.hero.champion === 'masteryi' ||
+                  world.hero.champion !== 'ashe' ||
+                  !!world.player.runeState ||
                   world.player.summoners.d !== 'flash' ||
                   world.player.summoners.f !== 'heal'
                 ? (() => {
                     const next = freshPractice(world.hero.champion, world.botDifficulty);
                     equipSummoners(next.player, world.player.summoners);
+                    if (world.player.runeState?.loadout) {
+                      next.player.runeState = createChampionRuneState(
+                        world.player.runeState.loadout
+                      );
+                      applyInitialRuneShards(next, next.hero, next.player);
+                    }
                     return next.snapshot();
                   })()
                 : null,
@@ -385,18 +489,25 @@ async function boot(): Promise<void> {
         mode,
         champion,
         summoners,
-        botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY
+        botDifficulty: BotDifficulty = DEFAULT_BOT_DIFFICULTY,
+        runes?: RuneLoadout
       ) => {
         const next =
           mode === 'lanes'
-            ? createLaneMatch(battlefield, champion, summoners, botDifficulty)
+            ? createLaneMatch(battlefield, champion, summoners, botDifficulty, runes)
             : freshPractice(champion, botDifficulty);
-        if (mode === 'practice') equipSummoners(next.player, summoners);
+        if (mode === 'practice') {
+          equipSummoners(next.player, summoners);
+          if (runes && battlefield.publicRift) {
+            next.player.runeState = createChampionRuneState(runes);
+            applyInitialRuneShards(next, next.hero, next.player);
+          }
+        }
         await checkpoints!.replace(next.snapshot(), world.tick);
         window.location.reload();
       },
       save: async () => checkpoints!.save(world.snapshot(), world.tick),
-      exportMatch: () => downloadMatch(world),
+      exportMatch: () => downloadMatch(activeWorld()),
       prepareImport,
       prepareRecovery: async () => {
         const snapshot = await readMatch(recoveryMatchKey(saveKey));
@@ -409,6 +520,55 @@ async function boot(): Promise<void> {
       sound: (enabled) => {
         audio.enabled = enabled;
         writeSoundEnabled(enabled);
+      },
+      soundMix: () => ({ ...audio.mix }),
+      updateSoundMix: (partial) => {
+        const updated = audio.setMix(partial);
+        writeSoundMix(updated);
+        return updated;
+      },
+      exportReplay: async () => {
+        const log = replayPlayer ? replayPlayer.log : await recorder.exportLog();
+        downloadReplayLog(log);
+      },
+      watchCurrentReplay: async () => {
+        const log = await recorder.exportLog();
+        await startReplay(log);
+      },
+      prepareReplay: (file) => prepareReplayImport(file, battlefield),
+      watchPreparedReplay: (log) => startReplay(log),
+      replayControl: (cmd) => {
+        if (!replayPlayer) return;
+        if (cmd.type === 'exit') {
+          exitReplay();
+          return;
+        }
+        if (cmd.type === 'toggle-play') {
+          if (replayPlayer.atEnd && !replayPlayer.playing) {
+            replayPlayer.seek(replayPlayer.log.startTick);
+            hud.setWorld(replayPlayer.world, true);
+            input!.setWorld(replayPlayer.world, true);
+            audio.syncWorld(replayPlayer.world);
+          }
+          replayPlayer.playing = !replayPlayer.playing;
+        } else if (cmd.type === 'restart') {
+          replayPlayer.seek(replayPlayer.log.startTick);
+          replayPlayer.playing = true;
+          hud.setWorld(replayPlayer.world, true);
+          input!.setWorld(replayPlayer.world, true);
+          audio.syncWorld(replayPlayer.world);
+        } else if (cmd.type === 'seek-delta') {
+          replayPlayer.seek(replayPlayer.world.tick + cmd.deltaTicks);
+          hud.setWorld(replayPlayer.world, true);
+          input!.setWorld(replayPlayer.world, true);
+          audio.syncWorld(replayPlayer.world);
+        } else if (cmd.type === 'speed') {
+          replayPlayer.speed = cmd.speed;
+        }
+        accumulator = 0;
+        syncReplayHud();
+        hud.update(frameRate.value);
+        requestFrame();
       },
     },
     { soundEnabled, rosterPlaytest }
@@ -430,150 +590,195 @@ async function boot(): Promise<void> {
     view.recenter(world.hero);
     hud.root.querySelector('.welcome')?.remove();
   }
-  window.addEventListener('resize', () => view.resize());
+  window.addEventListener('resize', () => view.resize(), { signal });
+  let baronAudioRequested = baronEncounter;
   // A scheduled camp can appear after boot, including a checkpoint whose last
   // corpse has already expired. Its rig must be ready before simulation resumes.
-  const monsterSpecies = [
-    ...new Set<MonsterSpecies>([
-      ...(world.scuttlers ? ['scuttler' as const] : []),
-      ...(world.riftBaron ? ['baron' as const] : []),
-      ...world.jungleCamps.flatMap((c) =>
-        RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
+  prepareRosterAssets = (targetWorld: World, includeEnvironment: boolean) => {
+    const monsterSpecies = [
+      ...new Set<MonsterSpecies>([
+        ...(targetWorld.scuttlers ? ['scuttler' as const] : []),
+        ...(targetWorld.riftBaron ? ['baron' as const] : []),
+        ...(targetWorld.riftObjectives
+          ? (['dragon-fire', 'elder-dragon', 'riftherald', 'voidgrub'] as const)
+          : []),
+        ...targetWorld.jungleCamps.flatMap((c) =>
+          RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
+        ),
+        ...targetWorld.units.flatMap((u) => (u.kind === 'monster' ? [u.monster.species] : [])),
+      ]),
+    ];
+    const hasGrompContent = monsterSpecies.includes('gromp');
+    const hasGaren = targetWorld.units.some((u) => u.champion === 'garen');
+    const hasAhri = targetWorld.units.some((u) => u.champion === 'ahri');
+    const hasLeona = targetWorld.units.some((u) => u.champion === 'leona');
+    const hasMasterYi = targetWorld.units.some((u) => u.champion === 'masteryi');
+    const extraChampions = (['darius', 'vi', 'ezreal', 'morgana'] as const).filter((c) =>
+      targetWorld.units.some((u) => u.champion === c)
+    );
+    const includeVisionVariants =
+      !!targetWorld.riftObjectives ||
+      targetWorld.units.some((u) => u.kind === 'ward' && !!u.ward?.variant) ||
+      targetWorld.player.trinket.kind === 'farsight' ||
+      targetWorld.player.inventory.includes('control-ward');
+    // Development probes may spawn Lux after boot.
+    const prepareLux = import.meta.env.DEV || targetWorld.units.some((u) => u.champion === 'lux');
+    return Promise.all([
+      ...(targetWorld.units.some((u) => {
+        const s = targetWorld.championState(u.id)?.trinket;
+        return s?.kind === 'oracle' || !!s?.scan || !!s?.visuals.length;
+      })
+        ? [loadOracleLens(), audio.oracle.load()]
+        : []),
+      loadOwnedCompanions(targetWorld.companions.map((p) => p.kind)),
+      loadInterfaceFonts(),
+      audio.load({
+        garenPresent: hasGaren,
+        masterYiPresent: hasMasterYi,
+        baronPreview: baronEncounter,
+        ahriPresent: hasAhri,
+        prepareLux,
+      }),
+      loadReferenceModels(
+        monsterSpecies,
+        hasLeona,
+        hasAhri,
+        hasMasterYi,
+        import.meta.env.DEV || hasGaren,
+        prepareLux,
+        extraChampions,
+        includeVisionVariants
       ),
-      ...world.units.flatMap((u) => (u.kind === 'monster' ? [u.monster.species] : [])),
-    ]),
-  ];
-  const hasGrompContent = monsterSpecies.includes('gromp');
-  let baronAudioRequested = baronEncounter;
-  const hasGaren = world.units.some((u) => u.champion === 'garen');
-  // Development probes may spawn Lux after boot.
-  const prepareLux = import.meta.env.DEV || world.units.some((u) => u.champion === 'lux');
-  const assetsReady = Promise.all([
-    ...(world.units.some((u) => {
-      const s = world.championState(u.id)?.trinket;
-      return s?.kind === 'oracle' || !!s?.scan || !!s?.visuals.length;
-    })
-      ? [loadOracleLens(), audio.oracle.load()]
-      : []),
-    loadOwnedCompanions(world.companions.map((p) => p.kind)),
-    loadInterfaceFonts(),
-    audio.load({
-      garenPresent: hasGaren,
-      masterYiPresent: world.units.some((u) => u.champion === 'masteryi'),
-      baronPreview: baronEncounter,
-      ahriPresent: world.units.some((u) => u.champion === 'ahri'),
-      prepareLux,
-    }),
-    loadReferenceModels(
-      monsterSpecies,
-      world.units.some((u) => u.champion === 'leona'),
-      world.units.some((u) => u.champion === 'ahri'),
-      world.units.some((u) => u.champion === 'masteryi'),
-      import.meta.env.DEV || hasGaren,
-      prepareLux
-    ),
-    ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
-    ...(world.units.some((u) => u.champion === 'leona')
-      ? [
-          view.sunlight.load(),
-          view.leonaDaybreak.load(),
-          view.leonaEclipseSkins.load(),
-          view.leonaZenithSkins.load(),
-          view.leonaSolarSkins.load(),
-          view.leonaSolarProjections.load(),
-          view.leonaZenithSurfaces.load(),
-          view.leonaSolarSurfaces.load(),
-          view.leonaZenithTrails.load(),
-          view.leonaEclipseSurfaces.load(),
-          audio.leonaW.load(),
-          audio.leonaE.load(),
-          audio.leonaR.load(),
-          audio.leonaQ.load(),
-          audio.leonaAA.load(),
-          audio.leonaSunlight.load(),
-          audio.leonaDeath.load(),
-        ]
-      : []),
-    // Development probes can spawn Garen after boot.
-    ...(import.meta.env.DEV || hasGaren ? [loadGarenSpin()] : []),
-    ...(world.units.some((u) => u.champion === 'masteryi')
-      ? [
-          view.highlanderCasts.load(),
-          view.highlanderKills.load(),
-          view.primaryHits.load().catch((error) => {
-            console.warn(
-              'Primary hit effects unavailable; explicit retry remains available.',
-              error
-            );
-          }),
-          view.meditateDamage.load(),
-          view.swordGlows.load(),
-          view.passiveTrails.load().catch((error) => {
-            console.warn(
-              'Passive attack trails unavailable; explicit retry remains available.',
-              error
-            );
-          }),
-          view.primaryTrails.load().catch((error) => {
-            console.warn(
-              'Primary attack trails unavailable; explicit retry remains available.',
-              error
-            );
-          }),
-          view.alphaCasts.load(),
-          view.alphaEnds.load(),
-          view.alphaContacts.load(),
-          view.meditateCasts.load(),
-          view.meditateBuffs.load(),
-        ]
-      : []),
-    ...(hasGaren
-      ? [
-          view.garenJustice.load(),
-          view.garenCourage.load(),
-          view.garenDecisiveStrike.load(),
-          view.garenPerseverance.load(),
-          view.garenBasicAttacks.load(),
-        ]
-      : []),
-    ...(prepareLux
-      ? [
-          loadLuxBeamTextures(),
-          loadLuxRStreakTextures(),
-          loadLuxBokehTextures(),
-          loadLuxScorchTextures(),
-          loadLuxGroundChargeTextures(),
-          loadLuxGroundWarningTextures(),
-          loadLuxChargeRayTextures(),
-          loadLuxAttackTextures(),
-          loadLuxImpactTextures(),
-          loadLuxIlluminationTextures(),
-          loadLuxIlluminationTriggerTextures(),
-          loadLuxESource(),
-          loadLuxTrailTextures(),
-          loadLuxCrescentAssets(),
-        ]
-      : []),
-    loadHawkshot(),
-    loadAsheAttackArrow(),
-    loadHawkshotWind(),
-    loadHawkshotDust(),
-    loadHawkshotSmoke(),
-    loadHawkshotArrival(),
-    loadHawkshotSparkle(),
-    loadLingerAurora(),
-    view.loadEnvironment(),
-  ]);
+      ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
+      ...(hasAhri
+        ? [
+            view.ahriQCasts.load().catch((error) => {
+              console.warn('Ahri Q cast particles unavailable; retry remains available.', error);
+            }),
+            view.ahriQProjectiles.load().catch((error) => {
+              console.warn(
+                'Ahri Q projectile particles unavailable; retry remains available.',
+                error
+              );
+            }),
+            view.ahriWParticles.load().catch((error) => {
+              console.warn('Ahri W particles unavailable; retry remains available.', error);
+            }),
+            view.ahriEParticles.load().catch((error) => {
+              console.warn('Ahri E particles unavailable; retry remains available.', error);
+            }),
+            view.ahriRParticles.load().catch((error) => {
+              console.warn('Ahri R particles unavailable; retry remains available.', error);
+            }),
+          ]
+        : []),
+      ...(hasLeona
+        ? [
+            view.sunlight.load(),
+            view.leonaDaybreak.load(),
+            view.leonaEclipseSkins.load(),
+            view.leonaZenithSkins.load(),
+            view.leonaSolarSkins.load(),
+            view.leonaSolarProjections.load(),
+            view.leonaZenithSurfaces.load(),
+            view.leonaSolarSurfaces.load(),
+            view.leonaZenithTrails.load(),
+            view.leonaEclipseSurfaces.load(),
+            audio.leonaW.load(),
+            audio.leonaE.load(),
+            audio.leonaR.load(),
+            audio.leonaQ.load(),
+            audio.leonaAA.load(),
+            audio.leonaSunlight.load(),
+            audio.leonaDeath.load(),
+          ]
+        : []),
+      // Development probes can spawn Garen after boot.
+      ...(import.meta.env.DEV || hasGaren ? [loadGarenSpin()] : []),
+      ...(hasMasterYi
+        ? [
+            view.highlanderCasts.load(),
+            view.highlanderKills.load(),
+            view.primaryHits.load().catch((error) => {
+              console.warn(
+                'Primary hit effects unavailable; explicit retry remains available.',
+                error
+              );
+            }),
+            view.meditateDamage.load(),
+            view.swordGlows.load(),
+            view.passiveTrails.load().catch((error) => {
+              console.warn(
+                'Passive attack trails unavailable; explicit retry remains available.',
+                error
+              );
+            }),
+            view.primaryTrails.load().catch((error) => {
+              console.warn(
+                'Primary attack trails unavailable; explicit retry remains available.',
+                error
+              );
+            }),
+            view.alphaCasts.load(),
+            view.alphaEnds.load(),
+            view.alphaContacts.load(),
+            view.meditateCasts.load(),
+            view.meditateBuffs.load(),
+          ]
+        : []),
+      ...(hasGaren
+        ? [
+            view.garenJustice.load(),
+            view.garenCourage.load(),
+            view.garenDecisiveStrike.load(),
+            view.garenPerseverance.load(),
+            view.garenBasicAttacks.load(),
+          ]
+        : []),
+      ...(prepareLux
+        ? [
+            loadLuxBeamTextures(),
+            loadLuxRStreakTextures(),
+            loadLuxBokehTextures(),
+            loadLuxScorchTextures(),
+            loadLuxGroundChargeTextures(),
+            loadLuxGroundWarningTextures(),
+            loadLuxChargeRayTextures(),
+            loadLuxAttackTextures(),
+            loadLuxImpactTextures(),
+            loadLuxIlluminationTextures(),
+            loadLuxIlluminationTriggerTextures(),
+            loadLuxESource(),
+            loadLuxTrailTextures(),
+            loadLuxCrescentAssets(),
+          ]
+        : []),
+      loadHawkshot(),
+      loadAsheAttackArrow(),
+      loadHawkshotWind(),
+      loadHawkshotDust(),
+      loadHawkshotSmoke(),
+      loadHawkshotArrival(),
+      loadHawkshotSparkle(),
+      loadLingerAurora(),
+      ...(includeEnvironment ? [view.loadEnvironment()] : []),
+    ]);
+  };
+  const assetsReady = prepareRosterAssets(world, true);
   const pauseForInterruption = () => {
     if (!hud.modal) hud.toggleModal('pause');
     hud.focusModal();
     setPaused(true);
   };
-  window.addEventListener('blur', pauseForInterruption);
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) pauseForInterruption();
-    else requestFrame();
-  });
+  window.addEventListener('blur', pauseForInterruption, { signal });
+  document.addEventListener(
+    'visibilitychange',
+    () => {
+      if (document.hidden) pauseForInterruption();
+      else requestFrame();
+    },
+    { signal }
+  );
   if (document.hidden) pauseForInterruption();
   if (restored || saveNotice || recoveryAvailable) {
     hud.toggleModal(world.winner ? 'result' : 'pause');
@@ -591,45 +796,52 @@ async function boot(): Promise<void> {
     });
     cancelWarmup = cancel;
     try {
-      view.render(world, 1, elapsed);
+      const current = activeWorld();
+      view.render(current, 1, elapsed);
       await Promise.race([view.renderer.compileAsync(view.scene, view.camera), interrupted]);
       if (generation !== graphicsGeneration || view.renderer.getContext().isContextLost())
         return false;
-      view.render(world, 1, elapsed);
+      view.render(current, 1, elapsed);
       return true;
     } finally {
       if (cancelWarmup === cancel) cancelWarmup = undefined;
     }
   };
-  view.renderer.domElement.addEventListener('webglcontextlost', (event) => {
-    event.preventDefault();
-    view.smoke.depth.dispose();
-    view.leonaEclipseSurfaces.disposeDepth();
-    view.particleDistortion.dispose();
-    graphicsGeneration++;
-    cancelWarmup?.();
-    hud.setGraphicsState('lost');
-    setPaused(true);
-  });
-  view.renderer.domElement.addEventListener('webglcontextrestored', () => {
-    const generation = graphicsGeneration;
-    hud.setGraphicsState('restoring');
-    void (async () => {
-      try {
-        await assetsReady;
-        if (generation !== graphicsGeneration) return;
-        if (!(await warmGraphics()) || generation !== graphicsGeneration) return;
-        hud.setGraphicsState(null);
-        setPaused(true);
-        hud.toast('Graphics restored. Resume when you’re ready.');
-      } catch (error) {
-        if (generation !== graphicsGeneration) return;
-        console.error(error);
-        hud.setGraphicsState('failed');
-        setPaused(true);
-      }
-    })();
-  });
+  view.renderer.domElement.addEventListener(
+    'webglcontextlost',
+    (event) => {
+      event.preventDefault();
+      view.disposeContextResources();
+      graphicsGeneration++;
+      cancelWarmup?.();
+      hud.setGraphicsState('lost');
+      setPaused(true);
+    },
+    { signal }
+  );
+  view.renderer.domElement.addEventListener(
+    'webglcontextrestored',
+    () => {
+      const generation = graphicsGeneration;
+      hud.setGraphicsState('restoring');
+      void (async () => {
+        try {
+          await assetsReady;
+          if (generation !== graphicsGeneration) return;
+          if (!(await warmGraphics()) || generation !== graphicsGeneration) return;
+          hud.setGraphicsState(null);
+          setPaused(true);
+          hud.toast('Graphics restored. Resume when you’re ready.');
+        } catch (error) {
+          if (generation !== graphicsGeneration) return;
+          console.error(error);
+          hud.setGraphicsState('failed');
+          setPaused(true);
+        }
+      })();
+    },
+    { signal }
+  );
   await assetsReady;
   // A loss during loading hands warmup to the restoration handler.
   if (!hud.graphicsState) await warmGraphics();
@@ -665,60 +877,85 @@ async function boot(): Promise<void> {
       wallSeconds = (now - previous) / 1000,
       dt = Math.min(wallSeconds, 0.1);
     previous = now;
+    const initialWorld = activeWorld();
+    const activelyStepping =
+      !paused && (!replayPlayer || (replayPlayer.playing && !replayPlayer.atEnd));
     // Result effects drain on presentation time while simulation catch-up stays bounded.
-    elapsed += world.winner ? wallSeconds : paused ? 0 : dt;
-    if (!paused || world.winner) frameRate.record(now);
+    elapsed += initialWorld.winner ? wallSeconds : activelyStepping ? dt : 0;
+    if (activelyStepping || initialWorld.winner) frameRate.record(now);
     input!.update(dt);
-    if (!paused) {
+    if (replayPlayer) {
+      if (!paused && replayPlayer.playing && !replayPlayer.atEnd) {
+        accumulator += dt * replayPlayer.speed;
+        const maxSteps = Math.max(6, Math.ceil(6 * replayPlayer.speed));
+        let steps = 0;
+        while (
+          accumulator >= DT &&
+          steps < maxSteps &&
+          replayPlayer.playing &&
+          !replayPlayer.atEnd
+        ) {
+          replayPlayer.step(1);
+          accumulator -= DT;
+          steps++;
+        }
+        if (accumulator >= DT) accumulator = 0;
+      }
+      syncReplayHud();
+    } else if (!paused) {
       accumulator += dt;
       let steps = 0;
       while (accumulator >= DT && steps < 6) {
-        world.step();
+        recorder.step(1);
         accumulator -= DT;
         steps++;
       }
       if (accumulator >= DT) accumulator = 0;
       checkpoints!.checkpoint(world.tick, !!world.winner);
     }
-    world.withVisionSnapshot(() => {
-      view.render(world, paused ? 1 : accumulator / DT, elapsed);
+    const current = activeWorld();
+    const renderAlpha = activelyStepping ? accumulator / DT : 1;
+    current.withVisionSnapshot(() => {
+      view.render(current, renderAlpha, elapsed);
       input!.updateHoverAfterRender();
       uiElapsed += dt;
-      if (uiElapsed >= 0.05 || paused) {
+      if (uiElapsed >= 0.05 || !activelyStepping) {
         hud.update(frameRate.value);
         uiElapsed = 0;
       }
-      const audibleProjectiles = world.projectiles.filter((p) => world.projectileVisible(p));
-      const audibleScouts = world.scoutVisuals.filter(
-        (effect) => effect.team === 'blue' || world.pointVisible(effect, 'blue')
+      const audibleProjectiles = current.projectiles.filter((p) => current.projectileVisible(p));
+      const audibleScouts = current.scoutVisuals.filter(
+        (effect) => effect.team === 'blue' || current.pointVisible(effect, 'blue')
       );
       audio.updateBindingFlight(
         audibleProjectiles,
-        world.bindingStops.filter((s) => s.team === 'blue' || world.pointVisible(s.point, 'blue')),
-        world.tick,
+        current.bindingStops.filter(
+          (s) => s.team === 'blue' || current.pointVisible(s.point, 'blue')
+        ),
+        current.tick,
         view.center
       );
-      audio.updateFlight(audibleProjectiles, audibleScouts, world.tick);
-      audio.updateLinger(audibleScouts, world.tick);
-      if (!baronAudioRequested && world.riftBaron && world.baronAttackVisuals.length) {
+      audio.updateFlight(audibleProjectiles, audibleScouts, current.tick);
+      audio.updateLinger(audibleScouts, current.tick);
+      if (!baronAudioRequested && current.riftBaron && current.baronAttackVisuals.length) {
         baronAudioRequested = true;
         void audio.baronBasic.load();
       }
-      if (baronAudioRequested) audio.updateBaronPreview(world, view.center);
-      audio.updateLuxE(world, view.center);
-      audio.updateAhri(world, view.center);
-      audio.updateOracle(world, view.center);
-      audio.updateGaren(world, view.center);
-      audio.updateLeona(world, view.center);
+      if (baronAudioRequested) audio.updateBaronPreview(current, view.center);
+      audio.updateLuxE(current, view.center);
+      audio.updateAhri(current, view.center);
+      audio.updateOracle(current, view.center);
+      audio.updateGaren(current, view.center);
+      audio.updateLeona(current, view.center);
       audio.update(
-        world.events.filter(
-          (event) => world.eventVisible(event) && isPlayerFeedback(event, world.player.id)
+        current.events.filter(
+          (event) => current.eventVisible(event) && isPlayerFeedback(event, current.player.id)
         ),
-        world.tick,
+        current.tick,
         view.center
       );
     });
-    if (paused && !world.winner) stopLoop();
+    if (!activelyStepping && !current.winner) stopLoop();
   };
   requestFrame = () => {
     if (document.hidden || hud.graphicsState) {
@@ -735,19 +972,48 @@ async function boot(): Promise<void> {
   // A paused frame is static. Paint once after an interaction or resize, then
   // sleep again; menus and asynchronous DOM feedback retain their own events.
   for (const event of ['resize', 'click', 'keydown', 'keyup', 'wheel'])
-    window.addEventListener(event, () => requestFrame());
+    window.addEventListener(event, () => requestFrame(), { signal });
   requestFrame();
+  let sessionDisposed = false;
+  const disposeSession = async () => {
+    if (sessionDisposed) return;
+    sessionDisposed = true;
+    stopLoop();
+    sessionAbort.abort();
+    recorder.detach();
+    input?.dispose();
+    hud.dispose();
+    view.dispose();
+    await audio.dispose();
+  };
+  window.addEventListener(
+    'pagehide',
+    () => {
+      void disposeSession();
+    },
+    { once: true, signal }
+  );
   if (import.meta.env.DEV) {
     Object.assign(window, {
       __GAME__: {
-        world,
+        get world() {
+          return activeWorld();
+        },
+        liveWorld: world,
+        recorder,
+        get replay() {
+          return replayPlayer;
+        },
         view,
         hud,
         audio,
         setPaused,
+        startReplay,
+        exitReplay,
+        dispose: disposeSession,
         // Repaint direct fixture edits without resetting input or advancing time.
         repaint: requestFrame,
-        snapshot: () => JSON.parse(world.snapshot()),
+        snapshot: () => JSON.parse(activeWorld().snapshot()),
         ready: true,
       },
     });

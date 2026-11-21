@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import {
   jungleDecision,
   jungleRoute,
@@ -133,6 +133,7 @@ test('both jungle bots clear real Rift camps, feed purchased companions and resu
         pet: w.companions.find((p) => p.ownerId === u.id)?.fed,
       };
     });
+  mkdirSync('.cache', { recursive: true });
   writeFileSync('.cache/jungle-clear-probe.json', JSON.stringify(summaries, null, 2) + '\n');
   for (const s of summaries) {
     expect(s.cs).toBeGreaterThanOrEqual(24);

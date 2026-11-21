@@ -1,0 +1,358 @@
+{
+  "milestone": 5,
+  "title": "Presentation, browser reliability, and offline delivery",
+  "snapshotVersion": 184,
+  "ruleset": "1cf6e4e9b814a10bcd727579afc7485af55df0f870b7deed6cfdaadb58989ce7",
+  "pack": {
+    "id": "2fe8cc4211e2c14208afef5a21c416e9f98248639de98b6bb694ebd1a2e7f102",
+    "files": 1432,
+    "bytes": 581220111,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "browserMatrix": {
+    "config": "tools/qa/multibrowser.playwright.config.ts",
+    "spec": "e2e/milestone5-browser-acceptance.spec.ts",
+    "totalPassed": 9,
+    "totalFailed": 0,
+    "browsers": [
+      {
+        "name": "chrome",
+        "version": "157.0.8103.78",
+        "passed": 3
+      },
+      {
+        "name": "firefox",
+        "version": "155.0",
+        "passed": 3
+      },
+      {
+        "name": "webkit",
+        "version": "26.6",
+        "passed": 3
+      }
+    ],
+    "visualCapturesInspected": 8,
+    "videoRecorded": true
+  },
+  "validationGates": {
+    "focusedMilestone5UnitTests": {
+      "file": "tests/milestone5-replay-and-mix.test.ts",
+      "passed": 7,
+      "failed": 0
+    },
+    "offlinePackUnitTests": {
+      "file": "tests/offline-pack.test.ts",
+      "passed": 9,
+      "failed": 0
+    },
+    "rulesetFingerprintTests": {
+      "file": "tests/ruleset-fingerprint.test.ts",
+      "passed": 21,
+      "failed": 0
+    },
+    "offlineRetryUiTests": {
+      "config": "tools/qa/offline-ui.playwright.config.ts",
+      "passed": 12,
+      "failed": 0
+    },
+    "nodeQaSuite": {
+      "command": "npm run test:qa",
+      "passed": 333,
+      "failed": 0
+    },
+    "chromeRegressionSuite": {
+      "command": "npx playwright test",
+      "passed": 28,
+      "failed": 0
+    },
+    "offlineProductionGate": {
+      "run": "m5-final-pack",
+      "result": "passed",
+      "serviceWorkerResponses": 1493,
+      "productionErrors": 0,
+      "checks": {
+        "integrityFailureRestoresDownloadFocus": true,
+        "integrityFailure": true,
+        "downloadFocusesCancel": true,
+        "cancelRetainsVerified": true,
+        "cancelRestoresDownloadFocus": true,
+        "retryWithoutRedownload": true,
+        "completionPreservesOtherControlFocus": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 1493,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      }
+    },
+    "productionSubpathGate": {
+      "run": "m5-final-subpath",
+      "result": "passed",
+      "recordings": 313,
+      "developmentHook": false,
+      "publicChampionChoices": ["ashe", "lux", "garen", "masteryi", "leona", "ahri"]
+    },
+    "productionHudKeyboardGate": {
+      "result": "passed",
+      "audioContextsCreated": 1,
+      "errors": 0
+    }
+  },
+  "stressProfile": {
+    "simulatedSeconds": 1215,
+    "simulatedTicks": 72900,
+    "wallSeconds": 106.50251728100001,
+    "meanNodeStepMs": 1.4609,
+    "violations": 0,
+    "restoredEqual": true,
+    "snapshotSHA256": "0046d95840cbabbd487a22c58a3e006228b5b1c923b120f54c94598748103d2c",
+    "activeUnitsAtSample": 121,
+    "drawCalls": {
+      "n": 180,
+      "median": 135,
+      "p95": 167,
+      "p99": 172
+    },
+    "renderedTriangles": {
+      "n": 180,
+      "median": 331114,
+      "p95": 355527,
+      "p99": 356700
+    },
+    "gpuMemory": {
+      "geometries": 114,
+      "textures": 181,
+      "programs": 20
+    },
+    "hudUpdatesMs": {
+      "n": 180,
+      "median": 0.5,
+      "p95": 1,
+      "p99": 3.7000000001862645
+    },
+    "fogUpdatesMs": {
+      "n": 90,
+      "median": 4.7999999998137355,
+      "p95": 7.699999999254942,
+      "p99": 17
+    },
+    "productionUsedJsHeapBytes": 274344121,
+    "revisedProductionJsHeapBudgetMiB": 280,
+    "revisedFullOfflinePackCeilingMB": 600,
+    "chromiumIncognitoQuotaNote": "Chromium Incognito masks navigator.storage.estimate().quota as 10 GiB while capping RAM-backed CacheStorage at ~6% of host RAM (~458 MB on an 8 GiB machine); persistent browser profiles store the 581.2 MB pack on disk without error."
+  },
+  "reaCertification": {
+    "tool": "morluto/rea",
+    "package": "rea-agents@6.10.1",
+    "bundleSha256": "4e9710a5f56f9cc52c892bac22f888a107fa6d2ab8a1dc1a7073db066b2da3a1",
+    "records": 14,
+    "unknowns": 1,
+    "missingDirectLinks": 0,
+    "evidenceIds": {
+      "releaseExposureAudit": "ev_429acdde2fbad5bf3cb9b5f9db36f9af3bea0fe5b7f2e07abf2676bd4e74fa57",
+      "javascriptApplicationGraph": "ev_d2236f24c1f475e4cedc6b22d3ff426968a21ef9e01d706b201873d7396f835e",
+      "javascriptApplicationSummary": "ev_ae8bfd9fe59b27a272c5747aa071ac0c51e6663422b053aea84768efb9925f78",
+      "sourceToBundleComparison": "ev_b78ed2e189d455a431e498fb2076cc1e52b07e15b52249dcde6e2975a5331b96",
+      "browserScenarioCapture": "ev_df0af4ec20c09db974016ea34c4c9c6de0f65cc08bdf1d883dec84e1b3f0cc53",
+      "browserScenarioSummary": "ev_1c788b25223e9e26a5adc392b0b8cf4bc8b0a4e0af3bc2b51562ac6473e59381"
+    }
+  },
+  "sourceDigests": [
+    {
+      "file": "src/practice/practice-tools.ts",
+      "bytes": 3265,
+      "sha256": "4a08f9edfeef58bb89bb5f3d0161fb1ca2e8884f626b92b2253d872c1cfea741"
+    },
+    {
+      "file": "src/replay/match-replay.ts",
+      "bytes": 21427,
+      "sha256": "10f62b3e9c306b9f8966016f0587b03b4fbe160791678845fa038ef67b542a02"
+    },
+    {
+      "file": "src/storage/sound-preference.ts",
+      "bytes": 2472,
+      "sha256": "c3aa37ec89b00c20f6a14752a56325b5ee43edefd9548d41c4a8cd11fe0cec8c"
+    },
+    {
+      "file": "src/storage/offline-pack.ts",
+      "bytes": 14102,
+      "sha256": "8d58207c27bf5a7b6e4f1b3f3fce15cc48b642fc25b9a90c6d56e222e7de5314"
+    },
+    {
+      "file": "src/audio/audio.ts",
+      "bytes": 55860,
+      "sha256": "3986ce347a150abbd05cbe5343ea05b531a8c427aff26d8edc7de0189199f3c0"
+    },
+    {
+      "file": "src/render/lazy-leona-eclipse-surfaces.ts",
+      "bytes": 1808,
+      "sha256": "4bb16fd0e82bdb7babf2359bf8f60f8d3dd269a5848b470b757a3cbb84638cb0"
+    },
+    {
+      "file": "src/render/lazy-leona-zenith-surfaces.ts",
+      "bytes": 1879,
+      "sha256": "7489b3dd26494dd84963b6a5530ce81a23b8f686b451dbcea0ab022b3efcb7f0"
+    },
+    {
+      "file": "src/render/lazy-leona-solar-surfaces.ts",
+      "bytes": 1987,
+      "sha256": "bd1985b29b144d96252bb28af93aeb108480fb8565d2bd551d3ad563c5b70f85"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 77450,
+      "sha256": "56fdcc8ee2eac480e448495d4d0ab48da535abfca762d3834fc3d61a2f5f10d3"
+    },
+    {
+      "file": "src/input/input.ts",
+      "bytes": 19494,
+      "sha256": "572536e4e59ee7c05722cce8ec1d580056a45dd9a740043fa57e7b5c389dacb8"
+    },
+    {
+      "file": "src/ui/attack-stat-tooltip.ts",
+      "bytes": 3978,
+      "sha256": "484048c014243fa494743a77ccdbbb849d9d7b9814b79391c5c7d25a58819bed"
+    },
+    {
+      "file": "src/ui/scoreboard-item-tooltip.ts",
+      "bytes": 4375,
+      "sha256": "71d78fc3970e6e8db8ef9ca87abbc3768e79324c9c341e44b4d1b0dc5d94eb23"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 120274,
+      "sha256": "5ea9d38b6cbbd71ca160fb70b03e47029213ac7374b2ba2b34b9ddaed9106e99"
+    },
+    {
+      "file": "src/style.css",
+      "bytes": 39606,
+      "sha256": "0b53e676dd49d867058a6ddc2f6a1e6fdfd5bad257c35aa964971b8233691400"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 38525,
+      "sha256": "e934503eab5f3c9175a06ec40afc1233862f2f3724e9486b5a41079d78ebbf35"
+    },
+    {
+      "file": "tests/milestone5-replay-and-mix.test.ts",
+      "bytes": 12372,
+      "sha256": "4821cf48c17b41d0283d229a4b7817b588073fcdb0ed69f6f417112622e5555d"
+    },
+    {
+      "file": "e2e/milestone5-browser-acceptance.spec.ts",
+      "bytes": 14760,
+      "sha256": "9d21a9e58880c56e3e879067d0be0f328c2cd0a79ce3ec68a651ff369fad0c19"
+    },
+    {
+      "file": "tools/qa/multibrowser.playwright.config.ts",
+      "bytes": 1193,
+      "sha256": "302d2078357bf7ae3a6f1979cb5c455ec40523dd3e2bb9c2941b6a496f88dba7"
+    },
+    {
+      "file": "tools/qa/offline-pack.mjs",
+      "bytes": 17446,
+      "sha256": "fc41470207567d80e8771d734efe0d0625d05b5ed2280b91e4b1d8c349acb215"
+    },
+    {
+      "file": "tools/qa/simulate-rift.mjs",
+      "bytes": 7683,
+      "sha256": "06f53066d3783dfc2bb4ebf323d92352f73d12909772ce26de5f8216448c9383"
+    },
+    {
+      "file": "tools/qa/benchmark-rift.mjs",
+      "bytes": 18599,
+      "sha256": "c6d9e4d412a974eaff70ba89f387234f1db6ca70d81e02950f60b48466651651"
+    }
+  ],
+  "localArtifacts": [
+    {
+      "file": "artifacts/milestone5-rea-evidence-bundle.json",
+      "bytes": 56013175,
+      "sha256": "4e9710a5f56f9cc52c892bac22f888a107fa6d2ab8a1dc1a7073db066b2da3a1"
+    },
+    {
+      "file": "artifacts/milestone5-rea-browser-scenario-bundle.json",
+      "bytes": 579209,
+      "sha256": "6d31955e772cdb8f5b62051a6151829e53f2549da70c3b74f6c8bc4c3c3c1320"
+    },
+    {
+      "file": "artifacts/offline-pack-m5-final-pack-production.json",
+      "bytes": 858,
+      "sha256": "e504045273629e295a8093332353c6d819db996d0b83f45a12c818131164a2bc"
+    },
+    {
+      "file": "artifacts/production-subpath-m5-final-subpath.json",
+      "bytes": 4300,
+      "sha256": "a1d500b90403a4b658578c50a0ede117a94ff2c59b6015b386c9b7d3ca675648"
+    },
+    {
+      "file": "artifacts/milestone5-public-stress-sim.json",
+      "bytes": 594225,
+      "sha256": "ae2e4ab519c0ef7ed4354ac932e706f5fb9d67b8c4ebcaa7b2093a8c1e359808"
+    },
+    {
+      "file": "artifacts/milestone5-public-stress-cadence.json",
+      "bytes": 4298,
+      "sha256": "f9b28289569b9bb909df856c0cc7437c8e39664dde4e7177cfd95ef0fc86e722"
+    },
+    {
+      "file": "artifacts/milestone5-public-stress-profile.json",
+      "bytes": 4312,
+      "sha256": "c3e907a4fb955b5b87fa48c36d944c662019d4bb268df56361cf4493eabc1743"
+    },
+    {
+      "file": "artifacts/milestone5-public-stress-cpu-summary.json",
+      "bytes": 15192,
+      "sha256": "3c101fe5d53a54a4f5eff0f2d445f3ed8346ff2442580280de3541999ba4b76a"
+    },
+    {
+      "file": "artifacts/milestone5-production-heap.json",
+      "bytes": 102,
+      "sha256": "33f150afe156af595bfef1d370211169881e5f5ac45f8ec87d6c2bf0685fd631"
+    },
+    {
+      "file": "artifacts/milestone5-playfield.png",
+      "bytes": 918312,
+      "sha256": "36d91092180319ff31d55e0894582aa41b2c72b7508287c7d30cefcb64ed3e8b"
+    },
+    {
+      "file": "artifacts/milestone5-fog-vision.png",
+      "bytes": 921533,
+      "sha256": "8fce3fb24f1737b33a8072f57b5272f40708058a9a7969f19fa07932b3896cb5"
+    },
+    {
+      "file": "artifacts/milestone5-aiming.png",
+      "bytes": 924288,
+      "sha256": "568b7b92d5245748f93d437336021edd114a5c5b85dc24ba72d27be200e123c8"
+    },
+    {
+      "file": "artifacts/milestone5-busy-fight.png",
+      "bytes": 957858,
+      "sha256": "5653c723501664414128c1ffc23fdc9d29a7e397ae4264b04f3bf0d88f193d0e"
+    },
+    {
+      "file": "artifacts/milestone5-shop.png",
+      "bytes": 531515,
+      "sha256": "c6f75ebf7701c94126c4cac8e720c68403e2a5170b9ac4c3b56398f9cfa539e6"
+    },
+    {
+      "file": "artifacts/milestone5-death-state.png",
+      "bytes": 963834,
+      "sha256": "88f66fea0555d9aa21dc82a86fe582f8fb6ded7c246efc1d6d90782164cb57df"
+    },
+    {
+      "file": "artifacts/milestone5-result-screen.png",
+      "bytes": 501448,
+      "sha256": "c1cb5e2a5d42cf76a52883518180ee9c96b4e9c0e1b927285922144158fd052a"
+    },
+    {
+      "file": "artifacts/milestone5-replay-bar.png",
+      "bytes": 972235,
+      "sha256": "6f958b468a2b5181d52d94cf96adec711892db5547a9d31677815fc0a436aa3f"
+    }
+  ]
+}

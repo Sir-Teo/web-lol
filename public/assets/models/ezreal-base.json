@@ -1,0 +1,57 @@
+{
+  "referenceVersion": "26.18-authored-milestone6",
+  "provenance": "authored-local-milestone6",
+  "status": "Authored skeletal GLB 2.0 rig and atomic animations for Milestone 6 offline compatibility; native Riot WAD skin/pose calibration documented as a deviation.",
+  "output": {
+    "path": "/assets/models/ezreal-base.glb",
+    "bytes": 29064,
+    "sha256": "b745809b17b7d551f507dcd59a0031d3c6928442c149ccbaf150718dc6bc0928"
+  },
+  "triangles": 124,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 2
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.8
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 1
+    },
+    {
+      "name": "attack2",
+      "durationSeconds": 1
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 1
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.9
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.85
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "channel",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.8
+    }
+  ]
+}

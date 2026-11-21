@@ -8,6 +8,7 @@ import { isSummonerSlot } from '../content/summoners';
 import { smiteTarget } from '../simulation/smite';
 import { alphaTarget } from '../simulation/masteryi-alpha-strike';
 import { MASTER_YI_Q } from '../content/masteryi-q';
+import { DARIUS_KIT, VI_KIT } from '../content/milestone6-champions';
 
 /** Input policy follows the current caster, including Lux's point-free E recast. */
 export function instantSpell(world: World, ability: Ability): boolean {
@@ -16,6 +17,10 @@ export function instantSpell(world: World, ability: Ability): boolean {
   if (world.hero.champion === 'ahri') return ability === 'w';
   if (world.hero.champion === 'masteryi') return ability !== 'q';
   if (world.hero.champion === 'leona') return ability === 'q' || ability === 'w';
+  if (world.hero.champion === 'darius') return ability === 'q' || ability === 'w';
+  if (world.hero.champion === 'vi') return ability === 'w' || ability === 'e';
+  if (world.hero.champion === 'ezreal') return false;
+  if (world.hero.champion === 'morgana') return ability === 'r';
   if (world.hero.champion !== 'lux') return ability === 'q';
   return (
     ability === 'e' &&
@@ -27,6 +32,7 @@ export function instantSpell(world: World, ability: Ability): boolean {
 }
 
 export function minimapSpell(world: World, ability: Ability): boolean {
+  if (world.hero.champion === 'ezreal' && ability === 'r') return true;
   // Lux's local aimed spells currently use the battlefield; do not inherit Hawkshot's policy.
   return world.hero.champion === 'ashe' && !!ABILITIES[ability].minimapTargeting;
 }
@@ -35,7 +41,9 @@ export function targetedSpell(world: World, ability: Ability): boolean {
   return (
     world.summonerSpell(ability) === 'smite' ||
     (world.hero.champion === 'garen' && ability === 'r') ||
-    (world.hero.champion === 'masteryi' && ability === 'q')
+    (world.hero.champion === 'masteryi' && ability === 'q') ||
+    (world.hero.champion === 'darius' && ability === 'r') ||
+    (world.hero.champion === 'vi' && ability === 'r')
   );
 }
 export function spellTarget(
@@ -43,16 +51,18 @@ export function spellTarget(
   ability: Ability,
   target: Unit | undefined
 ): Unit | undefined {
-  return world.summonerSpell(ability) === 'smite'
-    ? smiteTarget(world, world.hero, target)
+  if (world.summonerSpell(ability) === 'smite')
+    return smiteTarget(world, world.hero, target) ? target : undefined;
+  if (world.hero.champion === 'masteryi' && ability === 'q')
+    return alphaTarget(world, world.hero, target) &&
+      distance(world.hero, target) <= MASTER_YI_Q.castRange
       ? target
-      : undefined
-    : world.hero.champion === 'masteryi' && ability === 'q'
-      ? alphaTarget(world, world.hero, target) &&
-        distance(world.hero, target) <= MASTER_YI_Q.castRange
-        ? target
-        : undefined
-      : garenRTarget(world, target);
+      : undefined;
+  if (world.hero.champion === 'darius' && ability === 'r')
+    return enemyChampionTargetInRange(world, target, DARIUS_KIT.r.range);
+  if (world.hero.champion === 'vi' && ability === 'r')
+    return enemyChampionTargetInRange(world, target, VI_KIT.r.range);
+  return garenRTarget(world, target);
 }
 export function targetInstruction(world: World, ability: Ability): string {
   return world.summonerSpell(ability) === 'smite'
@@ -60,6 +70,22 @@ export function targetInstruction(world: World, ability: Ability): string {
     : world.hero.champion === 'masteryi' && ability === 'q'
       ? 'Hold Q, point at a visible enemy within 600 range, then release'
       : 'Hold R, point at an enemy champion in range, then release';
+}
+
+function enemyChampionTargetInRange(
+  world: World,
+  target: Unit | undefined,
+  range: number
+): Unit | undefined {
+  return target &&
+    target.kind === 'champion' &&
+    target.team !== world.hero.team &&
+    world.alive(target) &&
+    world.visible(target, world.hero.team) &&
+    world.targetable(target) &&
+    distance(world.hero, target) <= range
+    ? target
+    : undefined;
 }
 
 /** Input preview only. The queued command is revalidated by the simulation. */

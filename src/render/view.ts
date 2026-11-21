@@ -27,11 +27,16 @@ import { LazyLeonaEclipseSurfaces } from './lazy-leona-eclipse-surfaces';
 import { LazySunlight } from './lazy-sunlight';
 import { LazyGarenPerseverance } from './lazy-garen-perseverance';
 import { ParticleDistortionPass } from './particle-distortion-pass';
+import { MONSTERS } from '../content/monsters';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { RiverShrines } from './river-shrines';
 import { OwnedCompanions } from './owned-companions';
 import { OracleLens } from './oracle-lens';
 import { wardDisabled } from '../simulation/oracle-lens';
+import { Milestone6Visuals } from './milestone6-visuals';
+import { CONTROL_WARD_POLICY, FARSIGHT_POLICY } from '../content/faelights';
+import { DARIUS_KIT, EZREAL_KIT, MORGANA_KIT, VI_KIT } from '../content/milestone6-champions';
+import { hasBlackShield } from '../simulation/milestone6-champions';
 import { LazyGarenDecisiveStrike } from './lazy-garen-decisive-strike';
 import { LuxIlluminationTriggers } from './lux-illumination-triggers';
 import { LuxIllumination } from './lux-illumination';
@@ -221,6 +226,7 @@ export class GameView {
   riverShrines = new RiverShrines(this.scene);
   ownedCompanions = new OwnedCompanions(this.scene);
   oracleLens = new OracleLens(this.scene);
+  milestone6Visuals = new Milestone6Visuals(this.scene);
   baronFlights = new LazyBaronFlights(this.scene, (p) => this.ground(p));
   baronHits = new LazyBaronHits(this.scene, (p) => this.ground(p));
   grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
@@ -760,7 +766,25 @@ export class GameView {
     const present = new Set<number>();
     for (const u of world.units) {
       present.add(u.id);
+      const expectedAsset =
+        u.kind === 'dummy'
+          ? undefined
+          : u.kind === 'ward'
+            ? WARD_SOURCE.rig
+            : u.kind === 'monster'
+              ? MONSTERS[u.monster.species].rig
+              : u.kind === 'champion'
+                ? `${u.champion}-base`
+                : `${u.team}-${u.kind}`;
       let model = this.models.get(u.id);
+      if (model && model.referenceAsset !== expectedAsset) {
+        this.scene.remove(model.root);
+        disposeModel(model);
+        this.models.delete(u.id);
+        this.healthBars.get(u.id)?.remove();
+        this.healthBars.delete(u.id);
+        model = undefined;
+      }
       if (!model) {
         model = makeModel(u);
         if (u.structureTransform) {
@@ -955,6 +979,7 @@ export class GameView {
     this.riverShrines.update(world, (p) => this.ground(p));
     this.ownedCompanions.update(world, alpha, (p) => this.ground(p));
     this.oracleLens.update(world, alpha, (p) => this.ground(p), this.camera, terminalAge);
+    this.milestone6Visuals.update(world, alpha, (p) => this.ground(p));
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.baronHits.update(world, alpha, this.camera, terminalAge);
@@ -1030,6 +1055,11 @@ export class GameView {
       // do not change these local vertices, but movement and range bonuses do.
       this.rangeGeometryAt = { x: world.hero.x, y: world.hero.y, radius: world.hero.range };
     }
+    if (world.tick < this.markerTick) {
+      this.markerTick = -1000;
+      this.lastMoveEvent = -1;
+    }
+    if (world.tick < this.lastFogTick) this.lastFogTick = -100;
     let move;
     for (let i = world.events.length - 1; i >= 0; i--)
       if (
@@ -1243,30 +1273,41 @@ export class GameView {
       u.champion === 'ahri' && u.team === world.hero.team
         ? (world.ahriCounters.find((c) => c.sourceId === u.id)?.stacks ?? 0)
         : 0;
+    const inStasis =
+      u.kind === 'champion' &&
+      (world.championState(u.id)?.itemState?.stasisUntilTick ?? 0) > world.tick;
+    const blackShielded = hasBlackShield(u, world.tick);
+    const bleedStacks = u.hemorrhage && u.hemorrhage.endTick > world.tick ? u.hemorrhage.stacks : 0;
     const status =
       u.kind === 'ward' && wardDisabled(world, u)
         ? 'DISABLED'
-        : protectedUnit && (this.hovered === u.id || this.selected === u.id)
-          ? 'PROTECTED'
-          : u.stunUntil > world.tick
-            ? 'STUNNED'
-            : u.charm && u.charm.endTick > world.tick
-              ? 'CHARMED'
-              : u.rootUntil > world.tick
-                ? 'ROOTED'
-                : u.silenceUntil > world.tick
-                  ? 'SILENCED'
-                  : world.slowFactor(u) < 1
-                    ? u.cinderBurn
-                      ? 'BURNING · SLOWED'
-                      : 'SLOWED'
-                    : u.cinderBurn
-                      ? 'BURNING'
-                      : u.illumination.some((mark) => mark.endTick > world.tick)
-                        ? 'ILLUMINATED'
-                        : essenceStacks
-                          ? `ESSENCE ${essenceStacks}/9`
-                          : '';
+        : inStasis
+          ? 'STASIS'
+          : protectedUnit && (this.hovered === u.id || this.selected === u.id)
+            ? 'PROTECTED'
+            : u.stunUntil > world.tick
+              ? 'STUNNED'
+              : u.charm && u.charm.endTick > world.tick
+                ? 'CHARMED'
+                : u.rootUntil > world.tick
+                  ? 'ROOTED'
+                  : u.silenceUntil > world.tick
+                    ? 'SILENCED'
+                    : blackShielded
+                      ? 'BLACK SHIELD'
+                      : world.slowFactor(u) < 1
+                        ? u.cinderBurn
+                          ? 'BURNING · SLOWED'
+                          : 'SLOWED'
+                        : u.cinderBurn
+                          ? 'BURNING'
+                          : bleedStacks > 0
+                            ? `HEMORRHAGE ${bleedStacks}/5`
+                            : u.illumination.some((mark) => mark.endTick > world.tick)
+                              ? 'ILLUMINATED'
+                              : essenceStacks
+                                ? `ESSENCE ${essenceStacks}/9`
+                                : '';
     if (parts.statusText !== status) {
       parts.status.textContent = status;
       parts.statusText = status;
@@ -1526,24 +1567,32 @@ export class GameView {
   private updateAim(world: World): void {
     this.aim.visible = !!this.aimMode && !!this.aimPoint;
     if (!this.aimMode || !this.aimPoint) return;
-    this.wardSightLine.visible = this.aimMode === 'ward';
+    const wardLike =
+      this.aimMode === 'ward' || this.aimMode === 'farsight' || this.aimMode === 'control-ward';
+    this.wardSightLine.visible = wardLike;
     const hero = world.hero,
       dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
     this.solarCenterLine.visible = hero.champion === 'leona' && this.aimMode === 'r';
     const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
     positions.setXYZ(0, 0, 0.1, 0);
-    if (this.aimMode === 'ward') {
+    if (wardLike) {
       const preview = world.battlefield.reachable(
         this.aimPoint,
         WARD_SOURCE.pathfindingRadius,
         world.hero.team
       );
+      const sightRadius =
+        this.aimMode === 'farsight'
+          ? FARSIGHT_POLICY.sightRadius
+          : this.aimMode === 'control-ward'
+            ? CONTROL_WARD_POLICY.sightRadius
+            : WARD_SOURCE.sightRadius;
       const sightPositions = this.wardSightLine.geometry.attributes
         .position as THREE.BufferAttribute;
       for (let i = 0; i <= 32; i++) {
         const angle = (i * Math.PI * 2) / 32;
-        const x = preview.x + Math.cos(angle) * WARD_SOURCE.sightRadius;
-        const y = preview.y + Math.sin(angle) * WARD_SOURCE.sightRadius;
+        const x = preview.x + Math.cos(angle) * sightRadius;
+        const y = preview.y + Math.sin(angle) * sightRadius;
         sightPositions.setXYZ(
           i,
           (x - hero.x) * SCALE,
@@ -1555,20 +1604,40 @@ export class GameView {
     }
     const smite = isSummonerSlot(this.aimMode) && world.summonerSpell(this.aimMode) === 'smite';
     const yiQ = hero.champion === 'masteryi' && this.aimMode === 'q';
+    const dariusR = hero.champion === 'darius' && this.aimMode === 'r';
+    const viR = hero.champion === 'vi' && this.aimMode === 'r';
+    const morganaE = hero.champion === 'morgana' && this.aimMode === 'e';
+    const ezrealE = hero.champion === 'ezreal' && this.aimMode === 'e';
     if (
-      this.aimMode === 'ward' ||
+      wardLike ||
       smite ||
       yiQ ||
+      dariusR ||
+      viR ||
+      morganaE ||
+      ezrealE ||
       (hero.champion === 'garen' && this.aimMode === 'r')
     ) {
       const radius =
-        this.aimMode === 'ward'
-          ? WARD_SOURCE.range
-          : smite
-            ? SUMMONER_SMITE.range + hero.radius
-            : yiQ
-              ? world.abilitySpec('q').range
-              : GAREN_R.castRange;
+        this.aimMode === 'farsight'
+          ? FARSIGHT_POLICY.range
+          : this.aimMode === 'control-ward'
+            ? CONTROL_WARD_POLICY.range
+            : this.aimMode === 'ward'
+              ? WARD_SOURCE.range
+              : smite
+                ? SUMMONER_SMITE.range + hero.radius
+                : yiQ
+                  ? world.abilitySpec('q').range
+                  : dariusR
+                    ? DARIUS_KIT.r.range
+                    : viR
+                      ? VI_KIT.r.range
+                      : morganaE
+                        ? MORGANA_KIT.e.range
+                        : ezrealE
+                          ? EZREAL_KIT.e.blinkRange
+                          : GAREN_R.castRange;
       for (let i = 0; i <= 32; i++) {
         const angle = (i / 32) * Math.PI * 2;
         positions.setXYZ(
@@ -1576,6 +1645,21 @@ export class GameView {
           Math.cos(angle) * radius * SCALE,
           0.1,
           Math.sin(angle) * radius * SCALE
+        );
+      }
+      this.aimLine.geometry.setDrawRange(0, 33);
+    } else if (hero.champion === 'morgana' && this.aimMode === 'w') {
+      const length = Math.min(
+        MORGANA_KIT.w.range,
+        Math.hypot(this.aimPoint.x - hero.x, this.aimPoint.y - hero.y)
+      );
+      for (let i = 0; i <= 32; i++) {
+        const angle = (i / 32) * Math.PI * 2;
+        positions.setXYZ(
+          i,
+          (Math.cos(dir) * length + Math.cos(angle) * MORGANA_KIT.w.radius) * SCALE,
+          0.1,
+          (Math.sin(dir) * length + Math.sin(angle) * MORGANA_KIT.w.radius) * SCALE
         );
       }
       this.aimLine.geometry.setDrawRange(0, 33);
@@ -1687,5 +1771,130 @@ export class GameView {
     context.drawImage(this.fogMask, 0, 0, 256, 256);
     context.filter = 'none';
     this.fogTexture.needsUpdate = true;
+  }
+
+  /** Dispose all context-owned render targets and clear stale soft-depth bindings on WebGL loss. */
+  disposeContextResources(): void {
+    this.smoke.depth.dispose();
+    this.leonaEclipseSurfaces.disposeDepth();
+    this.leonaZenithSurfaces.disposeDepth();
+    this.leonaSolarSurfaces.disposeDepth();
+    this.ahriQProjectiles.surfaces?.depth.dispose();
+    this.ahriWParticles.surfaces?.depth.dispose();
+    this.ahriEParticles.surfaces?.depth.dispose();
+    this.ahriRParticles.surfaces?.depth.dispose();
+    this.ahriRParticles.buffSurfaces?.depth.dispose();
+    this.particleDistortion.dispose();
+    this.particleEarlyDistortion.dispose();
+    const softMaps: ReadonlyArray<
+      ReadonlyMap<string, THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>> | undefined
+    > = [
+      this.leonaEclipseSurfaces.models,
+      this.leonaZenithSurfaces.models,
+      this.leonaSolarSurfaces.models,
+      this.ahriQProjectiles.surfaces?.models,
+      this.ahriQProjectiles.models,
+      this.ahriWParticles.surfaces?.models,
+      this.ahriWParticles.models,
+      this.ahriEParticles.surfaces?.models,
+      this.ahriEParticles.models,
+      this.ahriRParticles.surfaces?.models,
+      this.ahriRParticles.models,
+      this.ahriRParticles.buffSurfaces?.models,
+      this.ahriRParticles.buffModels,
+    ];
+    for (const map of softMaps) {
+      if (!map) continue;
+      for (const mesh of map.values()) {
+        if (mesh.material.uniforms.softDepth) mesh.material.uniforms.softDepth.value = null;
+      }
+    }
+  }
+
+  /** Release per-world dynamic models and labels while keeping environment and reference rigs ready. */
+  resetWorldState(): void {
+    this.particleBatcher.dispose();
+    for (const [, model] of this.models) {
+      this.scene.remove(model.root);
+      disposeModel(model);
+    }
+    this.models.clear();
+    for (const bar of this.healthBars.values()) bar.remove();
+    this.healthBars.clear();
+    for (const [, model] of this.projectileModels) {
+      this.scene.remove(model);
+      if (!disposeAsheAttackArrow(model) && !disposeHawkshot(model)) {
+        model.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            object.geometry.dispose();
+            (object.material as THREE.Material).dispose();
+          }
+        });
+      }
+    }
+    this.projectileModels.clear();
+    for (const groupMap of [this.foxFireModels, this.spiritBoltModels, this.essenceModels]) {
+      for (const model of groupMap.values()) {
+        this.scene.remove(model);
+        model.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            object.geometry.dispose();
+            (object.material as THREE.Material).dispose();
+          }
+        });
+      }
+      groupMap.clear();
+    }
+    this.lastMoveEvent = -1;
+    this.markerTick = -1000;
+    this.lastFogTick = -100;
+    this.terminalWorld = undefined;
+    this.rangeGeometryAt = undefined;
+    this.selected = null;
+    this.hovered = null;
+  }
+
+  /** Full teardown for sequential-session verification without GPU or DOM leaks. */
+  dispose(): void {
+    this.renderer.setAnimationLoop(null);
+    this.resetWorldState();
+    this.disposeContextResources();
+    this.particleBatcher.dispose();
+    this.leonaEclipseSurfaces.dispose();
+    this.leonaZenithSkins.dispose();
+    this.leonaZenithSurfaces.dispose();
+    this.leonaZenithTrails.dispose();
+    this.leonaSolarProjections.dispose();
+    this.leonaSolarSkins.dispose();
+    this.leonaSolarSurfaces.dispose();
+    this.ahriQCasts.dispose();
+    this.ahriQProjectiles.dispose();
+    this.ahriWParticles.dispose();
+    this.ahriEParticles.dispose();
+    this.ahriRParticles.dispose();
+    this.baronFlights.dispose();
+    this.baronHits.dispose();
+    this.milestone6Visuals.dispose();
+    this.mapTexture.dispose();
+    this.fogTexture.dispose();
+    const seenTextures = new Set<THREE.Texture>();
+    this.scene.traverse((object) => {
+      if (object instanceof THREE.Mesh || object instanceof THREE.Line) {
+        object.geometry.dispose();
+        const materials = Array.isArray(object.material) ? object.material : [object.material];
+        for (const material of materials) {
+          const basic = material as THREE.MeshBasicMaterial;
+          if (basic.map && !seenTextures.has(basic.map)) {
+            seenTextures.add(basic.map);
+            basic.map.dispose();
+          }
+          material.dispose();
+        }
+      }
+    });
+    this.scene.clear();
+    this.renderer.dispose();
+    this.renderer.domElement.remove();
+    this.bars.remove();
   }
 }

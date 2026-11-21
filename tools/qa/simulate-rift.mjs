@@ -7,8 +7,8 @@ import { createHash } from 'node:crypto';
 const seconds = Number(process.argv[2] ?? 600);
 const output = process.argv[3] ?? 'artifacts/rift-team-simulation.json';
 const roster = process.argv[4] ?? 'ashe';
-if (!['ashe', 'mixed', 'lanes'].includes(roster))
-  throw new Error('Roster must be ashe, mixed or lanes');
+if (!['ashe', 'mixed', 'lanes', 'public'].includes(roster))
+  throw new Error('Roster must be ashe, mixed, lanes or public');
 if (!Number.isInteger(seconds) || seconds < 1 || seconds > 3600)
   throw new Error('Duration must be an integer between 1 and 3600 seconds');
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
@@ -24,11 +24,14 @@ try {
     metadata,
     bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength)
   );
-  const battlefield = createRift(grid, layout);
+  const battlefield =
+    roster === 'public'
+      ? { ...createRift(grid, layout), publicRift: true }
+      : createRift(grid, layout);
   let world;
   let champions = [];
-  if (roster === 'lanes') {
-    world = createLaneMatch(battlefield);
+  if (roster === 'lanes' || roster === 'public') {
+    world = createLaneMatch(battlefield, roster === 'public' ? 'lux' : 'ashe');
     champions = world.units.filter((u) => u.kind === 'champion');
   } else {
     battlefield.initialUnits = battlefield.initialUnits.filter(

@@ -1,0 +1,57 @@
+{
+  "referenceVersion": "26.18-authored-milestone6",
+  "provenance": "authored-local-milestone6",
+  "status": "Authored skeletal GLB 2.0 rig and atomic animations for Milestone 6 offline compatibility; native Riot WAD skin/pose calibration documented as a deviation.",
+  "output": {
+    "path": "/assets/models/vi-base.glb",
+    "bytes": 29048,
+    "sha256": "4bf93e7e2cd713425a9822f0bb2dfd9d7c0bc0881ad8b08b05f8f94b11d0c40a"
+  },
+  "triangles": 124,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 2
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.8
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 1
+    },
+    {
+      "name": "attack2",
+      "durationSeconds": 1
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 1
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.9
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.85
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "channel",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.8
+    }
+  ]
+}

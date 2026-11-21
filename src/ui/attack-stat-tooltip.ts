@@ -8,11 +8,13 @@ export class AttackStatTooltip {
   private dismissed = false;
   private lastText = '';
   private enabled = true;
+  private readonly abort = new AbortController();
   constructor(
     private root: HTMLElement,
     private owner: HTMLElement,
     private world: World
   ) {
+    const signal = this.abort.signal;
     owner.tabIndex = 0;
     owner.removeAttribute('title');
     this.tip.className = 'tooltip attack-stat-tooltip';
@@ -22,36 +24,69 @@ export class AttackStatTooltip {
     this.tip.innerHTML =
       '<strong>Attack damage</strong><div class="tooltip-meta"></div><p></p><small></small>';
     root.append(this.tip);
-    owner.addEventListener('pointerenter', () => {
-      this.hovered = true;
-      this.dismissed = false;
-      this.refresh();
-    });
-    owner.addEventListener('pointerleave', () => {
-      this.hovered = false;
-      this.refresh();
-    });
-    owner.addEventListener('focus', () => {
-      this.focused = true;
-      this.dismissed = false;
-      this.refresh();
-    });
-    owner.addEventListener('blur', () => {
-      this.focused = false;
-      this.refresh();
-    });
-    owner.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !this.tip.hidden) {
-        event.stopPropagation();
-        this.dismissed = true;
+    owner.addEventListener(
+      'pointerenter',
+      () => {
+        this.hovered = true;
+        this.dismissed = false;
         this.refresh();
-      }
-    });
-    window.addEventListener('blur', () => {
-      this.hovered = this.focused = false;
-      this.refresh();
-    });
-    window.addEventListener('resize', () => this.refresh());
+      },
+      { signal }
+    );
+    owner.addEventListener(
+      'pointerleave',
+      () => {
+        this.hovered = false;
+        this.refresh();
+      },
+      { signal }
+    );
+    owner.addEventListener(
+      'focus',
+      () => {
+        this.focused = true;
+        this.dismissed = false;
+        this.refresh();
+      },
+      { signal }
+    );
+    owner.addEventListener(
+      'blur',
+      () => {
+        this.focused = false;
+        this.refresh();
+      },
+      { signal }
+    );
+    owner.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape' && !this.tip.hidden) {
+          event.stopPropagation();
+          this.dismissed = true;
+          this.refresh();
+        }
+      },
+      { signal }
+    );
+    window.addEventListener(
+      'blur',
+      () => {
+        this.hovered = this.focused = false;
+        this.refresh();
+      },
+      { signal }
+    );
+    window.addEventListener('resize', () => this.refresh(), { signal });
+  }
+  setWorld(world: World): void {
+    this.world = world;
+    this.lastText = '';
+    this.refresh();
+  }
+  dispose(): void {
+    this.abort.abort();
+    this.tip.remove();
   }
   refresh(enabled = this.enabled): void {
     this.enabled = enabled;

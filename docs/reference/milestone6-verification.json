@@ -1,0 +1,292 @@
+{
+  "milestone": 6,
+  "title": "Reference-mode audit and 10-champion expansion",
+  "snapshotVersion": 185,
+  "ruleset": "e5e3cc7f70fae406cd8bf03ba5a5a90fc7dc87ab2e931ad190b5fe099897cad0",
+  "pack": {
+    "id": "e74775d99c3a41065334112dbbfce01e7176e880ee3b2549f19655a8760d4c16",
+    "files": 1519,
+    "bytes": 581692009,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "roster": {
+    "distinctChampions": 10,
+    "mirrorMatchupsInDefault5v5": 0,
+    "champions": [
+      "ashe",
+      "lux",
+      "garen",
+      "masteryi",
+      "leona",
+      "ahri",
+      "darius",
+      "vi",
+      "ezreal",
+      "morgana"
+    ]
+  },
+  "referenceCoverage": {
+    "patch": "26.18",
+    "total": 158,
+    "verifiedBehavior": 49,
+    "verifiedData": 34,
+    "approximation": 75,
+    "unimplemented": 0
+  },
+  "browserMatrix": {
+    "config": "tools/qa/milestone6-multibrowser.playwright.config.ts",
+    "spec": "e2e/milestone6-reference-expansion.spec.ts",
+    "totalPassed": 3,
+    "totalFailed": 0,
+    "browsers": [
+      {
+        "name": "chrome",
+        "version": "157.0.8103.78",
+        "passed": 1
+      },
+      {
+        "name": "firefox",
+        "version": "155.0",
+        "passed": 1
+      },
+      {
+        "name": "webkit",
+        "version": "26.6",
+        "passed": 1
+      }
+    ],
+    "visualCapturesInspected": 5
+  },
+  "validationGates": {
+    "milestone6SystemsTests": {
+      "file": "tests/milestone6-systems.test.ts",
+      "passed": 10,
+      "failed": 0
+    },
+    "milestone6RosterContractTests": {
+      "file": "tests/milestone6-roster-contract.test.ts",
+      "passed": 15,
+      "failed": 0
+    },
+    "assetValidation": {
+      "command": "npm run assets:validate",
+      "glbFiles": 90,
+      "errors": 0,
+      "warnings": 0
+    },
+    "offlineRetryUiTests": {
+      "config": "tools/qa/offline-ui.playwright.config.ts",
+      "passed": 12,
+      "failed": 0
+    },
+    "offlineProductionGate": {
+      "result": "passed",
+      "serviceWorkerResponses": 1518,
+      "productionErrors": 0
+    },
+    "productionSubpathGate": {
+      "result": "passed",
+      "developmentHook": false,
+      "publicChampionChoices": [
+        "ashe",
+        "lux",
+        "garen",
+        "masteryi",
+        "leona",
+        "ahri",
+        "darius",
+        "vi",
+        "ezreal",
+        "morgana"
+      ]
+    },
+    "riftSimulationGate": {
+      "simulatedSeconds": 960,
+      "simulatedTicks": 57600,
+      "violations": 0,
+      "restoredEqual": true
+    }
+  },
+  "reaCertification": {
+    "tool": "morluto/rea",
+    "package": "rea-agents@6.10.1",
+    "distRootArtifactSha256": "e8a5826dad55d9c8a06131a556cb3e0215ad8bd047dfffbcbc493dd666837633",
+    "bundleSha256": "7dbdfc6f5adf4f53f09ec0a04d7982c6438d12f4a60bd766e1801e3a1984fc5d",
+    "records": 12,
+    "unknowns": 1,
+    "missingDirectLinks": 0,
+    "unknownId": "unk_2fd7749ba474e6a690b356f972d4a5808bd8c52121a77d14924039050ad79b6c",
+    "evidenceIds": {
+      "releaseExposureAudit": "ev_e7efb70c76e14e7a1c43e6f384708a51dfa9d3fd2ca1547be6717e53728b5955",
+      "javascriptApplicationGraph": "ev_3415fba92fcdab04683560ccfe8f0a7f07371db7f01acd3200fd6178e1dd7c29",
+      "javascriptApplicationSummary": "ev_293cfae3bb917963bfac9e4bd34bd5cf318917e652fd5bfb34a098d84c069b0b",
+      "featureTrace": "ev_0eff701efda486ee87ac9ee75ca22bc24644098405bff28adab6b480e18047a7",
+      "featureTraceSummary": "ev_881ffeebb30de8dd4ce4d61da204044e3e1c82930604c1feddfe4fbf73e9482d",
+      "browserTargetList": "ev_2283593c5c2f7dd741e1f6d5b63b3efcb534709d50984c192c10f0d0a50a641e",
+      "webPageInspection": "ev_ae8b53802ef013087eddc00c9d46dacd13da610f55d69715d1cf3c98cbf4845c",
+      "webScreenshot": "ev_40d1e5e365873704b146c750d54cd4152e6ea21a9c25577e839bb4a3569cffee",
+      "runtimeReconciliation": "ev_88656d4fa1089dd72dedf0b88c1ef163a1ca1d1f8b12e1f13a88c0e371a81021",
+      "browserScenarioCapture": "ev_3d87c3ac5d1a2d0ee418fe7e7b30326dad635b78611a817081fd32433362fa07",
+      "browserScenarioSummary": "ev_39ddce46553d893732e5ca432a6c3fc9f94135cbe8efb33672e91f836277e799"
+    }
+  },
+  "sourceDigests": [
+    {
+      "file": "src/content/role-quests.ts",
+      "bytes": 4709,
+      "sha256": "6a55775a54e7e04fb23be52dcb33a4652d86e4dfa3d6af4c9ca8f420a4a62609"
+    },
+    {
+      "file": "src/simulation/role-quests.ts",
+      "bytes": 6865,
+      "sha256": "c9cbe4646176a89e298292881659b4bae42378ce67555fa5696278d992369763"
+    },
+    {
+      "file": "src/content/epic-objectives.ts",
+      "bytes": 9033,
+      "sha256": "cf87e8c31158fb0c2874299f907f913d7d7595c94c326dbbd0020de5d86a6a64"
+    },
+    {
+      "file": "src/simulation/epic-objectives.ts",
+      "bytes": 20343,
+      "sha256": "0a210b69a3b399e10f8ee5973b107fb4beeffc12a7c737f174d138617ed0f2ae"
+    },
+    {
+      "file": "src/content/faelights.ts",
+      "bytes": 2515,
+      "sha256": "fd9dcb030d23ce5264b5cbf24936a1d67f608ebfaf80147f500792beab2f39ae"
+    },
+    {
+      "file": "src/content/expanded-items.ts",
+      "bytes": 17918,
+      "sha256": "6058b066c27a49f68337bac2effeb5582674251ef8fefbf9024c6d52a59a8a2c"
+    },
+    {
+      "file": "src/simulation/item-effects.ts",
+      "bytes": 18539,
+      "sha256": "eb9534a8961d0bd97790fe45465ae7a1524e9f46a90bd61234f20ddb335a714b"
+    },
+    {
+      "file": "src/content/runes.ts",
+      "bytes": 6168,
+      "sha256": "4d9d0d5fd25250bc47b48c519683e301333fbfa5ac8b7b0729db679992d4c88d"
+    },
+    {
+      "file": "src/simulation/runes.ts",
+      "bytes": 15118,
+      "sha256": "412c67186695fa00d6dd803c7db640e22325bab7f6d375fd2c9c6f0aeca475c9"
+    },
+    {
+      "file": "src/content/milestone6-champions.ts",
+      "bytes": 9761,
+      "sha256": "cfb07cf3c1eb9321c533308dd4d3ef1262f351ac1a0f81aca376aacb206a91d4"
+    },
+    {
+      "file": "src/simulation/milestone6-champions.ts",
+      "bytes": 60435,
+      "sha256": "dd1eb907af09380c2ca48f797c959aff8b5188e7a4f2934d9895fb7b54848fbd"
+    },
+    {
+      "file": "src/content/reference-coverage.ts",
+      "bytes": 18344,
+      "sha256": "152a858e971e70ad17121d32d14cdc63b6427dc20c4983b20eca5c0f6f302c35"
+    },
+    {
+      "file": "src/render/milestone6-visuals.ts",
+      "bytes": 13775,
+      "sha256": "bc5e261d80d25d61abdbe9a982d92965ed6dc215742b4dbc7302c7e199ca50eb"
+    },
+    {
+      "file": "src/replay/match-replay.ts",
+      "bytes": 22936,
+      "sha256": "a9c2492314a89488709dc544272826bd0898e409711343509af08f456ff0614f"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 232078,
+      "sha256": "6d573983aff5ae0cb336257154bbeed69740a831cb20a16cb190638541395339"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 363948,
+      "sha256": "4fc9476c3a58f35d5b90f8b28fef0939acb856064f93c66c77c77cd4ee453d61"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 144564,
+      "sha256": "30fe0bfb41dc5d111d90c5e28ef3e28cdcf98df5d3f37310dbd0644fc0980df8"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 40405,
+      "sha256": "c832e307360ef5ef57de8ae333e2441bf885184377b82501f2c4af132189c966"
+    },
+    {
+      "file": "tests/milestone6-systems.test.ts",
+      "bytes": 20499,
+      "sha256": "1f322e86d21bb170a1c1812d487edd3bc51775d7c9df1bf9e5576363773f8132"
+    },
+    {
+      "file": "tests/milestone6-roster-contract.test.ts",
+      "bytes": 12059,
+      "sha256": "e3de1b8d0037551459250676efd28b191da17eda3126f780989e7121485d70f7"
+    },
+    {
+      "file": "e2e/milestone6-reference-expansion.spec.ts",
+      "bytes": 6233,
+      "sha256": "2aeeb5a0653aa95c148d9c07cadfe6efcfd298f97c4219ba9857a7e51a74a5c1"
+    },
+    {
+      "file": "tools/qa/milestone6-multibrowser.playwright.config.ts",
+      "bytes": 1194,
+      "sha256": "0c120593c4592432247e1678b9270be10aee9d853bb9e9c6e3a18aa933d39b68"
+    },
+    {
+      "file": "tools/assets/generate-milestone6-assets.mjs",
+      "bytes": 44631,
+      "sha256": "5f55b4c93def31a4ab094a1584740ab1755118930c5d4896c954eb6d66927ea2"
+    }
+  ],
+  "localArtifacts": [
+    {
+      "file": "artifacts/milestone6-rea-evidence-bundle.json",
+      "bytes": 65726744,
+      "sha256": "7dbdfc6f5adf4f53f09ec0a04d7982c6438d12f4a60bd766e1801e3a1984fc5d"
+    },
+    {
+      "file": "artifacts/milestone6-rift-simulation.json",
+      "bytes": 456966,
+      "sha256": "3c50fc2e3f19e2c9c08fe480efa1f148263417930a7e426a09c0161cb8c222b6"
+    },
+    {
+      "file": "artifacts/milestone6-rift-simulation.snapshot.json",
+      "bytes": 194235,
+      "sha256": "8cc724b12b835d2968b14ddb759aabf9ee4a639fd98e975a7dcda73f2dc6f599"
+    },
+    {
+      "file": "artifacts/milestone6-new-match-runes.png",
+      "bytes": 506998,
+      "sha256": "e6aefdd967e479688a24315611fb2de54ea5419cb9c7a5aa4c9434130edfcf78"
+    },
+    {
+      "file": "artifacts/milestone6-expanded-shop.png",
+      "bytes": 514008,
+      "sha256": "52ff6b9edd2ef9f7c0e1db440c399a66c8b0bb6bdc435abfba848dd6aad41b41"
+    },
+    {
+      "file": "artifacts/milestone6-stasis-active.png",
+      "bytes": 1491624,
+      "sha256": "e772a76506dd85dcedbaacb5e53e5b439af755b05408ef7e16ccdeaaa53df3cb"
+    },
+    {
+      "file": "artifacts/milestone6-scoreboard-objectives.png",
+      "bytes": 1003094,
+      "sha256": "f3a09f5c6e4928e926045d5199730137de09ae65d049b69f378063e9eb8a1cb7"
+    },
+    {
+      "file": "artifacts/milestone6-reference-ledger.png",
+      "bytes": 626065,
+      "sha256": "6314223592430d03449dcd79ef0227aca1343f7eb28e380c26747485d7ba0d9a"
+    }
+  ]
+}

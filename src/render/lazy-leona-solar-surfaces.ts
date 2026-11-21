@@ -53,6 +53,9 @@ export class LazyLeonaSolarSurfaces {
   prepareDepth(renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera) {
     this.renderer?.prepareDepth(renderer, camera);
   }
+  disposeDepth() {
+    this.renderer?.depth.dispose();
+  }
   dispose() {
     this.disposed = true;
     this.renderer?.dispose();

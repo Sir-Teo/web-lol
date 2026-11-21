@@ -437,8 +437,8 @@ try {
     await page
       .locator('[data-action="choose-champion"]')
       .evaluateAll((buttons) => buttons.map((button) => button.dataset.champion)),
-    ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri'],
-    'Production offers all six integrated Milestone 4 champions'
+    ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri', 'darius', 'vi', 'ezreal', 'morgana'],
+    'Production offers all ten integrated Milestone 6 champions'
   );
   assert.deepEqual(
     await page
@@ -952,7 +952,18 @@ try {
     masterYiRiftTrialInProduction: false,
     masterYiBotRiftTrialInProduction: false,
     rosterRiftTrialInProduction: false,
-    publicChampionChoices: ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri'],
+    publicChampionChoices: [
+      'ashe',
+      'lux',
+      'garen',
+      'masteryi',
+      'leona',
+      'ahri',
+      'darius',
+      'vi',
+      'ezreal',
+      'morgana',
+    ],
     ahriRiftTrialInProduction: false,
     ahriBotRiftTrialInProduction: false,
     ahriNpcFixtureInProduction: false,

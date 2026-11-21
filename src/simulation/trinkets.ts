@@ -21,8 +21,11 @@ export function newTrinket(tick = 0): TrinketState {
     visuals: [],
   };
 }
+export function maxTrinketCharges(kind: TrinketKind): number {
+  return kind === 'farsight' ? 1 : WARD_SOURCE.maxCharges;
+}
 export function resetTrinket(s: TrinketState): void {
-  s.charges = WARD_SOURCE.maxCharges;
+  s.charges = maxTrinketCharges(s.kind);
   s.rechargeStartTick = s.rechargeEndTick = s.rechargeDurationTicks = null;
   s.rechargeStartProgress = 0;
   s.cooldownTick = 0;
@@ -50,14 +53,15 @@ function startRecharge(w: World, s: TrinketState, tick: number, progress = 0): v
   s.rechargeEndTick = tick + Math.ceil((1 - progress) * duration);
 }
 export function spendTrinket(w: World, s: TrinketState): void {
-  if (s.charges === WARD_SOURCE.maxCharges) startRecharge(w, s, w.tick);
+  if (s.charges === maxTrinketCharges(s.kind)) startRecharge(w, s, w.tick);
   s.charges--;
 }
 export function advanceTrinket(w: World, u: Unit, s: TrinketState): void {
+  const cap = maxTrinketCharges(s.kind);
   while (s.rechargeEndTick !== null && w.tick >= s.rechargeEndTick) {
     const tick = s.rechargeEndTick;
-    s.charges++;
-    if (s.charges === WARD_SOURCE.maxCharges) {
+    s.charges = Math.min(cap, s.charges + 1);
+    if (s.charges >= cap) {
       s.rechargeStartTick = s.rechargeEndTick = s.rechargeDurationTicks = null;
       s.rechargeStartProgress = 0;
     } else startRecharge(w, s, tick);
@@ -91,9 +95,12 @@ export function trinketSwapError(
   if (w.winner) return 'The game has ended';
   const u = w.unit(ownerId),
     s = w.championState(ownerId)?.trinket;
-  if (!u || u.kind !== 'champion' || !s) return 'Unknown champion';
+  const owner = w.championState(ownerId);
+  if (!u || u.kind !== 'champion' || !s || !owner) return 'Unknown champion';
   if (!Object.hasOwn(TRINKETS, kind)) return 'Unknown trinket';
   if (s.kind === kind) return `${TRINKETS[kind].name} is already equipped`;
+  const minLevel = TRINKETS[kind].minLevel ?? 1;
+  if (owner.level < minLevel) return `Requires champion level ${minLevel}`;
   if (w.alive(u) && distance(u, w.battlefield.spawns[u.team]) > 400)
     return 'Return to your fountain to swap trinkets';
   return null;
@@ -107,9 +114,12 @@ export function swapTrinket(w: World, kind: TrinketKind, ownerId = w.player.id):
   const progress = rechargeProgress(s, w.tick);
   if (s.order) w.setOrder(u, { type: 'idle' });
   s.kind = kind;
+  s.charges = Math.min(s.charges, maxTrinketCharges(kind));
   s.order = null;
-  // Local swap adapter: conserve stock and fractional completed work. Ceil
-  // prevents a shortened deadline from manufacturing a charge via repeated swaps.
-  if (s.rechargeEndTick !== null) startRecharge(w, s, w.tick, progress);
+  if (s.charges < maxTrinketCharges(kind)) startRecharge(w, s, w.tick, progress);
+  else {
+    s.rechargeStartTick = s.rechargeEndTick = s.rechargeDurationTicks = null;
+    s.rechargeStartProgress = 0;
+  }
   return null;
 }

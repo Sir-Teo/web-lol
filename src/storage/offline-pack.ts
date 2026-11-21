@@ -167,21 +167,36 @@ export class OfflinePack {
     const pack = this.manifest;
     try {
       const cache = await this.env.storage.open(this.cacheName);
+      const cachedUrls = cache.keys
+        ? new Set((await cache.keys()).map((request) => request.url))
+        : null;
+      let markerCleared = cachedUrls ? !cachedUrls.has(this.marker) : false;
       const previous = await Promise.all(
         (await this.env.storage.keys())
           .filter((name) => name.startsWith(this.prefix) && name !== this.cacheName)
-          .map((name) => this.env.storage.open(name))
+          .map(async (name) => {
+            const oldCache = await this.env.storage.open(name);
+            const urls = oldCache.keys
+              ? new Set((await oldCache.keys()).map((request) => request.url))
+              : null;
+            return { cache: oldCache, urls };
+          })
       );
       let completed = 0,
         bytes = 0;
       for (const file of pack.files) {
         controller.signal.throwIfAborted();
         const url = new URL(file.path, this.base);
-        let verified = await verifiedResponse(await cache.match(url), file);
-        if (!verified) await cache.delete(this.marker);
+        const maybeCached = !cachedUrls || cachedUrls.has(url.href);
+        let verified = maybeCached ? await verifiedResponse(await cache.match(url), file) : false;
+        if (!verified && !markerCleared) {
+          await cache.delete(this.marker);
+          markerCleared = true;
+        }
         if (!verified)
           for (const old of previous) {
-            const reusable = await old.match(url);
+            if (old.urls && !old.urls.has(url.href)) continue;
+            const reusable = await old.cache.match(url);
             if (await verifiedResponse(reusable, file)) {
               await cache.put(url, reusable!);
               verified = true;
