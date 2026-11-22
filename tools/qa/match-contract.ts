@@ -44,13 +44,22 @@ export function assertMatchResources(world: World): void {
     throw new Error(`Invalid champion roster at tick ${world.tick}`);
   for (const unit of champions) {
     const state = world.championState(unit.id);
+    const quest = state?.roleQuest;
+    const maxLevel =
+      state?.role === 'top' &&
+      quest?.role === 'top' &&
+      quest.completedTick !== null &&
+      quest.completedTick <= world.tick &&
+      quest.progress === quest.target
+        ? 20
+        : 18;
     if (
       !state ||
       !Number.isFinite(state.gold) ||
       state.gold < 0 ||
       !Number.isInteger(state.level) ||
       state.level < 1 ||
-      state.level > 18
+      state.level > maxLevel
     )
       throw new Error(`Invalid champion economy for unit ${unit.id} at tick ${world.tick}`);
   }

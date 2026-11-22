@@ -509,6 +509,7 @@ import {
   onUltimateCastDragonSoul,
   type RiftObjectivesState,
 } from './epic-objectives';
+import { EXTRA_SLOW_POLICY, isExtraSlowKind, type ExtraSlowKind } from './extra-slow-policy';
 import {
   advanceRoleQuests,
   recordRoleQuestCombatHit,
@@ -1777,7 +1778,7 @@ export class World {
             unit: u.id,
             team: u.team,
           });
-          beginAhriRecallAudio(this, u, this.events[this.events.length - 1]!);
+          beginAhriRecallAudio(this, u, this.events[this.events.length - 1]!, state.recallEnd);
         }
       }
     }
@@ -5347,6 +5348,10 @@ export class World {
     }
     return slow;
   }
+  applyExtraSlow(source: Unit, target: Unit, kind: ExtraSlowKind): boolean {
+    const policy = EXTRA_SLOW_POLICY[kind];
+    return this.applySlow(source, target, kind, policy.duration, policy.multiplier);
+  }
   applySlow(
     source: Unit,
     target: Unit,
@@ -5355,6 +5360,7 @@ export class World {
     startMultiplier: number,
     endMultiplier = startMultiplier
   ): boolean {
+    const extra = isExtraSlowKind(kind) ? EXTRA_SLOW_POLICY[kind] : null;
     if (
       this.winner ||
       !this.units.includes(source) ||
@@ -5368,7 +5374,8 @@ export class World {
         !!activeHighlander(this.championState(target.id), this.tick)) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
-      (kind !== 'cinders' &&
+      (!extra &&
+        kind !== 'cinders' &&
         kind !== 'smite' &&
         kind !== 'scorchclaw' &&
         (kind === 'lucent'
@@ -5376,16 +5383,26 @@ export class World {
           : kind === 'solar-flare'
             ? source.champion !== 'leona'
             : source.champion !== 'ashe')) ||
-      ![
-        'frost',
-        'critical-frost',
-        'crystal-arrow',
-        'lucent',
-        'cinders',
-        'smite',
-        'scorchclaw',
-        'solar-flare',
-      ].includes(kind) ||
+      (!extra &&
+        ![
+          'frost',
+          'critical-frost',
+          'crystal-arrow',
+          'lucent',
+          'cinders',
+          'smite',
+          'scorchclaw',
+          'solar-flare',
+        ].includes(kind)) ||
+      (extra !== null &&
+        ((extra.champion !== null && source.champion !== extra.champion) ||
+          (kind === 'hextech-soul' &&
+            (target.kind !== 'champion' ||
+              this.riftObjectives?.dragon.soulTeam !== source.team ||
+              this.riftObjectives.dragon.soulElement !== 'hextech')) ||
+          startMultiplier !== extra.multiplier ||
+          endMultiplier !== extra.multiplier ||
+          durationTicks !== extra.duration)) ||
       (kind === 'solar-flare' &&
         (!this.championState(source.id)?.spellRanks.r ||
           durationTicks !== Math.round(LEONA_SPELLS.r.crowdControlSeconds * TICK_RATE) ||
@@ -5403,7 +5420,7 @@ export class World {
           companionStage(ownedCompanion(this, source.id)?.fed ?? 0) === 0)) ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
-      !Number.isSafeInteger(this.tick + durationTicks) ||
+      !Number.isSafeInteger(this.tick + (extra?.delay ?? 0) + durationTicks) ||
       !Number.isFinite(startMultiplier) ||
       !Number.isFinite(endMultiplier) ||
       startMultiplier < 0 ||
@@ -5412,11 +5429,13 @@ export class World {
       endMultiplier > 1
     )
       return false;
+    const startTick = this.tick + (extra?.delay ?? 0);
     const effect = {
       sourceId: source.id,
       kind,
-      startTick: this.tick,
-      endTick: this.tick + this.controlDurationTicks(target, durationTicks),
+      startTick,
+      endTick:
+        startTick + (extra ? durationTicks : this.controlDurationTicks(target, durationTicks)),
       startMultiplier,
       endMultiplier,
     };
@@ -7405,7 +7424,16 @@ export class World {
         advanceQProjectileVisuals(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
-        for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
+        for (const unit of this.units) {
+          // A leash-reset monster keeps its home order; the save contract requires it.
+          if (
+            unit.kind === 'monster' &&
+            unit.monster.phase === 'returning' &&
+            unit.monster.species !== 'scuttler'
+          )
+            this.setOrder(unit, { type: 'move', point: { ...unit.monster.home } });
+          else this.setOrder(unit, { type: 'idle' });
+        }
         for (const unit of this.units) {
           unit.sunlight = null;
           unit.charm = null;

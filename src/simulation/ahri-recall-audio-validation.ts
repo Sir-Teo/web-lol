@@ -1,4 +1,5 @@
 import { RECALL_DURATION_TICKS } from '../content/rules';
+import { MID_EMPOWERED_RECALL_TICKS } from '../content/role-quests';
 import { ahriRecallAudioExpiry, type AhriRecallAudioRecord } from './ahri-recall-audio';
 import type { ChampionState, Team, Unit } from './types';
 export function validateAhriRecallAudio(state: {
@@ -28,7 +29,8 @@ export function validateAhriRecallAudio(state: {
       r.id >= state.nextId ||
       r.startTick < lastTick ||
       r.startTick > state.tick ||
-      r.completeTick !== r.startTick + RECALL_DURATION_TICKS ||
+      (r.completeTick !== r.startTick + RECALL_DURATION_TICKS &&
+        r.completeTick !== r.startTick + MID_EMPOWERED_RECALL_TICKS) ||
       state.tick >= ahriRecallAudioExpiry(r) ||
       !r.audience.includes(r.team) ||
       r.audience.join() !== ['blue', 'red'].filter((t) => r.audience.includes(t as Team)).join()

@@ -513,14 +513,7 @@ export function onObjectivePostHitEffects(
     } else if (obj.dragon.soulElement === 'hextech' && w.tick >= ready) {
       obj.dragon.soulCooldowns[source.id] = w.tick + DRAGON_SLAYER_BUFFS.hextechSoulCooldownTicks;
       w.damage(source, target, DRAGON_SLAYER_BUFFS.hextechSoulMagicDamage, 'magic', 'objective');
-      target.slows.push({
-        sourceId: source.id,
-        kind: 'frost',
-        startTick: w.tick,
-        endTick: w.tick + DRAGON_SLAYER_BUFFS.hextechSoulSlowTicks,
-        startMultiplier: DRAGON_SLAYER_BUFFS.hextechSoulSlowMultiplier,
-        endMultiplier: DRAGON_SLAYER_BUFFS.hextechSoulSlowMultiplier,
-      });
+      w.applyExtraSlow(source, target, 'hextech-soul');
     }
   }
 

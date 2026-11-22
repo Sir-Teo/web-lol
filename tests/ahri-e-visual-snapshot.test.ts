@@ -4,6 +4,7 @@ import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { eVisualGameplaySamples, type EVisualGameplayCase } from './helpers/ahri-e-visual-gameplay';
 import { eVisualEndTick } from '../src/simulation/ahri-e-visual-history';
 import { AHRI_E_VISUAL_HISTORY_TICKS } from '../src/content/ahri-e-visual-timing';
+import { SNAPSHOT_VERSION } from '../src/simulation/snapshot';
 
 function field() {
   return {
@@ -78,7 +79,7 @@ test('posthumous E history retires before the actual caster respawn and cannot r
 
 test('strict Charm save admission rejects broken phase, control, pose, audio and identity links', () => {
   const state = checkpoint('hit', 45);
-  expect(state.version).toBe(185);
+  expect(state.version).toBe(SNAPSHOT_VERSION);
   expect(restore(state).snapshot()).toBe(JSON.stringify(state));
   const mutations: ((s: any) => void)[] = [
     (s) => {
@@ -135,6 +136,34 @@ test('strict Charm save admission rejects broken phase, control, pose, audio and
     mutate(changed);
     expect(() => restore(changed), 'mutation ' + index).toThrow();
   }
+});
+
+test('Charm history restores with item tenacity on a non-Garen target, even after the item is gone', () => {
+  const w = new World(false, field());
+  w.nextWaveTick = 1e9;
+  Object.assign(w.hero, { x: -3000, y: -3000, previous: { x: -3000, y: -3000 }, ai: false });
+  const caster = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'ahri');
+  const target = w.spawn('champion', 'red', { x: 500, y: 0 }, 'lux');
+  caster.ai = false;
+  target.ai = false;
+  const owner = w.championState(target.id)!;
+  owner.inventory[0] = 'mercs';
+  w.learnSpell('e', caster.id);
+  w.enqueue({ type: 'cast', unit: caster.id, ability: 'e', point: { x: target.x, y: target.y } });
+  w.step(40);
+  const control = w.ahriEVisuals[0]?.buff?.control;
+  expect(control?.tenacityApplied).toBe(true);
+  expect(target.charm).toEqual(control);
+  const active = w.snapshot();
+  const copy = World.fromSnapshot(active, w.battlefield);
+  expect(copy.snapshot()).toBe(active);
+  w.step(control!.endTick - w.tick);
+  copy.step(control!.endTick - copy.tick);
+  expect(copy.snapshot()).toBe(w.snapshot());
+  expect(w.ahriEVisuals[0].buff?.stop?.reason).toBe('expired');
+  owner.inventory[0] = null;
+  const ended = w.snapshot();
+  expect(World.fromSnapshot(ended, w.battlefield).snapshot()).toBe(ended);
 });
 
 test('lethal hits preserve target ending data and cannot invent a persistent buff', () => {

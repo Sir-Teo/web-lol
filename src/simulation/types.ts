@@ -218,7 +218,8 @@ export interface UnitBase extends Vec2 {
       | 'cinders'
       | 'smite'
       | 'scorchclaw'
-      | 'solar-flare';
+      | 'solar-flare'
+      | import('./extra-slow-policy').ExtraSlowKind;
     startTick: number;
     endTick: number;
     startMultiplier: number;

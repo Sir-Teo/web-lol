@@ -1,6 +1,11 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
+import { createRift } from '../src/content/rift';
+import { createLaneMatch } from '../src/simulation/lane-match';
+import { NavGrid } from '../src/simulation/navgrid';
+import { SNAPSHOT_VERSION } from '../src/simulation/snapshot';
 function setup(hidden = false) {
   const w = new World(false, {
     ...PRACTICE_FIXTURE,
@@ -18,6 +23,37 @@ function setup(hidden = false) {
   w.step();
   return { w, ahri, enemy };
 }
+test('empowered Ahri Recall saves during the channel and preserves its actual completion and audio tail', () => {
+  const nav = readFileSync('public/assets/maps/rift-nav.bin');
+  const grid = new NavGrid(
+    JSON.parse(readFileSync('public/assets/maps/rift-nav.json', 'utf8')),
+    nav.buffer.slice(nav.byteOffset, nav.byteOffset + nav.byteLength)
+  );
+  const rift = createRift(
+    grid,
+    JSON.parse(readFileSync('public/assets/maps/rift-layout.json', 'utf8'))
+  );
+  const w = createLaneMatch({ ...rift, publicRift: true }, 'ahri');
+  for (const unit of w.units) unit.ai = false;
+  const quest = w.player.roleQuest!;
+  quest.progress = quest.target;
+  quest.completedTick = w.tick;
+  w.enqueue({ type: 'recall', unit: w.hero.id });
+  w.step();
+  const r = w.ahriRecallAudio[0];
+  expect(r.completeTick).toBe(241);
+  const copy = restore(w);
+  copy.step(240);
+  w.step(240);
+  expect(copy.snapshot()).toBe(w.snapshot());
+  expect(r.end).toEqual({ tick: 241, point: w.battlefield.spawns.blue, reason: 'complete' });
+  restore(w);
+  const oldSave = { ...JSON.parse(w.snapshot()), version: SNAPSHOT_VERSION - 1 };
+  expect(() => World.fromSnapshot(JSON.stringify(oldSave), w.battlefield)).toThrow();
+  w.step(340);
+  expect(w.ahriRecallAudio).toEqual([]);
+  restore(w);
+});
 function restore(w: World) {
   const saved = w.snapshot(),
     copy = World.fromSnapshot(saved, w.battlefield);

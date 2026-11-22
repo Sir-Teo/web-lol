@@ -189,6 +189,7 @@ import {
   maxInventorySlotsForQuest,
 } from '../content/role-quests';
 import { DRAGON_ELEMENTS } from '../content/epic-objectives';
+import { EXTRA_SLOW_POLICY, isExtraSlowKind } from './extra-slow-policy';
 import {
   DEFENSE_SHARD_IDS,
   FLEX_SHARD_IDS,
@@ -212,7 +213,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 185;
+export const SNAPSHOT_VERSION = 186;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -487,6 +488,7 @@ const unit = z
               'cinders',
               'smite',
               'scorchclaw',
+              ...Object.keys(EXTRA_SLOW_POLICY).filter(isExtraSlowKind),
             ]),
             startTick: tick,
             endTick: tick,
@@ -5012,19 +5014,30 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     for (const slow of target.slows) {
       const source = state.units.find((u) => u.id === slow.sourceId);
       const key = `${slow.sourceId}:${slow.kind}`;
+      const extra = isExtraSlowKind(slow.kind) ? EXTRA_SLOW_POLICY[slow.kind] : null;
       if (
         !source ||
         source.team === target.team ||
         source.kind !== 'champion' ||
-        (slow.kind !== 'cinders' &&
+        (!extra &&
+          slow.kind !== 'cinders' &&
           slow.kind !== 'smite' &&
           slow.kind !== 'scorchclaw' &&
           source.champion !==
             (slow.kind === 'lucent' ? 'lux' : slow.kind === 'solar-flare' ? 'leona' : 'ashe')) ||
         target.deadAt !== null ||
         ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
-        slow.startTick > state.tick ||
+        slow.startTick > state.tick + (extra?.delay ?? 0) ||
         slow.endTick <= state.tick ||
+        (extra !== null &&
+          ((extra.champion !== null && source.champion !== extra.champion) ||
+            (slow.kind === 'hextech-soul' &&
+              (target.kind !== 'champion' ||
+                state.riftObjectives?.dragon.soulTeam !== source.team ||
+                state.riftObjectives.dragon.soulElement !== 'hextech')) ||
+            slow.endTick !== slow.startTick + extra.duration ||
+            slow.startMultiplier !== extra.multiplier ||
+            slow.endMultiplier !== extra.multiplier)) ||
         (slow.kind === 'solar-flare' &&
           (![state.player, ...state.otherChampions].find((o) => o.id === source.id)?.spellRanks.r ||
             slow.endTick - slow.startTick >

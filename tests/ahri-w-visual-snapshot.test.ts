@@ -2,6 +2,7 @@ import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { AHRI_W_VISUAL_HISTORY_TICKS } from '../src/content/ahri-w-visual-timing';
+import { SNAPSHOT_VERSION } from '../src/simulation/snapshot';
 
 const field = {
   ...PRACTICE_FIXTURE,
@@ -39,7 +40,7 @@ test('W visual schema restores complete histories and identical futures through 
   }
   const { w } = fixture();
   w.step(400);
-  expect(JSON.parse(w.snapshot()).version).toBe(185);
+  expect(JSON.parse(w.snapshot()).version).toBe(SNAPSHOT_VERSION);
   expect(w.ahriWVisuals).toEqual([]);
   expect(JSON.parse(w.snapshot())).not.toHaveProperty('ahriWVisuals');
 });

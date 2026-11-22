@@ -145,6 +145,13 @@ let ready = false;
 let jungle: JungleMapInspection | undefined;
 let textureResidency: MapTextureResidency | undefined;
 let texturePrefetch: MapTexturePrefetch | undefined;
+let drawPending = true;
+let prefetchPending = false;
+const invalidate = () => {
+  drawPending = true;
+};
+controls.addEventListener('change', invalidate);
+renderer.domElement.addEventListener('webglcontextrestored', invalidate);
 async function load(): Promise<void> {
   const terrain = await loadRift(
     renderer,
@@ -160,8 +167,10 @@ async function load(): Promise<void> {
   button.addEventListener('click', () => {
     overlay.visible = !overlay.visible;
     button.setAttribute('aria-pressed', String(overlay.visible));
+    invalidate();
   });
   await renderer.compileAsync(scene, camera);
+  invalidate();
   ready = true;
   status.hidden = true;
   if (import.meta.env.DEV) {
@@ -175,16 +184,23 @@ void load().catch((error: unknown) => {
 });
 renderer.setAnimationLoop(() => {
   controls.update();
-  textureResidency?.beginFrame();
-  renderer.render(scene, camera);
-  textureResidency?.endFrame();
-  texturePrefetch?.update(renderer, camera);
-  jungle?.update();
+  // Orbit damping can keep moving the camera after input ends, but a settled
+  // view need not submit the same full-resolution terrain every frame.
+  if (drawPending) {
+    drawPending = false;
+    textureResidency?.beginFrame();
+    renderer.render(scene, camera);
+    textureResidency?.endFrame();
+    prefetchPending = true;
+    jungle?.update();
+  }
+  if (prefetchPending) prefetchPending = (texturePrefetch?.update(renderer, camera) ?? 0) > 0;
 });
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight);
+  invalidate();
 });
 if (import.meta.env.DEV) {
   Object.assign(window, {
@@ -219,9 +235,11 @@ if (import.meta.env.DEV) {
       if (!jungle) {
         const { JungleMapInspection } = await import('./jungle-map-inspection');
         jungle = new JungleMapInspection(host, scene, camera, controls, renderer.domElement);
+        jungle.panel.addEventListener('change', invalidate);
       }
       const visible = button.getAttribute('aria-pressed') !== 'true';
       jungle.setVisible(visible);
+      invalidate();
       button.setAttribute('aria-pressed', String(visible));
       if (ready) status.hidden = true;
     } catch (error) {

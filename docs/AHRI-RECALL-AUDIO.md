@@ -30,6 +30,10 @@ Successful recall will retain the finite authored tail. Cancellation uses an exp
 
 Schema175 adds optional nonempty `ahriRecallAudio` history keyed by the existing accepted-channel message ID. It captures source/team, start/deadline, point and point-visible birth audience separately from private message delivery. Central channel clearing records immediate interruption for orders, ability casts, positive health loss, stun/silence and death. Successful actual return records its spawn point and keeps the finite master tail. Victory closes pending audio without changing the gameplay channel clock or advancing the World. No simulation identity or RNG draw is added.
 
+On schema 186, the observer records the accepted channel deadline instead of
+assuming eight seconds. This preserves four-second empowered channels and their
+completion tails through restore without changing gameplay or sample playback.
+
 Strict restore checks owner, reserved ID ordering, canonical audience, accepted deadline, active channel/live position links, completion clock/map spawn, terminal closure and finite expiry. Cancellation retains a conservative two-tick history bound for the local20 ms release. Seven history tests cover every-frame exact restores/futures, immediate interruption, hidden births/zero loss, same-tick restarts, malformed data, two victory phases and lethal interruption with actual lifecycle death. All19 scoped history/shared Recall tests and TypeScript pass;19 older family/reference cases also pass with only new Recall presentation normalized on the current side. Frozen helpers/producers/expected hashes remain unchanged. Full/cohort verification follows; playback remains unbound.
 
 ## Frozen Recall history verification

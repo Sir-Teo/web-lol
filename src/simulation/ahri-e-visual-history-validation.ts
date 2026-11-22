@@ -1,6 +1,5 @@
 import { AHRI_E } from '../content/ahri-e';
 import { AHRI_E_POLICY } from '../content/ahri-e-policy';
-import { GAREN_W } from '../content/garen-w';
 import { DT, TICK_RATE } from '../content/rules';
 import { direction, distance, sweepCircle, type Vec2 } from './math';
 import type { Team, Unit } from './types';
@@ -209,16 +208,14 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
         control.startTick === hit.tick
     );
     const duration = Math.round(AHRI_E.charmSecondsByRank[record.rank - 1] * TICK_RATE);
-    const sampled = control.tenacityApplied
-      ? Math.min(
-          duration,
-          Math.max(
-            Math.round(0.3 * TICK_RATE),
-            Math.round(duration * (1 - GAREN_W.upfrontTenacity))
-          )
-        )
-      : duration;
-    check(Number.isSafeInteger(control.endTick) && control.endTick === control.startTick + sampled);
+    const sampled = control.endTick - control.startTick;
+    // Gear, shard and objective modifiers may change after impact.
+    check(
+      Number.isSafeInteger(control.endTick) &&
+        sampled >= Math.min(duration, Math.round(0.3 * TICK_RATE)) &&
+        sampled <= duration &&
+        control.tenacityApplied === (sampled < duration)
+    );
     audience(buff.audience, buff.targetTeam);
     if (buff.stop) {
       check(

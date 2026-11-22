@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { writeCohortSnapshot } from './lib/cohort-snapshot.ts';
 import { inspectCohortHorizon } from './inspect-cohort-horizon.mjs';
+import { assessVerifiedCohort } from './verify-milestone7-cohort.mjs';
 const verifier = fileURLToPath(new URL('./verify-match-cohort.mjs', import.meta.url));
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const pin = (file) => ({
@@ -16,17 +17,24 @@ const pin = (file) => ({
   sha256: hash(readFileSync(file)),
 });
 const write = (file, value) => writeFileSync(file, JSON.stringify(value) + '\n');
-function fixture(t, horizonTicks = 3600) {
+function fixture(t, horizonTicks = 3600, publicRoster = false) {
   const root = mkdtempSync(resolve(tmpdir(), 'cohort profile '));
   for (const path of ['maps', 'runner', 'seeds/1', 'frozen-source'])
     mkdirSync(root + '/' + path, { recursive: true });
   for (const file of ['maps/input', 'runner/match-seed.js', 'frozen-source/source.txt'])
     writeFileSync(root + '/' + file, 'fixture bytes\n');
-  const roles = ['mid', 'top', 'jungle', 'carry', 'support'];
-  const identities = {
-    blue: ['lux', 'garen', 'masteryi', 'ashe', 'leona'],
-    red: ['ahri', 'garen', 'masteryi', 'ashe', 'leona'],
-  };
+  const roles = publicRoster
+    ? ['carry', 'top', 'jungle', 'mid', 'support']
+    : ['mid', 'top', 'jungle', 'carry', 'support'];
+  const identities = publicRoster
+    ? {
+        blue: ['ashe', 'garen', 'masteryi', 'ahri', 'leona'],
+        red: ['ezreal', 'darius', 'vi', 'lux', 'morgana'],
+      }
+    : {
+        blue: ['lux', 'garen', 'masteryi', 'ashe', 'leona'],
+        red: ['ahri', 'garen', 'masteryi', 'ashe', 'leona'],
+      };
   const units = [],
     owners = [];
   for (const team of ['blue', 'red'])
@@ -37,6 +45,7 @@ function fixture(t, horizonTicks = 3600) {
         kind: 'champion',
         team,
         champion,
+        ai: true,
         x: 0,
         y: 0,
         hp: 500,
@@ -54,6 +63,7 @@ function fixture(t, horizonTicks = 3600) {
       units,
       player: owners[0],
       otherChampions: owners.slice(1),
+      ...(publicRoster ? { riftObjectives: {}, riftBaron: {} } : {}),
     };
   const checkpoint = root + '/seeds/1/003600.match.json',
     final = root + '/seeds/1/final.match.json';
@@ -63,9 +73,9 @@ function fixture(t, horizonTicks = 3600) {
     seed: 1,
     ruleset,
     developmentLeona: false,
-    developmentRoster: true,
-    automatedHumanCarry: false,
-    automatedHumanRole: 'mid',
+    developmentRoster: !publicRoster,
+    automatedHumanCarry: publicRoster,
+    automatedHumanRole: roles[0],
     failure: null,
     horizonTicks,
     finalTick: horizonTicks,
@@ -102,10 +112,12 @@ function fixture(t, horizonTicks = 3600) {
   const plan = {
     ruleset,
     developmentLeona: false,
-    developmentRoster: true,
-    qaAutomatedHumanCarry: false,
-    qaAutomatedHumanRole: 'mid',
-    roster: 'two Garen/two Master Yi/two Ashe/two Leona/one Ahri/one Lux; five roles per team',
+    developmentRoster: !publicRoster,
+    qaAutomatedHumanCarry: publicRoster,
+    qaAutomatedHumanRole: roles[0],
+    roster: publicRoster
+      ? 'ten distinct public champions; five roles per team; live Rift objectives'
+      : 'two Garen/two Master Yi/two Ashe/two Leona/one Ahri/one Lux; five roles per team',
     seeds: [1],
     horizonTicks,
     runtime: report.runtime,
@@ -161,6 +173,59 @@ test('a historical combined-profile fixture verifies its archived inputs and exa
   assert.equal(result.developmentRoster, true);
   assert.equal(result.hundredSeedInvariantGate, false);
 });
+test('public-roster verification checks snapshot composition independently of historical metadata', (t) => {
+  const f = fixture(t, 3600, true);
+  assert.equal(JSON.parse(f.run()).publicRosterVerified, undefined);
+  assert.equal(JSON.parse(f.run(['--public-roster'])).publicRosterVerified, true);
+  f.mutateState((state) => {
+    state.units[5].champion = 'ashe';
+  });
+  assert.throws(() => f.run(['--public-roster']), /Unexpected red public roster/);
+});
+
+const verifiedPublicCohort = {
+  result: 'passed',
+  publicRosterVerified: true,
+  hundredSeedInvariantGate: true,
+  horizonTicks: 216000,
+  ruleset: '1'.repeat(64),
+  seeds: 100,
+  victories: 100,
+  unfinished: 0,
+};
+test('Milestone 7 counts natural victories separately from invariant success', () => {
+  assert.equal(assessVerifiedCohort(verifiedPublicCohort).result, 'passed');
+  const needsReview = assessVerifiedCohort({
+    ...verifiedPublicCohort,
+    victories: 99,
+    unfinished: 1,
+  });
+  assert.equal(needsReview.naturalVictoryRate, 0.99);
+  assert.equal(needsReview.meetsVictoryThreshold, true);
+  assert.equal(needsReview.result, 'awaiting-stalemate-review');
+  const overHorizonBudget = assessVerifiedCohort({
+    ...verifiedPublicCohort,
+    seeds: 200,
+    victories: 198,
+    unfinished: 2,
+  });
+  assert.equal(overHorizonBudget.naturalVictoryRate, 0.99);
+  assert.equal(overHorizonBudget.meetsVictoryThreshold, false);
+  assert.equal(overHorizonBudget.result, 'failed');
+});
+
+test('Milestone 7 rejects incomplete, wrong-roster, and inconsistent verification', () => {
+  for (const [override, reason] of [
+    [{ result: 'failed' }, /invariants did not pass/],
+    [{ publicRosterVerified: false }, /Public roster was not verified/],
+    [{ hundredSeedInvariantGate: false }, /Hundred-seed invariants did not pass/],
+    [{ horizonTicks: 64800 }, /60-minute horizon/],
+    [{ seeds: 99, victories: 99 }, /at least 100 seeds/],
+    [{ victories: 98, unfinished: 0 }, /outcomes do not account/],
+  ])
+    assert.throws(() => assessVerifiedCohort({ ...verifiedPublicCohort, ...override }), reason);
+});
+
 for (const [name, mutate] of [
   [
     'wrong human',

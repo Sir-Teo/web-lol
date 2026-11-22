@@ -133,7 +133,7 @@ export function validateEVisuals(state: {
       }
       if (r.buff) {
         check(r.buff.audience.join() === r.targetFrames[0].audience.join());
-        if (r.buff.control.tenacityApplied) check(target?.champion === 'garen');
+        if (r.buff.control.tenacityApplied) check(target?.kind === 'champion');
         if (!r.buff.stop) {
           check(
             !state.winner &&

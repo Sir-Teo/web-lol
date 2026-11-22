@@ -1,5 +1,4 @@
 import { AHRI_RECALL_AUDIO_TICKS as T } from '../content/ahri-recall-audio-timing';
-import { RECALL_DURATION_TICKS } from '../content/rules';
 import type { Vec2 } from './math';
 import type { Team, Unit, SimEvent } from './types';
 import type { World } from './world';
@@ -14,14 +13,14 @@ export interface AhriRecallAudioRecord {
   audience: Team[];
   end: { tick: number; point: Vec2; reason: 'complete' | 'cancelled' | 'match-end' } | null;
 }
-export function beginAhriRecallAudio(w: World, u: Unit, event: SimEvent) {
+export function beginAhriRecallAudio(w: World, u: Unit, event: SimEvent, completeTick: number) {
   if (u.champion !== 'ahri') return;
   w.ahriRecallAudio.push({
     id: event.id,
     sourceId: u.id,
     team: u.team as Team,
     startTick: w.tick,
-    completeTick: w.tick + RECALL_DURATION_TICKS,
+    completeTick,
     origin: { x: u.x, y: u.y },
     audience: (['blue', 'red'] as Team[]).filter((t) => t === u.team || w.pointVisible(u, t)),
     end: null,

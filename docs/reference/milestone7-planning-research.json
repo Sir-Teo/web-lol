@@ -1,0 +1,135 @@
+{
+  "format": 1,
+  "milestone": 7,
+  "status": "planning-research-only",
+  "date": "2026-11-22",
+  "sourceRevision": "7014033343d60430b7d5f2dcccf6061e6fee57cd",
+  "baselineRuntimeCertificationRerun": false,
+  "rea": {
+    "repository": "morluto/rea",
+    "package": "rea-agents@6.10.1",
+    "operation": "analyze_javascript_application",
+    "execution": "Local static analysis of read-only staged files under an unshare network namespace; target code was not executed.",
+    "inputRootArtifactSha256": "f69130cbe04897c9f4b78bc567a9f608471544b0a54b7e4c685736d305d2a68d",
+    "parentEvidenceId": "ev_f5e345cecfa1fd84eae9923afe815f3330d5503a8a91eb423f218c604da3c1e6",
+    "summaryEvidenceId": "ev_6898af1ea6dd514b3bd64b33ce52bc3210f5b1b86f940dba24f10d5075a6acbb",
+    "bundleSha256": "04479bb6d3d7930f0e873ec1d304821c32d2970629a87e63950efbef1c8c7bda",
+    "bundleBytes": 13666143,
+    "bundleRecords": 1,
+    "rawBundleLocation": "Session files/m7-rea-evidence.json; raw evidence retained locally, not committed.",
+    "summaryLocation": "Session files/m7-rea-summary.json",
+    "statistics": {
+      "relevantFiles": 8,
+      "parsedJavascriptFiles": 8,
+      "textBytesRead": 77389,
+      "visitedAstNodes": 10860,
+      "findings": 153,
+      "parseFailures": 0,
+      "semanticUnknowns": 3967
+    },
+    "limitations": [
+      "Complete syntax examination applies only to the eight staged sources, not the repository or deployed bundle.",
+      "Semantic coverage is unknown; conservative graph candidates are not control-flow-sensitive proofs.",
+      "Dependencies not staged remain unresolved; static relationships do not prove runtime execution.",
+      "No native client, shader, game server, browser scenario, performance measurement, or licensing verification was performed.",
+      "The raw bundle is local session evidence; this compact receipt cannot substitute for authenticating that bundle."
+    ]
+  },
+  "sourceDigests": [
+    {
+      "file": "tools/qa/verify-milestone6.mjs",
+      "bytes": 5802,
+      "sha256": "480e1b1638418bba900a1d3dc7eaadfc939d25d98f24c4da0904189edd285d4e"
+    },
+    {
+      "file": "tools/qa/verify-milestone5.mjs",
+      "bytes": 4410,
+      "sha256": "6c92f71a3fc7cc2d87f51fbaee17fde49dea0db6709e01d045bed132a2fb088d"
+    },
+    {
+      "file": "tools/qa/simulate-rift.mjs",
+      "bytes": 7683,
+      "sha256": "06f53066d3783dfc2bb4ebf323d92352f73d12909772ce26de5f8216448c9383"
+    },
+    {
+      "file": "tools/qa/match-cohort.mjs",
+      "bytes": 12575,
+      "sha256": "5aa33d5f609e176b686268cc9f4954cd38769e710875ec941bc5aac0d0821acc"
+    },
+    {
+      "file": "tools/qa/verify-match-cohort.mjs",
+      "bytes": 13309,
+      "sha256": "ead26be76241cdf372910445042533084ed3f76d41be0a1452811bf55b2671c3"
+    },
+    {
+      "file": "src/content/reference-coverage.ts",
+      "bytes": 18344,
+      "sha256": "152a858e971e70ad17121d32d14cdc63b6427dc20c4983b20eca5c0f6f302c35"
+    },
+    {
+      "file": "src/content/epic-objectives.ts",
+      "bytes": 9033,
+      "sha256": "cf87e8c31158fb0c2874299f907f913d7d7595c94c326dbbd0020de5d86a6a64"
+    },
+    {
+      "file": "e2e/milestone6-reference-expansion.spec.ts",
+      "bytes": 6233,
+      "sha256": "2aeeb5a0653aa95c148d9c07cadfe6efcfd298f97c4219ba9857a7e51a74a5c1"
+    }
+  ],
+  "observations": [
+    {
+      "id": "M7-PLAN-COHORT",
+      "reaNodeId": "jsrg_node_1a510b3e280c46f22bebc4f27093478d8b405db9b5ffde54fa96f7957f1aa811",
+      "source": "tools/qa/verify-match-cohort.mjs:257",
+      "staticObservation": "REA retains the hundredSeedInvariantGate property-read source anchor.",
+      "corroboration": [
+        "tools/qa/match-cohort.mjs:196-202",
+        "tools/qa/verify-match-cohort.mjs:84-111",
+        "tools/qa/lib/cohort-profile.ts:36-45"
+      ],
+      "planningConclusion": "Require current ten-champion composition assertions and a natural-victory threshold independently of the existing invariant gate."
+    },
+    {
+      "id": "M7-PLAN-SAVED-FUTURES",
+      "reaNodeId": "jsrg_node_316c8edf06ece08c878f8604f4a2b0b7a68d23bf786ca913655eb1ca6dd275ee",
+      "source": "tools/qa/simulate-rift.mjs:154",
+      "staticObservation": "REA retains the final restoredEqual assignment anchor.",
+      "corroboration": [
+        "tools/qa/simulate-rift.mjs:150-162",
+        "docs/reference/milestone6-verification.json:103-108",
+        "tools/qa/match-seed.ts:89-125"
+      ],
+      "planningConclusion": "A short simulation and final round trip are insufficient; certify full matches with periodic checkpoint and subsequent-future equality."
+    },
+    {
+      "id": "M7-PLAN-REQUIRED-ARTIFACTS",
+      "reaNodeId": "jsrg_node_27edc2dba55d00feb968f88ce8f90ae3ba2fb0af2457b12042be1e787ed0f5e0",
+      "source": "tools/qa/verify-milestone6.mjs:97",
+      "staticObservation": "REA retains the packVerified assignment anchor.",
+      "corroboration": ["tools/qa/verify-milestone6.mjs:83-104"],
+      "planningConclusion": "Preserve optional-artifact historical verification, but require all artifacts for a new release certification."
+    },
+    {
+      "id": "M7-PLAN-OBJECTIVE-TRUTH",
+      "classification": "Direct source and historical-report comparison; not a REA semantic proof.",
+      "corroboration": [
+        "src/content/epic-objectives.ts:38-57",
+        "src/content/reference-coverage.ts:299-324",
+        "tests/milestone6-systems.test.ts:177-234",
+        "docs/MILESTONE-6.md:35-43"
+      ],
+      "planningConclusion": "Reconcile 6:00/15:00 executable timers and next-hit Herald substitute against frozen sources; the historical report's 5:00/14:00 summon claims are not current-code authority."
+    },
+    {
+      "id": "M7-PLAN-INDEPENDENT-COVERAGE",
+      "classification": "Direct source inspection informed by the staged REA inventory; not native certification.",
+      "corroboration": [
+        "src/content/reference-coverage.ts:204-247",
+        "src/content/reference-coverage.ts:385-463",
+        "e2e/milestone6-reference-expansion.spec.ts:96-147"
+      ],
+      "planningConclusion": "Separate implementation, independent reference, and presentation evidence; add real-input scenarios rather than relying on cohort-based labels and direct state mutation."
+    }
+  ]
+}

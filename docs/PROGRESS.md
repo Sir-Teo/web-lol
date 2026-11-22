@@ -1,6 +1,6 @@
 # Development status
 
-Last updated: November 21, 2026 (UTC).
+Last updated: November 22, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
@@ -43,6 +43,33 @@ and production offline pack `e74775d99c3a41065334112dbbfce01e7176e880ee3b2549f19
   SHA-256 `7dbdfc6f…`). See [Milestone 6 report](MILESTONE-6.md) and
   [Milestone 6 verification ledger](reference/milestone6-verification.json). A
   post-Milestone-6 full-roster and native-asset calibration program follows this gate.
+
+### Milestone 7 in progress (not certified)
+
+[Milestone 7](MILESTONE-7.md) now defines the **reference-calibrated ten-champion
+full-match release**. Keep the current roster and browser-only architecture;
+prioritize frozen-reference reconciliation, match-changing gameplay corrections,
+complete audiovisual calibration, role-aware objective/base conversion, and
+full-match/browser/offline/physical-device certification over more champions.
+
+The definition includes ordered dependencies, explicit reference/authorization
+blockers, a 100-seed natural-victory gate, saved-future/replay comparisons, twenty
+recorded human-input full matches, and mandatory release evidence. Local,
+network-disabled REA `rea-agents@6.10.1` static analysis of eight exact staged
+sources informed this plan; it did not rerun or certify Milestone 6, native
+behavior, or performance. See [the research receipt](reference/milestone7-planning-research.json).
+The QA candidate advances to save schema **186**. Three actual seed-1 checkpoint
+rejections exposed save-blocking integration defects: Ahri's four-second
+empowered Recall recorded an eight-second presentation deadline at 4:00, and
+Charm's visual history rejected shared tenacity on Morgana at 17:00. At that
+same 17:00 checkpoint, the independent-slow validator also rejected Darius's
+delayed Apprehend slow because it was labeled as Ashe Frost Shot. Recall and
+Charm now preserve the applied deadlines; Darius, Morgana, and Hextech Soul
+slows use their own source identities. The cohort verifier can check actual
+ten-champion composition and the audit recognizes level 20 only after a
+completed top quest. Milestone 6
+remains the historical certified baseline; these scoped fixes do not certify
+the full release.
 
 ### Milestone 5 baseline (retained on schema 184 / ruleset `1cf6e4e9…`)
 

@@ -1,6 +1,43 @@
 import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 
+test('a settled map redraws after input without continuously submitting terrain', async ({
+  page,
+}) => {
+  await page.goto('/map.html');
+  await page.locator('#status').waitFor({ state: 'hidden' });
+  const frames = () =>
+    page.evaluate(() => {
+      const { renderer } = (
+        window as typeof window & {
+          __MAP__: { renderer: { info: { render: { frame: number } } } };
+        }
+      ).__MAP__;
+      return new Promise<{ start: number; end: number }>((resolve) => {
+        requestAnimationFrame(() => {
+          const start = renderer.info.render.frame;
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => resolve({ start, end: renderer.info.render.frame }));
+          });
+        });
+      });
+    });
+  let settled = await frames();
+  expect(settled.end).toBe(settled.start);
+  for (const [name, selector] of [
+    ['Navigation', '#grid'],
+    ['Mid lane', '[data-view="mid"]'],
+  ]) {
+    const button = page.getByRole('button', { name, exact: true });
+    await button.click();
+    await expect(page.locator(selector)).toHaveAttribute('aria-pressed', 'true');
+    const changed = await frames();
+    expect(changed.end).toBeGreaterThan(settled.end);
+    expect(changed.end).toBe(changed.start);
+    settled = changed;
+  }
+});
+
 test('full map loads original compressed mips, preserves alpha, and overlays navigation', async ({
   page,
 }) => {

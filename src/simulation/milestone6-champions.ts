@@ -542,16 +542,7 @@ export function onMilestone6BasicAttackLanded(
       state.darius.wEmpoweredUntil = 0;
       const totalAd = attacker.damage + dariusNoxianMightBonusAd(w, state);
       extraPhysical += totalAd * (DARIUS_KIT.w.totalAdMultiplierByRank[rank - 1] - 1);
-      if (!hasBlackShield(target, w.tick) && target.monster?.species !== 'baron') {
-        target.slows.push({
-          sourceId: attacker.id,
-          kind: 'frost',
-          startTick: w.tick,
-          endTick: w.tick + DARIUS_KIT.w.slowTicks,
-          startMultiplier: DARIUS_KIT.w.slowMultiplier,
-          endMultiplier: DARIUS_KIT.w.slowMultiplier,
-        });
-      }
+      w.applyExtraSlow(attacker, target, 'crippling-strike');
       // Check post-hit refund if target is low enough to die from this strike
       target.dariusWRefundPending = { casterId: attacker.id, tick: w.tick, rank };
     }
@@ -702,14 +693,7 @@ export function castMilestone6Ability(
           foe.x = pullPos.x;
           foe.y = pullPos.y;
           foe.stunUntil = Math.max(foe.stunUntil, w.tick + DARIUS_KIT.e.stunTicks);
-          foe.slows.push({
-            sourceId: u.id,
-            kind: 'frost',
-            startTick: w.tick + DARIUS_KIT.e.stunTicks,
-            endTick: w.tick + DARIUS_KIT.e.stunTicks + DARIUS_KIT.e.slowTicks,
-            startMultiplier: DARIUS_KIT.e.slowMultiplier,
-            endMultiplier: DARIUS_KIT.e.slowMultiplier,
-          });
+          w.applyExtraSlow(u, foe, 'apprehend');
         }
       }
       primeSpellbladeOnCast(w, state);
@@ -1069,16 +1053,7 @@ export function castMilestone6Ability(
         const beforeHp = foe.hp;
         w.damage(u, foe, initDmg, 'magic', 'ability');
         applyMorganaSoulSiphon(w, u, state, foe, Math.max(0, beforeHp - foe.hp));
-        if (w.alive(foe) && !hasBlackShield(foe, w.tick)) {
-          foe.slows.push({
-            sourceId: u.id,
-            kind: 'frost',
-            startTick: w.tick,
-            endTick: w.tick + MORGANA_KIT.r.durationTicks,
-            startMultiplier: MORGANA_KIT.r.slowMultiplier,
-            endMultiplier: MORGANA_KIT.r.slowMultiplier,
-          });
-        }
+        w.applyExtraSlow(u, foe, 'soul-shackles');
       }
       ms.shackles = {
         endTick: w.tick + MORGANA_KIT.r.durationTicks,

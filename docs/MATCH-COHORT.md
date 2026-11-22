@@ -7,11 +7,13 @@ time. Every match keeps the normal 60-minute diagnostic horizon; the clock,
 rewards, damage, AI tactics and victory conditions are unchanged. A horizon
 stops the audit and retains an unfinished match. It never awards a winner.
 
-The default roster remains six Ashe/four Lux with five roles on each team. The
-human bottom-lane Ashe is automated only for QA, using existing bot decisions.
-This tests the current interim match foundation; it cannot certify the target
-six-champion roster, balance, natural human play or native audiovisual fidelity.
-The full project's completion standard is unchanged.
+The current default uses the ten distinct public champions and five roles per
+team. The human bottom-lane Ashe is automated only for QA, using existing bot
+decisions. Historical runs may use older mirrored rosters. The
+`--public-roster` verifier option independently checks the exact ten-champion
+composition, champion ownership, and live objective state on every checkpoint.
+This does not certify balance, human play, natural victory rates, or native
+audiovisual fidelity.
 
 The private combined profile is available with `--development-roster`. It uses
 Garen top, Master Yi jungle, Ashe carry and Leona support on both teams, with
@@ -24,7 +26,7 @@ flags are mutually exclusive. See [combined cohort validation](COMBINED-ROSTER-C
 
 ```sh
 node tools/qa/match-cohort.mjs --output .cache/match-cohort/<unique-name>
-node tools/qa/verify-match-cohort.mjs .cache/match-cohort/<unique-name>
+node tools/qa/verify-match-cohort.mjs .cache/match-cohort/<unique-name> --public-roster
 ```
 
 Use `--jobs 1..8` to limit parallelism. Explicit seed arguments and `--minutes`

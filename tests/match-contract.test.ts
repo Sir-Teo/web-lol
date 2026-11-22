@@ -59,6 +59,21 @@ test('audit rejects bounded resources and invalid champion economy', () => {
   }
 });
 
+test('audit allows level 20 only for the top laner after quest completion', () => {
+  const world = createLaneMatch({ ...rift, publicRift: true }, 'garen');
+  const quest = world.player.roleQuest!;
+  world.player.level = 20;
+  expect(() => assertMatchResources(world)).toThrow(/economy/);
+  quest.progress = quest.target;
+  quest.completedTick = world.tick;
+  assertMatchResources(world);
+  world.player.level = 21;
+  expect(() => assertMatchResources(world)).toThrow(/economy/);
+  world.player.level = 20;
+  world.player.role = 'mid';
+  expect(() => assertMatchResources(world)).toThrow(/economy/);
+});
+
 test('independent gate catches protected damage even if the gameplay predicate is wrong', () => {
   const world = fresh();
   const inner = world.units.find((u) => u.team === 'red' && u.structure?.role === 'inner-turret')!;

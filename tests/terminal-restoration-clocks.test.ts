@@ -82,3 +82,21 @@ for (const effect of ['red', 'enlighten', 'both'] as const)
       );
     }
   });
+
+test('a leash-resetting monster keeps its home order through victory and the save round trip', () => {
+  const { world, release } = winningAttack();
+  const home = { x: 1000, y: 1000 };
+  const gromp = world.spawnMonster(home);
+  gromp.x = 1400;
+  gromp.y = 1000;
+  gromp.hp = gromp.maxHp / 2;
+  gromp.monster.phase = 'returning';
+  world.setOrder(gromp, { type: 'move', point: { ...home } });
+  world.step(release - world.tick);
+  expect(world.winner).toBe('blue');
+  expect(gromp.order).toEqual({ type: 'move', point: home });
+  const saved = world.snapshot(),
+    restored = World.fromSnapshot(saved, world.battlefield);
+  restored.step(120);
+  expect(restored.snapshot()).toBe(saved);
+});

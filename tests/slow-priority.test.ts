@@ -110,3 +110,24 @@ test('saved slows reject duplicate identity, crossed champion ownership, future 
     expect(() => World.fromSnapshot(restored.snapshot(), w.battlefield)).toThrow();
   }
 });
+
+test('Darius slows keep distinct sources through delayed onset and snapshot restore', () => {
+  const { w, target, lux } = setup();
+  const darius = w.spawn('champion', 'blue', { x: w.hero.x, y: w.hero.y }, 'darius');
+  expect(w.applyExtraSlow(lux, target, 'apprehend')).toBe(false);
+  expect(w.applyExtraSlow(darius, target, 'apprehend')).toBe(true);
+  expect(w.slowFactor(target)).toBe(1);
+  expect(w.applyExtraSlow(darius, target, 'crippling-strike')).toBe(true);
+  expect(w.applyExtraSlow(darius, target, 'crippling-strike')).toBe(true);
+  expect(target.slows.map((slow) => slow.kind)).toEqual(['apprehend', 'crippling-strike']);
+  const saved = w.snapshot();
+  const copy = World.fromSnapshot(saved, w.battlefield);
+  expect(copy.snapshot()).toBe(saved);
+  for (const world of [w, copy]) {
+    world.step(60);
+    expect(world.slowFactor(world.unit(target.id)!)).toBe(0.6);
+    world.step(24);
+    expect(world.unit(target.id)!.slows).toEqual([]);
+  }
+  expect(copy.snapshot()).toBe(w.snapshot());
+});

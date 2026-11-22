@@ -10,15 +10,20 @@ import { rulesetFingerprint } from '../ruleset-fingerprint.ts';
 import { readCohortSnapshot, snapshotEncoding } from './lib/cohort-snapshot.ts';
 const { values, positionals } = parseArgs({
   allowPositionals: true,
-  options: { historical: { type: 'boolean', default: false }, output: { type: 'string' } },
+  options: {
+    historical: { type: 'boolean', default: false },
+    'public-roster': { type: 'boolean', default: false },
+    output: { type: 'string' },
+  },
 });
 assert.equal(
   positionals.length,
   1,
-  'Pass one completed cohort directory, optional --historical and optional --output fresh.json'
+  'Pass one completed cohort directory, optional --historical, --public-roster, and --output fresh.json'
 );
 const root = resolve(positionals[0]);
 const historical = values.historical;
+const publicRoster = values['public-roster'];
 const output = values.output === undefined ? null : resolve(values.output);
 if (output) {
   assert(!existsSync(output), 'Verification output already exists');
@@ -64,6 +69,11 @@ const developmentRoster = plan.developmentRoster === undefined ? false : plan.de
 assert.equal(typeof developmentLeona, 'boolean');
 assert.equal(typeof developmentRoster, 'boolean');
 assert(!(developmentLeona && developmentRoster), 'Development profiles are exclusive');
+if (publicRoster) {
+  assert(!developmentLeona && !developmentRoster, 'Expected the public roster, not a trial');
+  assert.equal(plan.qaAutomatedHumanCarry, true);
+  assert.equal(plan.qaAutomatedHumanRole, 'carry');
+}
 if (developmentLeona) {
   assert.equal(plan.qaAutomatedHumanCarry, false);
   assert.equal(plan.qaAutomatedHumanRole, 'support');
@@ -80,6 +90,38 @@ if (developmentRoster) {
   assert.equal(summary.hundredSeedInvariantGate, false);
 }
 function verifyComposition(state) {
+  if (publicRoster) {
+    const championStates = [state.player, ...state.otherChampions];
+    const owners = new Map(championStates.map((p) => [p.id, p]));
+    const champions = state.units.filter((u) => u.kind === 'champion');
+    const expected = {
+      blue: { top: 'garen', jungle: 'masteryi', mid: 'ahri', carry: 'ashe', support: 'leona' },
+      red: { top: 'darius', jungle: 'vi', mid: 'lux', carry: 'ezreal', support: 'morgana' },
+    };
+    assert.equal(champions.length, 10, 'Expected ten public champions');
+    assert.equal(championStates.length, 10, 'Expected ten public champion states');
+    assert.equal(owners.size, 10, 'Expected ten unique champion owners');
+    assert.equal(new Set(champions.map((unit) => unit.id)).size, 10, 'Duplicate champion unit');
+    assert.equal(state.player.role, 'carry', 'Expected the automated carry role');
+    assert(
+      champions.some((u) => u.id === state.player.id && u.champion === 'ashe' && u.team === 'blue')
+    );
+    assert(state.riftObjectives && state.riftBaron, 'Missing public Rift objective state');
+    for (const [team, roster] of Object.entries(expected)) {
+      const members = champions.filter((u) => u.team === team);
+      assert.equal(members.length, 5, 'Expected five public champions per team');
+      assert(
+        members.every((u) => u.ai === true),
+        'Expected QA-automated champions'
+      );
+      assert.deepEqual(
+        Object.fromEntries(members.map((u) => [owners.get(u.id)?.role, u.champion])),
+        roster,
+        `Unexpected ${team} public roster`
+      );
+    }
+    return;
+  }
   if (!developmentRoster) return;
   const owners = new Map([state.player, ...state.otherChampions].map((p) => [p.id, p]));
   const champions = state.units.filter((u) => u.kind === 'champion');
@@ -281,6 +323,7 @@ const verification = {
   futureCheckedTicks: futureTicks,
   developmentLeona,
   developmentRoster,
+  ...(publicRoster ? { publicRosterVerified: true } : {}),
   hundredSeedInvariantGate: summary.hundredSeedInvariantGate,
   hundredSeedDevelopmentLeonaInvariantGate:
     summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,
