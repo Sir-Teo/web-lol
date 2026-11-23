@@ -205,5 +205,83 @@
       "selectedSourceFiles": 3,
       "coverage": "bounded static analysis"
     }
+  },
+  "mainIntegration": {
+    "revision": "e1dbbc0830f2d94b918d62f5a7f2a3d34f832fd0",
+    "ruleset": "88b98a7e2053cb6114eb08697f8886ff41e28bf5469d661f0e7bc12e28c5f807",
+    "pack": {
+      "id": "21184c2e8c85698578b5a1ad35dfe09d3d74e94ebf7721bd52c1092e0e39aae1",
+      "files": 1554,
+      "bytes": 582802756
+    },
+    "cohort": {
+      "planSha256": "f9e1e0c8a2f03af9ece444ee23e48cf3caf0fa85c7419641847163c1b1b63477",
+      "summarySha256": "80ce9682e779f0071b9ed81af43151438d44f877d2a186be48d2db73a6a03cc9",
+      "checkedTicks": 185268,
+      "exactRestores": 53,
+      "matchingContinuations": 51,
+      "seedLedger": [
+        {
+          "seed": 26018,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 98360,
+          "checkedTicks": 98360,
+          "roundTrips": 28,
+          "futureChecks": 27,
+          "futureCheckedTicks": 1620,
+          "reportSha256": "f2757be4272b6a98e8efa07fd7318616e9ae73e385e32f9a791e68d30fd137fa",
+          "reportBytes": 147642,
+          "finalStateSha256": "4505d7c7e48bc44faab9f06e83b4c74dc99742b50a3a8618207e26fb6aa738b3"
+        },
+        {
+          "seed": 719,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 86908,
+          "checkedTicks": 86908,
+          "roundTrips": 25,
+          "futureChecks": 24,
+          "futureCheckedTicks": 1440,
+          "reportSha256": "73dccad30ca4fb7d24ce27070adc62d2632389318a76b63e4f3d3fc953d21704",
+          "reportBytes": 132610,
+          "finalStateSha256": "19c12c2b058a4d070f8f4ecee47e1f6c1e054f728ccc371033130f8a377b18cf"
+        }
+      ]
+    },
+    "tests": {
+      "focusedVitest": 129,
+      "cohortAndMilestoneVerifier": 51
+    },
+    "chromium": {
+      "version": "157.0.8103.38",
+      "productionChecks": {
+        "originalSelections": ["Brannic", "Taviq", "Irielle", "Oona Vale", "Vess"],
+        "tenChampionScoreboard": true,
+        "copperShot": true,
+        "replayCapturedPlayerCast": true,
+        "checkpointReload": true
+      },
+      "offlineChecks": {
+        "fullPackReady": true,
+        "networkEmulation": true,
+        "normalCompletedPreviewOffline": true,
+        "exactCompletedStateImportAndExportOffline": true,
+        "resultCheckpointReplayVerifiedOnce": true,
+        "exactCompletedStateReloadAndExportOffline": true,
+        "offlineWorkerControlsPage": true,
+        "originRequestsWhileOffline": 0,
+        "sourceReportSnapshotAndManifestUnchanged": true,
+        "serviceWorkerResponses": 940
+      },
+      "checkpointSha256": "19c12c2b058a4d070f8f4ecee47e1f6c1e054f728ccc371033130f8a377b18cf"
+    },
+    "rea": {
+      "browserEvidenceId": "ev_4d33e94318e4f4d7a7aa38741c493f5ae0241ba15c5bf9a774426a80bb221880",
+      "browserEvidenceSha256": "d1c1000631598578ecfb3925dc7da133587f9afb7d8bf993ad0cb9a813dbe6dd",
+      "exposureEvidenceId": "ev_f723adc5e546728cae0d20ed515c871bfc9dc7e2b0a0db5710c3eb5abe4f06b1",
+      "exposureEvidenceSha256": "880a102ebef5ee36507b9acd1fee426145ff3f96a17c0481b7f56aa1b04c7627",
+      "browserActions": 14
+    }
   }
 }

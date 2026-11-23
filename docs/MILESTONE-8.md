@@ -41,6 +41,18 @@ sampler hash mismatch. The
 long-running Ahri audio-history test passed in isolation after timing out
 during the broad run and on the baseline checkout.
 
+## Main integration
+
+The merge retained the upstream map redraw and source-specific slow policies
+for Darius, Morgana, and Hextech Soul. The schema 187 reader upgrades
+checkpoints from both schema 186 builds and the initial Milestone 8 release.
+On the integrated build, 129 focused gameplay tests passed. REA completed the
+14-action production browser scenario and refreshed the release exposure
+audit. The pack integrity check verified 1,554 files and 582,802,756 bytes.
+Both 5v5 seeds reproduced the recorded results and passed 53 exact checkpoint
+restores and 51 matching continuations. Chrome imported, replayed, reloaded,
+and exported an exact copy of the completed checkpoint with the server stopped.
+
 ## Reproduction
 
 Run the [original-lineup cohort](MATCH-COHORT.md) from the repository root, build the production pack, and verify its manifest.

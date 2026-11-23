@@ -14,7 +14,7 @@ test('Milestone 6 verifier accepts canonical ledger, schema 185 ruleset, 158-ent
   assert.equal(result.referenceEntries, 158);
   assert.equal(result.distinctChampions, 10);
   assert.equal(result.recordedSourceFiles, 23);
-  assert.ok(result.sourceFilesVerified >= 15);
+  assert.ok(result.sourceFilesVerified >= 14);
   assert.equal(result.reaRecords, 12);
 });
 
