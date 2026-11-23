@@ -114,3 +114,15 @@ test('negative and vertical flight directions retain canonical facing through JS
     expect(w.ahriQProjectileVisuals[0].end?.reason).toBe('caught');
   }
 });
+
+test('checkpoint restore preserves projectile facing rounded by another engine', () => {
+  const { w, ahri } = setup();
+  w.commands.length = 0;
+  w.enqueue({ type: 'cast', unit: ahri.id, ability: 'q', point: { x: 900, y: 325 } });
+  w.step(30);
+  const state = JSON.parse(w.snapshot());
+  state.ahriQProjectileVisuals[0].frames[0].facing += Number.EPSILON;
+  const saved = JSON.stringify(state);
+  expect(saved).not.toBe(w.snapshot());
+  expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+});

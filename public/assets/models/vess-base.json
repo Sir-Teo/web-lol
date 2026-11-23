@@ -1,0 +1,55 @@
+{
+  "provenance": "original-lineup",
+  "output": {
+    "path": "/assets/models/vess-base.glb",
+    "bytes": 184852,
+    "sha256": "94e12e3f687790b69f8a0b1c8c96619a7910b4920b9efe464d4b4ba27d31c1c3"
+  },
+  "triangles": 1848,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 1.8
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.76
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 0.66
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 0.75
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.64,
+      "impactSeconds": 0.16666666666666666
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.75,
+      "impactSeconds": 0.35
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85,
+      "impactSeconds": 0.18333333333333332
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.1,
+      "impactSeconds": 0.55
+    },
+    {
+      "name": "recall",
+      "durationSeconds": 1.6
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.25
+    }
+  ]
+}

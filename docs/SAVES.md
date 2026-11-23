@@ -1,5 +1,19 @@
 # Local match checkpoints
 
+Schema **187** adds the five original champions, their passive counters,
+pending cast geometry, release clocks, and retained impact phases. The
+integrated build accepts the supported schema 185 files, schema 186 files
+from rulesets `3627a2c1…` and `2daecf45…`, and schema 187 files from the
+initial Milestone 8 build `3e7c02a0…`. Re-exporting writes schema 187 on the
+current ruleset. Replay imports require the ruleset that produced their
+checkpoint hashes.
+
+Schema **186** records the actual Recall deadline for Ahri, including the
+four-second duration granted by the Mid role quest or Rift Herald. The game
+opens Milestone 6 checkpoints from schema **185** and ruleset `e5e3cc7f…`,
+using the saved channel or completion tick to repair affected audio records.
+Charm histories also accept durations reduced by items, runes, and objectives.
+
 The later [Baron control policy](BARON-CONTROL.md) rejects root, stun, silence
 and Charm on the private target and rejects edited saves carrying them. Schema
 163 and fields stay unchanged; fingerprint `5a5379…` pins the new behavior.
@@ -20,7 +34,7 @@ older `abc8dc…` checkpoints tied to their frozen build. Original files and the
 running frozen audit corpora remain unchanged; no migration is applied.
 
 
-Current schema **163** adds independent target pose and visibility frames to
+Schema **163** adds independent target pose and visibility frames to
 accepted Master Yi primary contacts. The saved target rig, radius, structure
 transform, source facing and detach tick drive the declared chest attachment.
 Coverage is bounded to 75 ticks, including source life-probability endpoints;

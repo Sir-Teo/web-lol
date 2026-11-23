@@ -12,6 +12,7 @@ import type { Battlefield } from '../simulation/battlefield';
 import { SNAPSHOT_RULESET, SNAPSHOT_VERSION } from '../simulation/snapshot';
 import { swapTrinket } from '../simulation/trinkets';
 import type { Ability, ChampionIdentity, Command, Order } from '../simulation/types';
+import { PLAYABLE_CHAMPIONS } from '../content/champion-profiles';
 import { World } from '../simulation/world';
 
 export const REPLAY_FORMAT = 1 as const;
@@ -159,18 +160,7 @@ const replayEnvelopeSchema = z.object({
   ruleset: z.string().min(1),
   battlefieldId: z.enum(['practice-fixture', 'rift']),
   matchMode: z.enum(['practice', 'lanes']),
-  champion: z.enum([
-    'ashe',
-    'lux',
-    'garen',
-    'leona',
-    'ahri',
-    'masteryi',
-    'darius',
-    'vi',
-    'ezreal',
-    'morgana',
-  ]),
+  champion: z.enum(PLAYABLE_CHAMPIONS),
   botDifficulty: z.string().refine(isBotDifficulty),
   startTick: z.number().int().nonnegative(),
   endTick: z.number().int().nonnegative(),
@@ -424,16 +414,19 @@ export class MatchReplayRecorder {
   }
 
   async exportLog(): Promise<MatchReplayLog> {
-    this.endTickValue = this.world.tick;
-    const ticks = [...this.checkpointSnapshots.keys()].sort((a, b) => a - b);
+    const endTick = this.world.tick;
+    this.endTickValue = endTick;
+    const finalSnapshot = this.world.snapshot();
+    const entries = structuredClone(this.entries);
+    const snapshots = [...this.checkpointSnapshots].sort(([a], [b]) => a - b);
     const checkpoints: ReplayCheckpoint[] = [];
-    for (const tick of ticks) {
+    for (const [tick, snapshot] of snapshots) {
       checkpoints.push({
         tick,
-        sha256: await digestSnapshotSha256(this.checkpointSnapshots.get(tick)!),
+        sha256: await digestSnapshotSha256(snapshot),
       });
     }
-    const finalSha256 = await digestSnapshotSha256(this.world.snapshot());
+    const finalSha256 = await digestSnapshotSha256(finalSnapshot);
     return {
       format: REPLAY_FORMAT,
       version: SNAPSHOT_VERSION,
@@ -443,10 +436,10 @@ export class MatchReplayRecorder {
       champion: this.world.hero.champion ?? 'ashe',
       botDifficulty: this.world.botDifficulty,
       startTick: this.startTick,
-      endTick: this.endTickValue,
+      endTick,
       initialSnapshot: this.initialSnapshot,
       finalSha256,
-      entries: structuredClone(this.entries),
+      entries,
       checkpoints,
     };
   }
@@ -550,10 +543,10 @@ export class MatchReplayPlayer {
   world: World;
   playing = true;
   speed: ReplaySpeed = 1;
-  verifiedCheckpoints = 1;
   divergenceError: string | null = null;
   private cursor = 0;
   private readonly checkpointByTick: ReadonlyMap<number, string>;
+  private readonly verifiedTicks = new Set<number>();
   private readonly keyframes: ReplayKeyframe[] = [];
   private pendingVerification: Promise<void> = Promise.resolve();
 
@@ -569,11 +562,25 @@ export class MatchReplayPlayer {
       snapshot: log.initialSnapshot,
       cursor: 0,
     });
+    this.scheduleCheckpointVerification(
+      log.startTick,
+      log.checkpoints[0].sha256,
+      log.initialSnapshot
+    );
     this.applyEntriesForCurrentTick();
     if (this.world.tick === log.endTick) {
       this.playing = false;
-      this.scheduleCheckpointVerification(this.world.tick, log.finalSha256, this.world.snapshot());
+      this.scheduleCheckpointVerification(
+        this.world.tick,
+        log.finalSha256,
+        this.world.snapshot(),
+        false
+      );
     }
+  }
+
+  get verifiedCheckpoints(): number {
+    return this.verifiedTicks.size;
   }
 
   get atEnd(): boolean {
@@ -593,7 +600,8 @@ export class MatchReplayPlayer {
   private scheduleCheckpointVerification(
     tick: number,
     expectedSha256: string,
-    snapshot: string
+    snapshot: string,
+    checkpoint = true
   ): void {
     this.pendingVerification = this.pendingVerification.then(async () => {
       if (this.divergenceError) return;
@@ -601,8 +609,8 @@ export class MatchReplayPlayer {
       if (actual !== expectedSha256) {
         this.divergenceError = `Replay checkpoint mismatch at tick ${tick}.`;
         this.playing = false;
-      } else {
-        this.verifiedCheckpoints++;
+      } else if (checkpoint) {
+        this.verifiedTicks.add(tick);
       }
     });
   }
@@ -642,7 +650,8 @@ export class MatchReplayPlayer {
         this.scheduleCheckpointVerification(
           this.world.tick,
           this.log.finalSha256,
-          this.world.snapshot()
+          this.world.snapshot(),
+          false
         );
         this.playing = false;
       }
@@ -651,6 +660,7 @@ export class MatchReplayPlayer {
   }
 
   seek(targetTick: number): void {
+    if (this.divergenceError) return;
     const clamped = Math.max(
       this.log.startTick,
       Math.min(this.log.endTick, Math.round(targetTick))
@@ -661,7 +671,6 @@ export class MatchReplayPlayer {
     }
     this.world = World.fromSnapshot(best.snapshot, this.battlefield);
     this.cursor = best.cursor;
-    this.divergenceError = null;
     this.applyEntriesForCurrentTick();
     if (clamped > this.world.tick) {
       this.step(clamped - this.world.tick);
@@ -673,8 +682,8 @@ export class MatchReplayPlayer {
     finalTick: number;
     finalSha256: string;
   }> {
+    await this.flushVerifications();
     this.seek(this.log.startTick);
-    let verified = 1;
     while (this.world.tick < this.log.endTick && this.world.winner === null) {
       this.applyEntriesForCurrentTick();
       this.world.step(1);
@@ -683,7 +692,7 @@ export class MatchReplayPlayer {
         const actual = await digestSnapshotSha256(this.world.snapshot());
         if (actual !== expected)
           throw new Error(`Replay checkpoint mismatch at tick ${this.world.tick}.`);
-        verified++;
+        this.verifiedTicks.add(this.world.tick);
       }
     }
     this.applyEntriesForCurrentTick();
@@ -693,7 +702,7 @@ export class MatchReplayPlayer {
       throw new Error(`Replay final checkpoint mismatch at tick ${this.world.tick}.`);
     if (this.divergenceError) throw new Error(this.divergenceError);
     return {
-      verifiedCheckpoints: verified,
+      verifiedCheckpoints: this.verifiedCheckpoints,
       finalTick: this.world.tick,
       finalSha256,
     };

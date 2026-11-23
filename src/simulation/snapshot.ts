@@ -4,6 +4,16 @@ import {
 } from '../content/ahri-r-visual-timing';
 import { validateRVisuals } from './ahri-r-visual-validation';
 import { validateEVisuals } from './ahri-e-visual-validation';
+import {
+  isOriginalChampion,
+  ORIGINAL_EFFECT_TICKS,
+  ORIGINAL_LINEUP,
+  ORIGINAL_PASSIVE_EXPIRY,
+  ORIGINAL_SLOTS,
+} from '../content/original-lineup';
+import { PLAYABLE_CHAMPIONS } from '../content/champion-profiles';
+import { ORIGINAL_SLOW_MULTIPLIER } from './original-champions';
+import { validCharmDuration } from './ahri-e-visual-history-validation';
 import { AHRI_R } from '../content/ahri-r';
 import { validateWVisuals } from './ahri-w-visual-validation';
 import { validateQProjectileVisuals } from './ahri-q-projectile-visual-validation';
@@ -153,7 +163,7 @@ import {
   LUX_ATTACK_VISUAL_TAIL_TICKS,
 } from '../content/lux-attack-presentation';
 import { z } from 'zod';
-import { ITEMS, TICK_RATE } from '../content/rules';
+import { ITEMS, RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
 import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
@@ -185,6 +195,7 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { ABSOLUTE_MAX_LEVEL, MAX_LEVEL, statPrecision } from './progression';
 import {
   CARRY_QUEST_INVENTORY_SLOTS,
+  MID_EMPOWERED_RECALL_TICKS,
   maxChampionLevelForQuest,
   maxInventorySlotsForQuest,
 } from '../content/role-quests';
@@ -213,7 +224,14 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 186;
+export const SNAPSHOT_VERSION = 187;
+const MILESTONE7_RULESETS = [
+  '3627a2c16eda1293133601d28228f0cf913af54fd1f2a72aee0349e78ea39e56',
+  '2daecf45cc420c7b062fc63c343c530a60450c1501f79fd57fd40256ee333c77',
+];
+const MILESTONE8_INITIAL_RULESET =
+  '3e7c02a0e1111c87e1000524899247258d8f916efb0b00944a4eb4754c23df2a';
+const MILESTONE6_RULESET = 'e5e3cc7f70fae406cd8bf03ba5a5a90fc7dc87ab2e931ad190b5fe099897cad0';
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -326,20 +344,7 @@ const unit = z
         faelightId: z.string().max(64).optional(),
       })
       .optional(),
-    champion: z
-      .enum([
-        'ashe',
-        'lux',
-        'garen',
-        'leona',
-        'ahri',
-        'masteryi',
-        'darius',
-        'vi',
-        'ezreal',
-        'morgana',
-      ])
-      .optional(),
+    champion: z.enum(PLAYABLE_CHAMPIONS).optional(),
     team: faction,
     monster: z
       .strictObject({
@@ -485,6 +490,7 @@ const unit = z
               'crystal-arrow',
               'lucent',
               'solar-flare',
+              'original',
               'cinders',
               'smite',
               'scorchclaw',
@@ -1919,6 +1925,25 @@ const player: z.ZodType<PlayerState> = z
             })
           )
           .max(10),
+      })
+      .optional(),
+    original: z
+      .strictObject({
+        hits: z.number().int().min(0).max(2),
+        hitExpiry: tick,
+        casts: z
+          .array(
+            z.strictObject({
+              slot: z.enum(ORIGINAL_SLOTS),
+              rank: z.number().int().min(1).max(5),
+              origin: point,
+              point,
+              startTick: tick,
+              releaseTick: tick,
+              phase: z.enum(['windup', 'impact', 'cancelled']),
+            })
+          )
+          .max(6),
       })
       .optional(),
     darius: z
@@ -3398,13 +3423,46 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   } catch {
     throw new Error('Saved match could not be read.');
   }
-  const result = snapshot.safeParse(parsed);
+  const legacy =
+    parsed !== null &&
+    typeof parsed === 'object' &&
+    'version' in parsed &&
+    parsed.version === 185 &&
+    'ruleset' in parsed &&
+    parsed.ruleset === MILESTONE6_RULESET;
+  const milestone7 =
+    parsed !== null &&
+    typeof parsed === 'object' &&
+    'version' in parsed &&
+    'ruleset' in parsed &&
+    typeof parsed.ruleset === 'string' &&
+    ((parsed.version === 186 && MILESTONE7_RULESETS.includes(parsed.ruleset)) ||
+      (parsed.version === SNAPSHOT_VERSION && parsed.ruleset === MILESTONE8_INITIAL_RULESET));
+  const result = snapshot.safeParse(
+    legacy || milestone7
+      ? { ...(parsed as object), version: SNAPSHOT_VERSION, ruleset: SNAPSHOT_RULESET }
+      : parsed
+  );
   if (!result.success)
     throw new Error('Saved match is invalid or belongs to a different game version.', {
       cause: result.error,
     });
   const state = result.data;
   const wardOwners = [state.player, ...state.otherChampions];
+  if (legacy && state.riftObjectives) {
+    for (const record of state.ahriRecallAudio ?? []) {
+      if (record.completeTick !== record.startTick + RECALL_DURATION_TICKS) continue;
+      const empoweredEnd = record.startTick + MID_EMPOWERED_RECALL_TICKS;
+      const owner = wardOwners.find((candidate) => candidate.id === record.sourceId);
+      const observedEnd =
+        record.end?.reason === 'complete'
+          ? record.end.tick
+          : record.end === null
+            ? owner?.recallEnd
+            : null;
+      if (observedEnd === empoweredEnd) record.completeTick = empoweredEnd;
+    }
+  }
   for (const owner of wardOwners) {
     const s = owner.trinket;
     if (
@@ -4044,22 +4102,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           !!victimOwner?.inventory.some((item) => item === 'mercs' || item === 'steraks') ||
           !!state.riftObjectives,
         source = state.units.find((u) => u.id === c.sourceId),
-        owner = [state.player, ...state.otherChampions].find((o) => o.id === c.sourceId),
-        duration = Math.round(AHRI_E.charmSecondsByRank[c.rank - 1] * TICK_RATE),
-        sampled = c.tenacityApplied
-          ? Math.min(
-              duration,
-              Math.max(
-                Math.round(0.3 * TICK_RATE),
-                Math.round(duration * (1 - GAREN_W.upfrontTenacity))
-              )
-            )
-          : duration;
-      const tenacityValid = hasExtraTenacity
-        ? c.endTick >= c.startTick + Math.min(duration, Math.round(0.3 * TICK_RATE)) &&
-          c.endTick <= c.startTick + duration &&
-          c.tenacityApplied === c.endTick < c.startTick + duration
-        : c.tenacityApplied === garenTenacityApplied && c.endTick === c.startTick + sampled;
+        owner = [state.player, ...state.otherChampions].find((o) => o.id === c.sourceId);
       if (
         state.winner ||
         unit.hp <= 0 ||
@@ -4068,7 +4111,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         source.team === unit.team ||
         !owner ||
         owner.spellRanks.e < c.rank ||
-        !tenacityValid ||
+        !validCharmDuration(c, hasExtraTenacity) ||
+        (!hasExtraTenacity && c.tenacityApplied !== garenTenacityApplied) ||
         ['ward', 'turret', 'nexus', 'inhibitor'].includes(unit.kind) ||
         (unit.kind === 'monster' &&
           (unit.monster.phase === 'returning' ||
@@ -4987,7 +5031,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateAhriQCastVisuals(state);
   validateQProjectileVisuals(state);
   validateWVisuals(state);
-  validateEVisuals(state);
+  validateEVisuals(state, battlefield.publicRift === true);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
@@ -5023,6 +5067,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           slow.kind !== 'cinders' &&
           slow.kind !== 'smite' &&
           slow.kind !== 'scorchclaw' &&
+          slow.kind !== 'original' &&
           source.champion !==
             (slow.kind === 'lucent' ? 'lux' : slow.kind === 'solar-flare' ? 'leona' : 'ashe')) ||
         target.deadAt !== null ||
@@ -5038,6 +5083,13 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
             slow.endTick !== slow.startTick + extra.duration ||
             slow.startMultiplier !== extra.multiplier ||
             slow.endMultiplier !== extra.multiplier)) ||
+        (slow.kind === 'original' &&
+          (!isOriginalChampion(source.champion) ||
+            slow.startMultiplier !== ORIGINAL_SLOW_MULTIPLIER ||
+            slow.endMultiplier !== ORIGINAL_SLOW_MULTIPLIER ||
+            !Object.values(ORIGINAL_LINEUP[source.champion].spells).some(
+              (spell) => spell.slow !== undefined && slow.endTick - slow.startTick <= spell.slow
+            ))) ||
         (slow.kind === 'solar-flare' &&
           (![state.player, ...state.otherChampions].find((o) => o.id === source.id)?.spellRanks.r ||
             slow.endTick - slow.startTick >
@@ -5432,7 +5484,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       (owner.role === 'jungle') !== (owner.jungle !== null) ||
       (owner.jungle &&
         (champion.lane !== null ||
-          !Object.values(owner.summoners).includes('smite') ||
+          (champion.ai && !Object.values(owner.summoners).includes('smite')) ||
           owner.jungle.quietSince > state.tick ||
           (owner.jungle.camp !== null && owner.jungle.camp !== route[owner.jungle.cursor].id) ||
           new Set(owner.jungle.observations.map((o) => o.camp)).size !==
@@ -5574,12 +5626,46 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         enlighten.endTick !== enlighten.startTick + LOST_CHAPTER.durationSeconds * TICK_RATE)
     )
       throw new Error('Saved match contains invalid Enlighten restoration.');
+    if (isOriginalChampion(champion.champion)) {
+      const original = owner.original;
+      const spells = ORIGINAL_LINEUP[champion.champion].spells;
+      if (
+        !battlefield.publicRift ||
+        !original ||
+        (original.hits === 0
+          ? original.hitExpiry !== 0
+          : original.hitExpiry < state.tick ||
+            original.hitExpiry > state.tick + ORIGINAL_PASSIVE_EXPIRY) ||
+        original.casts.filter((cast) => cast.phase === 'windup').length > 1 ||
+        original.casts.some((cast, index) => {
+          const spell = spells[cast.slot];
+          const extent = Math.hypot(cast.point.x - cast.origin.x, cast.point.y - cast.origin.y);
+          return (
+            cast.rank > owner.spellRanks[cast.slot] ||
+            cast.startTick > state.tick ||
+            cast.releaseTick !== cast.startTick + spell.windup ||
+            (cast.phase === 'windup' && cast.releaseTick <= state.tick && !state.winner) ||
+            (cast.phase === 'impact' && cast.releaseTick > state.tick) ||
+            (!state.winner && cast.releaseTick + ORIGINAL_EFFECT_TICKS <= state.tick) ||
+            (index > 0 && cast.startTick <= original.casts[index - 1].startTick) ||
+            Math.abs(cast.origin.x) > battlefield.half ||
+            Math.abs(cast.origin.y) > battlefield.half ||
+            (spell.shape === 'line'
+              ? Math.abs(extent - spell.range) > 1e-6
+              : spell.shape !== 'self' && extent > spell.range + 2)
+          );
+        })
+      )
+        throw new Error('Saved match contains invalid original champion state.');
+    } else if (owner.original)
+      throw new Error('Saved match contains original champion state on another champion.');
     const compatibleCast = (ability: string) =>
       champion.champion === 'ahri' ||
       champion.champion === 'darius' ||
       champion.champion === 'vi' ||
       champion.champion === 'ezreal' ||
-      champion.champion === 'morgana'
+      champion.champion === 'morgana' ||
+      isOriginalChampion(champion.champion)
         ? ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r'
         : champion.champion === 'leona'
           ? ['w', 'e', 'r'].includes(ability)

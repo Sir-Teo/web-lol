@@ -159,7 +159,12 @@ export function runeAdaptiveStats(
     force += rs.conquerorStacks * perStack;
   }
   if (force <= 0) return { bonusAd: 0, bonusAp: 0 };
-  const prefersAp = u.champion === 'lux' || u.champion === 'ahri' || u.champion === 'morgana';
+  const prefersAp =
+    u.champion === 'lux' ||
+    u.champion === 'ahri' ||
+    u.champion === 'morgana' ||
+    u.champion === 'irielle' ||
+    u.champion === 'oona';
   return prefersAp
     ? { bonusAd: 0, bonusAp: statPrecision(force) }
     : { bonusAd: statPrecision(force * 0.6), bonusAp: 0 };

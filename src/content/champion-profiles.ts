@@ -1,3 +1,4 @@
+import { ORIGINAL_CHAMPIONS, ORIGINAL_PROGRESSION, isOriginalChampion } from './original-lineup';
 import { MASTER_YI } from './masteryi-progression';
 import { MASTER_YI_COMBAT_POLICY } from './masteryi-combat-policy';
 import { ASHE } from './ashe-progression';
@@ -44,6 +45,7 @@ export const CHAMPION_PROFILES = {
   vi: { ...VI_PROGRESSION, name: 'Vi' },
   ezreal: { ...EZREAL_PROGRESSION, name: 'Ezreal' },
   morgana: { ...MORGANA_PROGRESSION, name: 'Morgana' },
+  ...ORIGINAL_PROGRESSION,
 } as const;
 
 export function championProfile(identity: keyof typeof CHAMPION_PROFILES) {
@@ -72,7 +74,9 @@ export const PUBLIC_SELECTABLE_CHAMPIONS = [
   'morgana',
 ] as const;
 
-export type PublicSelectableChampion = (typeof PUBLIC_SELECTABLE_CHAMPIONS)[number];
+export const PLAYABLE_CHAMPIONS = [...PUBLIC_SELECTABLE_CHAMPIONS, ...ORIGINAL_CHAMPIONS] as const;
+
+export type PublicSelectableChampion = (typeof PLAYABLE_CHAMPIONS)[number];
 
 /** Public Summoner’s Rift selection across all ten integrated Milestone 6 kits. */
 export function publicSelectableChampion(
@@ -96,6 +100,7 @@ export function selectableChampion(
   if (identity === 'darius') throw new Error('Darius player kit requires Summoner’s Rift');
   if (identity === 'vi') throw new Error('Vi player kit requires Summoner’s Rift');
   if (identity === 'ezreal') throw new Error('Ezreal player kit requires Summoner’s Rift');
+  if (isOriginalChampion(identity)) throw new Error('Original champion requires public Rift');
   if (identity === 'morgana') throw new Error('Morgana player kit requires Summoner’s Rift');
   return identity;
 }

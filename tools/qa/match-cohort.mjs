@@ -28,10 +28,15 @@ const { values, positionals } = parseArgs({
     'keep-going': { type: 'boolean', default: false },
     'development-leona': { type: 'boolean', default: false },
     'development-roster': { type: 'boolean', default: false },
+    'original-lineup': { type: 'boolean', default: false },
     'snapshot-compression': { type: 'string', default: 'none' },
   },
 });
-const profile = cohortProfile(values['development-leona'], values['development-roster']);
+const profile = cohortProfile(
+  values['development-leona'],
+  values['development-roster'],
+  values['original-lineup']
+);
 const encoding = snapshotEncoding(values['snapshot-compression']);
 const jobs = Number(values.jobs),
   minutes = Number(values.minutes);
@@ -128,6 +133,7 @@ const plan = {
   ...(encoding === 'gzip' ? { snapshotEncoding: encoding } : {}),
   developmentLeona: values['development-leona'],
   developmentRoster: values['development-roster'],
+  ...(values['original-lineup'] ? { originalLineup: true } : {}),
   qaAutomatedHumanCarry: profile.humanRole === 'carry',
   qaAutomatedHumanRole: profile.humanRole,
   roster: profile.roster,
@@ -196,6 +202,7 @@ function state() {
     hundredSeedInvariantGate:
       !values['development-leona'] &&
       !values['development-roster'] &&
+      !values['original-lineup'] &&
       minutes === 60 &&
       seeds.length >= 100 &&
       results.length === seeds.length &&
@@ -237,6 +244,7 @@ function launch(seed) {
       ...(encoding === 'gzip' ? ['--snapshot-compression', 'gzip'] : []),
       ...(values['development-leona'] ? ['--development-leona'] : []),
       ...(values['development-roster'] ? ['--development-roster'] : []),
+      ...(values['original-lineup'] ? ['--original-lineup'] : []),
       String(seed),
     ],
     { stdio: ['ignore', log, log] }
@@ -256,7 +264,8 @@ function launch(seed) {
           throw new Error('Seed/ruleset mismatch');
         if (
           (report.developmentLeona ?? false) !== !!values['development-leona'] ||
-          (report.developmentRoster ?? false) !== !!values['development-roster']
+          (report.developmentRoster ?? false) !== !!values['development-roster'] ||
+          (report.originalLineup ?? false) !== !!values['original-lineup']
         )
           throw new Error('Worker composition differs from the frozen plan');
         if (report.runtime.node !== plan.runtime.node || report.runtime.v8 !== plan.runtime.v8)

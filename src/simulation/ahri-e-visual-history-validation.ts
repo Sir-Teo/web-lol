@@ -1,5 +1,6 @@
 import { AHRI_E } from '../content/ahri-e';
 import { AHRI_E_POLICY } from '../content/ahri-e-policy';
+import { GAREN_W } from '../content/garen-w';
 import { DT, TICK_RATE } from '../content/rules';
 import { direction, distance, sweepCircle, type Vec2 } from './math';
 import type { Team, Unit } from './types';
@@ -7,9 +8,25 @@ import type { AhriEVisualHistory, EVisualPose } from './ahri-e-visual-history';
 import { validAnimationTimeline } from './animation-timeline';
 import { MOBILE_CLIP_DURATIONS } from '../content/mobile-clip-durations';
 
+export function validCharmDuration(control: NonNullable<Unit['charm']>, variableTenacity: boolean) {
+  const duration = Math.round(AHRI_E.charmSecondsByRank[control.rank - 1] * TICK_RATE);
+  const actual = control.endTick - control.startTick;
+  const minimum = Math.min(duration, Math.round(0.3 * TICK_RATE));
+  if (!Number.isSafeInteger(actual) || control.tenacityApplied !== actual < duration) return false;
+  if (variableTenacity) return actual >= minimum && actual <= duration;
+  const expected = control.tenacityApplied
+    ? Math.max(minimum, Math.round(duration * (1 - GAREN_W.upfrontTenacity)))
+    : duration;
+  return actual === expected;
+}
+
 /** Replay retained linear flight and control clocks. Live entities, audio and
  * global identities are checked separately at World restore. */
-export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) {
+export function validateEVisualMotion(
+  record: AhriEVisualHistory,
+  tick: number,
+  variableTenacity = false
+) {
   const check = (ok: boolean): void => {
     if (!ok) throw Error('Invalid E visual motion history');
   };
@@ -207,15 +224,7 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
         control.rank === record.rank &&
         control.startTick === hit.tick
     );
-    const duration = Math.round(AHRI_E.charmSecondsByRank[record.rank - 1] * TICK_RATE);
-    const sampled = control.endTick - control.startTick;
-    // Gear, shard and objective modifiers may change after impact.
-    check(
-      Number.isSafeInteger(control.endTick) &&
-        sampled >= Math.min(duration, Math.round(0.3 * TICK_RATE)) &&
-        sampled <= duration &&
-        control.tenacityApplied === (sampled < duration)
-    );
+    check(validCharmDuration(control, variableTenacity));
     audience(buff.audience, buff.targetTeam);
     if (buff.stop) {
       check(

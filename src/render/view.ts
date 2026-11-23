@@ -33,6 +33,9 @@ import { RiverShrines } from './river-shrines';
 import { OwnedCompanions } from './owned-companions';
 import { OracleLens } from './oracle-lens';
 import { wardDisabled } from '../simulation/oracle-lens';
+import { OriginalVisuals, originalAimOutline } from './original-visuals';
+import { isOriginalChampion, ORIGINAL_LINEUP } from '../content/original-lineup';
+import { originalCastGeometry } from '../simulation/original-champions';
 import { Milestone6Visuals } from './milestone6-visuals';
 import { CONTROL_WARD_POLICY, FARSIGHT_POLICY } from '../content/faelights';
 import { DARIUS_KIT, EZREAL_KIT, MORGANA_KIT, VI_KIT } from '../content/milestone6-champions';
@@ -227,6 +230,7 @@ export class GameView {
   ownedCompanions = new OwnedCompanions(this.scene);
   oracleLens = new OracleLens(this.scene);
   milestone6Visuals = new Milestone6Visuals(this.scene);
+  private originalVisuals = new OriginalVisuals(this.scene);
   baronFlights = new LazyBaronFlights(this.scene, (p) => this.ground(p));
   baronHits = new LazyBaronHits(this.scene, (p) => this.ground(p));
   grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
@@ -980,6 +984,7 @@ export class GameView {
     this.ownedCompanions.update(world, alpha, (p) => this.ground(p));
     this.oracleLens.update(world, alpha, (p) => this.ground(p), this.camera, terminalAge);
     this.milestone6Visuals.update(world, alpha, (p) => this.ground(p));
+    this.originalVisuals.update(world, alpha, (p) => this.ground(p));
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.baronHits.update(world, alpha, this.camera, terminalAge);
@@ -1648,6 +1653,22 @@ export class GameView {
         );
       }
       this.aimLine.geometry.setDrawRange(0, 33);
+    } else if (
+      isOriginalChampion(hero.champion) &&
+      (this.aimMode === 'q' || this.aimMode === 'w' || this.aimMode === 'e' || this.aimMode === 'r')
+    ) {
+      const spell = ORIGINAL_LINEUP[hero.champion].spells[this.aimMode];
+      const point = originalCastGeometry(spell, hero, this.aimPoint);
+      const { outline, inner } = originalAimOutline(spell, hero, point);
+      for (const [i, p] of outline.entries())
+        positions.setXYZ(i, (p.x - hero.x) * SCALE, this.ground(p) + 0.12, (p.y - hero.y) * SCALE);
+      this.aimLine.geometry.setDrawRange(0, outline.length);
+      this.solarCenterLine.visible = inner.length > 0;
+      const center = this.solarCenterLine.geometry.getAttribute('position');
+      for (const [i, p] of inner.entries())
+        center.setXYZ(i, (p.x - hero.x) * SCALE, this.ground(p) + 0.12, (p.y - hero.y) * SCALE);
+      this.solarCenterLine.geometry.setDrawRange(0, inner.length);
+      center.needsUpdate = true;
     } else if (hero.champion === 'morgana' && this.aimMode === 'w') {
       const length = Math.min(
         MORGANA_KIT.w.range,
@@ -1686,6 +1707,7 @@ export class GameView {
         const inner = this.solarCenterLine.geometry.attributes.position as THREE.BufferAttribute;
         for (const [i, p] of shape.center.entries())
           inner.setXYZ(i, (p.x - hero.x) * SCALE, this.ground(p) + 0.11, (p.y - hero.y) * SCALE);
+        this.solarCenterLine.geometry.setDrawRange(0, shape.center.length);
         inner.needsUpdate = true;
       }
     } else if (hero.champion === 'lux' && ['q', 'w', 'e', 'r'].includes(this.aimMode)) {
@@ -1875,6 +1897,7 @@ export class GameView {
     this.baronFlights.dispose();
     this.baronHits.dispose();
     this.milestone6Visuals.dispose();
+    this.originalVisuals.dispose();
     this.mapTexture.dispose();
     this.fogTexture.dispose();
     const seenTextures = new Set<THREE.Texture>();

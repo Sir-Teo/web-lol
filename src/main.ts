@@ -68,6 +68,7 @@ import { loadHawkshot } from './render/hawkshot';
 import { loadRiftBattlefield } from './content/rift';
 import { PRACTICE_FIXTURE } from './content/practice-fixture';
 import { loadGarenSpin } from './render/garen-spin';
+import { ORIGINAL_CHAMPIONS } from './content/original-lineup';
 
 const host = document.querySelector<HTMLElement>('#app')!;
 const loading = document.querySelector<HTMLDivElement>('#loading')!;
@@ -613,9 +614,9 @@ async function boot(): Promise<void> {
     const hasAhri = targetWorld.units.some((u) => u.champion === 'ahri');
     const hasLeona = targetWorld.units.some((u) => u.champion === 'leona');
     const hasMasterYi = targetWorld.units.some((u) => u.champion === 'masteryi');
-    const extraChampions = (['darius', 'vi', 'ezreal', 'morgana'] as const).filter((c) =>
-      targetWorld.units.some((u) => u.champion === c)
-    );
+    const extraChampions = (
+      ['darius', 'vi', 'ezreal', 'morgana', ...ORIGINAL_CHAMPIONS] as const
+    ).filter((c) => targetWorld.units.some((u) => u.champion === c));
     const includeVisionVariants =
       !!targetWorld.riftObjectives ||
       targetWorld.units.some((u) => u.kind === 'ward' && !!u.ward?.variant) ||

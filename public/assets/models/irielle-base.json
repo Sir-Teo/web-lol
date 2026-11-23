@@ -1,0 +1,55 @@
+{
+  "provenance": "original-lineup",
+  "output": {
+    "path": "/assets/models/irielle-base.glb",
+    "bytes": 176600,
+    "sha256": "92619983e12c76b09dfd8fc405450170f83a748c3b6fd9d8110885458da053f4"
+  },
+  "triangles": 1528,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 1.8
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.76
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 0.66
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 0.75
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.64,
+      "impactSeconds": 0.26666666666666666
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.75,
+      "impactSeconds": 0.4166666666666667
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85,
+      "impactSeconds": 0.13333333333333333
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.1,
+      "impactSeconds": 0.6
+    },
+    {
+      "name": "recall",
+      "durationSeconds": 1.6
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.25
+    }
+  ]
+}

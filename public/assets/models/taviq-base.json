@@ -1,0 +1,55 @@
+{
+  "provenance": "original-lineup",
+  "output": {
+    "path": "/assets/models/taviq-base.glb",
+    "bytes": 186700,
+    "sha256": "c85fc788d3037ead27b02c39e72df385426583b86857fb844f6ae07fbd537562"
+  },
+  "triangles": 1476,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 1.8
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.76
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 0.66
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 0.75
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.64,
+      "impactSeconds": 0.18333333333333332
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.75,
+      "impactSeconds": 0.13333333333333333
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85,
+      "impactSeconds": 0.21666666666666667
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.1,
+      "impactSeconds": 0.45
+    },
+    {
+      "name": "recall",
+      "durationSeconds": 1.6
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.25
+    }
+  ]
+}

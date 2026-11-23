@@ -13,6 +13,11 @@ export const PLAYER_CHAMPION_ROLES = {
   vi: 'jungle',
   ezreal: 'carry',
   morgana: 'support',
+  brannic: 'top',
+  taviq: 'jungle',
+  irielle: 'mid',
+  vess: 'carry',
+  oona: 'support',
 } as const satisfies Record<ChampionIdentity, MatchRole>;
 
 /** Distinct two-champion pools per position for zero-mirror 10-champion 5v5 matches. */

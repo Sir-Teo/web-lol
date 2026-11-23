@@ -5,11 +5,13 @@ import { GAREN_R } from './garen-r';
 import { GAREN_R_ANIMATION_CONTACT, GAREN_R_WINDUP_TICKS } from './garen-r-policy';
 import { MILESTONE6_CHAMPION_CLIP_DURATIONS } from './milestone6-champions';
 import { TICK_RATE } from './rules';
+import { isOriginalChampion, ORIGINAL_CHAMPION_DURATIONS } from './original-lineup';
 import type { ChampionIdentity } from '../simulation/types';
 
 const allClipDurations: Readonly<Record<ChampionIdentity, Readonly<Record<string, number>>>> = {
   ...durations,
   ...MILESTONE6_CHAMPION_CLIP_DURATIONS,
+  ...ORIGINAL_CHAMPION_DURATIONS,
 };
 
 export function castAnimationName(
@@ -22,6 +24,7 @@ export function castAnimationName(
   if (champion === 'ahri' && (ability === 'q' || ability === 'w'))
     return ability === 'q' ? 'spell1' : 'spell2';
   if (
+    isOriginalChampion(champion) ||
     champion === 'leona' ||
     champion === 'darius' ||
     champion === 'vi' ||

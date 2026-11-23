@@ -1,0 +1,55 @@
+{
+  "provenance": "original-lineup",
+  "output": {
+    "path": "/assets/models/oona-base.glb",
+    "bytes": 208276,
+    "sha256": "310111f78c47cb7fe29196fc010d81d53cc93ff73f61dace6bce66f0bdaab63e"
+  },
+  "triangles": 1968,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 1.8
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.76
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 0.66
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 0.75
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.64,
+      "impactSeconds": 0.23333333333333334
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.75,
+      "impactSeconds": 0.21666666666666667
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85,
+      "impactSeconds": 0.4166666666666667
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.1,
+      "impactSeconds": 0.45
+    },
+    {
+      "name": "recall",
+      "durationSeconds": 1.6
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.25
+    }
+  ]
+}

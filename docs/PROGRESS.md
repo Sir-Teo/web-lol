@@ -1,10 +1,29 @@
 # Development status
 
-Last updated: November 22, 2026 (UTC).
+Last updated: November 22, 2026.
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
+
+**Roadmap Milestone 8 (original roster and audiovisual validation) is complete.**
+The 15-champion roster uses schema 187. Two original-lineup matches reached
+natural victory with 53 exact checkpoint restores and 51 matching
+continuations. Chrome, Firefox, and WebKit passed release play, save, replay,
+and exact offline restoration. REA captured the release flow and audited the
+shipped build.
+See the [Milestone 8 report](MILESTONE-8.md).
+
+### Milestone 7 baseline (schema 186 / ruleset `3627a2c1…`)
+
+**The Milestone 7 two-seed match reliability check is complete.** Schema 186
+fixes saves around Empowered Recall and tenacity-shortened Charm, and restores
+projectile angles across Node and Chrome. Milestone 6 match files upgrade on
+load. Both public 5v5 seeds reached natural victory with 55 exact restores and
+53 continuation checks. Production Chrome imported, replayed, reloaded, and
+exported a genuine result offline. See the [Milestone 7 report](MILESTONE-7.md).
+
+### Milestone 6 baseline (schema 185 / ruleset `e5e3cc7f…`)
 
 **Roadmap Milestone 6 (reference-mode audit and 10-champion expansion) is complete**
 at save schema **185**, ruleset `e5e3cc7f70fae406cd8bf03ba5a5a90fc7dc87ab2e931ad190b5fe099897cad0`,

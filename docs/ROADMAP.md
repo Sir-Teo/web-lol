@@ -73,6 +73,23 @@ a new runtime or native-fidelity certification.
 See [Milestone 7 scope, dependencies, and acceptance gates](MILESTONE-7.md) and
 [planning research receipt](reference/milestone7-planning-research.json).
 
+The two-seed match reliability check passed on schema 186. See the
+[verification ledger](reference/milestone7-verification.json).
+
+## Milestone 8 — original roster and audiovisual validation (Completed)
+
+Add five original champions, one per role, for a roster of 15. Finish their
+playable kits, bot tactics, rigs, animation, effects, and sound. Verify the
+original lineup in natural 5v5 matches and exercise saving, replay, and offline
+restoration on the production build.
+
+All five originals are playable in Practice and 5v5. Two natural 5v5
+finishes passed 53 exact restores and 51 matching continuations on schema 187.
+Chrome, Firefox, and WebKit passed production play, replay, and exact offline
+restoration and export. REA captured the production chooser and match and
+analyzed the game, rules, and offline worker bundles. See the
+[Milestone 8 report](MILESTONE-8.md).
+
 ## Test cases that protect fidelity
 
 | Scenario                                           | Required property                                                        |

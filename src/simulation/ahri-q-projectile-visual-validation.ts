@@ -76,7 +76,8 @@ export function validateQProjectileVisuals(state: {
       const dx = segment.to.x - segment.from.x,
         dy = segment.to.y - segment.from.y;
       if (dx !== 0 || dy !== 0) facing = Math.atan2(dy || 0, dx || 0);
-      if (!equal(f, motion.position) || f.facing !== facing) fail();
+      // Engines can round atan2 differently for the same fixed-step segment.
+      if (!equal(f, motion.position) || Math.abs(f.facing - facing) > 1e-12) fail();
       checkAudience(f.audience);
     }
     if (

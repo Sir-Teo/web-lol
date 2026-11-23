@@ -495,6 +495,18 @@ import {
   maxInventorySlotsForQuest,
 } from '../content/role-quests';
 import { DRAGON_SLAYER_BUFFS } from '../content/epic-objectives';
+import {
+  isOriginalChampion,
+  ORIGINAL_LINEUP,
+  ORIGINAL_SLOTS,
+  originalSpellIcon,
+} from '../content/original-lineup';
+import {
+  advanceOriginalChampion,
+  castOriginalAbility,
+  originalBasicAttackBonus,
+  planOriginalAbility,
+} from './original-champions';
 import { MORGANA_KIT, VI_KIT } from '../content/milestone6-champions';
 import {
   advanceRiftObjectives,
@@ -899,6 +911,8 @@ export class World {
       !this.battlefield.developmentMasterYiRift
     )
       throw new Error('Master Yi requires a development practice NPC or trusted Rift context.');
+    if (kind === 'champion' && isOriginalChampion(identity) && !this.battlefield.publicRift)
+      throw new Error('Original champions require public Rift.');
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];
@@ -989,13 +1003,15 @@ export class World {
       const own = this.championState(u.id)!;
       if (identity === 'masteryi') own.doubleStrike = createDoubleStrikeState();
       if (isMilestone6Champion(identity)) initMilestone6ChampionState(identity, own);
+      if (isOriginalChampion(identity)) own.original = { hits: 0, hitExpiry: 0, casts: [] };
       own.eCharges = 0;
       if (
         identity === 'garen' ||
         identity === 'leona' ||
         identity === 'ahri' ||
         identity === 'masteryi' ||
-        isMilestone6Champion(identity)
+        isMilestone6Champion(identity) ||
+        isOriginalChampion(identity)
       ) {
         own.spellRanks = { q: 0, w: 0, e: 0, r: 0 };
         own.skillPoints = 1;
@@ -1645,19 +1661,21 @@ export class World {
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
         const champ = this.unit(state.id)?.champion;
-        const recommendation = isMilestone6Champion(champ)
-          ? { early: ['q', 'w', 'e'] as const, priority: milestone6BotSkillPriority(champ) }
-          : champ === 'garen'
-            ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
-            : champ === 'lux'
-              ? LUX_BOT_POLICY
-              : champ === 'ahri'
-                ? AHRI_BOT_POLICY
-                : champ === 'masteryi'
-                  ? MASTER_YI_BOT_POLICY
-                  : champ === 'leona'
-                    ? LEONA_BOT_POLICY
-                    : ASHE_SKILL_RECOMMENDATION;
+        const recommendation = isOriginalChampion(champ)
+          ? { early: ORIGINAL_SLOTS.slice(0, 3), priority: ['r', 'q', 'w', 'e'] as const }
+          : isMilestone6Champion(champ)
+            ? { early: ['q', 'w', 'e'] as const, priority: milestone6BotSkillPriority(champ) }
+            : champ === 'garen'
+              ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
+              : champ === 'lux'
+                ? LUX_BOT_POLICY
+                : champ === 'ahri'
+                  ? AHRI_BOT_POLICY
+                  : champ === 'masteryi'
+                    ? MASTER_YI_BOT_POLICY
+                    : champ === 'leona'
+                      ? LEONA_BOT_POLICY
+                      : ASHE_SKILL_RECOMMENDATION;
         const early = recommendation.early[allocated];
         const choices = early ? [early, ...recommendation.priority] : recommendation.priority;
         const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
@@ -1718,6 +1736,11 @@ export class World {
       if (!this.alive(u)) continue;
       const uState = this.championState(u.id);
       if ((uState?.itemState?.stasisUntilTick ?? 0) > this.tick) continue;
+      if (
+        uState?.original?.casts.some((cast) => cast.phase === 'windup') &&
+        (command.type === 'order' || command.type === 'recall')
+      )
+        continue;
       if (uState?.ezreal?.rChannel && command.type !== 'cast') continue;
       const alpha = u.champion === 'masteryi' && uState?.alphaStrike;
       if (
@@ -1810,6 +1833,8 @@ export class World {
     advanceRunes(this);
     advanceItemRuntime(this);
     advanceMilestone6Champions(this);
+    for (const state of this.activeChampionStates())
+      if (state.original) advanceOriginalChampion(this, this.unit(state.id)!, state);
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -1839,6 +1864,7 @@ export class World {
         u.nextThink = this.tick + this.botThinkTicks();
       }
       const state = this.championState(u.id);
+      if (state?.original?.casts.some((cast) => cast.phase === 'windup')) continue;
       if (activeSpiritDash(this, u.id)) {
         advanceSpiritDash(this, u);
         continue;
@@ -4274,6 +4300,8 @@ export class World {
         !this.threateningTower(u, point, true)
     );
     if (disengage) {
+      const owner = this.championState(u.id)!;
+      if (planOriginalAbility(this, u, owner, (point) => point, disengage)) return;
       this.planGarenQ(u, true);
       this.planMasterYiEscape(u);
       if (
@@ -4323,6 +4351,7 @@ export class World {
     )
       return;
     if (this.planBaronWard(u) || this.planRoleWard(u)) return;
+    if (planOriginalAbility(this, u, state, (point) => this.botAimPoint(u, point))) return;
     if (isMilestone6Champion(u.champion)) {
       const visibleEnemies = this.units.filter(
         (foe) =>
@@ -5378,11 +5407,13 @@ export class World {
         kind !== 'cinders' &&
         kind !== 'smite' &&
         kind !== 'scorchclaw' &&
-        (kind === 'lucent'
-          ? source.champion !== 'lux'
-          : kind === 'solar-flare'
-            ? source.champion !== 'leona'
-            : source.champion !== 'ashe')) ||
+        (kind === 'original'
+          ? !isOriginalChampion(source.champion)
+          : kind === 'lucent'
+            ? source.champion !== 'lux'
+            : kind === 'solar-flare'
+              ? source.champion !== 'leona'
+              : source.champion !== 'ashe')) ||
       (!extra &&
         ![
           'frost',
@@ -5393,6 +5424,7 @@ export class World {
           'smite',
           'scorchclaw',
           'solar-flare',
+          'original',
         ].includes(kind)) ||
       (extra !== null &&
         ((extra.champion !== null && source.champion !== extra.champion) ||
@@ -6685,11 +6717,13 @@ export class World {
     if (illuminated)
       target.illumination = target.illumination.filter((mark) => mark.sourceId !== source.id);
     const sourceOwner = this.championState(source.id);
-    let m6ExtraPhysical = 0;
+    let championBonusPhysical = 0;
     let itemOnHitPhysical = 0;
     if (sourceOwner && source.champion && this.targetable(target)) {
       if (isMilestone6Champion(source.champion) && !isStructureKind(target.kind)) {
-        m6ExtraPhysical = onMilestone6BasicAttackLanded(this, source, sourceOwner, target);
+        championBonusPhysical = onMilestone6BasicAttackLanded(this, source, sourceOwner, target);
+      } else if (sourceOwner.original && canApplyOnHitEffects) {
+        championBonusPhysical = originalBasicAttackBonus(this, source, target, sourceOwner);
       }
       const prof = championProfile(source.champion);
       const baseAd = prof.damage + prof.damageGrowth * growthAtLevel(sourceOwner.level);
@@ -6702,7 +6736,7 @@ export class World {
     this.damage(
       source,
       target,
-      (raw + runeAd + mightAd + m6ExtraPhysical) * multiplier * baronSiege +
+      (raw + runeAd + mightAd + championBonusPhysical) * multiplier * baronSiege +
         target.hp * healthRatio +
         itemOnHitPhysical,
       'physical'
@@ -7784,6 +7818,15 @@ export class World {
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
     const targetChampion = this.unit(championId)?.champion;
+    if (isOriginalChampion(targetChampion) && ability !== 'd' && ability !== 'f') {
+      const spell = ORIGINAL_LINEUP[targetChampion].spells[ability];
+      return {
+        ...spell,
+        icon: originalSpellIcon(targetChampion, ability),
+        cost: spell.mana,
+        cantCastWhileRooted: spell.shape === 'dash',
+      };
+    }
     if (
       isMilestone6Champion(targetChampion) &&
       (ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r')
@@ -7958,6 +8001,12 @@ export class World {
         cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
       };
     const champ = this.unit(championId)?.champion;
+    if (isOriginalChampion(champ)) {
+      const spell = ORIGINAL_LINEUP[champ].spells[ability];
+      return this.abilityRank(ability, championId)
+        ? { mana: spell.mana, cooldownSeconds: spell.cooldown }
+        : { mana: 0, cooldownSeconds: 0 };
+    }
     if (isMilestone6Champion(champ)) {
       return milestone6BaseResources(this, champ, ability, championId);
     }
@@ -8096,6 +8145,10 @@ export class World {
         );
         for (const victim of victims) this.damage(u, victim, damage, 'true', 'summoner');
       } else this.damage(u, target, damage, 'true', 'summoner');
+      return;
+    }
+    if (isOriginalChampion(u.champion) && ability !== 'd' && ability !== 'f') {
+      if (targetId === undefined) castOriginalAbility(this, u, state, ability, point);
       return;
     }
     if (

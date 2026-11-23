@@ -3,6 +3,8 @@ import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { createRift } from '../src/content/rift';
+import { MID_EMPOWERED_RECALL_TICKS } from '../src/content/role-quests';
+import { RECALL_DURATION_TICKS } from '../src/content/rules';
 import { createLaneMatch } from '../src/simulation/lane-match';
 import { NavGrid } from '../src/simulation/navgrid';
 import { SNAPSHOT_VERSION } from '../src/simulation/snapshot';
@@ -116,6 +118,51 @@ test('same-tick restart reuses distinct existing message identities without merg
     'active',
   ]);
   restore(w);
+});
+test('a move on the scheduled completion tick cancels Recall and survives restore', () => {
+  const { w, ahri } = setup();
+  w.step(RECALL_DURATION_TICKS - 1);
+  w.enqueue({ type: 'order', unit: ahri.id, order: { type: 'move', point: { x: 100, y: 0 } } });
+  w.step();
+  expect(w.ahriRecallAudio[0].end).toMatchObject({ tick: 481, reason: 'cancelled' });
+  restore(w);
+});
+
+test('empowered Ahri Recall restores during the channel and its completion tail, including schema 185 saves', () => {
+  const raw = readFileSync('public/assets/maps/rift-nav.bin');
+  const nav = new NavGrid(
+    JSON.parse(readFileSync('public/assets/maps/rift-nav.json', 'utf8')),
+    raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.byteLength)
+  );
+  const battlefield = {
+    ...createRift(nav, JSON.parse(readFileSync('public/assets/maps/rift-layout.json', 'utf8'))),
+    publicRift: true as const,
+  };
+  const w = createLaneMatch(battlefield, 'ahri');
+  const quest = w.player.roleQuest!;
+  w.player.roleQuest = { ...quest, progress: quest.target, completedTick: 0 };
+  w.enqueue({ type: 'recall', unit: w.hero.id });
+  w.step();
+  const end = w.tick + MID_EMPOWERED_RECALL_TICKS;
+  expect(w.player.recallEnd).toBe(end);
+  expect(w.ahriRecallAudio[0].completeTick).toBe(end);
+
+  const restoreLegacy = () => {
+    const legacy = JSON.parse(w.snapshot());
+    legacy.version = 185;
+    legacy.ruleset = 'e5e3cc7f70fae406cd8bf03ba5a5a90fc7dc87ab2e931ad190b5fe099897cad0';
+    legacy.ahriRecallAudio[0].completeTick =
+      legacy.ahriRecallAudio[0].startTick + RECALL_DURATION_TICKS;
+    expect(World.fromSnapshot(JSON.stringify(legacy), battlefield).snapshot()).toBe(w.snapshot());
+  };
+  const copy = restore(w);
+  restoreLegacy();
+  w.step(MID_EMPOWERED_RECALL_TICKS);
+  copy.step(MID_EMPOWERED_RECALL_TICKS);
+  expect(copy.snapshot()).toBe(w.snapshot());
+  expect(w.ahriRecallAudio[0].end).toMatchObject({ tick: end, reason: 'complete' });
+  restore(w);
+  restoreLegacy();
 });
 test('strict restore rejects forged ownership, clocks, audiences and completion position', () => {
   const { w } = setup();

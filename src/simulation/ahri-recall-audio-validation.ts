@@ -6,6 +6,7 @@ export function validateAhriRecallAudio(state: {
   tick: number;
   nextId: number;
   winner: Team | null;
+  riftObjectives?: unknown;
   units: Unit[];
   player: Pick<ChampionState, 'id' | 'recallEnd'>;
   otherChampions: Pick<ChampionState, 'id' | 'recallEnd'>[];
@@ -20,6 +21,7 @@ export function validateAhriRecallAudio(state: {
   for (const r of state.ahriRecallAudio ?? []) {
     const u = state.units.find((u) => u.id === r.sourceId),
       owner = [state.player, ...state.otherChampions].find((o) => o.id === r.sourceId);
+    const duration = r.completeTick - r.startTick;
     if (
       u?.champion !== 'ahri' ||
       u.team !== r.team ||
@@ -29,8 +31,8 @@ export function validateAhriRecallAudio(state: {
       r.id >= state.nextId ||
       r.startTick < lastTick ||
       r.startTick > state.tick ||
-      (r.completeTick !== r.startTick + RECALL_DURATION_TICKS &&
-        r.completeTick !== r.startTick + MID_EMPOWERED_RECALL_TICKS) ||
+      (duration !== RECALL_DURATION_TICKS &&
+        !(state.riftObjectives && duration === MID_EMPOWERED_RECALL_TICKS)) ||
       state.tick >= ahriRecallAudioExpiry(r) ||
       !r.audience.includes(r.team) ||
       r.audience.join() !== ['blue', 'red'].filter((t) => r.audience.includes(t as Team)).join()
@@ -55,7 +57,6 @@ export function validateAhriRecallAudio(state: {
         fail();
       if (r.end.reason === 'complete' && r.end.tick !== r.completeTick) fail();
       if (r.end.reason === 'match-end' && (!state.winner || r.end.tick !== state.tick)) fail();
-      if (r.end.reason !== 'complete' && r.end.tick >= r.completeTick) fail();
     }
   }
   for (const owner of [state.player, ...state.otherChampions]) {

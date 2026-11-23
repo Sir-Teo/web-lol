@@ -1,8 +1,10 @@
 import type { Unit } from '../simulation/types';
 import durations from './mobile-clip-durations.json';
 import { MILESTONE6_CHAMPION_CLIP_DURATIONS } from './milestone6-champions';
+import { ORIGINAL_RIG_DURATIONS } from './original-lineup';
 import { MONSTERS } from './monsters';
 export const MOBILE_CLIP_DURATIONS = {
+  ...ORIGINAL_RIG_DURATIONS,
   'sru-baron-base': Object.fromEntries(
     Object.entries(MONSTERS.baron.clips).map(([alias, clip]) => [alias, clip.durationSeconds])
   ),

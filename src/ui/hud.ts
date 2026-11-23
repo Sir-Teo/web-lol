@@ -24,12 +24,9 @@ import {
   type BotDifficulty,
 } from '../content/bot-difficulty';
 import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
-import {
-  PUBLIC_SELECTABLE_CHAMPIONS,
-  championProfile,
-  isMeleeChampion,
-} from '../content/champion-profiles';
+import { PLAYABLE_CHAMPIONS, championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { isMilestone6Champion } from '../simulation/milestone6-champions';
+import { isOriginalChampion, ORIGINAL_LINEUP } from '../content/original-lineup';
 import {
   ROLE_QUESTS,
   isRoleQuestComplete,
@@ -338,6 +335,7 @@ export class Hud {
     return `${this.world.hero.champion}:${this.world.player.summoners.d}:${this.world.player.summoners.f}`;
   }
   private championSubtitle(champion: ChampionIdentity): string {
+    if (isOriginalChampion(champion)) return ORIGINAL_LINEUP[champion].subtitle.toUpperCase();
     if (champion === 'garen') return 'THE MIGHT OF DEMACIA';
     if (champion === 'lux') return 'THE LADY OF LUMINOSITY';
     if (champion === 'leona') return 'THE RADIANT DAWN';
@@ -350,6 +348,10 @@ export class Hud {
     return 'THE FROST ARCHER';
   }
   private championPassiveWidget(champion: ChampionIdentity): string {
+    if (isOriginalChampion(champion)) {
+      const passive = ORIGINAL_LINEUP[champion].passive;
+      return `<span id="original-passive" class="essence-counter" tabindex="0" title="${passive.description}" aria-label="${passive.name}. ${passive.description}">0 / 3</span>`;
+    }
     if (champion === 'ashe')
       return '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>';
     if (champion === 'ahri')
@@ -454,7 +456,8 @@ export class Hud {
       isSummonerSlot(a) ||
       this.world.hero.champion === 'ahri' ||
       this.world.hero.champion === 'masteryi' ||
-      isMilestone6Champion(this.world.hero.champion)
+      isMilestone6Champion(this.world.hero.champion) ||
+      isOriginalChampion(this.world.hero.champion)
     )
       return this.world.abilitySpec(a);
     if (this.world.hero.champion === 'garen' && isGarenSpell(a)) return GAREN_SPELLS[a];
@@ -470,7 +473,10 @@ export class Hud {
   private tooltipResources(a: Ability) {
     if (this.isLuxRecast(a)) return { mana: 0, cooldownSeconds: 0 };
     if (a === 'd' || a === 'f' || this.world.abilityRank(a)) return this.world.abilityResources(a);
-    if (isMilestone6Champion(this.world.hero.champion)) {
+    if (
+      isMilestone6Champion(this.world.hero.champion) ||
+      isOriginalChampion(this.world.hero.champion)
+    ) {
       const spec = this.world.abilitySpec(a);
       return {
         mana: spec.cost,
@@ -586,7 +592,12 @@ export class Hud {
       return luxDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
     if (this.world.hero.champion === 'leona' && isLeonaSpell(ability))
       return leonaDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
-    if (isMilestone6Champion(this.world.hero.champion) && ability !== 'd' && ability !== 'f')
+    if (
+      (isMilestone6Champion(this.world.hero.champion) ||
+        isOriginalChampion(this.world.hero.champion)) &&
+      ability !== 'd' &&
+      ability !== 'f'
+    )
       return this.world.abilitySpec(ability).description;
     if (ability === 'q') {
       const values = asheFocusValues(rank);
@@ -979,7 +990,7 @@ export class Hud {
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
     const playerChoices: readonly ChampionIdentity[] = this.world.battlefield.publicRift
-      ? PUBLIC_SELECTABLE_CHAMPIONS
+      ? PLAYABLE_CHAMPIONS
       : this.world.battlefield.developmentRosterBots
         ? ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']
         : ['ashe', 'lux'];
@@ -995,10 +1006,10 @@ export class Hud {
           shards: { ...this.world.player.runeState.loadout.shards },
         }
       : defaultRuneLoadoutForRole(PLAYER_CHAMPION_ROLES[chosenChampion]);
-    const isJunglerChoice = (champ: ChampionIdentity) => champ === 'masteryi' || champ === 'vi';
+    const isJunglerChoice = (champ: ChampionIdentity) => PLAYER_CHAMPION_ROLES[champ] === 'jungle';
     const laneDescription = () =>
       this.world.battlefield.publicRift
-        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents across all 10 distinct champions (zero mirrors). Role Quests, Elemental Drakes, Voidgrubs (06:00), Rift Herald (15:00), and Baron Nashor (20:00) are active.${isJunglerChoice(chosenChampion) ? ' Smite is required to buy your own jungle companion.' : ''}`
+        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} in a ten-champion match.${isOriginalChampion(chosenChampion) ? ' Your allies fill out the original lineup.' : ''}${isJunglerChoice(chosenChampion) ? ' Equip Smite to buy a jungle companion.' : ''}`
         : this.world.battlefield.developmentRosterBots
           ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the ${this.rosterPlaytest ? 'playtest' : 'development'} roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
           : `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
@@ -1009,6 +1020,15 @@ export class Hud {
         ? 'Train with a sparring partner, target dummy and practice tools. Rift jungle camps and Scuttlers follow their normal spawn calendars.'
         : 'Choose Ashe or Lux for practice in this trial.';
     const chosenSummoners = { ...this.world.player.summoners };
+    const championButtons = (original: boolean) =>
+      playerChoices
+        .filter((champion) => isOriginalChampion(champion) === original)
+        .map(
+          (champion) =>
+            `<button class="menu-button" data-action="${original ? 'choose-original-champion' : 'choose-champion'}" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`
+        )
+        .join('');
+    const originalButtons = championButtons(true);
     const summonerChoices = () =>
       `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
     const botSkillChoices = () =>
@@ -1091,7 +1111,7 @@ export class Hud {
       subtitle = this.rosterPlaytest
         ? 'Internal roster playtest. Saves are separate from the public game.'
         : 'Play locally. Your browser runs the match.';
-      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}${botSkillChoices()}${runeChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${championButtons(false)}</div>${originalButtons ? `<h3 class="lineup-label">Original lineup</h3><div class="champion-choice" role="group" aria-label="Original lineup">${originalButtons}</div>` : ''}${summonerChoices()}${botSkillChoices()}${runeChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'offline') {
       title = 'Offline files';
       subtitle = 'Keep a complete game pack on this browser.';
@@ -1306,7 +1326,7 @@ export class Hud {
               )
             );
         }
-        if (action === 'choose-champion') {
+        if (action === 'choose-champion' || action === 'choose-original-champion') {
           const champion = button.dataset.champion as ChampionIdentity;
           if (!playerChoices.includes(champion)) return;
           chosenChampion = champion;
@@ -2150,6 +2170,11 @@ export class Hud {
   }
 
   update(fps: number | null): void {
+    const originalPassive = this.root.querySelector('#original-passive');
+    if (originalPassive && this.world.player.original) {
+      const value = `${this.world.player.original.hits} / 3`;
+      if (originalPassive.textContent !== value) originalPassive.textContent = value;
+    }
     if (!this.replaying && this.world.winner && this.modal !== 'result') this.toggleModal('result');
     this.updateAllyCameras();
     this.attackStatTooltip.refresh(this.modal === null);

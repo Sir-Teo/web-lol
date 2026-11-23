@@ -1892,6 +1892,12 @@ button {
   padding-bottom: 12px;
 }
 
+.lineup-label {
+  margin: 0 0 8px;
+  color: #d9d29d;
+  font-size: 0.9rem;
+  text-align: left;
+}
 .champion-choice {
   display: grid;
   grid-template-columns: 1fr 1fr;
