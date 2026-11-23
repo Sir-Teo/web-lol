@@ -1,0 +1,209 @@
+{
+  "milestone": 8,
+  "snapshotVersion": 187,
+  "ruleset": "3e7c02a0e1111c87e1000524899247258d8f916efb0b00944a4eb4754c23df2a",
+  "pack": {
+    "id": "77070d9758b1ad148c36adac7cc32e032d27c72e8a83c6188508e9a100badc46",
+    "files": 1554,
+    "bytes": 582801557
+  },
+  "cohort": {
+    "planSha256": "9b3f6aa92b3bea4c53ff257560536c3cd9baee526614f84d5eaf463f774e1fb0",
+    "summarySha256": "09affe343d3126c9ec60dddeaed7faf5729028bd86c032c9291f1826e91e3ce6",
+    "seedLedger": [
+      {
+        "seed": 26018,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 98360,
+        "checkedTicks": 98360,
+        "roundTrips": 28,
+        "futureChecks": 27,
+        "futureCheckedTicks": 1620,
+        "reportSha256": "73e6c3ad643f9ac77661440ac91627dc55c76debbfce74c261346fd8e1ef2661",
+        "reportBytes": 147486,
+        "finalStateSha256": "8fa7d0ea4a02d3da5da092e0e77a17788fee34839732254ca05fb82140411669"
+      },
+      {
+        "seed": 719,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 86908,
+        "checkedTicks": 86908,
+        "roundTrips": 25,
+        "futureChecks": 24,
+        "futureCheckedTicks": 1440,
+        "reportSha256": "57d23bbe517b7bddc5c316aef45cccb760353c445686e85b0eda972c10ebdf14",
+        "reportBytes": 132475,
+        "finalStateSha256": "1c8c4f391979c3f36324a4e9439f88a1ed0dd498d4680811ff5bbd26b00b8838"
+      }
+    ],
+    "checkedTicks": 185268,
+    "exactRestores": 53,
+    "matchingContinuations": 51,
+    "continuationTicks": 3060
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "157.0.8103.38",
+      "production": {
+        "originalSelections": ["Brannic", "Taviq", "Irielle", "Oona Vale", "Vess"],
+        "tenChampionScoreboard": true,
+        "copperShot": true,
+        "replayCapturedPlayerCast": true,
+        "checkpointReload": true
+      },
+      "offline": {
+        "result": "passed",
+        "checks": {
+          "fullPackReady": true,
+          "normalCompletedPreviewOffline": true,
+          "exactCompletedStateImportAndExportOffline": true,
+          "resultCheckpointReplayVerifiedOnce": true,
+          "exactCompletedStateReloadAndExportOffline": true,
+          "offlineWorkerControlsPage": true,
+          "originRequestsWhileOffline": 0,
+          "sourceReportSnapshotAndManifestUnchanged": true,
+          "serviceWorkerResponses": 940
+        }
+      }
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "production": {
+        "originalSelections": ["Brannic", "Taviq", "Irielle", "Oona Vale", "Vess"],
+        "tenChampionScoreboard": true,
+        "copperShot": true,
+        "replayCapturedPlayerCast": true,
+        "checkpointReload": true
+      },
+      "offline": {
+        "result": "passed",
+        "checks": {
+          "fullPackReady": true,
+          "normalCompletedPreviewOffline": true,
+          "exactCompletedStateImportAndExportOffline": true,
+          "resultCheckpointReplayVerifiedOnce": true,
+          "exactCompletedStateReloadAndExportOffline": true,
+          "offlineWorkerControlsPage": true,
+          "originRequestsWhileOffline": 0,
+          "sourceReportSnapshotAndManifestUnchanged": true,
+          "serviceWorkerResponses": 925
+        }
+      }
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "production": {
+        "originalSelections": ["Brannic", "Taviq", "Irielle", "Oona Vale", "Vess"],
+        "tenChampionScoreboard": true,
+        "copperShot": true,
+        "replayCapturedPlayerCast": true,
+        "checkpointReload": true
+      },
+      "offline": {
+        "result": "passed",
+        "checks": {
+          "fullPackReady": true,
+          "networkEmulation": false,
+          "normalCompletedPreviewOffline": true,
+          "exactCompletedStateImportAndExportOffline": true,
+          "resultCheckpointReplayVerifiedOnce": true,
+          "exactCompletedStateReloadAndExportOffline": true,
+          "offlineWorkerControlsPage": true,
+          "originRequestsWhileOffline": 0,
+          "sourceReportSnapshotAndManifestUnchanged": true,
+          "serviceWorkerResponses": 918
+        }
+      }
+    }
+  ],
+  "audiovisual": {
+    "gltfErrors": 0,
+    "gltfWarnings": 0,
+    "gltfClips": 50,
+    "teamfightScreenshotSha256": "d86edc385a27f78bccb8536acc1db32e4234666850eb8552655e5b6166400441",
+    "audioSampleSha256": "7dfca02a38f1398e14a3c082b587e04bb0ef8d9cff28f73f459848cd2279eb88",
+    "audioSampleRate": 16000,
+    "audioPeaks": [
+      {
+        "champion": "brannic",
+        "type": "cast",
+        "peak": 0.028732042759656906
+      },
+      {
+        "champion": "brannic",
+        "type": "original-impact",
+        "peak": 0.014240418560802937
+      },
+      {
+        "champion": "taviq",
+        "type": "cast",
+        "peak": 0.029177986085414886
+      },
+      {
+        "champion": "taviq",
+        "type": "original-impact",
+        "peak": 0.01437874510884285
+      },
+      {
+        "champion": "irielle",
+        "type": "cast",
+        "peak": 0.031086508184671402
+      },
+      {
+        "champion": "irielle",
+        "type": "original-impact",
+        "peak": 0.014782779850065708
+      },
+      {
+        "champion": "vess",
+        "type": "cast",
+        "peak": 0.03023436665534973
+      },
+      {
+        "champion": "vess",
+        "type": "original-impact",
+        "peak": 0.013414156623184681
+      },
+      {
+        "champion": "oona",
+        "type": "cast",
+        "peak": 0.030991490930318832
+      },
+      {
+        "champion": "oona",
+        "type": "original-impact",
+        "peak": 0.014722944237291813
+      }
+    ]
+  },
+  "rea": {
+    "version": "6.10.1",
+    "productionBrowserScenario": {
+      "evidenceId": "ev_b47ccf97db3b63f33ce91e4dc1c9b83e916232cdaf4dd69285493f7dbbaba5e2",
+      "operation": "capture_browser_scenario",
+      "fileSha256": "29f2f9711d7770ea5a508723be7b500542cf984fdeff2bf5b83951ec731509dc",
+      "completedActions": 14,
+      "captureStatus": "complete",
+      "screenshotSha256": "e3da4fd3ea693ece86f3907b6d4c946797de52d1939593deb800e10fecf9f8b3"
+    },
+    "packageExposure": {
+      "evidenceId": "ev_9354592f90f5dfe507405b3b5735365212e0933615c8089d3ad53fbd7b416d17",
+      "operation": "audit_release_exposure",
+      "fileSha256": "72373e9b41bdc7241fa643d22fb86542670ed68dd549ef2171e40ddfefdeee62",
+      "observedFindings": 0
+    },
+    "javascript": {
+      "evidenceId": "ev_96e45c5f9d0ae5dd2be69a6d52097ec7416df7df430f83e8b291b20405c4ba8e",
+      "operation": "analyze_javascript_application",
+      "fileSha256": "72163d453bc0beded4d534c2ad81d68e8a47c9504476cd0b6a5b575a90411d53",
+      "releasePathSha256": "00c4541ef80f287efca962ff9b9533c21d0a4c0af22e11e4983c007e0b58f3c8",
+      "selectedSourceFiles": 3,
+      "coverage": "bounded static analysis"
+    }
+  }
+}

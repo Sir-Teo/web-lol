@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import { assertMatchResources, assertMatchVictory } from './match-contract.ts';
 import { rulesetFingerprint } from '../ruleset-fingerprint.ts';
 import { readCohortSnapshot, snapshotEncoding } from './lib/cohort-snapshot.ts';
+import { ORIGINAL_ROSTER, PUBLIC_ROSTER } from './lib/cohort-profile.ts';
 const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: { historical: { type: 'boolean', default: false }, output: { type: 'string' } },
@@ -64,6 +65,21 @@ const developmentRoster = plan.developmentRoster === undefined ? false : plan.de
 assert.equal(typeof developmentLeona, 'boolean');
 assert.equal(typeof developmentRoster, 'boolean');
 assert(!(developmentLeona && developmentRoster), 'Development profiles are exclusive');
+const originalLineup = plan.originalLineup ?? false;
+assert.equal(typeof originalLineup, 'boolean');
+assert(
+  !originalLineup || (!developmentLeona && !developmentRoster && plan.roster === ORIGINAL_ROSTER)
+);
+const publicRoster =
+  !developmentLeona &&
+  !developmentRoster &&
+  plan.roster === (originalLineup ? ORIGINAL_ROSTER : PUBLIC_ROSTER);
+if (!developmentLeona && !developmentRoster && !historical)
+  assert(publicRoster, 'Current public cohort must attest its ten-champion roster');
+if (publicRoster) {
+  assert.equal(plan.qaAutomatedHumanCarry, true);
+  assert.equal(plan.qaAutomatedHumanRole, 'carry');
+}
 if (developmentLeona) {
   assert.equal(plan.qaAutomatedHumanCarry, false);
   assert.equal(plan.qaAutomatedHumanRole, 'support');
@@ -80,11 +96,17 @@ if (developmentRoster) {
   assert.equal(summary.hundredSeedInvariantGate, false);
 }
 function verifyComposition(state) {
-  if (!developmentRoster) return;
+  if (!developmentRoster && !publicRoster) return;
   const owners = new Map([state.player, ...state.otherChampions].map((p) => [p.id, p]));
   const champions = state.units.filter((u) => u.kind === 'champion');
-  assert.equal(state.player.role, 'mid');
-  assert.equal(champions.find((u) => u.id === state.player.id).champion, 'lux');
+  assert.equal(state.player.role, publicRoster ? 'carry' : 'mid');
+  const hero = champions.find((u) => u.id === state.player.id);
+  assert.equal(hero.champion, originalLineup ? 'vess' : publicRoster ? 'ashe' : 'lux');
+  if (publicRoster) {
+    assert.equal(hero.team, 'blue');
+    assert.equal(hero.ai, true);
+    assert(state.riftObjectives && state.riftBaron, 'Public objective state missing');
+  }
   for (const team of ['blue', 'red']) {
     const members = champions.filter((u) => u.team === team);
     assert.equal(members.length, 5);
@@ -95,14 +117,29 @@ function verifyComposition(state) {
       'support',
       'top',
     ]);
-    for (const [role, identity] of Object.entries({
-      top: 'garen',
-      jungle: 'masteryi',
-      mid: team === 'blue' ? 'lux' : 'ahri',
-      carry: 'ashe',
-      support: 'leona',
-    }))
-      assert.equal(members.find((u) => owners.get(u.id).role === role).champion, identity);
+    const roster =
+      publicRoster && team === 'red'
+        ? {
+            top: 'darius',
+            jungle: 'vi',
+            mid: 'lux',
+            carry: 'ezreal',
+            support: 'morgana',
+          }
+        : originalLineup
+          ? { top: 'brannic', jungle: 'taviq', mid: 'irielle', carry: 'vess', support: 'oona' }
+          : {
+              top: 'garen',
+              jungle: 'masteryi',
+              mid: developmentRoster && team === 'blue' ? 'lux' : 'ahri',
+              carry: 'ashe',
+              support: 'leona',
+            };
+    for (const [role, identity] of Object.entries(roster)) {
+      const member = members.find((u) => owners.get(u.id).role === role);
+      assert.equal(member.champion, identity);
+      if (publicRoster) assert.equal(owners.get(member.id).roleQuest?.role, role);
+    }
   }
 }
 assert(
@@ -134,6 +171,7 @@ for (const seed of plan.seeds) {
   assert.equal(report.seed, seed);
   assert.equal(report.developmentLeona ?? false, developmentLeona);
   assert.equal(report.developmentRoster ?? false, developmentRoster);
+  assert.equal(report.originalLineup ?? false, originalLineup);
   assert.equal(report.automatedHumanCarry, !developmentLeona && !developmentRoster);
   if (report.automatedHumanRole !== undefined)
     assert.equal(
@@ -255,7 +293,7 @@ if (summary.victoryDurationSeconds !== undefined)
 const fullInvariantGate = plan.horizonTicks === 60 * 3600 && plan.seeds.length >= 100;
 assert.equal(
   summary.hundredSeedInvariantGate,
-  !developmentLeona && !developmentRoster && fullInvariantGate
+  !developmentLeona && !developmentRoster && !originalLineup && fullInvariantGate
 );
 assert.equal(
   summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,
@@ -281,6 +319,7 @@ const verification = {
   futureCheckedTicks: futureTicks,
   developmentLeona,
   developmentRoster,
+  ...(publicRoster ? { roster: plan.roster } : {}),
   hundredSeedInvariantGate: summary.hundredSeedInvariantGate,
   hundredSeedDevelopmentLeonaInvariantGate:
     summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,

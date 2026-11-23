@@ -1,3 +1,8 @@
+import {
+  ORIGINAL_CHAMPIONS,
+  ORIGINAL_LINEUP,
+  isOriginalChampion,
+} from '../content/original-lineup';
 import { newTeamPlans } from './bot-team';
 import type { Battlefield } from './battlefield';
 import { World } from './world';
@@ -91,6 +96,10 @@ export function createLaneMatch(
   ): ChampionIdentity => {
     if (battlefield.publicRift === true) {
       const pool = ROLE_CHAMPION_POOLS[role];
+      if (isOriginalChampion(playerChampion)) {
+        if (team === 'red') return pool[1];
+        return ORIGINAL_CHAMPIONS.find((id) => ORIGINAL_LINEUP[id].role === role)!;
+      }
       if (role === playerRole) {
         return team === 'blue'
           ? playerChampion

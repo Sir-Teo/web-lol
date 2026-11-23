@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createRift } from '../src/content/rift';
+import { createRoleQuestState } from '../src/content/role-quests';
 import { NavGrid } from '../src/simulation/navgrid';
 import { createLaneMatch } from '../src/simulation/lane-match';
 import {
@@ -57,6 +58,17 @@ test('audit rejects bounded resources and invalid champion economy', () => {
     mutate(world);
     expect(() => assertMatchResources(world)).toThrow(/Invalid/);
   }
+});
+
+test('audit permits level 20 only for a completed top quest', () => {
+  const world = createLaneMatch({ ...rift, publicRift: true }, 'garen');
+  world.player.level = 20;
+  expect(() => assertMatchResources(world)).toThrow(/Invalid champion economy/);
+  const quest = createRoleQuestState('top');
+  world.player.roleQuest = { ...quest, progress: quest.target, completedTick: 0 };
+  expect(() => assertMatchResources(world)).not.toThrow();
+  world.player.level = 21;
+  expect(() => assertMatchResources(world)).toThrow(/Invalid champion economy/);
 });
 
 test('independent gate catches protected damage even if the gameplay predicate is wrong', () => {

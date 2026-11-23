@@ -4,6 +4,7 @@ import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { eVisualGameplaySamples, type EVisualGameplayCase } from './helpers/ahri-e-visual-gameplay';
 import { eVisualEndTick } from '../src/simulation/ahri-e-visual-history';
 import { AHRI_E_VISUAL_HISTORY_TICKS } from '../src/content/ahri-e-visual-timing';
+import { createChampionRuneState, defaultRuneLoadoutForRole } from '../src/simulation/runes';
 
 function field() {
   return {
@@ -52,6 +53,31 @@ function restore(state: unknown) {
   return World.fromSnapshot(JSON.stringify(state), field());
 }
 
+test('Charm history accepts a rune-shortened control on a non-Garen champion', () => {
+  const w = new World(false, field());
+  const ahri = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'ahri');
+  const target = w.spawn('champion', 'red', { x: 400, y: 0 }, 'lux');
+  ahri.ai = target.ai = false;
+  w.championState(target.id)!.runeState = createChampionRuneState(
+    defaultRuneLoadoutForRole('support')
+  );
+  expect(w.learnSpell('e', ahri.id)).toBeNull();
+  w.enqueue({ type: 'cast', unit: ahri.id, ability: 'e', point: { x: 900, y: 0 } });
+  w.step(35);
+
+  const control = w.ahriEVisuals[0].buff!.control;
+  expect(control.tenacityApplied).toBe(true);
+  expect(control.endTick - control.startTick).toBe(65);
+  for (const steps of [0, 80]) {
+    w.step(steps);
+    const saved = w.snapshot();
+    expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+  }
+  const forged = JSON.parse(w.snapshot());
+  forged.ahriEVisuals[0].buff.control.endTick = control.startTick + 5;
+  expect(() => restore(forged)).toThrow(/Invalid E visual motion history/);
+});
+
 test('posthumous E history retires before the actual caster respawn and cannot return with the new body', () => {
   const w = restore(checkpoint('buff-caster-death', 60));
   const r = w.ahriEVisuals[0],
@@ -78,7 +104,7 @@ test('posthumous E history retires before the actual caster respawn and cannot r
 
 test('strict Charm save admission rejects broken phase, control, pose, audio and identity links', () => {
   const state = checkpoint('hit', 45);
-  expect(state.version).toBe(185);
+  expect(state.version).toBe(187);
   expect(restore(state).snapshot()).toBe(JSON.stringify(state));
   const mutations: ((s: any) => void)[] = [
     (s) => {

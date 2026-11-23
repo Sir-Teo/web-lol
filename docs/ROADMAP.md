@@ -50,6 +50,32 @@ Finish all applicable role quests, objectives, vision variants, items, and selec
 
 **Exit (verified on schema 185 / ruleset `e5e3cc7f…` / pack `e74775d9…`):** all five Season 2026 Role Quests (Top level `20` cap + `210 s` Teleport, Jungle `40`-treat Primal Smite `1,200`, Mid Tier 3 boots + `4 s` Empowered Recall, Carry **7th item slot** + `+2g` CS bonus, Support evolved World Atlas + `2`-Control-Ward capacity), full Epic Objectives (Voidgrubs + Voidmites, Rift Herald + Eye of the Herald summon, 6 Elemental Drakes, Elemental Rift transformation, 6 Dragon Souls, Elder Dragon *Aspect of the Dragon* `20%` execute, and Baron Nashor), Vision Variants (Farsight Alteration, Control Ward, `8` Season 2026 Faelights), a `58`-item catalog with uniqueness/actives/passives and Fountain Undo, editable Runes & Stat Shards, and **ten distinct champions** (`Ashe`, `Lux`, `Garen`, `Master Yi`, `Leona`, `Ahri`, `Darius`, `Vi`, `Ezreal`, `Morgana`) forming a zero-mirror 5v5 pass across unit, 10-champion roster contract, production subpath, offline pack (`1,519` files / `581.69 MB`, `1,518` SW responses), `960 s` 5v5 simulation (`57,600` ticks, `0` violations), and **Chrome (`157`) + Firefox (`155`) + WebKit (`26.6`)** E2E gates (`3/3`). All `158` advertised Patch 26.18 rules and content entries carry explicit coverage statuses (`49` `verified-behavior`, `34` `verified-data`, `75` `approximation`, `0` `unimplemented`) under **Pause → Reference & patch 26.18**, certified with `morluto/rea` (`rea-agents@6.10.1`, `12` Evidence records, bundle SHA-256 `7dbdfc6f…`). See [Milestone 6 report](MILESTONE-6.md) and [verification ledger](reference/milestone6-verification.json).
 
+## Milestone 7 — ten-champion match reliability (Completed)
+
+Verify the public ten-champion 5v5 through natural Nexus victories. Keep saves
+restorable through live control effects and finish the match-file and replay
+flow on the production offline client.
+
+**Exit:** Two matches reached natural victory across 193,524 ticks. All 55
+retained checkpoints restored exactly in Node and Chrome on schema 186, and
+53 continuation checks passed. The final replay segment matched all nine hashes.
+Chrome imported, replayed, reloaded, and re-exported the completed result with
+the network disabled. See the [Milestone 7 report](MILESTONE-7.md).
+
+## Milestone 8 — original roster and audiovisual validation (Completed)
+
+Add five original champions, one per role, for a roster of 15. Finish their
+playable kits, bot tactics, rigs, animation, effects, and sound. Verify the
+original lineup in natural 5v5 matches and exercise saving, replay, and offline
+restoration on the production build.
+
+All five originals are playable in Practice and 5v5. Two natural 5v5
+finishes passed 53 exact restores and 51 matching continuations on schema 187.
+Chrome, Firefox, and WebKit passed production play, replay, and exact offline
+restoration and export. REA captured the production chooser and match and
+analyzed the game, rules, and offline worker bundles. See the
+[Milestone 8 report](MILESTONE-8.md).
+
 ## Test cases that protect fidelity
 
 | Scenario                                           | Required property                                                        |

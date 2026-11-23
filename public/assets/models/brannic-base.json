@@ -1,0 +1,55 @@
+{
+  "provenance": "original-lineup",
+  "output": {
+    "path": "/assets/models/brannic-base.glb",
+    "bytes": 180276,
+    "sha256": "f39c910de5ede9deb19e8c6b39492ed11de559225a41517fbc5f64167d551477"
+  },
+  "triangles": 1552,
+  "clips": [
+    {
+      "name": "idle1",
+      "durationSeconds": 1.8
+    },
+    {
+      "name": "run",
+      "durationSeconds": 0.76
+    },
+    {
+      "name": "attack1",
+      "durationSeconds": 0.66
+    },
+    {
+      "name": "crit",
+      "durationSeconds": 0.75
+    },
+    {
+      "name": "spell1",
+      "durationSeconds": 0.64,
+      "impactSeconds": 0.23333333333333334
+    },
+    {
+      "name": "spell2",
+      "durationSeconds": 0.75,
+      "impactSeconds": 0.15
+    },
+    {
+      "name": "spell3",
+      "durationSeconds": 0.85,
+      "impactSeconds": 0.2
+    },
+    {
+      "name": "spell4",
+      "durationSeconds": 1.1,
+      "impactSeconds": 0.48333333333333334
+    },
+    {
+      "name": "recall",
+      "durationSeconds": 1.6
+    },
+    {
+      "name": "death",
+      "durationSeconds": 1.25
+    }
+  ]
+}

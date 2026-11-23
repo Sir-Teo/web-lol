@@ -7,11 +7,17 @@ time. Every match keeps the normal 60-minute diagnostic horizon; the clock,
 rewards, damage, AI tactics and victory conditions are unchanged. A horizon
 stops the audit and retains an unfinished match. It never awards a winner.
 
-The default roster remains six Ashe/four Lux with five roles on each team. The
-human bottom-lane Ashe is automated only for QA, using existing bot decisions.
-This tests the current interim match foundation; it cannot certify the target
-six-champion roster, balance, natural human play or native audiovisual fidelity.
-The full project's completion standard is unchanged.
+The default profile launches the public ten-champion 5v5 with five roles per
+team, role quests, and epic objectives. The runner automates the human Ashe
+carry with the existing bot decisions. The verifier checks team assignments,
+champion identities, and role quests in every retained checkpoint. Archived
+cohorts retain the roster recorded in their frozen plans.
+
+Use `--original-lineup` to put Brannic, Taviq, Irielle, Vess, and Oona Vale
+on Blue, with Vess in the automated human slot and five distinct opponents.
+The verifier checks the original team composition in each retained checkpoint.
+This profile has its own reports and is mutually exclusive with the private
+development profiles.
 
 The private combined profile is available with `--development-roster`. It uses
 Garen top, Master Yi jungle, Ashe carry and Leona support on both teams, with
@@ -25,6 +31,13 @@ flags are mutually exclusive. See [combined cohort validation](COMBINED-ROSTER-C
 ```sh
 node tools/qa/match-cohort.mjs --output .cache/match-cohort/<unique-name>
 node tools/qa/verify-match-cohort.mjs .cache/match-cohort/<unique-name>
+```
+
+Milestone 8 used the original lineup and gzip transport with the two historical seeds.
+
+```sh
+node tools/qa/match-cohort.mjs --original-lineup --snapshot-compression gzip --jobs 2 --output .cache/milestone8-new 26018 719
+node tools/qa/verify-match-cohort.mjs .cache/milestone8-new
 ```
 
 Use `--jobs 1..8` to limit parallelism. Explicit seed arguments and `--minutes`
@@ -44,8 +57,8 @@ copies allow later results to retain their original meaning.
 
 ## Checks and evidence
 
-- Every tick: finite positions, bounded health/mana, ten unique champions and
-  bounded champion gold/levels.
+- Every tick: finite positions, bounded health/mana, ten distinct unit IDs,
+  bounded gold, and the level cap unlocked by the Top role quest.
 - Every structure damage application: an independent dependency predicate checks
   that protected buildings cannot lose health. It does not call the gameplay
   predicate it is checking. A fault-injection test deliberately breaks that
@@ -74,11 +87,11 @@ prevents a green invariant flag. Unfinished horizons are counted separately and
 are not silently removed from completion statistics. Duration percentiles apply
 only to victories; unfinished matches are censored at the horizon.
 
-`hundredSeedInvariantGate` certifies only execution and invariants for this frozen
-interim roster. `roadmapMilestone4Complete` remains false: the complete roster,
-quests/objectives, role quality, browser/offline full-length matches, performance
-and native comparison requirements remain open. A completed 100-seed run must be
-repeated after relevant match-rule or roster changes.
+`hundredSeedInvariantGate` certifies execution and invariants for the roster
+and horizon recorded in the plan. Results from shorter samples report their
+actual seed population and outcomes. Repeat the 100-seed run after changes to
+match rules or roster composition to renew that gate. Browser recovery, hardware
+performance, and human play require their own observations.
 
 ## First run and corrections
 

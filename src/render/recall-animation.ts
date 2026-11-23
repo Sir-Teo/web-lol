@@ -1,3 +1,4 @@
+import { isOriginalChampion } from '../content/original-lineup';
 import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
 import { LEONA_RECALL_CLIPS } from '../content/leona-presentation';
 import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
@@ -16,7 +17,7 @@ export function recallAnimationPose(
         ? [MASTER_YI_COMBAT_POLICY.recallClip, MASTER_YI_COMBAT_POLICY.recallLoopClip]
         : champion === 'ahri'
           ? [AHRI_COMBAT_POLICY.recallClip]
-          : champion === 'garen'
+          : champion === 'garen' || isOriginalChampion(champion)
             ? ['recall']
             : champion === 'darius' ||
                 champion === 'vi' ||

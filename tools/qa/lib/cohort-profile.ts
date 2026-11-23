@@ -1,12 +1,33 @@
+export const ORIGINAL_ROSTER =
+  'original allied lineup; ten distinct champions; five roles per team' as const;
+
+export const PUBLIC_ROSTER =
+  'ten distinct champions; five roles per team; live epic objectives' as const;
+
 /** QA composition metadata. No match clock, reward, damage or victory overrides. */
 export function cohortProfile(
   developmentLeona: unknown = false,
-  developmentRoster: unknown = false
+  developmentRoster: unknown = false,
+  originalLineup: unknown = false
 ) {
-  if (typeof developmentLeona !== 'boolean' || typeof developmentRoster !== 'boolean')
+  if (
+    typeof developmentLeona !== 'boolean' ||
+    typeof developmentRoster !== 'boolean' ||
+    typeof originalLineup !== 'boolean'
+  )
     throw new TypeError('Development cohort flags must be booleans.');
   if (developmentLeona && developmentRoster)
     throw new Error('Choose either --development-leona or --development-roster.');
+  if (originalLineup && (developmentLeona || developmentRoster))
+    throw new Error('Choose either the original lineup or a development profile.');
+  if (originalLineup)
+    return {
+      playerChampion: 'vess' as const,
+      humanRole: 'carry' as const,
+      humanLane: 'bot',
+      roster: ORIGINAL_ROSTER,
+      permissions: { publicRift: true as const },
+    };
   if (developmentRoster)
     return {
       playerChampion: 'lux' as const,
@@ -35,8 +56,7 @@ export function cohortProfile(
     playerChampion: 'ashe' as const,
     humanRole: 'carry' as const,
     humanLane: 'bot',
-    roster:
-      'two Garen/two Master Yi/two Ahri/two Ashe/two Leona; five roles per team; live Baron Nashor',
+    roster: PUBLIC_ROSTER,
     permissions: { publicRift: true as const },
   };
 }

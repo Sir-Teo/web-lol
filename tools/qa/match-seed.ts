@@ -24,11 +24,16 @@ const { values, positionals } = parseArgs({
     data: { type: 'string', default: 'public/assets/maps' },
     'development-leona': { type: 'boolean', default: false },
     'development-roster': { type: 'boolean', default: false },
+    'original-lineup': { type: 'boolean', default: false },
     'snapshot-compression': { type: 'string', default: 'none' },
   },
   allowPositionals: true,
 });
-const profile = cohortProfile(values['development-leona'], values['development-roster']);
+const profile = cohortProfile(
+  values['development-leona'],
+  values['development-roster'],
+  values['original-lineup']
+);
 const encoding = snapshotEncoding(values['snapshot-compression']);
 const seed = Number(positionals[0]),
   minutes = Number(values.minutes);
@@ -226,6 +231,7 @@ const report = {
   futureCheckedTicks,
   developmentLeona: values['development-leona'],
   developmentRoster: values['development-roster'],
+  ...(values['original-lineup'] ? { originalLineup: true } : {}),
   automatedHumanCarry: profile.humanRole === 'carry',
   automatedHumanRole: profile.humanRole,
   elapsedSeconds: (performance.now() - started) / 1000,

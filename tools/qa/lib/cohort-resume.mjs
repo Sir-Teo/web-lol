@@ -20,10 +20,13 @@ import { spawnSync } from 'node:child_process';
 import { cohortProfile } from './cohort-profile.ts';
 export const ROSTER_CONTROLLER_SHA256 =
   '0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3';
-export const SUPPORTED_CONTROLLER_SHA256 =
+const COMPRESSED_CONTROLLER_SHA256 =
   '5aa33d5f609e176b686268cc9f4954cd38769e710875ec941bc5aac0d0821acc';
+export const SUPPORTED_CONTROLLER_SHA256 =
+  '5157a76bfefd2a57f11d7ae67fe3d534f7b8219fef4908584691190af7413fc4';
 const SUPPORTED_CONTROLLERS = new Set([
   SUPPORTED_CONTROLLER_SHA256,
+  COMPRESSED_CONTROLLER_SHA256,
   ROSTER_CONTROLLER_SHA256,
   '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45',
 ]);
@@ -115,7 +118,14 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
       'Frozen zlib differs.',
       'COHORT_RUNTIME_MISMATCH'
     );
-  const profile = cohortProfile(plan.developmentLeona, plan.developmentRoster);
+  const profile = cohortProfile(plan.developmentLeona, plan.developmentRoster, plan.originalLineup);
+  if (plan.originalLineup)
+    check(
+      plan.roster === profile.roster &&
+        plan.qaAutomatedHumanCarry === true &&
+        plan.qaAutomatedHumanRole === 'carry',
+      'Invalid original lineup metadata.'
+    );
   if (plan.developmentRoster) {
     check(
       plan.qaAutomatedHumanCarry === false && plan.qaAutomatedHumanRole === 'mid',
@@ -187,8 +197,14 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
     'COHORT_UNSUPPORTED_CONTROLLER'
   );
   check(
-    encoding === 'none' || controllerRow.sha256 === SUPPORTED_CONTROLLER_SHA256,
+    encoding === 'none' ||
+      [COMPRESSED_CONTROLLER_SHA256, SUPPORTED_CONTROLLER_SHA256].includes(controllerRow.sha256),
     'Frozen controller does not support compressed snapshots.',
+    'COHORT_UNSUPPORTED_CONTROLLER'
+  );
+  check(
+    !plan.originalLineup || controllerRow.sha256 === SUPPORTED_CONTROLLER_SHA256,
+    'Frozen controller does not support the original lineup.',
     'COHORT_UNSUPPORTED_CONTROLLER'
   );
   const statusBytes = readFileSync(root + '/status.json'),
@@ -237,10 +253,11 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
       `Accepted report snapshot encoding differs: ${row.seed}`,
       'COHORT_REPORT_MISMATCH'
     );
-    cohortProfile(report.developmentLeona, report.developmentRoster);
+    cohortProfile(report.developmentLeona, report.developmentRoster, report.originalLineup);
     check(
       (report.developmentLeona ?? false) === (plan.developmentLeona ?? false) &&
-        (report.developmentRoster ?? false) === (plan.developmentRoster ?? false),
+        (report.developmentRoster ?? false) === (plan.developmentRoster ?? false) &&
+        (report.originalLineup ?? false) === (plan.originalLineup ?? false),
       `Accepted report composition differs: ${row.seed}`,
       'COHORT_REPORT_MISMATCH'
     );
@@ -405,7 +422,7 @@ const seeds=[...plan.seeds.filter(seed=>accepted.has(seed)),...plan.seeds.filter
 const encoding=plan.snapshotEncoding??'none';assert(['none','gzip'].includes(encoding));
 if(encoding==='gzip')assert.equal(process.versions.zlib,plan.runtime.zlib);
 const ruleset=plan.ruleset,runner=plan.runner.file,jobs=plan.jobs,minutes=plan.horizonTicks/3600;
-const values={'development-leona':plan.developmentLeona??false,'development-roster':plan.developmentRoster??false,'keep-going':false},active=new Map();
+const values={'development-leona':plan.developmentLeona??false,'development-roster':plan.developmentRoster??false,'original-lineup':plan.originalLineup??false,'keep-going':false},active=new Map();
 let next=results.length,halted=false,interrupted=false;
 const started=Date.now()-(baseline.elapsedSeconds??0)*1000;
 const recoveryLaunch={pid:process.pid,cmdlineSha256:createHash('sha256').update(readFileSync('/proc/self/cmdline')).digest('hex'),root,recovery:${literal(recovery)},completedRetained:results.length,pending:seeds.slice(next),dispatchOrder:seeds,claimsUninterruptedExecution:false};

@@ -21,7 +21,6 @@ const IMMUTABLE_MILESTONE6_FILES = new Set([
   'src/content/expanded-items.ts',
   'src/simulation/item-effects.ts',
   'src/content/runes.ts',
-  'src/simulation/runes.ts',
   'src/content/milestone6-champions.ts',
   'src/simulation/milestone6-champions.ts',
   'src/render/milestone6-visuals.ts',

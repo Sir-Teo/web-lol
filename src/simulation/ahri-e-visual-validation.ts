@@ -13,18 +13,21 @@ const sameControl = (a: NonNullable<Unit['charm']>, b: NonNullable<Unit['charm']
   a.startTick === b.startTick &&
   a.endTick === b.endTick &&
   a.tenacityApplied === b.tenacityApplied;
-type Owner = Pick<ChampionState, 'id' | 'spellRanks' | 'pendingCast'>;
-export function validateEVisuals(state: {
-  tick: number;
-  nextId: number;
-  winner: Team | null;
-  units: Unit[];
-  player: Owner;
-  otherChampions: Owner[];
-  projectiles: Projectile[];
-  ahriCharmAudio?: AhriCharmAudioRecord[];
-  ahriEVisuals?: AhriEVisualHistory[];
-}) {
+type Owner = Pick<ChampionState, 'id' | 'spellRanks' | 'pendingCast' | 'inventory' | 'runeState'>;
+export function validateEVisuals(
+  state: {
+    tick: number;
+    nextId: number;
+    winner: Team | null;
+    units: Unit[];
+    player: Owner;
+    otherChampions: Owner[];
+    projectiles: Projectile[];
+    ahriCharmAudio?: AhriCharmAudioRecord[];
+    ahriEVisuals?: AhriEVisualHistory[];
+  },
+  publicRift: boolean
+) {
   const check = (ok: boolean): void => {
     if (!ok) throw Error('Saved match contains invalid Ahri E visual history.');
   };
@@ -50,7 +53,14 @@ export function validateEVisuals(state: {
     );
     keys.add(key);
     previousTick = r.castTick;
-    const cursor = validateEVisualMotion(r, state.tick);
+    const target = r.hit && state.units.find((u) => u.id === r.hit!.targetId);
+    const targetOwner = target?.kind === 'champion' ? owners.find((o) => o.id === target.id) : null;
+    const variableTenacity =
+      !!targetOwner &&
+      (publicRift ||
+        !!targetOwner.runeState ||
+        targetOwner.inventory.some((item) => item === 'mercs' || item === 'steraks'));
+    const cursor = validateEVisualMotion(r, state.tick, variableTenacity);
     const end = eVisualEndTick(r);
     check(
       state.tick < end + AHRI_E_VISUAL_HISTORY_TICKS && (!state.winner || Number.isFinite(end))
@@ -112,7 +122,6 @@ export function validateEVisuals(state: {
           r.hit.audience.join() === r.stop!.audience.join() &&
           r.hit.targetAudience.join() === r.targetFrames[0].audience.join()
       );
-      const target = state.units.find((u) => u.id === r.hit!.targetId);
       check(!!target || !!r.targetEnd);
       if (r.targetEnd?.reason === 'removed') check(!target);
       if (target) {
@@ -133,7 +142,8 @@ export function validateEVisuals(state: {
       }
       if (r.buff) {
         check(r.buff.audience.join() === r.targetFrames[0].audience.join());
-        if (r.buff.control.tenacityApplied) check(target?.champion === 'garen');
+        if (r.buff.control.tenacityApplied && !variableTenacity)
+          check(target?.champion === 'garen');
         if (!r.buff.stop) {
           check(
             !state.winner &&

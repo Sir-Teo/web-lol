@@ -12,6 +12,11 @@ import { isStructureKind, type Unit } from '../simulation/types';
 import { configureAnimationCulling, prepareAnimationBounds } from './animation-bounds';
 import { removeConstantBoneTracks } from './constant-bone-tracks';
 import { monsterClipAliases } from './monster-clip-aliases';
+import {
+  isOriginalChampion,
+  ORIGINAL_CLIPS,
+  type OriginalChampion,
+} from '../content/original-lineup';
 
 export interface UnitModel {
   root: THREE.Group;
@@ -71,91 +76,91 @@ async function loadSingleReferenceModel(loader: GLTFLoader, name: string): Promi
         }
       });
     }
-    for (const required of name === 'sightward-base' ||
-    name === 'farsightward-base' ||
-    name === 'controlward-base'
-      ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
-      : /-(turret|nexus|inhibitor)$/.test(name)
-        ? ['idle1']
-        : name === 'ashe-base'
-          ? [
-              'idle1',
-              'run',
-              'attack1',
-              'crit',
-              'death',
-              'idle5',
-              'idle2',
-              'spell1',
-              'spell2',
-              'spell3',
-              'spell4',
-            ]
-          : name === 'lux-base'
+    for (const required of isOriginalChampion(name.replace(/-base$/, ''))
+      ? Object.keys(ORIGINAL_CLIPS)
+      : name === 'sightward-base' || name === 'farsightward-base' || name === 'controlward-base'
+        ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
+        : /-(turret|nexus|inhibitor)$/.test(name)
+          ? ['idle1']
+          : name === 'ashe-base'
             ? [
                 'idle1',
                 'run',
                 'attack1',
                 'crit',
-                'attack2',
                 'death',
+                'idle5',
+                'idle2',
                 'spell1',
                 'spell2',
                 'spell3',
                 'spell4',
-                'idle3',
-                'entry_b4dcde19',
               ]
-            : name === 'masteryi-base'
+            : name === 'lux-base'
               ? [
-                  ...Object.values(MASTER_YI_COMBAT_POLICY).filter(
-                    (value) => typeof value === 'string'
-                  ),
+                  'idle1',
+                  'run',
+                  'attack1',
+                  'crit',
+                  'attack2',
                   'death',
+                  'spell1',
+                  'spell2',
+                  'spell3',
+                  'spell4',
+                  'idle3',
+                  'entry_b4dcde19',
                 ]
-              : name === 'ahri-base'
+              : name === 'masteryi-base'
                 ? [
-                    AHRI_COMBAT_POLICY.idleClip,
-                    AHRI_COMBAT_POLICY.runClip,
-                    AHRI_COMBAT_POLICY.attackClip,
-                    AHRI_COMBAT_POLICY.criticalClip,
-                    AHRI_COMBAT_POLICY.recallClip,
+                    ...Object.values(MASTER_YI_COMBAT_POLICY).filter(
+                      (value) => typeof value === 'string'
+                    ),
                     'death',
                   ]
-                : name === 'leona-base'
-                  ? LEONA_REQUIRED_CLIPS
-                  : name === 'garen-base'
-                    ? [
-                        'idle1_base',
-                        'run_base',
-                        'attack1',
-                        'attack2',
-                        'crit',
-                        'spell1',
-                        'spell4_base',
-                        'spell3_0',
-                        'death',
-                        'recall',
-                      ]
-                    : name === 'darius-base' ||
-                        name === 'vi-base' ||
-                        name === 'ezreal-base' ||
-                        name === 'morgana-base'
+                : name === 'ahri-base'
+                  ? [
+                      AHRI_COMBAT_POLICY.idleClip,
+                      AHRI_COMBAT_POLICY.runClip,
+                      AHRI_COMBAT_POLICY.attackClip,
+                      AHRI_COMBAT_POLICY.criticalClip,
+                      AHRI_COMBAT_POLICY.recallClip,
+                      'death',
+                    ]
+                  : name === 'leona-base'
+                    ? LEONA_REQUIRED_CLIPS
+                    : name === 'garen-base'
                       ? [
-                          'idle1',
-                          'run',
+                          'idle1_base',
+                          'run_base',
                           'attack1',
+                          'attack2',
                           'crit',
-                          'death',
                           'spell1',
-                          'spell2',
-                          'spell3',
-                          'spell4',
-                          'channel',
+                          'spell4_base',
+                          'spell3_0',
+                          'death',
+                          'recall',
                         ]
-                      : name === 'sru-crab-base'
-                        ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
-                        : ['idle1', 'run', 'attack1', 'death'])
+                      : name === 'darius-base' ||
+                          name === 'vi-base' ||
+                          name === 'ezreal-base' ||
+                          name === 'morgana-base'
+                        ? [
+                            'idle1',
+                            'run',
+                            'attack1',
+                            'crit',
+                            'death',
+                            'spell1',
+                            'spell2',
+                            'spell3',
+                            'spell4',
+                            'channel',
+                          ]
+                        : name === 'sru-crab-base'
+                          ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
+                          : ['idle1', 'run', 'attack1', 'death'])
       if (!gltf.animations.some((clip) => clip.name === required))
         throw new Error(`${name} lacks required ${required} animation`);
     prepareAnimationBounds(
@@ -188,7 +193,7 @@ export async function loadReferenceModels(
   includeMasterYi = false,
   includeGaren = true,
   includeLux = true,
-  extraChampions: readonly ('darius' | 'vi' | 'ezreal' | 'morgana')[] = [],
+  extraChampions: readonly ('darius' | 'vi' | 'ezreal' | 'morgana' | OriginalChampion)[] = [],
   includeVisionVariants = false
 ): Promise<void> {
   const loader = new GLTFLoader();

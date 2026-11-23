@@ -73,6 +73,19 @@ for (const name of (await readdir('public/assets/models'))
       throw new Error(`${name}: Auxiliary asset differs: ${asset.path}`);
   }
   const report = await validator.validateBytes(bytes, { maxIssues: 1000 });
+  if (manifest.provenance === 'original-lineup') {
+    const rig = JSON.parse(bytes.subarray(20, 20 + bytes.readUInt32LE(12)));
+    const positions = rig.meshes.flatMap((mesh) =>
+      mesh.primitives.map(({ attributes }) => rig.accessors[attributes.POSITION])
+    );
+    const floor = Math.min(...positions.map(({ min }) => min[1]));
+    const crown = Math.max(...positions.map(({ max }) => max[1]));
+    // Catch a drawing-unit export that can cover the entire playfield while still being valid glTF.
+    if (Math.abs(floor) > 0.05 || crown < 1.7 || crown > 2.5)
+      throw new Error(
+        `${name}: champion model must stand near the world floor and fit the camera scale`
+      );
+  }
   console.log(
     `${path}: ${report.issues.numErrors} errors, ${report.issues.numWarnings} warnings; ${manifest.clips?.length ?? 0} animations, ${manifest.triangles ?? report.info?.totalTriangleCount} triangles`
   );

@@ -9,10 +9,13 @@ import { smiteTarget } from '../simulation/smite';
 import { alphaTarget } from '../simulation/masteryi-alpha-strike';
 import { MASTER_YI_Q } from '../content/masteryi-q';
 import { DARIUS_KIT, VI_KIT } from '../content/milestone6-champions';
+import { isOriginalChampion, ORIGINAL_LINEUP } from '../content/original-lineup';
 
 /** Input policy follows the current caster, including Lux's point-free E recast. */
 export function instantSpell(world: World, ability: Ability): boolean {
   if (isSummonerSlot(ability)) return world.summonerSpell(ability) === 'heal';
+  if (isOriginalChampion(world.hero.champion))
+    return ORIGINAL_LINEUP[world.hero.champion].spells[ability].shape === 'self';
   if (world.hero.champion === 'garen') return ability === 'q' || ability === 'w' || ability === 'e';
   if (world.hero.champion === 'ahri') return ability === 'w';
   if (world.hero.champion === 'masteryi') return ability !== 'q';

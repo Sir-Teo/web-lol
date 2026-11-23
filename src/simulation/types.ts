@@ -1,3 +1,4 @@
+import type { OriginalChampion } from '../content/original-lineup';
 import type { GarenAttackKind } from '../content/garen-attack-animation';
 import type { AttackSoundMaterial } from '../content/attack-sound-material';
 import type { ImpactRig } from '../content/impact-target';
@@ -9,7 +10,17 @@ import type { RiftCampId } from '../content/rift-camps';
 import type { MonsterSpecies, MonsterSpawnClip } from '../content/monsters';
 export type Team = 'blue' | 'red';
 export type ChampionIdentity =
-  'ashe' | 'lux' | 'garen' | 'leona' | 'ahri' | 'masteryi' | 'darius' | 'vi' | 'ezreal' | 'morgana';
+  | 'ashe'
+  | 'lux'
+  | 'garen'
+  | 'leona'
+  | 'ahri'
+  | 'masteryi'
+  | 'darius'
+  | 'vi'
+  | 'ezreal'
+  | 'morgana'
+  | OriginalChampion;
 export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
 export const isLaneMinionKind = (kind: UnitKind): kind is LaneMinionKind =>
@@ -218,7 +229,8 @@ export interface UnitBase extends Vec2 {
       | 'cinders'
       | 'smite'
       | 'scorchclaw'
-      | 'solar-flare';
+      | 'solar-flare'
+      | 'original';
     startTick: number;
     endTick: number;
     startMultiplier: number;
@@ -465,6 +477,7 @@ export interface SimEvent extends Vec2 {
     | 'gold'
     | 'attack'
     | 'cast'
+    | 'original-impact'
     | 'death'
     | 'move'
     | 'level'
@@ -709,6 +722,7 @@ export interface ChampionState {
   roleQuest?: import('../content/role-quests').RoleQuestState;
   runeState?: import('./runes').ChampionRuneState;
   itemState?: import('./item-effects').ChampionItemRuntimeState;
+  original?: import('./original-champions').OriginalChampionState;
   darius?: import('./milestone6-champions').DariusState;
   vi?: import('./milestone6-champions').ViState;
   ezreal?: import('./milestone6-champions').EzrealState;

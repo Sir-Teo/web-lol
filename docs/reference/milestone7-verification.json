@@ -1,0 +1,103 @@
+{
+  "milestone": 7,
+  "snapshotVersion": 186,
+  "ruleset": "3627a2c16eda1293133601d28228f0cf913af54fd1f2a72aee0349e78ea39e56",
+  "pack": {
+    "id": "2428920e85ab78a53a7801d1c8d0068bb3d1869c664cdd4be97d9c4519b4f0d9",
+    "files": 1519,
+    "bytes": 581692626,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "matches": [
+    {
+      "seed": 26018,
+      "sourceRuleset": "3a879c08b22b9f7f01e4ceb7c327568e570626165e42e07ee751dd4d4e8f27fe",
+      "planSha256": "7c381df609d92bbd209ed62f1aeb711dc4b60d0dfbca4860122f7289137d4b6e",
+      "winner": "red",
+      "finalTick": 95722,
+      "checkedTicks": 95722,
+      "originalRoundTrips": 27,
+      "originalFutureChecks": 26,
+      "originalFutureCheckedTicks": 1560,
+      "nodeRoundTrips": 27,
+      "browserRoundTrips": 27,
+      "browserFailures": [],
+      "changedSources": ["src/simulation/ahri-q-projectile-visual-validation.ts"],
+      "terminalSha256": "487bf183c885d0d980fea59763ae44e39ac7b6075fb5cb44a391f2af0face2d6",
+      "cohortReceipt": {
+        "file": "artifacts/milestone7-cohort-26018.json",
+        "sha256": "611ce0605cad074514ec15e85e8ec6a6981059658592644ca91e5b733941614a"
+      },
+      "restoreReceipt": {
+        "file": "artifacts/milestone7-checkpoint-revalidation-26018.json",
+        "sha256": "405adb0738fba51640738e1ac29f349d8bc1a50e30ac0a6188989575c04b4f86"
+      }
+    },
+    {
+      "seed": 719,
+      "sourceRuleset": "3a879c08b22b9f7f01e4ceb7c327568e570626165e42e07ee751dd4d4e8f27fe",
+      "planSha256": "964be999d5ad51ddf81b507281294be37403084d6668c866975f360a9d7a1cc4",
+      "winner": "red",
+      "finalTick": 97802,
+      "checkedTicks": 97802,
+      "originalRoundTrips": 28,
+      "originalFutureChecks": 27,
+      "originalFutureCheckedTicks": 1620,
+      "nodeRoundTrips": 28,
+      "browserRoundTrips": 28,
+      "browserFailures": [],
+      "changedSources": ["src/simulation/ahri-q-projectile-visual-validation.ts"],
+      "terminalSha256": "4b031ff3995d55d5e48860a54daaec31c1cf9a61de68b1598ab7341a2976b539",
+      "cohortReceipt": {
+        "file": "artifacts/milestone7-cohort-719.json",
+        "sha256": "4d189ae41064405e238fb023c45cd054d213eaad3022ee898f486c1444615242"
+      },
+      "restoreReceipt": {
+        "file": "artifacts/milestone7-checkpoint-revalidation-719.json",
+        "sha256": "4bbb8e125010588af00266301650dc3d7a6a34a639f140746a9995600c946727"
+      }
+    }
+  ],
+  "replay": {
+    "seed": 26018,
+    "ruleset": "3627a2c16eda1293133601d28228f0cf913af54fd1f2a72aee0349e78ea39e56",
+    "startTick": 93600,
+    "endTick": 95722,
+    "winner": "red",
+    "hashes": 9,
+    "terminalSha256": "487bf183c885d0d980fea59763ae44e39ac7b6075fb5cb44a391f2af0face2d6",
+    "replaySha256": "c044c191ed704c3d436283c74bfe2f6ecbefaedf21ae526027f433a9d01e72c6",
+    "receipt": {
+      "file": "artifacts/milestone7-release-replay/verification.json",
+      "sha256": "ddf491c68976ad62896cdf0031094b380757a642e3c7412c082eaabe7e9049a9"
+    }
+  },
+  "offline": {
+    "fullPackReady": true,
+    "normalCompletedPreviewOffline": true,
+    "exactCompletedStateImportAndExportOffline": true,
+    "resultCheckpointReplayVerifiedOnce": true,
+    "exactCompletedStateReloadAndExportOffline": true,
+    "sourceReportSnapshotAndManifestUnchanged": true,
+    "serviceWorkerResponses": 2297,
+    "browser": "Chrome/157.0.8103.38",
+    "receipt": {
+      "file": "artifacts/milestone7-offline-final/reading.json",
+      "sha256": "1cef239e81af5c301a728d648494f83775ba24a32eb4ec38744eedd1a5e2580d"
+    },
+    "screenshot": {
+      "file": "artifacts/milestone7-offline-final/result-offline.png",
+      "sha256": "4eb075d0821098cf90d5937aec3c0103d2bfd8d74a2f38311a49733da28bf9b3"
+    },
+    "failedRequests": 0,
+    "pageErrors": 0,
+    "outsidePrefixRequests": 0
+  },
+  "tests": {
+    "focusedPassed": 108,
+    "nodeQaPassed": 338,
+    "chromePlaytestPassed": true,
+    "productionBuildPassed": true,
+    "assetValidationPassed": true
+  }
+}

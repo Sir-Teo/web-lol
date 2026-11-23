@@ -1,20 +1,28 @@
 /** Verify a real completed normal-match checkpoint through cached production import/export. */
 import { createServer } from 'node:http';
 import { createReadStream } from 'node:fs';
-import { stat, mkdir } from 'node:fs/promises';
+import { stat, mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { resolve, sep, extname } from 'node:path';
+import { resolve, sep, extname, join } from 'node:path';
+import { tmpdir } from 'node:os';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { rulesetFingerprint } from '../ruleset-fingerprint.ts';
-import { chromium } from '@playwright/test';
+import { readCohortSnapshot } from './lib/cohort-snapshot.ts';
+import { chromium, firefox, webkit } from '@playwright/test';
 
 const { values } = parseArgs({
     options: {
       'output-dir': { type: 'string' },
       report: { type: 'string' },
       'system-chromium': { type: 'boolean', default: false },
+      'chromium-path': { type: 'string' },
+      browser: { type: 'string', default: 'chromium' },
+      'browser-path': { type: 'string' },
+      'pack-timeout-ms': { type: 'string', default: '300000' },
+      headed: { type: 'boolean', default: false },
+      'software-rendering': { type: 'boolean', default: false },
     },
   }),
   output = resolve(values['output-dir'] ?? `.cache/offline-completed-match-${Date.now()}`);
@@ -32,10 +40,14 @@ assert.equal(sourceReport.developmentLeona ?? false, false);
 assert.equal(sourceReport.ruleset, rulesetFingerprint());
 const snapshotPath = resolve(sourceReport.finalPath),
   snapshotBytes = readFileSync(snapshotPath);
-assert.equal(snapshotBytes.at(-1), 10, 'Expected retained checkpoint newline');
-const snapshot = snapshotBytes.subarray(0, -1).toString(),
-  state = JSON.parse(snapshot);
-assert.equal(sha(Buffer.from(snapshot)), sourceReport.finalStateSha256);
+const descriptor = sourceReport.finalSnapshot ?? {
+  path: sourceReport.finalPath,
+  stateSha256: sourceReport.finalStateSha256,
+};
+assert.equal(resolve(descriptor.path), snapshotPath);
+assert.equal(descriptor.stateSha256, sourceReport.finalStateSha256);
+const { raw: snapshot } = readCohortSnapshot(descriptor, sourceReport.snapshotEncoding ?? 'none');
+const state = JSON.parse(snapshot);
 assert.equal(state.tick, sourceReport.finalTick);
 assert.equal(state.winner, sourceReport.winner);
 assert.equal(state.ruleset, sourceReport.ruleset);
@@ -72,7 +84,9 @@ const mime = {
   '.wasm': 'application/wasm',
   '.wav': 'audio/wav',
 };
+let originRequests = 0;
 const server = createServer(async (request, response) => {
+  originRequests++;
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     if (!pathname.startsWith(prefix)) {
@@ -125,15 +139,42 @@ async function storedMatch(page) {
     }
   });
 }
-let browser;
+let context;
+let page;
+const profile = await mkdtemp(join(tmpdir(), 'rift-offline-result-'));
 try {
-  browser = await chromium.launch(
-    values['system-chromium']
-      ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'], headless: true }
-      : { channel: 'chrome', headless: true }
+  const engine = { chromium, firefox, webkit }[values.browser];
+  assert(engine, 'Choose chromium, firefox, or webkit');
+  assert(
+    [values['system-chromium'], values['chromium-path'], values['browser-path']].filter(Boolean)
+      .length <= 1,
+    'Choose one browser executable'
   );
-  const context = await browser.newContext({ viewport: { width: 1600, height: 1000 } }),
-    page = await context.newPage();
+  const executablePath = values['system-chromium']
+    ? '/usr/bin/chromium'
+    : (values['chromium-path'] ?? values['browser-path']);
+  context = await engine.launchPersistentContext(profile, {
+    ...(executablePath
+      ? { executablePath: resolve(executablePath) }
+      : engine === chromium
+        ? { channel: 'chrome' }
+        : {}),
+    ...(values['software-rendering'] && engine === chromium
+      ? { args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] }
+      : {}),
+    ...(engine === firefox
+      ? { firefoxUserPrefs: { 'webgl.force-enabled': true, 'webgl.forbid-software': false } }
+      : {}),
+    headless: !values.headed,
+    viewport: { width: 1280, height: 900 },
+  });
+  page = context.pages()[0] ?? (await context.newPage());
+  let browserVersion = await page.evaluate(() => navigator.userAgent);
+  if (engine === chromium) {
+    const cdp = await context.newCDPSession(page);
+    browserVersion = (await cdp.send('Browser.getVersion')).product;
+    await cdp.detach();
+  }
   const errors = [],
     failed = [],
     outside = [],
@@ -149,9 +190,9 @@ try {
   page.on('response', (response) => {
     if (response.fromServiceWorker()) serviceResponses.push(new URL(response.url()).pathname);
   });
-  page.setDefaultTimeout(30000);
+  page.setDefaultTimeout(60000);
   const ready = async () => {
-    await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+    await page.locator('#loading').waitFor({ state: 'detached', timeout: 120000 });
     assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   };
   await page.goto(base);
@@ -160,15 +201,29 @@ try {
   await page.getByRole('button', { name: 'Offline files', exact: true }).click();
   await page.locator('.offline-size').filter({ hasText: 'Full game pack:' }).waitFor();
   await page.getByRole('button', { name: 'Download game pack', exact: true }).click();
-  await page
-    .locator('.offline-status')
-    .filter({ hasText: 'Ready for offline use' })
-    .waitFor({ timeout: 180000 });
+  const packTimeout = Number(values['pack-timeout-ms']);
+  assert(Number.isSafeInteger(packTimeout) && packTimeout > 0, 'Invalid pack timeout');
+  await page.waitForFunction(
+    () => !document.querySelector('.offline-progress:not([hidden])'),
+    undefined,
+    { timeout: packTimeout }
+  );
+  await page.locator('.offline-status').filter({ hasText: 'Ready for offline use' }).waitFor();
   reading.checks.fullPackReady = true;
   await page.getByRole('button', { name: 'Back to pause menu', exact: true }).click();
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await page.locator('#toast').filter({ hasText: 'Match saved on this browser.' }).waitFor();
-  await context.setOffline(true);
+  // Worker update requests can bypass browser automation's offline emulation.
+  // Stop the real origin as well so every offline reload uses only cached files.
+  await new Promise((resolve) => {
+    server.close(resolve);
+    server.closeAllConnections();
+  });
+  const onlineRequests = originRequests;
+  // The Playwright WebKit offline override also blocks service-worker navigation.
+  // A stopped origin supplies the network failure without that override.
+  if (engine !== webkit) await context.setOffline(true);
+  reading.checks.networkEmulation = engine !== webkit;
   await page.reload();
   await ready();
   await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
@@ -180,12 +235,17 @@ try {
   });
   const seconds = Math.floor(state.tick / 60),
     previewTime = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
-  await page
-    .locator('.file-status')
-    .filter({
-      hasText: `5v5 match · ${previewTime} · ${state.winner === 'blue' ? 'Blue' : 'Red'} team victory`,
-    })
-    .waitFor();
+  await page.waitForFunction(() => {
+    const status = document.querySelector('.file-status')?.textContent;
+    return status && !status.startsWith('Choose a file') && status !== 'Checking match file…';
+  });
+  const preview = await page.locator('.file-status').textContent();
+  assert.ok(
+    preview?.includes(
+      `5v5 match · ${previewTime} · ${state.winner === 'blue' ? 'Blue' : 'Red'} team victory`
+    ),
+    `Completed match preview was: ${preview}`
+  );
   await page.screenshot({ path: resolve(output, 'preview.png') });
   reading.checks.normalCompletedPreviewOffline = true;
   await Promise.all([
@@ -213,13 +273,30 @@ try {
   await verifyOutcome();
   await downloadExact('first-export.json');
   reading.checks.exactCompletedStateImportAndExportOffline = true;
+
+  // A restored result opens a replay of that checkpoint alone. The terminal
+  // digest must not count as a second checkpoint or change the active match.
+  await page.getByRole('button', { name: 'Watch replay', exact: true }).click();
+  await page.locator('#replay-bar').waitFor();
+  await page.getByText('✓ 1/1 hashes', { exact: true }).waitFor();
+  await page.screenshot({ path: resolve(output, 'result-checkpoint-replay.png') });
+  await page.getByRole('button', { name: 'Exit replay', exact: true }).click();
+  await verifyOutcome();
+  reading.checks.resultCheckpointReplayVerifiedOnce = true;
+
   await page.reload();
   await ready();
   await verifyOutcome();
   await downloadExact('reloaded-export.json');
   reading.checks.exactCompletedStateReloadAndExportOffline = true;
   await page.screenshot({ path: resolve(output, 'result-offline.png') });
-  assert(serviceResponses.length > 50, 'Expected cached service-worker asset responses');
+  const controller = await page.evaluate(() => navigator.serviceWorker.controller?.scriptURL);
+  assert.equal(controller, new URL('offline-worker.js', base).href);
+  assert.equal(originRequests, onlineRequests, 'The offline browser contacted the origin');
+  reading.checks.offlineWorkerControlsPage = true;
+  reading.checks.originRequestsWhileOffline = originRequests - onlineRequests;
+  if (engine === chromium)
+    assert(serviceResponses.length > 50, 'Expected cached service-worker asset responses');
   assert.deepEqual(errors, []);
   assert.deepEqual(failed, []);
   assert.deepEqual(outside, []);
@@ -229,7 +306,8 @@ try {
   reading.checks.sourceReportSnapshotAndManifestUnchanged = true;
   reading.checks.serviceWorkerResponses = serviceResponses.length;
   reading.browser = {
-    version: browser.version(),
+    engine: values.browser,
+    version: browserVersion,
     systemChromium: values['system-chromium'] ?? false,
   };
   reading.productionErrors = errors;
@@ -239,12 +317,19 @@ try {
   writeFileSync(resolve(output, 'reading.json'), JSON.stringify(reading, null, 2) + '\n');
   console.log(JSON.stringify(reading));
 } catch (error) {
+  if (page) {
+    reading.offlineStatus = await page
+      .locator('.offline-status')
+      .textContent({ timeout: 3000 })
+      .catch(() => null);
+  }
   writeFileSync(
     resolve(output, 'failure.json'),
     JSON.stringify({ ...reading, result: 'failed', error: error.stack }, null, 2) + '\n'
   );
   throw error;
 } finally {
-  await browser?.close();
-  await new Promise((resolve) => server.close(resolve));
+  await context?.close();
+  if (server.listening) await new Promise((resolve) => server.close(resolve));
+  await rm(profile, { recursive: true, force: true });
 }

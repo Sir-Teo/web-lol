@@ -1,3 +1,9 @@
+import {
+  isOriginalChampion,
+  ORIGINAL_LINEUP,
+  ORIGINAL_SLOTS,
+  type OriginalSlot,
+} from '../content/original-lineup';
 import { LazyAhriLifecycleAudio } from './ahri-lifecycle-lazy';
 import { LazyAhriRecallAudio } from './ahri-recall-lazy';
 import { LazyAhriAttackAudio } from './ahri-attack-lazy';
@@ -1408,7 +1414,27 @@ export class GameAudio {
               this.garenR.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'garen' && event.unit !== undefined)
               this.garenW.suppressCast(event.unit, event.tick);
-            if (event.champion === 'darius') {
+            if (
+              isOriginalChampion(event.champion) &&
+              ORIGINAL_SLOTS.includes(event.text as OriginalSlot)
+            ) {
+              const sound = ORIGINAL_LINEUP[event.champion].sound;
+              const slot = ORIGINAL_SLOTS.indexOf(event.text as OriginalSlot);
+              this.tone(
+                sound.frequency * (1 + slot * 0.18),
+                sound.frequency * (slot === 3 ? 2.8 : 1.45),
+                slot === 3 ? 0.34 : 0.17,
+                0.022,
+                sound.wave
+              );
+              this.tone(
+                sound.frequency * 1.5,
+                sound.frequency * 0.82,
+                slot === 3 ? 0.29 : 0.12,
+                0.011,
+                'sine'
+              );
+            } else if (event.champion === 'darius') {
               this.tone(
                 event.text === 'r' ? 110 : 210,
                 event.text === 'r' ? 55 : 140,
@@ -1455,6 +1481,16 @@ export class GameAudio {
             event.text.includes('Stasis'))
         ) {
           this.tone(440, 880, 0.3, 0.024, 'triangle');
+        }
+        if (event.type === 'original-impact' && isOriginalChampion(event.champion)) {
+          const sound = ORIGINAL_LINEUP[event.champion].sound;
+          this.tone(
+            sound.frequency * 1.22,
+            sound.frequency * 0.48,
+            event.text === 'r' ? 0.22 : 0.11,
+            0.015,
+            sound.wave
+          );
         }
         if (event.type === 'scout-arrival' && this.arrivalBuffer)
           this.sample(this.arrivalBuffer, event, tick, HAWKSHOT_ARRIVAL_AUDIO);
