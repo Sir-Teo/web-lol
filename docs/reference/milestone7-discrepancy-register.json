@@ -1,0 +1,191 @@
+{
+  "schema": "milestone7-discrepancy-register-v1",
+  "patch": "26.18",
+  "milestone": 7,
+  "items": [
+    {
+      "id": "M7-D001",
+      "severity": "P0",
+      "evidenceClass": "match-reliability",
+      "title": "100-seed 60-minute public-roster cohort gate requires multi-core runner",
+      "status": "open-external-compute",
+      "affectedCoverageIds": ["system:non-mirror-10-champion-5v5"],
+      "files": ["tools/qa/match-cohort.mjs", "tools/qa/verify-milestone7-cohort.mjs"],
+      "description": "Each 60-minute public-roster 10-champion seed takes ~160s average across 2 vCPUs (~5m23s per 2 seeds). A full 100-seed run requires ~4.5 hours on a 2-vCPU host and must be executed on a multi-core runner; local Milestone 7 verification executes a fresh multi-seed cohort and fails closed on --strict-release until 100/100 seeds complete.",
+      "verification": "tools/qa/verify-milestone7.mjs"
+    },
+    {
+      "id": "M7-D002",
+      "severity": "P2",
+      "evidenceClass": "presentation-provenance",
+      "title": "Authored local proxies for Darius, Vi, Ezreal, Morgana, Voidgrubs, Herald, Drakes, Control Ward, Farsight, expanded items, and runes",
+      "status": "documented-intentional",
+      "affectedCoverageIds": [
+        "champion:darius",
+        "champion:vi",
+        "champion:ezreal",
+        "champion:morgana",
+        "objective:elder-dragon",
+        "vision:control-ward"
+      ],
+      "files": ["src/content/reference-coverage.ts", "src/content/milestone6-champions.ts"],
+      "description": "Milestone 6 roster additions, epic objective meshes, and expanded icons/runes use authored local GLB 2.0 rigs, procedural VFX, and Web Audio rather than Riot 16.18 WAD assets. Provenance is explicitly separated into presentationEvidence='authored-local-proxy' in the Reference & Patch 26.18 ledger.",
+      "verification": "tests/milestone7-reference-truth.test.ts"
+    },
+    {
+      "id": "M7-D003",
+      "severity": "P1",
+      "evidenceClass": "truth-contract",
+      "title": "Twelve approximation entries lacked player-facing deviation notes",
+      "status": "resolved",
+      "affectedCoverageIds": [
+        "vision:control-ward",
+        "rune:keystone:pta",
+        "rune:keystone:conqueror",
+        "rune:keystone:electrocute",
+        "rune:keystone:comet",
+        "rune:keystone:grasp",
+        "rune:keystone:first-strike",
+        "rune:secondary:alacrity",
+        "rune:secondary:transcendence",
+        "rune:secondary:bone-plating",
+        "rune:secondary:cosmic-insight",
+        "rune:secondary:triumph"
+      ],
+      "files": ["src/content/reference-coverage.ts", "src/ui/hud.ts"],
+      "description": "Control Ward, all 6 keystones, and all 5 secondary runes were marked approximation with playerDeviationNote: null. All 12 now carry concrete player-facing deviation notes and separated implementation/reference/presentation evidence tags.",
+      "verification": "tests/milestone7-reference-truth.test.ts"
+    },
+    {
+      "id": "M7-D004",
+      "severity": "P2",
+      "evidenceClass": "reference-alignment",
+      "title": "Voidgrubs (06:00–14:45) and Rift Herald (15:00–19:45) Siege Charge approximation vs Milestone 6 prose",
+      "status": "documented-intentional",
+      "affectedCoverageIds": ["objective:voidgrubs", "objective:rift-herald"],
+      "files": [
+        "src/content/epic-objectives.ts",
+        "src/simulation/epic-objectives.ts",
+        "src/content/reference-coverage.ts"
+      ],
+      "description": "Voidgrubs spawn at 06:00–14:45 and Rift Herald spawns at 15:00–19:45 per pinned immutable Milestone 6 content and 16.18 WAD character stats; Herald grants a direct Siege Charge on the holder's next turret strike rather than a summoned/rideable unit, and Voidmites are simplified into Touch of the Void true-damage burn. Both entries are reclassified to status='approximation' with explicit player-facing deviation notes.",
+      "verification": "tests/milestone7-reference-truth.test.ts"
+    },
+    {
+      "id": "M7-D005",
+      "severity": "P0",
+      "evidenceClass": "external-reference-and-hardware",
+      "title": "Authorized native Riot Patch 26.18 client captures, desktop macOS Safari, and physical-GPU laptop/desktop 60 FPS certification",
+      "status": "open-external-environment",
+      "affectedCoverageIds": [
+        "system:rift-navigation-vision",
+        "champion:ashe",
+        "champion:darius",
+        "role-quest:top"
+      ],
+      "files": [
+        "tools/qa/milestone7-calibration-fixture.mjs",
+        "tools/qa/milestone7-perf-profile.mjs",
+        "tools/qa/verify-milestone7.mjs"
+      ],
+      "description": "This Linux x86_64 headless environment has no authorized live Riot Patch 26.18 client, no desktop macOS Safari, and no physical desktop/laptop GPU (Chromium uses software SwiftShader). Local reproducible calibration packets, Linux Chromium/Firefox/WebKit acceptance, and SwiftShader profiling are captured honestly without fabricating external certification.",
+      "verification": "tools/qa/verify-milestone7.mjs"
+    },
+    {
+      "id": "M7-D006",
+      "severity": "P1",
+      "evidenceClass": "gameplay-simulation",
+      "title": "Darius, Vi, Ezreal, and Infernal Soul bonus AD calculations included level-up base AD growth",
+      "status": "resolved",
+      "affectedCoverageIds": [
+        "ability:darius:p",
+        "ability:darius:r",
+        "ability:vi:q",
+        "ability:vi:w",
+        "ability:vi:r",
+        "ability:ezreal:q",
+        "ability:ezreal:w",
+        "ability:ezreal:e",
+        "ability:ezreal:r"
+      ],
+      "files": [
+        "src/simulation/progression.ts",
+        "src/simulation/milestone6-champions.ts",
+        "src/simulation/epic-objectives.ts"
+      ],
+      "description": "Vi subtracted hardcoded 63, Ezreal subtracted hardcoded 62, Infernal Soul subtracted hardcoded 60, and Darius used an approximate 0.85*(level-1) formula, leaking level-up base AD growth into bonus AD scaling. All now compute exact level-scaled base AD via championBaseAttackDamage(champion, level).",
+      "verification": "tests/milestone7-behavior-matrix.test.ts"
+    },
+    {
+      "id": "M7-D007",
+      "severity": "P1",
+      "evidenceClass": "gameplay-simulation",
+      "title": "Darius R Rank 1/2 temporary 20s reset window never put R back on cooldown upon expiry",
+      "status": "resolved",
+      "affectedCoverageIds": ["ability:darius:r"],
+      "files": ["src/simulation/milestone6-champions.ts"],
+      "description": "Killing a champion with Rank 1 or 2 Noxian Guillotine cleared cooldowns.r and set rResetUntil, but advanceMilestone6Champions never checked rResetUntil expiration, granting a permanent free reset. Expiration now clears rResetUntil and applies the hasted Rank 1/2 cooldown.",
+      "verification": "tests/milestone7-behavior-matrix.test.ts"
+    },
+    {
+      "id": "M7-D008",
+      "severity": "P1",
+      "evidenceClass": "gameplay-simulation",
+      "title": "Milestone 6 CC (Darius E, Vi Q/R, Morgana Q/R) bypassed Tenacity, Unstoppable, Stasis untargetability, Epic Monster CC immunity, and channel/dash interrupts",
+      "status": "resolved",
+      "affectedCoverageIds": [
+        "system:crowd-control-tenacity",
+        "ability:darius:e",
+        "ability:vi:q",
+        "ability:vi:r",
+        "ability:morgana:q",
+        "ability:morgana:r"
+      ],
+      "files": ["src/simulation/world.ts", "src/simulation/milestone6-champions.ts"],
+      "description": "Milestone 6 spells wrote directly to rootUntil/stunUntil, bypassing tenacity, Vi R Unstoppable, Zhonya's Stasis untargetability, Elemental Drake/Herald CC immunity, and Recall/Meditate/Leona-dash/Ahri-dash cancellation; Vi Q dash also continued while stunned/rooted/charmed. All CC now routes through world.applyRoot, world.applyStun, and world.applyAirborneStun, and Vi Q dash terminates on hard CC.",
+      "verification": "tests/milestone7-behavior-matrix.test.ts"
+    },
+    {
+      "id": "M7-D009",
+      "severity": "P1",
+      "evidenceClass": "gameplay-simulation",
+      "title": "Rejected Milestone 6 spell attempts cancelled Recall and omitted silence feedback",
+      "status": "resolved",
+      "affectedCoverageIds": ["system:crowd-control-tenacity"],
+      "files": ["src/simulation/world.ts", "src/simulation/milestone6-champions.ts"],
+      "description": "world.ts called clearRecall(state) before castMilestone6Ability validated mana/cooldown/silence/root/target, cancelling Recall on invalid casts, and silenced Milestone 6 casts emitted no feedback message. Recall is now cleared only on accepted casts and silenced casts emit standard feedback.",
+      "verification": "tests/milestone7-behavior-matrix.test.ts"
+    },
+    {
+      "id": "M7-D010",
+      "severity": "P1",
+      "evidenceClass": "gameplay-simulation",
+      "title": "Mountain Drake used a one-time 4% armor/MR mutation (drifting on item/level changes) and Mountain Soul refreshed shields during active combat",
+      "status": "resolved",
+      "affectedCoverageIds": ["objective:dragon-earth"],
+      "files": [
+        "src/simulation/epic-objectives.ts",
+        "src/simulation/world.ts",
+        "src/simulation/types.ts",
+        "src/simulation/snapshot.ts"
+      ],
+      "description": "Mountain Drake now applies +8% armor & MR per stack dynamically in armorWithBuffs/effectiveMagicResist via dragonDefenseMultiplier so stats stay exact across level-ups and shop purchases, and Mountain Soul verifies 5s out-of-combat via ChampionState.lastDamagedTick before granting its shield.",
+      "verification": "tests/milestone7-behavior-matrix.test.ts"
+    },
+    {
+      "id": "M7-D011",
+      "severity": "P1",
+      "evidenceClass": "gameplay-simulation",
+      "title": "Electrocute, Arcane Comet, and Press the Attack used hardcoded base AD 60 and static mage list for adaptive damage",
+      "status": "resolved",
+      "affectedCoverageIds": [
+        "rune:keystone:electrocute",
+        "rune:keystone:comet",
+        "rune:keystone:pta"
+      ],
+      "files": ["src/simulation/runes.ts"],
+      "description": "Electrocute and Arcane Comet now compute bonus AD via championBaseAttackDamage, and Press the Attack chooses magic vs physical adaptive burst by comparing AP against bonus AD (including original mages on equal ties).",
+      "verification": "tests/milestone7-behavior-matrix.test.ts"
+    }
+  ]
+}

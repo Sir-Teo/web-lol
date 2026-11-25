@@ -2,7 +2,7 @@ import { isMeleeChampion } from '../content/champion-profiles';
 import { DEFAULT_ROLE_RUNES, RUNE_TIMING, type RuneLoadout } from '../content/runes';
 import { TICK_RATE } from '../content/rules';
 import { distance, type Vec2 } from './math';
-import { statPrecision } from './progression';
+import { championBaseAttackDamage, statPrecision } from './progression';
 import type { ChampionState, Team, Unit } from './types';
 import type { World } from './world';
 
@@ -326,12 +326,20 @@ export function onRuneHitDealt(
       rs.ptaReadyTick = w.tick + RUNE_TIMING.ptaExposeCooldownTicks;
       target.ptaExposedUntil = w.tick + RUNE_TIMING.ptaExposeDurationTicks;
       const burst = 40 + levelFrac * 140;
-      const dmgType =
-        attacker.champion === 'lux' ||
-        attacker.champion === 'ahri' ||
-        attacker.champion === 'morgana'
-          ? 'magic'
-          : 'physical';
+      const bonusAd = Math.max(
+        0,
+        attacker.damage - championBaseAttackDamage(attacker.champion, state.level)
+      );
+      const ap = w.abilityPower(attacker);
+      const prefersAp =
+        ap > bonusAd ||
+        (ap === bonusAd &&
+          (attacker.champion === 'lux' ||
+            attacker.champion === 'ahri' ||
+            attacker.champion === 'morgana' ||
+            attacker.champion === 'irielle' ||
+            attacker.champion === 'oona'));
+      const dmgType = prefersAp ? 'magic' : 'physical';
       w.damage(attacker, target, burst, dmgType, 'rune');
     }
   }
@@ -366,7 +374,10 @@ export function onRuneHitDealt(
         rs.electrocuteTargetId = null;
         const cdSec = 20 - levelFrac * 5;
         rs.electrocuteReadyTick = w.tick + Math.round(cdSec * TICK_RATE);
-        const bonusAd = Math.max(0, attacker.damage - 60);
+        const bonusAd = Math.max(
+          0,
+          attacker.damage - championBaseAttackDamage(attacker.champion, state.level)
+        );
         const burst = 50 + levelFrac * 140 + bonusAd * 0.4 + w.abilityPower(attacker) * 0.25;
         const dmgType = w.abilityPower(attacker) > bonusAd ? 'magic' : 'physical';
         w.damage(attacker, target, burst, dmgType, 'rune');
@@ -379,7 +390,10 @@ export function onRuneHitDealt(
     if (w.tick >= rs.cometReadyTick) {
       const cdSec = 20 - levelFrac * 12;
       rs.cometReadyTick = w.tick + Math.round(cdSec * TICK_RATE);
-      const bonusAd = Math.max(0, attacker.damage - 60);
+      const bonusAd = Math.max(
+        0,
+        attacker.damage - championBaseAttackDamage(attacker.champion, state.level)
+      );
       const cometDmg = 30 + levelFrac * 100 + w.abilityPower(attacker) * 0.2 + bonusAd * 0.35;
       w.activeComets ??= [];
       w.activeComets.push({

@@ -3,7 +3,7 @@ import { ABILITIES, TICK_RATE } from '../content/rules';
 import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 import { consumeItemOnHitDamage, primeSpellbladeOnCast } from './item-effects';
 import { direction, distance, segmentDistance, type Vec2 } from './math';
-import { statPrecision } from './progression';
+import { championBaseAttackDamage, statPrecision } from './progression';
 import type { ChampionIdentity, ChampionState, Team, Unit } from './types';
 import type { World } from './world';
 
@@ -337,14 +337,28 @@ export function milestone6BaseResources(
   return { mana: spec.cost, cooldownSeconds: spec.cooldown };
 }
 
+function isEpicMonsterCcImmune(foe: Unit): boolean {
+  if (foe.kind !== 'monster') return false;
+  const sp = foe.monster.species;
+  return (
+    sp === 'baron' ||
+    sp === 'elder-dragon' ||
+    sp === 'riftherald' ||
+    sp.startsWith('dragon-')
+  );
+}
+
+function bonusAdForChampion(u: Unit, state: ChampionState): number {
+  return Math.max(0, statPrecision(u.damage - championBaseAttackDamage(u.champion, state.level)));
+}
+
 function dariusBonusAd(w: World, u: Unit, state: ChampionState): number {
-  const base = 64 + 5 * Math.max(0, state.level - 1) * 0.85;
   const might =
     (state.darius?.noxianMightUntil ?? 0) > w.tick
       ? DARIUS_KIT.passive.noxianMightBonusAdBase +
         (state.level - 1) * DARIUS_KIT.passive.noxianMightBonusAdPerLevel
       : 0;
-  return Math.max(0, u.damage - base) + might;
+  return bonusAdForChampion(u, state) + might;
 }
 
 export function dariusNoxianMightBonusAd(w: World, state: ChampionState): number {
@@ -468,7 +482,7 @@ export function applyViDentingHit(w: World, vi: Unit, viState: ChampionState, ta
       );
     }
     target.viArmorShredUntil = w.tick + VI_KIT.w.shredDurationTicks;
-    const bonusAd = Math.max(0, vi.damage - 63);
+    const bonusAd = bonusAdForChampion(vi, viState);
     const pct =
       VI_KIT.w.maxHpDamageByRank[rank - 1] + (bonusAd / 100) * VI_KIT.w.bonusAdMaxHpPer100;
     const raw = target.maxHp * pct;
@@ -487,7 +501,7 @@ export function detonateEzrealFlux(
   if (!flux || flux.sourceId !== ezreal.id || flux.endTick <= w.tick) return;
   target.essenceFlux = undefined;
   const rank = Math.max(1, flux.rank);
-  const bonusAd = Math.max(0, ezreal.damage - 62);
+  const bonusAd = bonusAdForChampion(ezreal, ezState);
   const dmg =
     EZREAL_KIT.w.baseDamageByRank[rank - 1] +
     bonusAd * EZREAL_KIT.w.bonusAdRatio +
@@ -616,7 +630,10 @@ export function castMilestone6Ability(
     w.emit('message', u, { text: 'Cannot cast while rooted', unit: u.id, team: u.team });
     return true;
   }
-  if (u.silenceUntil > w.tick) return true;
+  if (u.silenceUntil > w.tick) {
+    w.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
+    return true;
+  }
   if (state.cooldowns[ability] > w.tick) return true;
   if (u.mana < spec.cost) return true;
 
@@ -625,6 +642,7 @@ export function castMilestone6Ability(
     state.cooldowns[ability] = w.tick + hastedCooldownTicks(seconds, haste);
   };
   const spendMana = () => {
+    w.clearRecall(state);
     u.mana = Math.max(0, statPrecision(u.mana - spec.cost));
   };
 
@@ -679,7 +697,7 @@ export function castMilestone6Ability(
           continue;
         if (
           !hasBlackShield(foe, w.tick) &&
-          foe.monster?.species !== 'baron' &&
+          !isEpicMonsterCcImmune(foe) &&
           !isViUnstoppable(w.championState(foe.id))
         ) {
           const pullPos = w.battlefield.reachable(
@@ -692,7 +710,7 @@ export function castMilestone6Ability(
           );
           foe.x = pullPos.x;
           foe.y = pullPos.y;
-          foe.stunUntil = Math.max(foe.stunUntil, w.tick + DARIUS_KIT.e.stunTicks);
+          w.applyStun(foe, DARIUS_KIT.e.stunTicks);
           w.applyExtraSlow(u, foe, 'apprehend');
         }
       }
@@ -916,7 +934,7 @@ export function castMilestone6Ability(
       });
       if (candidates[0]) {
         const hitTarget = candidates[0];
-        const bonusAd = Math.max(0, u.damage - 62);
+        const bonusAd = bonusAdForChampion(u, state);
         const boltDmg =
           EZREAL_KIT.e.baseDamageByRank[rank - 1] +
           bonusAd * EZREAL_KIT.e.bonusAdRatio +
@@ -1162,6 +1180,21 @@ export function advanceMilestone6Champions(w: World): void {
     const state = w.championState(u.id);
     if (!state) continue;
 
+    // Darius R rank 1-2 temporary reset window expiry
+    if (
+      state.darius &&
+      state.darius.rResetUntil > 0 &&
+      w.tick >= state.darius.rResetUntil
+    ) {
+      state.darius.rResetUntil = 0;
+      const rRank = Math.max(1, state.spellRanks.r);
+      if (rRank < 3 && state.cooldowns.r <= w.tick) {
+        const haste = totalAbilityHaste(state, w.tick);
+        state.cooldowns.r =
+          w.tick + hastedCooldownTicks(DARIUS_KIT.r.cooldownSecondsByRank[rRank - 1], haste);
+      }
+    }
+
     // Darius Q windup completion
     if (state.darius?.qWindupEndTick !== null && state.darius?.qWindupEndTick !== undefined) {
       if (!w.alive(u) || w.winner) {
@@ -1206,7 +1239,13 @@ export function advanceMilestone6Champions(w: World): void {
 
     // Vi Q & R dashes
     if (state.vi?.qDash) {
-      if (!w.alive(u) || w.winner) {
+      if (
+        !w.alive(u) ||
+        w.winner ||
+        u.stunUntil > w.tick ||
+        u.rootUntil > w.tick ||
+        !!u.charm
+      ) {
         state.vi.qDash = null;
       } else {
         const dash = state.vi.qDash;
@@ -1223,7 +1262,7 @@ export function advanceMilestone6Champions(w: World): void {
         u.previous = prevPos;
         u.x = nextPos.x;
         u.y = nextPos.y;
-        const bonusAd = Math.max(0, u.damage - 63);
+        const bonusAd = bonusAdForChampion(u, state);
         const dmg = VI_KIT.q.baseDamageByRank[dash.rank - 1] + bonusAd * VI_KIT.q.bonusAdRatio;
         let stoppedOnChamp = false;
         for (const foe of w.units) {
@@ -1243,9 +1282,7 @@ export function advanceMilestone6Champions(w: World): void {
             w.damage(u, foe, dmg, 'physical', 'ability');
             applyViDentingHit(w, u, state, foe);
             if (foe.kind === 'champion') {
-              if (!hasBlackShield(foe, w.tick)) {
-                foe.stunUntil = Math.max(foe.stunUntil, w.tick + VI_KIT.q.knockbackStunTicks);
-              }
+              w.applyAirborneStun(foe, VI_KIT.q.knockbackStunTicks);
               stoppedOnChamp = true;
               break;
             }
@@ -1271,13 +1308,13 @@ export function advanceMilestone6Champions(w: World): void {
           u.x = land.x;
           u.y = land.y;
           state.vi.rDash = null;
-          triggerViBlastShield(w, u, state);
-          const bonusAd = Math.max(0, u.damage - 63);
-          const dmg = VI_KIT.r.baseDamageByRank[rDash.rank - 1] + bonusAd * VI_KIT.r.bonusAdRatio;
-          if (!hasBlackShield(target, w.tick)) {
-            target.stunUntil = Math.max(target.stunUntil, w.tick + VI_KIT.r.stunTicks);
+          if (w.targetable(target)) {
+            triggerViBlastShield(w, u, state);
+            const bonusAd = bonusAdForChampion(u, state);
+            const dmg = VI_KIT.r.baseDamageByRank[rDash.rank - 1] + bonusAd * VI_KIT.r.bonusAdRatio;
+            w.applyAirborneStun(target, VI_KIT.r.stunTicks);
+            w.damage(u, target, dmg, 'physical', 'ability');
           }
-          w.damage(u, target, dmg, 'physical', 'ability');
         } else {
           const dir = direction(u, target);
           u.previous = { x: u.x, y: u.y };
@@ -1295,7 +1332,7 @@ export function advanceMilestone6Champions(w: World): void {
         state.ezreal.rChannel = null;
       } else if (w.tick >= ch.endTick) {
         state.ezreal.rChannel = null;
-        const bonusAd = Math.max(0, u.damage - 62);
+        const bonusAd = bonusAdForChampion(u, state);
         const dmg =
           EZREAL_KIT.r.baseDamageByRank[ch.rank - 1] +
           bonusAd * EZREAL_KIT.r.bonusAdRatio +
@@ -1340,10 +1377,8 @@ export function advanceMilestone6Champions(w: World): void {
             MORGANA_KIT.r.baseDamageByRank[rank - 1] + w.abilityPower(u) * MORGANA_KIT.r.apRatio;
           for (const tid of ids) {
             const t = w.unit(tid);
-            if (!t || !w.alive(t)) continue;
-            if (!hasBlackShield(t, w.tick)) {
-              t.stunUntil = Math.max(t.stunUntil, w.tick + MORGANA_KIT.r.stunTicks);
-            }
+            if (!t || !w.alive(t) || !w.targetable(t)) continue;
+            w.applyStun(t, MORGANA_KIT.r.stunTicks);
             const beforeHp = t.hp;
             w.damage(u, t, endDmg, 'magic', 'ability');
             applyMorganaSoulSiphon(w, u, state, t, Math.max(0, beforeHp - t.hp));
@@ -1467,7 +1502,7 @@ export function advanceMilestone6Champions(w: World): void {
             caster,
             casterState,
             foe,
-            62 + (casterState.level - 1) * 2.75
+            championBaseAttackDamage(caster.champion, casterState.level)
           );
           w.damage(caster, foe, m.damage + onHit, 'physical', 'ability');
           consumed = true;
@@ -1493,10 +1528,8 @@ export function advanceMilestone6Champions(w: World): void {
 
         if (m.kind === 'morgana-q') {
           m.hitIds.push(foe.id);
-          if (!hasBlackShield(foe, w.tick) && foe.monster?.species !== 'baron') {
-            const rootTicks = Math.round(MORGANA_KIT.q.rootSecondsByRank[m.rank - 1] * TICK_RATE);
-            foe.rootUntil = Math.max(foe.rootUntil, w.tick + rootTicks);
-          }
+          const rootTicks = Math.round(MORGANA_KIT.q.rootSecondsByRank[m.rank - 1] * TICK_RATE);
+          w.applyRoot(foe, rootTicks);
           const beforeHp = foe.hp;
           w.damage(caster, foe, m.damage, 'magic', 'ability');
           applyMorganaSoulSiphon(w, caster, casterState, foe, Math.max(0, beforeHp - foe.hp));

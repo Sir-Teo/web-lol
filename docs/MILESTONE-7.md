@@ -1,8 +1,8 @@
 # Milestone 7 - Reference-calibrated ten-champion full-match release
 
-**Status: in progress, not certified.** Defined November 22, 2026,
+**Status: local engineering & REA 6.10.1 certified; 4 external release gates remain open.** Defined November 22, 2026,
 following [Milestone 6](MILESTONE-6.md). This is a full product milestone, delivered
-through independently reviewable increments, not another roster expansion.
+through independently reviewable increments (`7.0`–`7.5`), not another roster expansion.
 
 **Outcome:** one human and nine role-aware bots can play a complete, credible
 Patch 26.18 Summoner's Rift match with the existing ten champions, independently
@@ -441,3 +441,45 @@ browser audit uses a disk-backed Chromium profile, downloads the production
 pack, then imports, reloads, and exports the terminal checkpoint without network
 access. Watching a restored result plays back the saved checkpoint. A replay
 recorded during a live session carries the actions from that session.
+
+## Milestone 7.0–7.5 engineering & REA 6.10.1 certification (Schema 187 / Ruleset `e755719f…`)
+
+All locally executable Milestone 7 increments (`7.0` through `7.5`) passed on
+save schema **187**, ruleset `e755719f98628f7139ce9eb2f1347afdccaf033f6ed8ddeab6e448ae57a3dac8`,
+and production `dist/` directory SHA-256 `1b8fe7902b695cd8016c24a24df68161e575b96f485fd6582f8ab121170e9648`.
+
+### Completed increments
+
+- **7.0 Truth contract & discrepancy register (`docs/reference/milestone7-discrepancy-register.json`, `src/content/reference-coverage.ts`, `src/ui/hud.ts`, `tests/milestone7-reference-truth.test.ts`):**
+  Retained all `158` coverage IDs, split evidence into `implementationEvidence`, `referenceEvidence`, and `presentationEvidence`, added concrete player-facing deviation notes to all `12` previously undocumented approximations (Control Ward, `6` keystones, `5` secondary runes), and reclassified Voidgrubs (`6:00–14:45`) and Rift Herald (`15:00–19:45` Siege Charge) as explicit approximations (`0` undocumented approximations). Registered `11` structured discrepancy items (`M7-D001`–`M7-D011`).
+- **7.1 Behavior matrices & calibration packets (`tests/milestone7-behavior-matrix.test.ts`, `tools/qa/milestone7-calibration-fixture.mjs`, `artifacts/milestone7/calibration-packets.json`):**
+  Verified independent behavior matrices (`9/9` passing) across all ten public kits, objectives, and runes, plus all `8` reproducible calibration packets (`CAM-01`, `MOVE-01`, `INPUT-01`, `ATK-01`, `FOG-01`, `LANE-01`, `BASE-01`, `MATCH-01`). Native Riot client comparison stays honestly marked `blocked-no-authorized-client`.
+- **7.2 Confirmed P1 simulation fixes (`M7-D006`–`M7-D011` resolved; `0` open local P0/P1 defects):**
+  - Exact level-scaled base AD via `championBaseAttackDamage` for Darius, Vi, Ezreal, Infernal Soul, Electrocute, and Arcane Comet (`M7-D006`, `M7-D011`).
+  - Press the Attack adaptive magic/physical selection using AP vs bonus AD (`M7-D011`).
+  - Darius R Rank 1/2 temporary `20 s` reset window now applies hasted cooldown on expiry (`M7-D007`).
+  - Darius E, Vi Q/R, and Morgana Q/R now route through shared CC primitives (`applyRoot`, `applyStun`, `applyAirborneStun`), honoring Tenacity, Unstoppable, Zhonya's Stasis untargetability, Epic Monster CC immunity, and channel/dash cancellation (`M7-D008`).
+  - Rejected Milestone 6 casts no longer cancel Recall and emit standard silence feedback (`M7-D009`).
+  - Mountain Drake applies dynamic `+8%` armor/MR per stack via `dragonDefenseMultiplier` and Mountain Soul requires `5 s` out-of-combat via `lastDamagedTick` (`M7-D010`).
+- **7.3 Production multi-browser × multi-resolution & lifecycle acceptance (`e2e/milestone7-acceptance.spec.ts`):**
+  Verified production `dist/` across **Chrome (`157`)**, **Firefox (`155`)**, and **WebKit (`26.6`)** at `1280x720`, `1920x1080`, and `2560x1440` (`0` overflow, `0` page errors, `158` ledger entries / `0` undocumented notes, `10` unique champions), WebGL context-loss recovery (`recovered: true`), `5×` sequential restarts per browser, and 4 Chrome review captures (`artifacts/milestone7/m7-*.png`).
+- **7.4 Human-input traces, public-roster cohort & offline/subpath release:**
+  - `20/20` human-input traces (`tools/qa/milestone7-human-matches.mjs`, `artifacts/milestone7/human-match-traces.json`) covering all `10` public champions × `intro`/`standard` with exact mid-combat snapshot round-trips and 60-tick future determinism (`0` failures).
+  - Fresh 4-seed 60-minute public-roster cohort (`26018`, `719`, `1`, `927`) verified by `verify-match-cohort.mjs` (`artifacts/milestone7/cohort-verification.json`): **4/4 natural victories**, `0` failures, `0` unfinished, `456,375` checked ticks, `129` snapshot round-trips, `125` 60-tick future checks, median victory `30.9 min`.
+  - `npm run offline:verify` and `npm run test:production` passed (`prefix: "/nested/rift/"`, `recordings: 313`, `developmentHook: false`).
+- **7.5 Late-match simulation profiling & `rea-agents@6.10.1` certification (`docs/reference/milestone7-rea-evidence.json`, `tools/qa/verify-milestone7.mjs`):**
+  - Late-match 10-champion simulation profile (`artifacts/milestone7/perf-profile.json`): `p50 = 2.31 ms`, `p95 = 3.56 ms` (`<= 4.0 ms` budget), `p99 = 4.66 ms` (`within60HzSimBudget: true`, `physicalGpuPerfVerified: false`).
+  - `rea-agents@6.10.1` authenticated `4` Evidence records against production `dist/`:
+    - `audit_release_exposure`: `ev_e2868ef38f1aa4d2fd9b1ce866baad4f34a43821e6ab61918edcbf7e48c28c58` (`exposed: 0`, `noExposureObserved: true`)
+    - `analyze_javascript_application`: `ev_80ba3d24fc64717d3a434633143a28a1a0077b7eaeb8d3e28cebf93f1bdfe9d4` (parent `ev_9d6b807e4b2279c40774d175a101f0fa66a89b953a1c120d958d684f6ac6d42a`, `429,314` AST nodes, `0` parse failures)
+    - `capture_browser_scenario`: `ev_a35e51da1414555a7f0e8ca9bfa90126dc59ea1cca9829e2b58f51f46baf080e` (`completeness: "complete"`, `5/5` steps on live production `dist/`)
+    - `build_reconstruction_obligation_ledger`: `ev_d41c726033cac04ee2b42d0dae3a18ed1d90983289f8f140e57453d0f9f5b535` (`3` active local obligations satisfied, `4` external release gates explicitly blocked)
+  - Fail-closed `node tools/qa/verify-milestone7.mjs` returns `passed-local-engineering`; `node tools/qa/verify-milestone7.mjs --strict-release` exits non-zero listing the `4` open external release gates.
+
+### Remaining external release gates (blocked by container environment, never fabricated)
+
+1. `100-seed-public-cohort` (`M7-D001`): `4/100` full 60-minute public-roster seeds verified locally (~4.5 h required on 2 vCPUs; run full 100 seeds on a multi-core runner).
+2. `authorized-riot-26.18-client-captures` (`M7-D005`): no authorized Riot Patch 26.18 native client installed in this Linux container.
+3. `desktop-macos-safari` (`M7-D005`): Linux WebKit `26.6` + Chrome + Firefox verified; physical macOS Safari requires macOS hardware.
+4. `physical-gpu-60fps-certification` (`M7-D005`): headless Linux SwiftShader only; physical integrated/discrete GPU 20-minute 60 FPS run required.
+

@@ -1,0 +1,66 @@
+{
+  "schema": "milestone7-rea-evidence-v1",
+  "generatedAt": "2026-11-25T23:15:36.346Z",
+  "reaPackage": "rea-agents@6.10.1",
+  "ruleset": "e755719f98628f7139ce9eb2f1347afdccaf033f6ed8ddeab6e448ae57a3dac8",
+  "distDirectorySha256": "1b8fe7902b695cd8016c24a24df68161e575b96f485fd6582f8ab121170e9648",
+  "rawEvidenceDigests": {
+    "jsAppFullBundleSha256": "e4786386f9e737cc9c9a88a5b0a187e9eb716230fffdbea3b37a9b31d62a9a5c",
+    "jsAppParentEvidenceId": "ev_9d6b807e4b2279c40774d175a101f0fa66a89b953a1c120d958d684f6ac6d42a",
+    "browserParentEvidenceId": null
+  },
+  "evidenceBundles": [
+    {
+      "operation": "audit_release_exposure",
+      "evidenceId": "ev_e2868ef38f1aa4d2fd9b1ce866baad4f34a43821e6ab61918edcbf7e48c28c58",
+      "artifactPath": "artifacts/milestone7/rea/release-exposure.json",
+      "sha256": "6224b8bd577695f702b77f923f2521fcfd64e9e5450b6f1f68dc71f668216d1b",
+      "summary": {
+        "exposed": 0,
+        "noExposureObserved": true
+      }
+    },
+    {
+      "operation": "analyze_javascript_application",
+      "evidenceId": "ev_80ba3d24fc64717d3a434633143a28a1a0077b7eaeb8d3e28cebf93f1bdfe9d4",
+      "parentEvidenceId": "ev_9d6b807e4b2279c40774d175a101f0fa66a89b953a1c120d958d684f6ac6d42a",
+      "artifactPath": "artifacts/milestone7/rea/js-app-summary.json",
+      "sha256": "73b362f6b8e8cb68f6a2933d06a061323f00e36ca17cead66a334af375949f38",
+      "summary": {
+        "parsedFiles": 2,
+        "visitedAstNodes": 429314,
+        "parseFailures": 0
+      }
+    },
+    {
+      "operation": "capture_browser_scenario",
+      "evidenceId": "ev_a35e51da1414555a7f0e8ca9bfa90126dc59ea1cca9829e2b58f51f46baf080e",
+      "summaryEvidenceId": "ev_2eb2b8e858271ea76f3edda5b32f5c78d5faeb5fd13408baa4128873281a1ee8",
+      "artifactPath": "artifacts/milestone7/rea/browser-scenario-summary.json",
+      "sha256": "cf7da79012d4de8ca8d82084912b54c228123fcababf34b3da1cb2de7537e827",
+      "summary": {
+        "completeness": "complete",
+        "stepsCompleted": 5,
+        "actionsExecuted": 4,
+        "target": "dist/ production build (#loading detached -> #pause-button -> Reference & patch 26.18 -> #audit-list .audit-entry:first-child visible)"
+      }
+    },
+    {
+      "operation": "build_reconstruction_obligation_ledger",
+      "evidenceId": "ev_d41c726033cac04ee2b42d0dae3a18ed1d90983289f8f140e57453d0f9f5b535",
+      "artifactPath": "artifacts/milestone7/rea/obligation-ledger.json",
+      "sha256": "8b9b131f7acd1eb8b2c1a9b8c18216bc9d799ecb51bd8e2fa6db8c0458c18491",
+      "summary": {
+        "obligationsTotal": 7,
+        "activeLocalObligations": 3,
+        "blockedExternalGates": 4
+      }
+    }
+  ],
+  "externalGates": {
+    "hundredSeedCohortVerified": false,
+    "authorizedRiotClientVerified": false,
+    "macosSafariVerified": false,
+    "physicalGpuPerfVerified": false
+  }
+}

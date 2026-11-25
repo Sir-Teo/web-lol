@@ -12,7 +12,7 @@ import {
 } from '../content/epic-objectives';
 import { TICK_RATE } from '../content/rules';
 import { distance } from './math';
-import { statPrecision } from './progression';
+import { championBaseAttackDamage, statPrecision } from './progression';
 import { averageChampionLevel } from './trinkets';
 import type { ChampionState, Team, Unit } from './types';
 import type { World } from './world';
@@ -233,8 +233,12 @@ export function advanceRiftObjectives(w: World): void {
       w.tick > 0 &&
       w.tick % (5 * TICK_RATE) === 0
     ) {
-      const hasMountainShield = u.shields.some((s) => s.mountainSoul);
-      if (!hasMountainShield) {
+      const st = w.championState(u.id);
+      const outOfCombat =
+        st?.lastDamagedTick === undefined ||
+        w.tick - st.lastDamagedTick >= DRAGON_SLAYER_BUFFS.mountainSoulOutOfCombatTicks;
+      const hasMountainShield = u.shields.some((s) => s.mountainSoul && s.endTick > w.tick);
+      if (outOfCombat && !hasMountainShield) {
         u.shields.push({
           sourceId: u.id,
           amount: DRAGON_SLAYER_BUFFS.mountainSoulShieldBase + Math.round(u.maxHp * 0.08),
@@ -343,11 +347,6 @@ export function onEpicObjectiveKilled(w: World, victim: Unit, killer: Unit | und
         if (ch.kind !== 'champion' || ch.team !== team) continue;
         const st = w.championState(ch.id);
         if (st) st.gold = statPrecision(st.gold + 25);
-        // Apply immediate Earth defense bonus if Mountain Drake
-        if (element === 'earth') {
-          ch.armor = statPrecision(ch.armor * 1.04);
-          ch.magicResist = statPrecision(ch.magicResist * 1.04);
-        }
       }
 
       if (
@@ -396,6 +395,11 @@ export function dragonOffenseMultiplier(w: World, team: Team): number {
 export function dragonBonusHaste(w: World, team: Team): number {
   const stacks = w.riftObjectives?.dragon.stacks[team].filter((e) => e === 'hextech').length ?? 0;
   return stacks * DRAGON_SLAYER_BUFFS.hextechAbilityHastePerStack;
+}
+
+export function dragonDefenseMultiplier(w: World, team: Team): number {
+  const stacks = w.riftObjectives?.dragon.stacks[team].filter((e) => e === 'earth').length ?? 0;
+  return 1 + stacks * DRAGON_SLAYER_BUFFS.earthBonusDefenseFractionPerStack;
 }
 
 export function dragonBonusAttackSpeed(w: World, team: Team): number {
@@ -486,9 +490,14 @@ export function onObjectivePostHitEffects(
     const ready = obj.dragon.soulCooldowns[source.id] ?? 0;
     if (obj.dragon.soulElement === 'fire' && w.tick >= ready) {
       obj.dragon.soulCooldowns[source.id] = w.tick + DRAGON_SLAYER_BUFFS.infernalSoulCooldownTicks;
+      const srcState = w.championState(source.id);
+      const bonusAd = Math.max(
+        0,
+        source.damage - championBaseAttackDamage(source.champion, srcState?.level ?? 1)
+      );
       const burst =
         DRAGON_SLAYER_BUFFS.infernalSoulBaseDamage +
-        Math.max(0, source.damage - 60) * 0.22 +
+        bonusAd * 0.22 +
         w.abilityPower(source) * 0.15;
       for (const foe of w.units) {
         if (

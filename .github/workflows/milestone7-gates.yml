@@ -1,0 +1,112 @@
+name: Milestone 7 Release Gates (100-Seed Cohort & macOS Safari)
+
+on:
+  push:
+    branches:
+      - milestone-7-release
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cohort-shard:
+    name: 100-seed shard ${{ matrix.shard }}/9
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Run 10 canonical 60-minute public-roster seeds
+        run: |
+          SEEDS=$(node -e "
+            const all = [26018, 719, 1, 927, ...Array.from({length: 93}, (_, i) => i + 2), 0x7fffffff, 0x80000000, 0xffffffff];
+            const s = ${{ matrix.shard }};
+            console.log(all.slice(s * 10, (s + 1) * 10).join(' '));
+          ")
+          echo "Running shard ${{ matrix.shard }} seeds: $SEEDS"
+          node tools/qa/match-cohort.mjs --jobs 4 --keep-going --snapshot-compression gzip --output /tmp/m7-public-hundred $SEEDS
+      - name: Package shard outputs
+        run: |
+          mkdir -p /tmp/shard-out
+          cp /tmp/m7-public-hundred/plan.json /tmp/shard-out/plan.json
+          cp /tmp/m7-public-hundred/summary.json /tmp/shard-out/summary.json
+          if [ "${{ matrix.shard }}" = "0" ]; then
+            tar -czf /tmp/shard-out/base.tar.gz -C /tmp/m7-public-hundred frozen-source maps runner plan.json
+          fi
+          tar -czf /tmp/shard-out/seeds.tar.gz -C /tmp/m7-public-hundred seeds
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m7-cohort-shard-${{ matrix.shard }}
+          path: /tmp/shard-out
+          retention-days: 7
+
+  cohort-verify:
+    name: Verify 100-seed public cohort
+    needs: cohort-shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: m7-cohort-shard-*
+          path: /tmp/m7-shards-raw
+      - name: Unpack shards into /tmp/m7-public-hundred and verify all 100 seeds
+        run: |
+          mkdir -p /tmp/m7-public-hundred /tmp/m7-shards
+          tar -xzf /tmp/m7-shards-raw/m7-cohort-shard-0/base.tar.gz -C /tmp/m7-public-hundred
+          for i in 0 1 2 3 4 5 6 7 8 9; do
+            mkdir -p /tmp/m7-shards/shard-$i
+            cp /tmp/m7-shards-raw/m7-cohort-shard-$i/plan.json /tmp/m7-shards/shard-$i/plan.json
+            cp /tmp/m7-shards-raw/m7-cohort-shard-$i/summary.json /tmp/m7-shards/shard-$i/summary.json
+            tar -xzf /tmp/m7-shards-raw/m7-cohort-shard-$i/seeds.tar.gz -C /tmp/m7-public-hundred
+          done
+          node tools/qa/milestone7-merge-cohort.mjs /tmp/m7-public-hundred /tmp/m7-shards /tmp/m7-public-hundred-ledger.json 10
+          mkdir -p /tmp/m7-verified-out
+          cp /tmp/m7-public-hundred/plan.json /tmp/m7-verified-out/plan.json
+          cp /tmp/m7-public-hundred/summary.json /tmp/m7-verified-out/summary.json
+          cp /tmp/m7-public-hundred-ledger.json /tmp/m7-verified-out/cohort-verification.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m7-cohort-100-verified
+          path: /tmp/m7-verified-out
+          retention-days: 30
+
+  macos-safari:
+    name: Real Desktop macOS Safari & GPU Probe
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - run: npm run offline:verify
+      - name: Enable safaridriver & run real desktop macOS Safari acceptance
+        run: |
+          sudo safaridriver --enable || true
+          node tools/qa/milestone7-macos-safari.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m7-macos-safari
+          path: |
+            artifacts/milestone7/browser-acceptance-macos-safari.json
+            artifacts/milestone7/m7-macos-safari.png
+          retention-days: 30

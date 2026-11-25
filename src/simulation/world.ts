@@ -513,6 +513,7 @@ import {
   dragonBonusAttackSpeed,
   dragonBonusHaste,
   dragonBonusMoveSpeedMultiplier,
+  dragonDefenseMultiplier,
   dragonOffenseMultiplier,
   dragonTenacity,
   hasHeraldEmpoweredRecall,
@@ -1484,7 +1485,7 @@ export class World {
         state.castAnimation = null;
     }
   }
-  private clearRecall(state: ChampionState, reason: 'complete' | 'cancelled' = 'cancelled') {
+  clearRecall(state: ChampionState, reason: 'complete' | 'cancelled' = 'cancelled') {
     finishAhriRecallAudio(this, state.id, reason);
     state.recallEnd = null;
   }
@@ -5653,6 +5654,34 @@ export class World {
     }
     return true;
   }
+  /** Airborne knockback/knockup: respects targetability, Black Shield, Unstoppable, and epic monster CC immunity,
+   * interrupts Recall/Meditate/dashes, and is unaffected by Tenacity. */
+  applyAirborneStun(target: Unit, durationTicks: number): boolean {
+    if (
+      this.winner ||
+      !this.units.includes(target) ||
+      !this.alive(target) ||
+      !this.targetable(target) ||
+      isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
+      this.controlImmune(target, 'stun') ||
+      !Number.isSafeInteger(durationTicks) ||
+      durationTicks <= 0 ||
+      !Number.isSafeInteger(this.tick + durationTicks)
+    )
+      return false;
+    const stunUntil = Math.max(target.stunUntil, this.tick + durationTicks);
+    if (target.champion === 'leona')
+      this.finishLeonaDash(target, 'control', { rootUntil: target.rootUntil, stunUntil });
+    target.stunUntil = stunUntil;
+    stopSpiritDash(this, target, 'control');
+    const owner = this.championState(target.id);
+    if (owner) {
+      this.clearRecall(owner);
+      finishMeditate(owner, this, target, 'control');
+    }
+    return true;
+  }
   /** Silence blocks new spell actions without stopping movement/basic attacks.
    * Pending non-channel windups continue; an active Meditate is interrupted. */
   applySilence(target: Unit, durationTicks: number): boolean {
@@ -6854,12 +6883,14 @@ export class World {
   }
   /** Stored armor excludes temporary bonuses so purchases and growth cannot drift. */
   armorWithBuffs(target: Unit): number {
-    return (
+    const base =
       target.armor +
       (target.champion === 'leona'
         ? eclipseResistances(target, this.championState(target.id)!, this.tick).armor
-        : 0)
-    );
+        : 0);
+    return target.kind === 'champion' && this.riftObjectives
+      ? statPrecision(base * dragonDefenseMultiplier(this, target.team))
+      : base;
   }
   /** Same named armor reduction does not stack across Garen owners. */
   effectiveArmor(target: Unit): number {
@@ -6873,12 +6904,14 @@ export class World {
     return armor;
   }
   effectiveMagicResist(target: Unit): number {
-    return (
+    const base =
       target.magicResist +
       (target.champion === 'leona'
         ? eclipseResistances(target, this.championState(target.id)!, this.tick).magicResist
-        : 0)
-    );
+        : 0);
+    return target.kind === 'champion' && this.riftObjectives
+      ? statPrecision(base * dragonDefenseMultiplier(this, target.team))
+      : base;
   }
   private penetratedResistance(
     source: Unit | undefined,
@@ -7255,6 +7288,7 @@ export class World {
       });
     const targetState = this.championState(target.id);
     if (targetState) {
+      if (amount > 0 && source.team !== target.team) targetState.lastDamagedTick = this.tick;
       if (
         amount > 0 &&
         source.team !== target.team &&
@@ -8155,7 +8189,6 @@ export class World {
       isMilestone6Champion(u.champion) &&
       (ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r')
     ) {
-      this.clearRecall(state);
       castMilestone6Ability(this, u, state, ability, point, targetId);
       return;
     }

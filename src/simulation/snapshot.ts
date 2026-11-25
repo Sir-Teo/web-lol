@@ -1825,6 +1825,7 @@ const player: z.ZodType<PlayerState> = z
     blueBuff: z.strictObject({ startTick: tick, endTick: tick, nextRegenTick: tick }).nullable(),
     redBuff: z.strictObject({ startTick: tick, endTick: tick, nextRegenTick: tick }).nullable(),
     redBuffHealReadyTick: tick,
+    lastDamagedTick: tick.optional(),
     castAnimation: z
       .strictObject({ ability: z.enum(['q', 'w', 'e', 'r']), startTick: tick })
       .nullable(),
@@ -5595,6 +5596,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     const enlighten = owner.enlighten;
     const blue = owner.blueBuff;
     const red = owner.redBuff;
+    if (
+      owner.lastDamagedTick !== undefined &&
+      owner.lastDamagedTick > state.tick
+    )
+      throw new Error('Saved match contains invalid combat damage clock.');
     if (
       owner.redBuffHealReadyTick > state.tick + RED_HEAL_LOCKOUT_TICKS ||
       (red &&

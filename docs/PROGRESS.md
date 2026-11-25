@@ -14,14 +14,40 @@ and exact offline restoration. REA captured the release flow and audited the
 shipped build.
 See the [Milestone 8 report](MILESTONE-8.md).
 
-### Milestone 7 baseline (schema 186 / ruleset `3627a2c1…`)
+### Milestone 7 engineering & REA 6.10.1 certification (schema 187 / ruleset `e755719f…`)
 
-**The Milestone 7 two-seed match reliability check is complete.** Schema 186
-fixes saves around Empowered Recall and tenacity-shortened Charm, and restores
-projectile angles across Node and Chrome. Milestone 6 match files upgrade on
-load. Both public 5v5 seeds reached natural victory with 55 exact restores and
-53 continuation checks. Production Chrome imported, replayed, reloaded, and
-exported a genuine result offline. See the [Milestone 7 report](MILESTONE-7.md).
+**Milestone 7 (`7.0`–`7.5`) passed local engineering & REA certification** with
+`0` open local P0/P1 defects and `4` honest external release gates tracked by
+`node tools/qa/verify-milestone7.mjs --strict-release`:
+
+- **7.0–7.2 Reference truth & confirmed P1 fixes:** All `158` coverage IDs now
+  separate `implementationEvidence`, `referenceEvidence`, and
+  `presentationEvidence` with `0` undocumented approximations; `M7-D006`–`M7-D011`
+  resolved (exact level-scaled bonus AD, Darius R Rank 1/2 `20 s` reset expiry,
+  shared CC/tenacity/Unstoppable/Stasis/epic-immunity routing, Recall-safe
+  rejected casts, dynamic Mountain Drake `+8%` armor/MR & out-of-combat Soul
+  shield, adaptive PTA/Electrocute/Comet). `9/9` behavior-matrix tests and `8/8`
+  calibration packets pass.
+- **7.3–7.5 Browser matrix, matches, perf & REA 6.10.1:** Chrome (`157`),
+  Firefox (`155`), and WebKit (`26.6`) pass production `1280x720`/`1920x1080`/`2560x1440`,
+  WebGL recovery, and `5×` restarts (`0` errors); `20/20` human-input traces and
+  `4/4` 60-minute public-roster cohort seeds (`456,375` ticks, `129` restores)
+  pass; late-match simulation `p95 = 3.56 ms`; `rea-agents@6.10.1` authenticated
+  `audit_release_exposure` (`exposed: 0`), `analyze_javascript_application`
+  (`429,314` AST nodes, `0` parse failures), live `capture_browser_scenario`
+  (`5/5` steps complete), and `build_reconstruction_obligation_ledger`
+  ([REA manifest](reference/milestone7-rea-evidence.json)).
+- **Open external release gates (`--strict-release`):** 100-seed public cohort
+  (`4/100` on 2 vCPUs), authorized Riot Patch 26.18 native client captures,
+  physical macOS Safari, and physical-GPU 60 FPS certification. See
+  [Milestone 7 report](MILESTONE-7.md).
+
+### Historical Milestone 7 two-seed checkpoint (schema 186 / ruleset `3627a2c1…`)
+
+**The earlier Milestone 7 two-seed match reliability check** on schema 186
+fixed saves around Empowered Recall and tenacity-shortened Charm, restored
+projectile angles across Node and Chrome, and reached natural victory on both
+public 5v5 seeds with 55 exact restores and 53 continuation checks.
 
 ### Milestone 6 baseline (schema 185 / ruleset `e5e3cc7f…`)
 
