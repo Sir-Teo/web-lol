@@ -224,13 +224,15 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 187;
+export const SNAPSHOT_VERSION = 188;
 const MILESTONE7_RULESETS = [
   '3627a2c16eda1293133601d28228f0cf913af54fd1f2a72aee0349e78ea39e56',
   '2daecf45cc420c7b062fc63c343c530a60450c1501f79fd57fd40256ee333c77',
 ];
-const MILESTONE8_INITIAL_RULESET =
-  '3e7c02a0e1111c87e1000524899247258d8f916efb0b00944a4eb4754c23df2a';
+const MILESTONE8_RULESETS = [
+  '3e7c02a0e1111c87e1000524899247258d8f916efb0b00944a4eb4754c23df2a',
+  'bf0a46cff65fb8997c4f7ad5846dffd9c308118612f39111125d1929a30ca869',
+];
 const MILESTONE6_RULESET = 'e5e3cc7f70fae406cd8bf03ba5a5a90fc7dc87ab2e931ad190b5fe099897cad0';
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
@@ -3442,7 +3444,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     'ruleset' in parsed &&
     typeof parsed.ruleset === 'string' &&
     ((parsed.version === 186 && MILESTONE7_RULESETS.includes(parsed.ruleset)) ||
-      (parsed.version === SNAPSHOT_VERSION && parsed.ruleset === MILESTONE8_INITIAL_RULESET));
+      (parsed.version === 187 && MILESTONE8_RULESETS.includes(parsed.ruleset)));
   const result = snapshot.safeParse(
     legacy || milestone7
       ? { ...(parsed as object), version: SNAPSHOT_VERSION, ruleset: SNAPSHOT_RULESET }

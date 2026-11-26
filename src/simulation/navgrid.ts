@@ -337,17 +337,56 @@ export class NavGrid implements TerrainQueries {
     if (![point.x, point.y, radius].every(Number.isFinite) || radius < 0)
       throw new Error('Invalid navigation request');
     const passable = this.passable(radius, team);
+    const m = this.metadata,
+      width = m.width,
+      height = m.height,
+      size = m.cellSize,
+      minX = m.minimum[0],
+      minZ = m.minimum[2],
+      fx = (point.x + HALF - minX) / size - 0.5,
+      fz = (HALF - point.y - minZ) / size - 0.5,
+      cx = clamp(Math.round(fx), 0, width - 1),
+      cz = clamp(Math.round(fz), 0, height - 1),
+      maxRing = Math.max(cx, width - 1 - cx, cz, height - 1 - cz);
     let best = -1,
       score = Infinity;
-    for (let i = 0; i < passable.length; i++)
-      if (passable[i]) {
-        const p = this.center(i),
-          d = (p.x - point.x) ** 2 + (p.y - point.y) ** 2;
-        if (d < score) {
-          best = i;
-          score = d;
-        }
+    const visit = (x: number, z: number) => {
+      const i = z * width + x;
+      if (!passable[i]) return;
+      const px = minX + (x + 0.5) * size - HALF,
+        py = HALF - (minZ + (z + 0.5) * size),
+        d = (px - point.x) ** 2 + (py - point.y) ** 2;
+      if (d < score || (d === score && i < best)) {
+        best = i;
+        score = d;
       }
+    };
+    for (let ring = 0; ring <= maxRing; ring++) {
+      if (best >= 0) {
+        // Any cell at Chebyshev distance >= ring has |x-cx| >= ring or |z-cz| >= ring.
+        // Stop once the nearest reachable ring boundary strictly exceeds current best score.
+        let minEdge = Infinity;
+        if (cx - ring >= 0) minEdge = Math.min(minEdge, Math.max(0, (fx - (cx - ring)) * size));
+        if (cx + ring < width) minEdge = Math.min(minEdge, Math.max(0, (cx + ring - fx) * size));
+        if (cz - ring >= 0) minEdge = Math.min(minEdge, Math.max(0, (fz - (cz - ring)) * size));
+        if (cz + ring < height) minEdge = Math.min(minEdge, Math.max(0, (cz + ring - fz) * size));
+        if (minEdge * minEdge > score) break;
+      }
+      if (ring === 0) {
+        visit(cx, cz);
+        continue;
+      }
+      const x0 = Math.max(0, cx - ring),
+        x1 = Math.min(width - 1, cx + ring),
+        z0 = Math.max(0, cz - ring),
+        z1 = Math.min(height - 1, cz + ring);
+      if (cz - ring >= 0) for (let x = x0; x <= x1; x++) visit(x, cz - ring);
+      if (cz + ring < height) for (let x = x0; x <= x1; x++) visit(x, cz + ring);
+      const iz0 = cz - ring >= 0 ? z0 + 1 : z0,
+        iz1 = cz + ring < height ? z1 - 1 : z1;
+      if (cx - ring >= 0) for (let z = iz0; z <= iz1; z++) visit(cx - ring, z);
+      if (cx + ring < width) for (let z = iz0; z <= iz1; z++) visit(cx + ring, z);
+    }
     if (best < 0) throw new Error('No walkable navigation cells');
     return this.center(best);
   }

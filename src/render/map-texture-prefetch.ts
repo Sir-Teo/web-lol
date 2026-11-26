@@ -11,7 +11,8 @@ export class MapTexturePrefetch {
   constructor(
     private root: THREE.Object3D,
     private residency: MapTextureResidency,
-    private textures: ReadonlyMap<THREE.Object3D, ReadonlyMap<THREE.Texture, number>>
+    private textures: ReadonlyMap<THREE.Object3D, ReadonlyMap<THREE.Texture, number>>,
+    private prepare?: (texture: THREE.Texture) => boolean
   ) {}
   update(renderer: THREE.WebGLRenderer, camera: THREE.Camera) {
     this.projection.copy(camera.projectionMatrix);
@@ -26,6 +27,13 @@ export class MapTexturePrefetch {
       if (object.frustumCulled && !this.frustum.intersectsObject(object)) return;
       for (const [texture, bytes] of textures) this.nearby.set(texture, bytes);
     });
-    return this.residency.prefetch(this.nearby, (texture) => renderer.initTexture(texture));
+    return this.residency.prefetch(
+      this.nearby,
+      (texture) => renderer.initTexture(texture),
+      undefined,
+      undefined,
+      undefined,
+      this.prepare
+    );
   }
 }

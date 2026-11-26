@@ -45,13 +45,18 @@ export function seenFrom(
   sources: readonly VisionSource[],
   sight = lineOfSight
 ): boolean {
-  return sources.some((source) => {
+  for (let i = 0; i < sources.length; i++) {
+    const source = sources[i];
+    const r = source.radius;
     const dx = source.x - point.x;
-    if (Math.abs(dx) > source.radius) return false;
+    if (dx > r || dx < -r) continue;
     const dy = source.y - point.y;
-    if (Math.abs(dy) > source.radius) return false;
+    if (dy > r || dy < -r) continue;
+    // Fast squared-distance reject for bounding-box corners before exact hypot.
+    if (dx * dx + dy * dy > r * r * 1.000001) continue;
     // The box only rejects impossible candidates. Keep the exact inclusive
     // hypot test for the circle boundary rather than approximating with squares.
-    return Math.hypot(dx, dy) <= source.radius && (source.unobstructed || sight(source, point));
-  });
+    if (Math.hypot(dx, dy) <= r && (source.unobstructed || sight(source, point))) return true;
+  }
+  return false;
 }

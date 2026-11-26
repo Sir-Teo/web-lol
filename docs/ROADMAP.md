@@ -92,6 +92,33 @@ restoration and export. REA captured the production chooser and match and
 analyzed the game, rules, and offline worker bundles. See the
 [Milestone 8 report](MILESTONE-8.md).
 
+## Milestone 9 — runtime performance, memory budget, and scale hardening (Completed)
+
+Close Milestone 7's open performance and memory-budget discrepancy (`M7-D013`),
+expand multi-seed full-match verification across both rosters, and re-certify
+the shipped production build with `morluto/rea`.
+
+**Exit (verified on schema 188 / ruleset `878d8aaf…` / pack `efec8baf…`):**
+bit-exact simulation hot-path optimizations cut minute-20 10-champion tick p95
+from `4.18 ms/tick` to **`1.3656 ms/tick`** (`≤ 4.0 ms`), while map geometry
+transport release, hidden-DDS skipping, bounded Blob/LRU `.dds.gz` caching, and
+post-upload CPU mip clearing cut production 5v5 post-GC JS heap from
+`524.17 MiB` to **`194.08 MiB`** (`≤ 280 MiB`) at `72` p95 draw calls (`≤ 250`).
+Expanded scale cohorts passed **`12/12` public-roster victories** (`1,532,412`
+checked ticks, `433` round-trips, `0` failures, exact tick parity on all 6
+Milestone 7 baseline seeds) and **`4/4` calibrated original-lineup victories**
+(`377,246` checked ticks, `107` round-trips, `0` failures), uncovering and
+fixing a pre-existing Leona Zenith Blade dash attack-presentation snapshot bug
+on seed `8`. Production nested subpath (`/nested/rift/`), full offline pack
+(`1,554` files / `582.83 MB`, `1,472` SW responses, `0` errors), Chrome
+10-restart/context-loss stability, pinned `rea-agents@6.10.1` certification
+(`12/12` runtime scripts matched, `0` release exposures, bundle SHA-256
+`6056c50b…`), and fail-closed `tools/qa/verify-milestone9.mjs` all pass.
+External Riot client captures, physical integrated-GPU/macOS Safari hardware
+benchmarks, the 100-seed scale run, and 20 human-input matches remain
+explicitly tracked as `blocked-external`. See [Milestone 9](MILESTONE-9.md) and
+the [verification ledger](reference/milestone9-verification.json).
+
 ## Test cases that protect fidelity
 
 | Scenario                                           | Required property                                                        |

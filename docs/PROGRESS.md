@@ -1,17 +1,57 @@
 # Development status
 
-Last updated: November 22, 2026.
+Last updated: November 26, 2026.
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-**Roadmap Milestone 8 (original roster and audiovisual validation) is complete.**
-The 15-champion roster uses schema 187. Two original-lineup matches reached
-natural victory with 53 exact checkpoint restores and 51 matching
-continuations. Chrome, Firefox, and WebKit passed release play, save, replay,
-and exact offline restoration. REA captured the release flow and audited the
-shipped build.
+**Roadmap Milestone 9 (runtime performance, memory budget, and scale hardening) is complete**
+at save schema **188**, ruleset
+`878d8aaf2b241c5b515b21c68ee3efb33e35ceeae4b5e442240e2deb1c6e76a2`, and
+production offline pack `efec8baf7ea13b73be2961874ce3b9eec976c00430f44d4564894a6ca633ca2c`
+(`1,554` files / `582,828,680` bytes, worker policy `41e26572…`):
+
+- **Performance & JS Heap Budgets (`M7-D013` Resolved):** Bit-exact simulation
+  hot-path optimizations (`NavGrid.reachable` expanding rings, zero-closure
+  `vision.seenFrom`, step-scoped `World.unitLookup`) cut minute-20 10-champion
+  simulation p95 from `4.18 ms/tick` to **`1.3656 ms/tick`** (`<= 4.0 ms`,
+  `-67.3%`, mean `0.8722 ms/tick`). Map geometry transport release, skipping 17
+  hidden-only DDS downloads, bounded Blob/LRU `.dds.gz` caching (`24 MiB` in
+  gameplay), and post-upload `texture.mipmaps = []` release cut production 5v5
+  post-GC JS heap from `524.17 MiB` to **`194.08 MiB`** (`<= 280 MiB`, `-63.0%`)
+  while holding draw calls p95 at **`72`** (`<= 250`) with `0` page errors and
+  `developmentHookPresent: false`.
+- **16-Seed Scale Cohorts & Leona Snapshot Fix:** Passed **`12/12` natural
+  public-roster victories** (`1,532,412` checked ticks, `433` exact minute
+  round-trips, `421` saved-future checks, `0` failures, exact tick parity on all
+  6 Milestone 7 baseline seeds) and **`4/4` calibrated original-lineup
+  victories** (`377,246` checked ticks, `107` round-trips, `103` future checks,
+  `0` failures). The expanded cohort uncovered and fixed a pre-existing Leona
+  Zenith Blade dash attack-presentation snapshot bug on seed `8` (`World.beginLeonaDash`),
+  covered by a dedicated regression test (`tests/milestone9-performance-and-memory.test.ts`,
+  `5/5` passing) and backwards-compatible schema 187 migration.
+- **Production Subpath, Offline Pack, Lifecycle & REA 6.10.1 Certification:**
+  Passed nested subpath (`/nested/rift/`, `recordings: 313`, `0` unrequested
+  preloads), full offline pack (`1,472` SW responses, `16/16` checks, `0`
+  production errors), Chrome `157.0.8103.78` acceptance including 10 sequential
+  restarts and WebGL context-loss recovery (`2/2`; Firefox/WebKit executables
+  absent on container, schema 187 receipts retained), pinned `rea-agents@6.10.1`
+  certification (`12/12` runtime scripts matched, `0` exposures, bundle SHA-256
+  `6056c50b…`, `2` records, `0` unknowns), and fail-closed
+  `tools/qa/verify-milestone9.mjs` + tamper tests. External native Riot
+  captures, physical integrated-GPU/macOS Safari hardware benchmarks, the
+  100-seed cohort, and 20 human-input full matches remain explicitly tracked as
+  `blocked-external`. See [Milestone 9](MILESTONE-9.md) and the
+  [Milestone 9 verification ledger](reference/milestone9-verification.json).
+
+### Milestone 8 (original roster and audiovisual validation — schema 187)
+
+The 15-champion roster uses schema 187 (upgraded cleanly by schema 188). Two
+original-lineup matches reached natural victory with 53 exact checkpoint
+restores and 51 matching continuations. Chrome, Firefox, and WebKit passed
+release play, save, replay, and exact offline restoration. REA captured the
+release flow and audited the shipped build.
 See the [Milestone 8 report](MILESTONE-8.md).
 
 ### Milestone 7 release-calibration delivery (schema 187 / ruleset `bf0a46c…`)

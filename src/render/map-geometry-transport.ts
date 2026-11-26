@@ -5,8 +5,12 @@ interface GeometryTransport {
   gzip: { uri: string; bytes: number; sha256: string };
 }
 /** Keep the canonical glTF external buffer unchanged, substituting a byte-identical
- * compressed transport through GLTFLoader's buffer-view plugin interface. */
-export async function installMapGeometryTransport(loader: GLTFLoader, base: string): Promise<void> {
+ * compressed transport through GLTFLoader's buffer-view plugin interface.
+ * Returns a release callback to drop the retained decoded buffer once parsing finishes. */
+export async function installMapGeometryTransport(
+  loader: GLTFLoader,
+  base: string
+): Promise<() => void> {
   const response = await fetch(`${base}rift-geometry-gzip.json`);
   if (!response.ok) throw new Error('Map geometry transport manifest could not be loaded');
   const manifest = (await response.json()) as GeometryTransport;
@@ -60,4 +64,7 @@ export async function installMapGeometryTransport(loader: GLTFLoader, base: stri
       return load().then((bytes) => bytes.slice(offset, offset + length));
     },
   }));
+  return () => {
+    decoded = undefined;
+  };
 }

@@ -517,7 +517,7 @@ export class GameView {
   async loadEnvironment(): Promise<void> {
     if (this.battlefield.id !== 'rift') return;
     const [terrain, image] = await Promise.all([
-      loadRift(this.renderer),
+      loadRift(this.renderer, false, { cpuTextureCacheBytes: 24 * 1024 * 1024 }),
       new Promise<HTMLImageElement>((resolve, reject) => {
         const image = new Image();
         image.onload = () => resolve(image);
@@ -548,6 +548,9 @@ export class GameView {
     canvas.getContext('2d')!.drawImage(image, 0, 0);
     this.mapTexture.needsUpdate = true;
     this.applyRiftFog(terrain);
+    await (
+      terrain.userData.prepareVisibleTextures as ((camera: THREE.Camera) => Promise<void>) | undefined
+    )?.(this.camera);
   }
   private applyRiftFog(root: THREE.Object3D): void {
     root.traverse((object) => {

@@ -1,5 +1,13 @@
 # Local match checkpoints
 
+Schema **188** records the Milestone 9 performance, memory-budget, and scale
+hardening baseline on ruleset `878d8aaf…`, including the Leona Zenith Blade
+dash attack-presentation closure fix. The integrated build opens supported
+schema 185, schema 186 (`3627a2c1…`, `2daecf45…`), and schema 187 (`bf0a46cf…`,
+`3e7c02a0…`) checkpoints without mutating gameplay state, and re-exporting
+writes schema 188 on the current ruleset. Replay imports continue to require
+the exact ruleset that produced their checkpoint hashes.
+
 Schema **187** adds the five original champions, their passive counters,
 pending cast geometry, release clocks, and retained impact phases. The
 integrated build accepts the supported schema 185 files, schema 186 files

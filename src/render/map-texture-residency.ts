@@ -18,6 +18,9 @@ export class MapTextureResidency {
   beginFrame() {
     this.frame++;
   }
+  isResident(texture: THREE.Texture): boolean {
+    return this.entries.get(texture)?.resident === true;
+  }
   touch(texture: THREE.Texture, bytes: number) {
     const existing = this.entries.get(texture);
     if (existing) {
@@ -52,7 +55,8 @@ export class MapTextureResidency {
     upload: (texture: THREE.Texture) => void,
     now = () => performance.now(),
     maxUploads = 2,
-    maxMS = 2
+    maxMS = 2,
+    prepare?: (texture: THREE.Texture) => boolean
   ) {
     const start = now();
     let count = 0;
@@ -64,6 +68,7 @@ export class MapTextureResidency {
         .sort((a, b) => a[1].lastFrame - b[1].lastFrame);
       let available = this.budgetBytes - this.residentBytes;
       if (available + candidates.reduce((sum, [, e]) => sum + e.bytes, 0) < bytes) continue;
+      if (prepare && !prepare(texture)) continue;
       for (const [old, entry] of candidates) {
         if (available >= bytes) break;
         old.dispose();

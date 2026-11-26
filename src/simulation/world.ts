@@ -670,11 +670,49 @@ export class World {
   };
   championState(id: number): ChampionState | undefined {
     if (!this.championRecords.has(id)) return undefined;
-    if (!this.units.some((u) => u.id === id && u.kind === 'champion')) return undefined;
+    const u = this.unit(id);
+    if (!u || u.kind !== 'champion') return undefined;
     return this.player?.id === id ? this.player : this.championRecords.get(id);
   }
   private activeChampionStates(): ChampionState[] {
+    if (this.unitLookup) {
+      const states: ChampionState[] = [];
+      for (const u of this.unitLookup.champions) {
+        const state = this.player?.id === u.id ? this.player : this.championRecords.get(u.id);
+        if (state) states.push(state);
+      }
+      return states;
+    }
     return this.units.filter((u) => u.kind === 'champion').map((u) => this.championState(u.id)!);
+  }
+  /** Transient step-scoped index over this.units; never serialized and cleared on step exit. */
+  private unitLookup: {
+    byId: Map<number, Unit>;
+    champions: Unit[];
+    structures: Unit[];
+  } | null = null;
+  private ensureUnitLookup(): {
+    byId: Map<number, Unit>;
+    champions: Unit[];
+    structures: Unit[];
+  } {
+    if (this.unitLookup) return this.unitLookup;
+    const byId = new Map<number, Unit>();
+    const champions: Unit[] = [];
+    const structures: Unit[] = [];
+    for (const u of this.units) {
+      byId.set(u.id, u);
+      if (u.kind === 'champion') champions.push(u);
+      if (u.structure) structures.push(u);
+    }
+    this.unitLookup = { byId, champions, structures };
+    return this.unitLookup;
+  }
+  private indexUnit(u: Unit): void {
+    if (!this.unitLookup) return;
+    this.unitLookup.byId.set(u.id, u);
+    if (u.kind === 'champion') this.unitLookup.champions.push(u);
+    if (u.structure) this.unitLookup.structures.push(u);
   }
   wave = 0;
   nextWaveTick = 5 * TICK_RATE;
@@ -770,6 +808,7 @@ export class World {
     return hero;
   }
   unit(id: number): Unit | undefined {
+    if (this.unitLookup) return this.unitLookup.byId.get(id);
     return this.units.find((u) => u.id === id);
   }
   alive(unit: Unit): boolean {
@@ -1000,6 +1039,7 @@ export class World {
         clipDurations
       );
     this.units.push(u);
+    this.indexUnit(u);
     if (champion && identity === 'ahri')
       this.ahriCounters.push({ sourceId: u.id, stacks: 0, lastKillTick: null });
     if (champion && identity !== 'ashe') {
@@ -1062,6 +1102,7 @@ export class World {
       },
     };
     this.units.push(u);
+    this.indexUnit(u);
     return u;
   }
   /** Spawn a neutral unit. Camp ownership/calendar is tracked independently. */
@@ -1146,6 +1187,7 @@ export class World {
       clips
     );
     this.units.push(u);
+    this.indexUnit(u);
     if (species === 'baron' && this.riftBaron) this.riftBaron.unitId = u.id;
     return u;
   }
@@ -1498,27 +1540,32 @@ export class World {
     state.recallEnd = null;
   }
   step(count = 1): void {
-    for (let i = 0; i < count && !this.winner; i++) {
-      this.update();
-      advanceLuxEAudio(this);
-      advanceCharmAudio(this);
-      advanceEVisualHistory(this);
-      refreshEVisualAudience(this);
-      pruneEVisualHistory(this, AHRI_E_VISUAL_HISTORY_TICKS);
-      advanceOrbAudio(this);
-      advanceFoxFireAudio(this);
-      refreshWVisualAudience(this);
-      pruneWVisualHistory(this, AHRI_W_VISUAL_HISTORY_TICKS);
-      advanceSpiritRushAudio(this);
-      advanceRVisualHistory(this);
-      refreshRVisualAudience(this);
-      pruneRVisualHistory(this);
-      advancePassiveAudio(this);
-      advanceAhriAttackAudio(this);
-      advanceAhriLifecycleAudio(this);
-      advanceAhriRecallAudio(this);
-      advanceAhriQCastVisuals(this);
-      advanceQProjectileVisuals(this);
+    this.ensureUnitLookup();
+    try {
+      for (let i = 0; i < count && !this.winner; i++) {
+        this.update();
+        advanceLuxEAudio(this);
+        advanceCharmAudio(this);
+        advanceEVisualHistory(this);
+        refreshEVisualAudience(this);
+        pruneEVisualHistory(this, AHRI_E_VISUAL_HISTORY_TICKS);
+        advanceOrbAudio(this);
+        advanceFoxFireAudio(this);
+        refreshWVisualAudience(this);
+        pruneWVisualHistory(this, AHRI_W_VISUAL_HISTORY_TICKS);
+        advanceSpiritRushAudio(this);
+        advanceRVisualHistory(this);
+        refreshRVisualAudience(this);
+        pruneRVisualHistory(this);
+        advancePassiveAudio(this);
+        advanceAhriAttackAudio(this);
+        advanceAhriLifecycleAudio(this);
+        advanceAhriRecallAudio(this);
+        advanceAhriQCastVisuals(this);
+        advanceQProjectileVisuals(this);
+      }
+    } finally {
+      this.unitLookup = null;
     }
   }
   private update(): void {
@@ -2071,14 +2118,34 @@ export class World {
     advanceOwnedCompanions(this);
     this.advanceAnimationClocks();
     this.advanceImpactVisuals();
-    this.events = this.events.filter((e) => this.tick - e.tick < 150);
-    this.units = this.units.filter(
-      (u) =>
-        isStructureKind(u.kind) ||
-        u.deadAt === null ||
-        u.respawnTick !== null ||
-        this.tick - u.deadAt < (u.corpseLifetimeTicks ?? 4 * TICK_RATE)
-    );
+    if (this.events.length && this.tick - this.events[0].tick >= 150)
+      this.events = this.events.filter((e) => this.tick - e.tick < 150);
+    let pruneUnits = false;
+    for (let i = 0; i < this.units.length; i++) {
+      const u = this.units[i];
+      if (
+        !isStructureKind(u.kind) &&
+        u.deadAt !== null &&
+        u.respawnTick === null &&
+        this.tick - u.deadAt >= (u.corpseLifetimeTicks ?? 4 * TICK_RATE)
+      ) {
+        pruneUnits = true;
+        break;
+      }
+    }
+    if (pruneUnits) {
+      this.units = this.units.filter(
+        (u) =>
+          isStructureKind(u.kind) ||
+          u.deadAt === null ||
+          u.respawnTick !== null ||
+          this.tick - u.deadAt < (u.corpseLifetimeTicks ?? 4 * TICK_RATE)
+      );
+      if (this.unitLookup) {
+        this.unitLookup = null;
+        this.ensureUnitLookup();
+      }
+    }
     if (this.tick % 120 === 0)
       for (const key of Object.keys(this.volleyHits)) {
         if (!this.projectiles.some((p) => p.volleyId === Number(key)))
@@ -2164,11 +2231,14 @@ export class World {
     )
       return false;
     if (u.team === team || this.pointVisible(u, team)) return true;
-    return this.units.some((source) => {
-      if (source.champion !== 'garen' || source.team !== team) return false;
+    const candidates = this.unitLookup ? this.unitLookup.champions : this.units;
+    for (let i = 0; i < candidates.length; i++) {
+      const source = candidates[i];
+      if (source.champion !== 'garen' || source.team !== team) continue;
       const reveal = this.championState(source.id)?.garenRReveal;
-      return !!reveal && reveal.targetId === u.id && this.tick < reveal.endTick;
-    });
+      if (reveal && reveal.targetId === u.id && this.tick < reveal.endTick) return true;
+    }
+    return false;
   }
   knownStructureDestroyed(u: Unit, team: Team = 'blue'): boolean | null {
     if (!u.structureKnowledge) return null;
@@ -2252,7 +2322,97 @@ export class World {
     return sources;
   }
   pointVisible(point: Vec2, team: Faction = 'blue'): boolean {
-    return seenFrom(point, this.visionSources(team), this.battlefield.lineOfSight);
+    if (team === 'neutral') return false;
+    if (this.visionSnapshot)
+      return seenFrom(point, this.visionSources(team), this.battlefield.lineOfSight);
+    const px = point.x,
+      py = point.y,
+      sight = this.battlefield.lineOfSight;
+    for (let i = 0; i < this.units.length; i++) {
+      const u = this.units[i];
+      if (u.team !== team || !this.alive(u)) continue;
+      const r = sightRadius(u);
+      const dx = u.x - px;
+      if (dx > r || dx < -r) continue;
+      const dy = u.y - py;
+      if (dy > r || dy < -r) continue;
+      if (dx * dx + dy * dy > r * r * 1.000001) continue;
+      if (u.kind === 'ward' && wardDisabled(this, u)) continue;
+      if (Math.hypot(dx, dy) <= r && sight(u, point)) return true;
+    }
+    const shrines = this.scuttlers?.shrines;
+    if (shrines) {
+      const r = SCUTTLER_POLICY.shrineSightRadius;
+      for (let i = 0; i < shrines.length; i++) {
+        const shrine = shrines[i];
+        if (shrine.team !== team || shrine.endTick <= this.tick) continue;
+        const sp = shrinePoint(shrine.river, this.battlefield);
+        const dx = sp.x - px;
+        if (dx > r || dx < -r) continue;
+        const dy = sp.y - py;
+        if (dy > r || dy < -r) continue;
+        if (dx * dx + dy * dy > r * r * 1.000001) continue;
+        if (Math.hypot(dx, dy) <= r && sight(sp, point)) return true;
+      }
+    }
+    for (let i = 0; i < this.visionAreas.length; i++) {
+      const a = this.visionAreas[i];
+      if (a.team !== team || a.endTick <= this.tick) continue;
+      const r = a.radius;
+      const dx = a.x - px;
+      if (dx > r || dx < -r) continue;
+      const dy = a.y - py;
+      if (dy > r || dy < -r) continue;
+      if (dx * dx + dy * dy > r * r * 1.000001) continue;
+      if (Math.hypot(dx, dy) <= r && (a.unobstructed || sight(a, point))) return true;
+    }
+    for (let i = 0; i < this.projectiles.length; i++) {
+      const p = this.projectiles[i];
+      if (p.team !== team) continue;
+      if (p.type === 'ultimate') {
+        const r = ASHE_R.sightRadius;
+        const dx = p.x - px;
+        if (dx <= r && dx >= -r) {
+          const dy = p.y - py;
+          if (dy <= r && dy >= -r && dx * dx + dy * dy <= r * r * 1.000001)
+            if (Math.hypot(dx, dy) <= r && sight(p, point)) return true;
+        }
+      } else if (p.type === 'hawkshot') {
+        const r = 650;
+        const dx = p.x - px;
+        if (dx <= r && dx >= -r) {
+          const dy = p.y - py;
+          if (dy <= r && dy >= -r && dx * dx + dy * dy <= r * r * 1.000001)
+            if (Math.hypot(dx, dy) <= r) return true;
+        }
+      }
+    }
+    for (let i = 0; i < this.singularities.length; i++) {
+      const z = this.singularities[i];
+      if (
+        z.team !== team ||
+        z.arrivalTick === null ||
+        z.detonatedTick !== null ||
+        z.endTick! <= this.tick
+      )
+        continue;
+      const r = LUX_E.visionRadius;
+      const dx = z.x - px;
+      if (dx > r || dx < -r) continue;
+      const dy = z.y - py;
+      if (dy > r || dy < -r) continue;
+      if (dx * dx + dy * dy <= r * r * 1.000001 && Math.hypot(dx, dy) <= r) return true;
+    }
+    if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick) {
+      const r = 650;
+      const dx = this.reveal.point.x - px;
+      if (dx <= r && dx >= -r) {
+        const dy = this.reveal.point.y - py;
+        if (dy <= r && dy >= -r && dx * dx + dy * dy <= r * r * 1.000001)
+          if (Math.hypot(dx, dy) <= r) return true;
+      }
+    }
+    return false;
   }
   projectileVisible(projectile: Projectile, team: Faction = 'blue'): boolean {
     return projectile.team === team || this.pointVisible(projectile, team);
@@ -2281,9 +2441,28 @@ export class World {
     )
       return false;
     if (!unit.structure) return true;
-    const peers = this.units.filter((u) => u.team === unit.team && u.structure);
-    const aliveRole = (role: NonNullable<Unit['structure']>['role'], lane = unit.structure!.lane) =>
-      peers.some((u) => u.structure!.role === role && u.structure!.lane === lane && this.alive(u));
+    const structureList = this.unitLookup ? this.unitLookup.structures : this.units;
+    const aliveRole = (role: NonNullable<Unit['structure']>['role'], lane = unit.structure!.lane) => {
+      for (let i = 0; i < structureList.length; i++) {
+        const u = structureList[i];
+        if (
+          u.team === unit.team &&
+          u.structure &&
+          u.structure.role === role &&
+          u.structure.lane === lane &&
+          u.hp > 0
+        )
+          return true;
+      }
+      return false;
+    };
+    const anyDeadInhibitor = () => {
+      for (let i = 0; i < structureList.length; i++) {
+        const u = structureList[i];
+        if (u.team === unit.team && u.structure && u.kind === 'inhibitor' && u.hp <= 0) return true;
+      }
+      return false;
+    };
     switch (unit.structure.role) {
       case 'outer-turret':
         return true;
@@ -2296,12 +2475,9 @@ export class World {
           !aliveRole('outer-turret') && !aliveRole('inner-turret') && !aliveRole('inhibitor-turret')
         );
       case 'nexus-turret':
-        return peers.some((u) => u.kind === 'inhibitor' && !this.alive(u));
+        return anyDeadInhibitor();
       case 'nexus':
-        return (
-          peers.some((u) => u.kind === 'inhibitor' && !this.alive(u)) &&
-          !aliveRole('nexus-turret', null)
-        );
+        return anyDeadInhibitor() && !aliveRole('nexus-turret', null);
     }
   }
   private validTarget(u: Unit, target: Unit | undefined, retainAggro = false): target is Unit {
@@ -2331,14 +2507,23 @@ export class World {
   ): Unit | undefined {
     let best: Unit | undefined,
       bestDistance = Infinity;
-    for (const target of this.units)
+    const list = championsOnly && this.unitLookup ? this.unitLookup.champions : this.units;
+    const ux = u.x,
+      uy = u.y;
+    for (let i = 0; i < list.length; i++) {
+      const target = list[i];
       if (
         target.team !== u.team &&
-        this.alive(target) &&
+        target.hp > 0 &&
         target.kind !== 'dummy' &&
         (target.kind !== 'monster' || (u.kind === 'champion' && !u.ai)) &&
         (!championsOnly || target.kind === 'champion')
       ) {
+        const limit = range + target.radius;
+        const dx = target.x - ux;
+        if (dx >= limit || dx <= -limit) continue;
+        const dy = target.y - uy;
+        if (dy >= limit || dy <= -limit) continue;
         const d = distance(u, target) - target.radius;
         const score = d + (target.kind === 'champion' && u.kind !== 'champion' ? 300 : 0);
         if (
@@ -2351,6 +2536,7 @@ export class World {
           best = target;
         }
       }
+    }
     return best;
   }
   private planDefensiveHeal(u: Unit): void {
@@ -5210,6 +5396,7 @@ export class World {
     if (!this.committedLeonaQ(source)) {
       source.releaseTick = null;
       source.attackTarget = null;
+      this.finishAttackPresentation(source, 'action');
       source.attackCycle = null;
     }
     owner.leonaDash = {
@@ -6110,25 +6297,37 @@ export class World {
     }
   }
   private advanceProjectiles(unseen: Map<Team, Set<number>>): void {
-    const pending: Projectile[] = [];
-    for (const p of this.pendingAttackProjectiles) {
-      const target = p.target === null ? undefined : this.unit(p.target);
-      if (!target || !this.alive(target)) continue;
-      if (p.launchTick! <= this.tick) this.projectiles.push(p);
-      else pending.push(p);
+    if (this.pendingAttackProjectiles.length) {
+      const pending: Projectile[] = [];
+      for (const p of this.pendingAttackProjectiles) {
+        const target = p.target === null ? undefined : this.unit(p.target);
+        if (!target || !this.alive(target)) continue;
+        if (p.launchTick! <= this.tick) this.projectiles.push(p);
+        else pending.push(p);
+      }
+      this.pendingAttackProjectiles = pending;
     }
-    this.pendingAttackProjectiles = pending;
     const survivors: Projectile[] = [];
-    const visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>();
-    const visualIds = new Set(
-      [...this.luxAttackVisuals, ...this.grompAttackVisuals, ...this.baronAttackVisuals]
-        .filter((v) => v.stopTick === null)
-        .map((v) => v.id)
-    );
+    let visualIds: Set<number> | null = null;
+    for (const list of [
+      this.luxAttackVisuals,
+      this.grompAttackVisuals,
+      this.baronAttackVisuals,
+    ]) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].stopTick === null) {
+          visualIds ??= new Set();
+          visualIds.add(list[i].id);
+        }
+      }
+    }
+    const visualFrames = visualIds
+      ? new Map<number, { tick: number; x: number; y: number; facing: number }>()
+      : null;
     for (const p of this.projectiles) {
       p.previous = { x: p.x, y: p.y };
-      if (visualIds.has(p.id))
-        visualFrames.set(p.id, {
+      if (visualIds?.has(p.id))
+        visualFrames!.set(p.id, {
           tick: this.tick,
           x: p.x,
           y: p.y,
@@ -6159,8 +6358,8 @@ export class World {
       }
       const travel = Math.min(stepDistance, p.remaining);
       const end = { x: p.x + p.direction.x * travel, y: p.y + p.direction.y * travel };
-      if (visualIds.has(p.id))
-        visualFrames.set(p.id, {
+      if (visualIds?.has(p.id))
+        visualFrames!.set(p.id, {
           tick: this.tick,
           ...end,
           facing: Math.atan2(p.direction.x, p.direction.y),
@@ -6359,8 +6558,8 @@ export class World {
             { x: p.x + (end.x - p.x) * first, y: p.y + (end.y - p.y) * first },
             'hit'
           );
-        if (visualIds.has(p.id))
-          visualFrames.set(p.id, {
+        if (visualIds?.has(p.id))
+          visualFrames!.set(p.id, {
             tick: this.tick,
             x: p.x + (end.x - p.x) * first,
             y: p.y + (end.y - p.y) * first,
@@ -6368,7 +6567,7 @@ export class World {
           });
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
           if (p.type === 'attack' && source.monster?.species === 'baron') {
-            const frame = visualFrames.get(p.id)!;
+            const frame = visualFrames!.get(p.id)!;
             contactBaronAttackVisual(this, p, contact, { x: frame.x, y: frame.y });
           }
           if (p.type === 'attack' && source.champion === 'lux') {
@@ -6492,12 +6691,27 @@ export class World {
       } else finishAhriAttackAudio(this, p, end, 'range');
     }
     this.projectiles = this.winner ? [] : survivors;
-    this.advanceAttackVisuals(visualFrames);
+    if (visualFrames || this.baronAttackVisuals.length)
+      this.advanceAttackVisuals(visualFrames ?? new Map());
   }
   private advanceAttackVisuals(
     visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>()
   ): void {
-    advanceBaronAttackVisuals(this, visualFrames);
+    if (this.baronAttackVisuals.length) advanceBaronAttackVisuals(this, visualFrames);
+    if (!this.grompAttackVisuals.length && !this.luxAttackVisuals.length) return;
+    let hasActive = false;
+    for (let i = 0; i < this.grompAttackVisuals.length; i++)
+      if (this.grompAttackVisuals[i].stopTick === null) {
+        hasActive = true;
+        break;
+      }
+    if (!hasActive)
+      for (let i = 0; i < this.luxAttackVisuals.length; i++)
+        if (this.luxAttackVisuals[i].stopTick === null) {
+          hasActive = true;
+          break;
+        }
+    if (!hasActive) return;
     const survivingIds = new Set(this.projectiles.map((p) => p.id));
     for (const visual of this.grompAttackVisuals) {
       if (visual.stopTick !== null) continue;

@@ -1,0 +1,504 @@
+{
+  "milestone": 9,
+  "title": "Runtime performance, memory budget, and scale hardening",
+  "patch": "26.18",
+  "snapshotVersion": 188,
+  "ruleset": "878d8aaf2b241c5b515b21c68ee3efb33e35ceeae4b5e442240e2deb1c6e76a2",
+  "recordedAt": "2026-11-26T19:52:36.280Z",
+  "discrepancyClosed": {
+    "id": "M7-D013",
+    "description": "Simulation tick p95 (4.18 -> 1.3656 ms/tick <= 4.0 ms) and production 5v5 post-GC JS heap (524.17 -> 194.08 MiB <= 280 MiB) brought well inside Milestone 5/7 budgets with bit-exact simulation parity.",
+    "leonaSnapshotBugFixed": {
+      "location": "src/simulation/world.ts:beginLeonaDash",
+      "symptom": "Seed 8 failed snapshot deserialization at tick 108,000 with \"Saved match contains invalid Leona ordinary attack history.\" when Leona started a Zenith Blade dash during an ordinary attack against the same enemy champion.",
+      "fix": "Close active attack presentation via this.finishAttackPresentation(source, \"action\") before clearing source.attackCycle in beginLeonaDash; combat-invariant visual history bookkeeping.",
+      "regressionTest": "tests/milestone9-performance-and-memory.test.ts"
+    }
+  },
+  "pack": {
+    "id": "efec8baf7ea13b73be2961874ce3b9eec976c00430f44d4564894a6ca633ca2c",
+    "files": 1554,
+    "bytes": 582828680,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "performance": {
+    "environment": {
+      "os": "linux 6.12.115-adc.2 (x64)",
+      "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+      "cpuCores": 2,
+      "totalRamGiB": 7.46,
+      "node": "v26.13.0",
+      "hardwareTier": "linux-ci-headless-software-webgl",
+      "note": "Software-rendered Linux CI VM verifies deterministic simulation budgets, draw-call ceilings, and post-GC JS heap on the production dist/ bundle. Physical integrated-GPU laptop/desktop and macOS Safari 20-minute post-warmup frame pacing remain explicit external hardware gates."
+    },
+    "fixtureSource": "generated-seed-26018-tick-72000",
+    "measuredTicks": 3600,
+    "distinctChampions": 10,
+    "simulationMeanMsPerTick": 0.8722,
+    "simulationP50MsPerTick": 0.789,
+    "simulationP95MsPerTick": 1.3656,
+    "simulationP99MsPerTick": 1.9735,
+    "simulationMaxMsPerTick": 14.7072,
+    "simulationP95BudgetMs": 4,
+    "withinSimulationP95Budget": true,
+    "browser": "Chrome/157.0.8103.78",
+    "viewport": "1920x1080",
+    "coldBootMs": 8754,
+    "full5v5StartMs": 26974,
+    "drawCallsP50": 72,
+    "drawCallsP95": 72,
+    "drawCallsMax": 72,
+    "drawCallsBudget": 250,
+    "withinDrawCallBudget": true,
+    "texturesCreated": 80,
+    "buffersCreated": 100,
+    "postGcUsedJsHeapMiB": 194.08,
+    "postGcTotalJsHeapMiB": 264.95,
+    "postGcHeapBudgetMiB": 280,
+    "withinHeapBudget": true,
+    "developmentHookPresent": false,
+    "pageErrors": 0,
+    "baselineComparisonVsMilestone7": {
+      "milestone7SimulationP95MsPerTick": 4.18,
+      "milestone9SimulationP95MsPerTick": 1.3656,
+      "milestone7PostGcUsedJsHeapMiB": 524.17,
+      "milestone9PostGcUsedJsHeapMiB": 194.08
+    }
+  },
+  "publicCohort": {
+    "ruleset": "878d8aaf2b241c5b515b21c68ee3efb33e35ceeae4b5e442240e2deb1c6e76a2",
+    "publicRosterVerified": true,
+    "horizonTicks": 216000,
+    "seeds": 12,
+    "victories": 12,
+    "unfinished": 0,
+    "failures": 0,
+    "completionRate": 1,
+    "checkedTicks": 1532412,
+    "roundTrips": 433,
+    "futureChecks": 421,
+    "futureCheckedTicks": 25208,
+    "planSha256": "b9ac89b60af27b0a2d3a1a8d3e0d93714baee7bc5460d7bb022be903fe6b7a7a",
+    "summarySha256": "e455f0e91d496c9b3d5bee038e3b227eb7819eefd91068e2bbd48ca1c4ee9c0b",
+    "matches": [
+      {
+        "seed": 26018,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 129896,
+        "checkedTicks": 129896,
+        "roundTrips": 37,
+        "futureChecks": 36,
+        "futureCheckedTicks": 2160,
+        "reportBytes": 191679,
+        "reportSha256": "d151d8c80439ba3f4b448feda9f7f0840052645812dc2df01efdc401bbf1ee93",
+        "finalStateSha256": "ee1abbc29f3d09ce5af9ada45237ba7b75c73aff6b054ca2277a22e16e00418f"
+      },
+      {
+        "seed": 719,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 151378,
+        "checkedTicks": 151378,
+        "roundTrips": 43,
+        "futureChecks": 42,
+        "futureCheckedTicks": 2520,
+        "reportBytes": 222182,
+        "reportSha256": "9ce35a84f2a56d82138624d5280ec36f4540e04f44ca7ae774a4c2c56ea6691a",
+        "finalStateSha256": "c043fe89cbcfede8b46fc56f24345a704d966f8cc1dbe63a31b19b52e5d07fc1"
+      },
+      {
+        "seed": 1,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 106852,
+        "checkedTicks": 106852,
+        "roundTrips": 30,
+        "futureChecks": 29,
+        "futureCheckedTicks": 1740,
+        "reportBytes": 155972,
+        "reportSha256": "0c67a3202533db5d8a1f6c843a76e766ad8af978a388c2e28b867f825238152a",
+        "finalStateSha256": "b8f45e05cdfdf1527841cadb7101321455f7f5cec010fe329ca7cc8f6752af9e"
+      },
+      {
+        "seed": 927,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 135885,
+        "checkedTicks": 135885,
+        "roundTrips": 38,
+        "futureChecks": 37,
+        "futureCheckedTicks": 2220,
+        "reportBytes": 197333,
+        "reportSha256": "9a24435ea02ba05903fb1161e0636e52310f0dc87e7260a6d0238aa48ba670d1",
+        "finalStateSha256": "e5084e08d9298c194fdd89bd56582e9bc77077b92ff92807babdfdcfa1afc72b"
+      },
+      {
+        "seed": 2,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 121660,
+        "checkedTicks": 121660,
+        "roundTrips": 34,
+        "futureChecks": 33,
+        "futureCheckedTicks": 1980,
+        "reportBytes": 175384,
+        "reportSha256": "f326bd52bad0212e87850d3346614da25d34fa24a796b3149e31ead17b436adf",
+        "finalStateSha256": "5396f7e99b3c91d269dc7a29f2fd65a68829f4ef0312d3d2fa810c1395f68920"
+      },
+      {
+        "seed": 3,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 112171,
+        "checkedTicks": 112171,
+        "roundTrips": 32,
+        "futureChecks": 31,
+        "futureCheckedTicks": 1860,
+        "reportBytes": 165542,
+        "reportSha256": "72ff7a94886ce7ba0fa0af017a375531a55f2d765c5b071f00a68bd62c4a12fc",
+        "finalStateSha256": "0a2e9636b11311bf4ea174c7a09881a0b131fcb02ea0a73903887b4dcd95c523"
+      },
+      {
+        "seed": 4,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 105011,
+        "checkedTicks": 105011,
+        "roundTrips": 30,
+        "futureChecks": 29,
+        "futureCheckedTicks": 1740,
+        "reportBytes": 155667,
+        "reportSha256": "31fe7959cfe7b8f850102c126039db34f448519e46b51f9025a137705d860001",
+        "finalStateSha256": "33a459357814cec540c5b1f2d85e0a523a6fe8a9de269a9998f5c7a6b4e4f377"
+      },
+      {
+        "seed": 5,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 118808,
+        "checkedTicks": 118808,
+        "roundTrips": 34,
+        "futureChecks": 33,
+        "futureCheckedTicks": 1928,
+        "reportBytes": 176286,
+        "reportSha256": "8ac79c96320522e9e19b4c83996baef12e62de12823531af46de26eac00076af",
+        "finalStateSha256": "ce7bb163a4d85abab2b97f34caa9b6027b871fb28650e29acbfc969aa3367cb9"
+      },
+      {
+        "seed": 6,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 131174,
+        "checkedTicks": 131174,
+        "roundTrips": 37,
+        "futureChecks": 36,
+        "futureCheckedTicks": 2160,
+        "reportBytes": 191535,
+        "reportSha256": "0e0f1808a32b72267158839de964b376a92bd2ac88de4ab5b3bd609d6e47cd6b",
+        "finalStateSha256": "383772d1157020e76ed50c54d0b03af1413f692beb438e97a747cec29005e2ac"
+      },
+      {
+        "seed": 7,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 173724,
+        "checkedTicks": 173724,
+        "roundTrips": 49,
+        "futureChecks": 48,
+        "futureCheckedTicks": 2880,
+        "reportBytes": 253310,
+        "reportSha256": "60a17134f52879cd66551c1ac855e0935411d8d8d3c01132fc967ea8ca5c1f8a",
+        "finalStateSha256": "585d310d03082b43ffaca507efc40669be86e0815aca1808be46b38799a0446a"
+      },
+      {
+        "seed": 8,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 121166,
+        "checkedTicks": 121166,
+        "roundTrips": 34,
+        "futureChecks": 33,
+        "futureCheckedTicks": 1980,
+        "reportBytes": 174205,
+        "reportSha256": "f67b5ba683ae21e8319957929eea269c4a7157cb8a403543bdac839857ed2222",
+        "finalStateSha256": "687b371ca366c49bbf025061efa0e640b0dc21b6ec9a08cb72c7f733317d1c4c"
+      },
+      {
+        "seed": 9,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 124687,
+        "checkedTicks": 124687,
+        "roundTrips": 35,
+        "futureChecks": 34,
+        "futureCheckedTicks": 2040,
+        "reportBytes": 181306,
+        "reportSha256": "2d8ee07c1c64f6e92b78822db329ba80fc06ca46934623ed4b2770b30a2c59ae",
+        "finalStateSha256": "234d4296385b5bd0f93f5d475274d74bc0c40bcfb1309d91784fb567363a9252"
+      }
+    ]
+  },
+  "originalCohort": {
+    "ruleset": "878d8aaf2b241c5b515b21c68ee3efb33e35ceeae4b5e442240e2deb1c6e76a2",
+    "publicRosterVerified": false,
+    "horizonTicks": 216000,
+    "seeds": 4,
+    "victories": 4,
+    "unfinished": 0,
+    "failures": 0,
+    "completionRate": 1,
+    "checkedTicks": 377246,
+    "roundTrips": 107,
+    "futureChecks": 103,
+    "futureCheckedTicks": 6180,
+    "planSha256": "bfb82c078a53bea1a4cfc1519e1b36cde5c78a95e031277673c52ef870fa3385",
+    "summarySha256": "e08329294025d709f923a02b7097401404bfefc438c23acc78adf5d673b1b1b3",
+    "matches": [
+      {
+        "seed": 26018,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 95466,
+        "checkedTicks": 95466,
+        "roundTrips": 27,
+        "futureChecks": 26,
+        "futureCheckedTicks": 1560,
+        "reportBytes": 138910,
+        "reportSha256": "ad8060e73373a3c774f0b5e5c2eda80e3d00badfb5f0328e6248c6c67f806ee9",
+        "finalStateSha256": "40a0401ab2c13b01a844a0c2e5d33c54aa657fb1a3ad1ef403a091a7886d70f6"
+      },
+      {
+        "seed": 719,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 94160,
+        "checkedTicks": 94160,
+        "roundTrips": 27,
+        "futureChecks": 26,
+        "futureCheckedTicks": 1560,
+        "reportBytes": 139421,
+        "reportSha256": "1b5c6ed8a2b881c0cbf188ab682fd77797e5ab7b4d906da831ef5e88b4f918f0",
+        "finalStateSha256": "39842dee3c8bd928e1be2f0897807f0649b0e3578a3cf00c0ddfc7cce784ef44"
+      },
+      {
+        "seed": 1,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 94150,
+        "checkedTicks": 94150,
+        "roundTrips": 27,
+        "futureChecks": 26,
+        "futureCheckedTicks": 1560,
+        "reportBytes": 138741,
+        "reportSha256": "74d8c33d70c3f9e24a6014c43bf8d35471af844b8d1d6314244e8c75068f280c",
+        "finalStateSha256": "6cf86cf827d7edd4e2aad965eab43dc33f403fd5ad22b756b0d4a9fe525b2ae6"
+      },
+      {
+        "seed": 927,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 93470,
+        "checkedTicks": 93470,
+        "roundTrips": 26,
+        "futureChecks": 25,
+        "futureCheckedTicks": 1500,
+        "reportBytes": 134008,
+        "reportSha256": "683a948dee47a6d81895187ef2059f7ea26cf1c9818798cbc03de12ed08a9fe4",
+        "finalStateSha256": "c0a2afdf6de25b11e5e20a5b806aebc3e655342e72fa31bf7dc40463298fbc55"
+      }
+    ]
+  },
+  "nestedSubpath": {
+    "artifactRun": "milestone9-subpath",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 313,
+    "publicChampionChoices": 10,
+    "developmentHook": false,
+    "unrequestedPreloads": 0
+  },
+  "offline": {
+    "browser": "google-chrome",
+    "result": "passed",
+    "packId": "efec8baf7ea13b73be2961874ce3b9eec976c00430f44d4564894a6ca633ca2c",
+    "files": 1554,
+    "bytes": 582828680,
+    "serviceWorkerResponses": 1472,
+    "productionErrors": 0,
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 1472,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    }
+  },
+  "browsers": {
+    "chromium": {
+      "engine": "chromium",
+      "version": "Chrome/157.0.8103.78",
+      "presentationAndAcceptancePassed": true,
+      "tenSequentialRestartsAndContextLossPassed": true,
+      "spec": "e2e/milestone7-presentation-and-acceptance.spec.ts"
+    },
+    "firefox": {
+      "status": "not-installed-in-container",
+      "note": "Playwright Firefox executable is absent on this container image; schema 187 Firefox 155 acceptance remains retained in milestone7-verification.json and milestone8-verification.json."
+    },
+    "webkit": {
+      "status": "not-installed-in-container",
+      "note": "Playwright WebKit executable is absent on this container image; schema 187 WebKit 26.6 acceptance remains retained in milestone7-verification.json and milestone8-verification.json."
+    }
+  },
+  "reaCertification": {
+    "tool": "morluto/rea",
+    "package": "rea-agents@6.10.1",
+    "bundleFile": "artifacts/milestone9-rea-evidence-bundle.json",
+    "bundleBytes": 62319301,
+    "bundleSha256": "6056c50b0bac0a4d7680b260b8d604089ae4e255a5c1eec29b436479a476402e",
+    "records": 2,
+    "unknowns": 0,
+    "importValidation": {
+      "imported": 2,
+      "unknowns_added": 0,
+      "total": 2
+    },
+    "evidenceIds": {
+      "releaseExposureAudit": "ev_c1a69d7a907fa3653b7509ca98db0efd86da22318d55cf49359e7798886cc668",
+      "javascriptApplicationGraph": "ev_bb1d347d2f7a21b90796c6228e26a7297b0585e048c8c0a860f149104e4de450",
+      "featureTraceOfflinePack": "ev_abd130e7afc94a08932cc4f0f02cddb1662886f671cda0ba03fc9c5b93abc6d9",
+      "featureTraceTextureBacking": "ev_64f82ec30d0b0418f2de6c32ab767b8ca0df8ce71da9ec14377f683c9829e435",
+      "browserScenarioCapture": "ev_5e3d035f640349708befe4dcbf76b73cd1aabe502a6a32af54f6c88fbc549d7e",
+      "passiveWebPageInspection": "ev_6e8a90ac5576e47d18a59e1f86118bc3b69a963775723809390c3bd23da87d68",
+      "runtimeReconciliation": "ev_7398cbea8449a370ebd9b1e256bb2e4069f7058bab960235f03f2612670da627"
+    },
+    "releaseExposureExposedCount": 0,
+    "runtimeScriptsObserved": 12,
+    "runtimeScriptsMatched": 12,
+    "runtimeScriptsAmbiguous": 0,
+    "runtimeScriptsUnmatched": 0
+  },
+  "externalGates": {
+    "nativeRiotClientCaptures": "blocked-external",
+    "integratedGpuLaptopAndDesktop20MinPostWarmup": "blocked-external",
+    "macosDesktopSafariAcceptance": "blocked-external",
+    "hundredSeedSixtyMinuteCohort": "blocked-external",
+    "twentyHumanInputFullMatches": "blocked-external"
+  },
+  "sourceDigests": [
+    {
+      "file": "src/simulation/navgrid.ts",
+      "bytes": 17687,
+      "sha256": "b114532f25bcbc1ca43e3a3394be5c7a66ff083905873328a2778fcfa9d399e8"
+    },
+    {
+      "file": "src/simulation/vision.ts",
+      "bytes": 2265,
+      "sha256": "a1b3297a01cdd19445e12d9bcd4087e9f9185b5eebbed98815065b85e01e14bb"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 376607,
+      "sha256": "44788bcc93dcdef9020ea3a47ce0d36223f00447909e2a404d9446f80fb80f17"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 237303,
+      "sha256": "ecb7949bbe3abf0cbf3a985ef1882670b9fb36bf138b1776fd55773ddfd1998c"
+    },
+    {
+      "file": "src/render/map-geometry-transport.ts",
+      "bytes": 3036,
+      "sha256": "b55d9860e59bf0a490e0297ff032143563a0e3c7d5be8bb502133c78c0d4cff2"
+    },
+    {
+      "file": "src/render/map-texture-residency.ts",
+      "bytes": 3439,
+      "sha256": "b0ed2e6a8f491b8258665dfb7a0ac0904bbec02a8fac956249b581cb9efdac24"
+    },
+    {
+      "file": "src/render/map-texture-prefetch.ts",
+      "bytes": 1612,
+      "sha256": "75eaeadde67d9c8182e76675d78971b794f728a73b5abb6b1ee21238cb73f54c"
+    },
+    {
+      "file": "src/render/rift-assets.ts",
+      "bytes": 20434,
+      "sha256": "014f95b5653884ada33a6e3ad5f9d9a2c7a6dbe6aee7266b66f430d9d6ced149"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 81512,
+      "sha256": "f509a71cd62c43a768486731a2b15ca1b348c5c32c54e6e27c800289bfbe5ac6"
+    },
+    {
+      "file": "tests/milestone9-performance-and-memory.test.ts",
+      "bytes": 9536,
+      "sha256": "c81704727cb6128a8d35ed5f3c1e64e88e42ac9c467efc55d044486425dc5147"
+    },
+    {
+      "file": "tools/qa/run-milestone9-rea.mjs",
+      "bytes": 13477,
+      "sha256": "150768a1c62e8d3116e1a2a72c7eeac495ceeac0364552b8b6e68c855a484e3d"
+    },
+    {
+      "file": "tools/qa/verify-milestone9.mjs",
+      "bytes": 10738,
+      "sha256": "1165e490ca973b24f25161d8b783c2b0520ee92c24caa1fb96da5ca69aa84eea"
+    },
+    {
+      "file": "tools/qa/verify-milestone9.test.mjs",
+      "bytes": 3542,
+      "sha256": "5442d469f7ac2903cab1c28e5e0d6d93afc73cd6dea6d7edd6a9ab3b5ffffa60"
+    }
+  ],
+  "localArtifacts": [
+    {
+      "file": "artifacts/milestone9-performance-profile.json",
+      "bytes": 2280,
+      "sha256": "808ff56ba4a8100a306dce0257e44af786b97addfbfd73dfa0b3c89f934e1587"
+    },
+    {
+      "file": "artifacts/production-subpath-milestone9-subpath.json",
+      "bytes": 4357,
+      "sha256": "52ee6487c4fb880e8b9f0b6f6d9c2e0383e334699ade68de46482ba56f52cc34"
+    },
+    {
+      "file": "artifacts/milestone9-offline-pack.json",
+      "bytes": 858,
+      "sha256": "b9cfda67422b747b974054f3f2d72bd1596cf3819d2c5a342aec71691caa493d"
+    },
+    {
+      "file": "artifacts/milestone9-public-cohort-summary.json",
+      "bytes": 2613140,
+      "sha256": "e455f0e91d496c9b3d5bee038e3b227eb7819eefd91068e2bbd48ca1c4ee9c0b"
+    },
+    {
+      "file": "artifacts/milestone9-original-cohort-summary.json",
+      "bytes": 643407,
+      "sha256": "e08329294025d709f923a02b7097401404bfefc438c23acc78adf5d673b1b1b3"
+    },
+    {
+      "file": "artifacts/milestone9-rea-summary.json",
+      "bytes": 15486,
+      "sha256": "82c57c15b38c12a5c4717b4dbdbc8c806a26a40810868b9ae61e26fe64dcfd10"
+    },
+    {
+      "file": "artifacts/milestone9-rea-evidence-bundle.json",
+      "bytes": 62319301,
+      "sha256": "6056c50b0bac0a4d7680b260b8d604089ae4e255a5c1eec29b436479a476402e"
+    }
+  ]
+}

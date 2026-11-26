@@ -4,7 +4,7 @@ Design a browser game that reproduces as much of League of Legends' match experi
 
 The repository now contains interactive practice and interim 5v5 modes plus the full production design. The production objective remains a complete, high-fidelity local 5v5 MOBA. This first playable is an intermediate milestone, not that completed product.
 
-The current work is [Milestone 7: reference-calibrated ten-champion full-match release](docs/MILESTONE-7.md) (Increments 7.0–7.5 delivered on schema `187` / ruleset `bf0a46c…`, with fail-closed verification via `node tools/qa/verify-milestone7.mjs`; external native Riot captures, physical hardware benchmarks, and the 100-seed scale run remain explicitly tracked as `blocked-external`).
+The current verified milestone is [Milestone 9: runtime performance, memory budget, and scale hardening](docs/MILESTONE-9.md) (completed on schema `188` / ruleset `878d8aaf…` / offline pack `efec8baf…`, closing `M7-D013` with `1.37 ms/tick` simulation p95, `194.08 MiB` post-GC production JS heap, `12/12` public + `4/4` original-lineup victories, and fail-closed verification via `node tools/qa/verify-milestone9.mjs`; external native Riot captures, physical integrated-GPU/macOS Safari hardware benchmarks, the 100-seed scale run, and 20 human-input matches remain explicitly tracked as `blocked-external`). See also [Milestone 7](docs/MILESTONE-7.md) and [Milestone 8](docs/MILESTONE-8.md).
 
 ## Run locally
 
