@@ -1079,19 +1079,21 @@ export class Hud {
       const summary = summarizeReferenceCoverage();
       title = 'Reference & Patch 26.18';
       subtitle =
-        'Pinned reference coverage, intentional adaptations, and player-visible deviations.';
+        'Separated implementation, reference-source, and presentation evidence with explicit player deviations.';
       content = `<div class="audit-summary" role="group" aria-label="Reference ledger summary">
         <span class="audit-pill"><b>${summary.byCategory.champion}</b> champions (${summary.byCategory.ability} abilities)</span>
         <span class="audit-pill"><b>${summary.byStatus['verified-behavior']}</b> verified behavior</span>
         <span class="audit-pill"><b>${summary.byStatus['verified-data']}</b> verified data</span>
         <span class="audit-pill"><b>${summary.byStatus.approximation}</b> approximations</span>
+        <span class="audit-pill"><b>${summary.byReferenceEvidence['pinned-wad-and-ddragon']}</b> WAD+DDragon pinned</span>
+        <span class="audit-pill"><b>${summary.byPresentationEvidence['pinned-wad-model-and-audio']}</b> pinned presentation</span>
         <span class="audit-pill"><b>${summary.byStatus.unimplemented}</b> deferred</span>
       </div>
       <div class="shop-categories" role="group" aria-label="Filter reference ledger">
         ${(['all', 'verified-behavior', 'verified-data', 'approximation', 'unimplemented'] as const).map((f) => `<button type="button" class="menu-button shop-category-btn" data-audit-filter="${f}" aria-pressed="${f === 'all'}">${f === 'all' ? 'All entries' : f}</button>`).join('')}
       </div>
       <div class="audit-scroll" id="audit-list">
-        ${REFERENCE_COVERAGE_LEDGER.map((entry) => `<div class="audit-entry" data-audit-kind="${entry.status}"><div><span class="audit-badge">${entry.status}</span><strong>${entry.name}</strong></div><small>${entry.category} · Source: ${entry.sourceReference}${entry.playerDeviationNote ? ` · Deviation: ${entry.playerDeviationNote}` : ''}</small></div>`).join('')}
+        ${REFERENCE_COVERAGE_LEDGER.map((entry) => `<div class="audit-entry" data-audit-kind="${entry.status}" data-impl-evidence="${entry.implementationEvidence}" data-ref-evidence="${entry.referenceEvidence}" data-pres-evidence="${entry.presentationEvidence}"><div><span class="audit-badge">${entry.status}</span><strong>${entry.name}</strong></div><small>${entry.category} · Impl: ${entry.implementationEvidence} · Ref: ${entry.referenceEvidence} · Pres: ${entry.presentationEvidence} · Source: ${entry.sourceReference}${entry.playerDeviationNote ? ` · Deviation: ${entry.playerDeviationNote}` : ''}</small></div>`).join('')}
       </div>
       <button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'replay') {
