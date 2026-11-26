@@ -253,6 +253,24 @@ function part(
   parent.add(mesh);
   return mesh;
 }
+export function expectedModelAsset(u: Unit): string | undefined {
+  if (u.kind === 'dummy') return undefined;
+  if (u.kind === 'ward') {
+    return u.ward?.variant === 'farsight' && references.has('farsightward-base')
+      ? 'farsightward-base'
+      : u.ward?.variant === 'control' && references.has('controlward-base')
+        ? 'controlward-base'
+        : WARD_SOURCE.rig;
+  }
+  if (u.kind === 'monster') return MONSTERS[u.monster.species].rig;
+  if (u.summonedObjective === 'rift-herald' && references.has(MONSTERS.riftherald.rig)) {
+    return MONSTERS.riftherald.rig;
+  }
+  if (u.summonedObjective === 'voidmite' && references.has(MONSTERS.voidgrub.rig)) {
+    return MONSTERS.voidgrub.rig;
+  }
+  return u.kind === 'champion' ? `${u.champion}-base` : `${u.team}-${u.kind}`;
+}
 export function makeModel(u: Unit): UnitModel {
   if (
     u.kind === 'champion' ||
@@ -264,22 +282,14 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'monster' ||
     u.kind === 'ward'
   ) {
-    const key =
-      u.kind === 'ward'
-        ? u.ward?.variant === 'farsight' && references.has('farsightward-base')
-          ? 'farsightward-base'
-          : u.ward?.variant === 'control' && references.has('controlward-base')
-            ? 'controlward-base'
-            : WARD_SOURCE.rig
-        : u.kind === 'monster'
-          ? MONSTERS[u.monster.species].rig
-          : u.kind === 'champion'
-            ? `${u.champion}-base`
-            : `${u.team}-${u.kind}`;
+    const key = expectedModelAsset(u)!;
     const reference = references.get(key);
     if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),
       model = clone(reference.scene);
+    if (u.summonedObjective === 'voidmite' && key === MONSTERS.voidgrub.rig) {
+      model.scale.multiplyScalar(0.55);
+    }
     root.add(model);
     configureAnimationCulling(model);
     const submeshes: THREE.Object3D[] = [];

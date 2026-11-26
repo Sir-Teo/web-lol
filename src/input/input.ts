@@ -11,6 +11,7 @@ import {
   targetInstruction,
 } from './spell-controls';
 import { getExpandedItem } from '../simulation/item-effects';
+import { hasHeraldEmpoweredRecall } from '../simulation/epic-objectives';
 
 const ITEM_SLOT_BY_KEY: Readonly<Record<string, number>> = {
   '1': 0,
@@ -477,6 +478,15 @@ export class GameInput {
   private beginWardAim(): void {
     this.heldOrder = null;
     this.cancelAim();
+    if (hasHeraldEmpoweredRecall(this.world, this.world.player)) {
+      const point = this.wardPoint() ?? { x: this.world.hero.x + 120, y: this.world.hero.y };
+      this.world.enqueue({
+        type: 'summon-herald',
+        unit: this.world.player.id,
+        point,
+      });
+      return;
+    }
     if (this.world.player.trinket.kind === 'oracle') {
       this.world.enqueue({ type: 'oracle', unit: this.world.player.id });
       return;

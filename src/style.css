@@ -2363,3 +2363,33 @@ button {
 .scoreboard-items.seven-slots {
   grid-template-columns: repeat(7, 22px);
 }
+.trinket-slot[data-herald-eye='true'] {
+  border-color: #c77dff;
+  box-shadow: 0 0 10px rgba(199, 125, 255, 0.55);
+}
+.trinket-slot[data-herald-eye='true'] .trinket-charges {
+  color: #f3d6ff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.audit-entry[data-audit-kind='approximation'] .audit-badge {
+  border-color: #c89b3c;
+  color: #f3d794;
+}
+.audit-entry[data-audit-kind='verified-behavior'] .audit-badge {
+  border-color: #46a87d;
+  color: #a9f0cf;
+}
+@media (min-width: 2200px) {
+  .champion-hud {
+    transform: translateX(-50%) scale(1.18);
+    transform-origin: bottom center;
+  }
+  .minimap-shell {
+    width: 270px;
+  }
+  .match-identity {
+    font-size: 13px;
+  }
+}

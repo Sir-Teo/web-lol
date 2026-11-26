@@ -27,7 +27,6 @@ import { LazyLeonaEclipseSurfaces } from './lazy-leona-eclipse-surfaces';
 import { LazySunlight } from './lazy-sunlight';
 import { LazyGarenPerseverance } from './lazy-garen-perseverance';
 import { ParticleDistortionPass } from './particle-distortion-pass';
-import { MONSTERS } from '../content/monsters';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { RiverShrines } from './river-shrines';
 import { OwnedCompanions } from './owned-companions';
@@ -124,7 +123,7 @@ import { HawkshotSnow } from './hawkshot-snow';
 import { HawkshotLingerAurora } from './hawkshot-linger-aurora';
 import { HawkshotEchoes } from './hawkshot-echo';
 import { buildTerrain, SCALE } from './terrain';
-import { disposeModel, makeModel, type UnitModel } from './models';
+import { disposeModel, expectedModelAsset, makeModel, type UnitModel } from './models';
 import { unitBarHeight } from './unit-bar-height';
 
 export class GameView {
@@ -770,16 +769,7 @@ export class GameView {
     const present = new Set<number>();
     for (const u of world.units) {
       present.add(u.id);
-      const expectedAsset =
-        u.kind === 'dummy'
-          ? undefined
-          : u.kind === 'ward'
-            ? WARD_SOURCE.rig
-            : u.kind === 'monster'
-              ? MONSTERS[u.monster.species].rig
-              : u.kind === 'champion'
-                ? `${u.champion}-base`
-                : `${u.team}-${u.kind}`;
+      const expectedAsset = expectedModelAsset(u);
       let model = this.models.get(u.id);
       if (model && model.referenceAsset !== expectedAsset) {
         this.scene.remove(model.root);

@@ -58,7 +58,10 @@ import {
   DRAGON_SOUL_NAMES,
   EPIC_OBJECTIVE_TIMING,
 } from '../content/epic-objectives';
-import { isElementalRiftTransformed } from '../simulation/epic-objectives';
+import {
+  hasHeraldEmpoweredRecall,
+  isElementalRiftTransformed,
+} from '../simulation/epic-objectives';
 import {
   REFERENCE_COVERAGE_LEDGER,
   summarizeReferenceCoverage,
@@ -2185,6 +2188,7 @@ export class Hud {
       p = w.player,
       h = w.hero;
     const trinket = this.root.querySelector<HTMLButtonElement>('#trinket')!;
+    const holdingHeraldEye = hasHeraldEmpoweredRecall(w, p);
     const kind = p.trinket.kind,
       definition = TRINKETS[kind];
     if (trinket.dataset.kind !== kind) {
@@ -2207,26 +2211,44 @@ export class Hud {
     const maxPlaced = maxStealthWardsForQuest(p.roleQuest);
     const maxCharges =
       kind === 'ward' ? WARD_SOURCE.maxCharges : kind === 'farsight' ? 1 : ORACLE_SOURCE.maxCharges;
-    trinket.querySelector('.trinket-charges')!.textContent = String(charges);
-    trinket.querySelector('.trinket-cooldown')!.textContent =
-      cooldown > 0
-        ? String(Math.ceil(cooldown / 60))
-        : charges === 0
-          ? String(Math.ceil(recharge / 60))
-          : '';
-    trinket.classList.toggle('empty', charges === 0);
-    const scanLeft = Math.max(0, (p.trinket.scan?.endTick ?? 0) - w.tick);
-    trinket.classList.toggle('active', scanLeft > 0);
-    trinket.setAttribute(
-      'aria-label',
-      `${definition.name}: ${charges}/${maxCharges} charges${kind === 'ward' ? `, ${placed}/${maxPlaced} placed` : scanLeft > 0 ? `, scan active ${Math.ceil(scanLeft / 60)} seconds` : ''}`
-    );
-    trinket.title =
-      kind === 'ward'
-        ? `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`
-        : kind === 'farsight'
-          ? `Farsight Alteration (4) · ${charges}/1 charge. Hold 4 and release over the battlefield or minimap up to ${FARSIGHT_POLICY.range} units away to reveal the target area and leave an untargetable visible Farsight Ward (${FARSIGHT_POLICY.sightRadius} sight). Next charge: ${Math.ceil(recharge / 60)}s.`
-          : `Oracle Lens (4) · ${charges}/${ORACLE_SOURCE.maxCharges} charges. Press 4 or click to scan for ${ORACLE_SOURCE.durationSeconds}s. Reveals and disables enemy wards; warns of hidden champions without granting sight. ${scanLeft > 0 ? `Scan active: ${Math.ceil(scanLeft / 60)}s. ` : ''}Next charge: ${Math.ceil(recharge / 60)}s.`;
+    if (holdingHeraldEye) {
+      const eyeLeft = Math.max(
+        1,
+        Math.ceil(((w.riftObjectives?.herald.chargeHolder?.endTick ?? w.tick) - w.tick) / TICK_RATE)
+      );
+      trinket.dataset.heraldEye = 'true';
+      trinket.querySelector('.trinket-charges')!.textContent = 'EYE';
+      trinket.querySelector('.trinket-cooldown')!.textContent = `${eyeLeft}s`;
+      trinket.classList.remove('empty');
+      trinket.classList.add('active');
+      trinket.setAttribute(
+        'aria-label',
+        `Eye of the Herald (4): Summon Rift Herald (${eyeLeft}s remaining)`
+      );
+      trinket.title = `Eye of the Herald (4) · ${eyeLeft}s remaining. Press 4 or click to summon a lane-charging Rift Herald siege mercenary, or attack a turret directly for Herald Siege Charge.`;
+    } else {
+      delete trinket.dataset.heraldEye;
+      trinket.querySelector('.trinket-charges')!.textContent = String(charges);
+      trinket.querySelector('.trinket-cooldown')!.textContent =
+        cooldown > 0
+          ? String(Math.ceil(cooldown / 60))
+          : charges === 0
+            ? String(Math.ceil(recharge / 60))
+            : '';
+      trinket.classList.toggle('empty', charges === 0);
+      const scanLeft = Math.max(0, (p.trinket.scan?.endTick ?? 0) - w.tick);
+      trinket.classList.toggle('active', scanLeft > 0);
+      trinket.setAttribute(
+        'aria-label',
+        `${definition.name}: ${charges}/${maxCharges} charges${kind === 'ward' ? `, ${placed}/${maxPlaced} placed` : scanLeft > 0 ? `, scan active ${Math.ceil(scanLeft / 60)} seconds` : ''}`
+      );
+      trinket.title =
+        kind === 'ward'
+          ? `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`
+          : kind === 'farsight'
+            ? `Farsight Alteration (4) · ${charges}/1 charge. Hold 4 and release over the battlefield or minimap up to ${FARSIGHT_POLICY.range} units away to reveal the target area and leave an untargetable visible Farsight Ward (${FARSIGHT_POLICY.sightRadius} sight). Next charge: ${Math.ceil(recharge / 60)}s.`
+            : `Oracle Lens (4) · ${charges}/${ORACLE_SOURCE.maxCharges} charges. Press 4 or click to scan for ${ORACLE_SOURCE.durationSeconds}s. Reveals and disables enemy wards; warns of hidden champions without granting sight. ${scanLeft > 0 ? `Scan active: ${Math.ceil(scanLeft / 60)}s. ` : ''}Next charge: ${Math.ceil(recharge / 60)}s.`;
+    }
     // Seek the announcement with match time so loading, pause and time jumps
     // cannot advance or replay its presentation independently of the simulation.
     const welcomeTick = Math.min(w.tick, 8 * TICK_RATE);
