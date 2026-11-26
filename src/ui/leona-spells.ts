@@ -33,7 +33,7 @@ export function leonaDescription(
   ap: number,
   level: number
 ): string {
-  const sunlight = ` Marks surviving enemies with Sunlight for ${LEONA_SUNLIGHT.markSeconds} seconds. Another allied champion's attack or ability consumes the mark for ${leonaSunlightDamage(level)} magic damage before resistance.`;
+  const sunlight = ` Marks surviving enemies with Sunlight for ${LEONA_SUNLIGHT.markSeconds} seconds. Another allied champion's attack or ability consumes the mark for ${leonaSunlightDamage(Math.min(18, level))} magic damage before resistance.`;
   if (ability === 'q') {
     const q = leonaDaybreakValues(rank, ap);
     return (

@@ -180,6 +180,21 @@
       "dependencies": [],
       "acceptanceScenario": "docs/REFERENCE-VALIDATION.md#first-comparison-set",
       "disposition": "blocked-external"
+    },
+    {
+      "id": "M7-D011",
+      "patch": "26.18",
+      "clientBuild": "16.18.8175716",
+      "sourceOrCaptureHash": "cohort-seed-719@tick-141547",
+      "implementationLocation": "src/simulation/world.ts:perseveranceRegenPerSecond,illuminationDamage,consumeSunlight;src/simulation/leona-eclipse.ts:eclipseResistances;src/ui/lux-spells.ts;src/ui/leona-spells.ts",
+      "measuredResult": "Cohort seed 719 surfaced a P0 NaN HP crash at tick 141547 when Top-lane Garen reached level 19 via Top Role Quest because 18-entry per-level passive/resistance arrays indexed [level - 1] without clamping. Clamped level lookups for Garen Perseverance, Lux Illumination, Leona Eclipse, and Leona Sunlight across simulation and UI.",
+      "uncertainty": "Exact deterministic level-19/20 clamping fix.",
+      "severity": "P0",
+      "category": "gameplay-progression",
+      "owner": "milestone-7.4",
+      "dependencies": ["M7-D009"],
+      "acceptanceScenario": "tests/milestone7-gameplay-calibration.test.ts",
+      "disposition": "fixed"
     }
   ]
 }

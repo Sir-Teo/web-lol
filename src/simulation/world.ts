@@ -5340,8 +5340,12 @@ export class World {
     if (u.champion !== 'garen' || !this.alive(u)) return 0;
     const state = this.championState(u.id)!;
     if (this.tick < state.garenPassiveReadyTick) return 0;
+    const levelIndex = Math.min(
+      GAREN_PASSIVE.maxHealthFractionByLevel.length - 1,
+      Math.max(0, state.level - 1)
+    );
     return (
-      (u.maxHp * GAREN_PASSIVE.maxHealthFractionByLevel[state.level - 1]) /
+      (u.maxHp * GAREN_PASSIVE.maxHealthFractionByLevel[levelIndex]) /
       GAREN_PASSIVE.ratePeriodSeconds
     );
   }
@@ -6614,8 +6618,12 @@ export class World {
     });
   }
   private illuminationDamage(source: Unit): number {
+    const levelIndex = Math.min(
+      LUX_ILLUMINATION.baseDamageByLevel.length - 1,
+      Math.max(0, this.championState(source.id)!.level - 1)
+    );
     return (
-      LUX_ILLUMINATION.baseDamageByLevel[this.championState(source.id)!.level - 1] +
+      LUX_ILLUMINATION.baseDamageByLevel[levelIndex] +
       LUX_ILLUMINATION.abilityPowerRatio * this.abilityPower(source)
     );
   }
@@ -6679,7 +6687,14 @@ export class World {
     // Retire before nested damage. Leona owns effects; the ally owns kill credit.
     captureSunlightVisual(this, source, target);
     target.sunlight = null;
-    this.damage(source, target, leonaSunlightDamage(owner.level), 'magic', 'proc', trigger);
+    this.damage(
+      source,
+      target,
+      leonaSunlightDamage(Math.min(18, owner.level)),
+      'magic',
+      'proc',
+      trigger
+    );
     advanceSunlightVisuals(this);
   }
   /** Shared by actual melee release and the conservative, non-critical farm forecast. */

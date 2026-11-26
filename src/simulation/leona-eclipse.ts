@@ -21,7 +21,7 @@ const baseResistances = ASHE.growthFactors.map((_, i) => {
 export function eclipseResistances(unit: Unit, state: ChampionState, tick: number) {
   const eclipse = state.leonaW;
   if (!eclipse || tick >= eclipse.endTick) return { armor: 0, magicResist: 0 };
-  const base = baseResistances[state.level - 1],
+  const base = baseResistances[Math.min(baseResistances.length - 1, Math.max(0, state.level - 1))],
     spec = LEONA_SPELLS.w;
   return {
     armor: statPrecision(

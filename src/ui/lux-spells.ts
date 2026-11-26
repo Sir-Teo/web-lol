@@ -27,7 +27,12 @@ export function luxPreviewResources(ability: LuxSpell) {
   return { mana: LUX_SPELLS[ability].cost, cooldownSeconds };
 }
 export function luxDescription(ability: LuxSpell, rank: number, ap: number, level: number): string {
-  const mark = Math.round(PASSIVE.baseDamageByLevel[level - 1] + PASSIVE.abilityPowerRatio * ap);
+  const mark = Math.round(
+    PASSIVE.baseDamageByLevel[
+      Math.min(PASSIVE.baseDamageByLevel.length - 1, Math.max(0, level - 1))
+    ] +
+      PASSIVE.abilityPowerRatio * ap
+  );
   const illumination = ` Applies Illumination for ${PASSIVE.durationSeconds} seconds. A basic attack consumes your mark for ${mark} bonus magic damage before resistance.`;
   if (ability === 'q')
     return (

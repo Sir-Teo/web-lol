@@ -5,8 +5,16 @@ import { DARIUS_KIT } from '../src/content/milestone6-champions';
 import { DRAGON_SLAYER_BUFFS } from '../src/content/epic-objectives';
 import { RUNE_TIMING } from '../src/content/runes';
 import { TICK_RATE } from '../src/content/rules';
-import { championBaseAd, championItemAp, championItemBonusAd } from '../src/simulation/champion-stats';
-import { dragonDefenseMultiplier, dragonSlowResist, summonRiftHerald } from '../src/simulation/epic-objectives';
+import {
+  championBaseAd,
+  championItemAp,
+  championItemBonusAd,
+} from '../src/simulation/champion-stats';
+import {
+  dragonDefenseMultiplier,
+  dragonSlowResist,
+  summonRiftHerald,
+} from '../src/simulation/epic-objectives';
 import { createLaneMatch } from '../src/simulation/lane-match';
 import { NavGrid } from '../src/simulation/navgrid';
 import { runeAdaptiveStats } from '../src/simulation/runes';
@@ -92,7 +100,13 @@ describe('Milestone 7.2 — Gameplay Calibration & Discrepancy Fixes', () => {
     foe.hp = 50;
 
     // Cast R for an execute kill -> R resets immediately (ready tick <= w.tick) with a 20s reset window
-    w.enqueue({ type: 'cast', unit: darius.id, ability: 'r', point: { x: foe.x, y: foe.y }, targetId: foe.id });
+    w.enqueue({
+      type: 'cast',
+      unit: darius.id,
+      ability: 'r',
+      point: { x: foe.x, y: foe.y },
+      targetId: foe.id,
+    });
     advance(w, 2);
     expect(foe.hp).toBe(0);
     expect(dState.cooldowns.r).toBeLessThanOrEqual(w.tick);
@@ -227,7 +241,11 @@ describe('Milestone 7.2 — Gameplay Calibration & Discrepancy Fixes', () => {
     const w = makeWorld('garen');
     const garen = championById(w, 'garen', 'blue');
     const redTurret = w.units.find(
-      (u) => u.kind === 'turret' && u.team === 'red' && u.structure?.role === 'outer-turret' && w.alive(u)
+      (u) =>
+        u.kind === 'turret' &&
+        u.team === 'red' &&
+        u.structure?.role === 'outer-turret' &&
+        w.alive(u)
     )!;
 
     // 4 Voidgrub stacks -> hitting an enemy turret spawns 1 Voidmite
@@ -303,7 +321,9 @@ describe('Milestone 7.2 — Gameplay Calibration & Discrepancy Fixes', () => {
     const w1 = makeWorld('vi');
     const vi = championById(w1, 'vi', 'blue');
     const foe = enemyChampions(w1, 'blue')[0]!;
-    const ally = w1.units.find((u) => u.kind === 'champion' && u.team === 'blue' && u.id !== vi.id)!;
+    const ally = w1.units.find(
+      (u) => u.kind === 'champion' && u.team === 'blue' && u.id !== vi.id
+    )!;
     const viState = w1.championState(vi.id)!;
     viState.level = 6;
     viState.skillPoints = 6;
@@ -341,5 +361,22 @@ describe('Milestone 7.2 — Gameplay Calibration & Discrepancy Fixes', () => {
     advance(restored, 90);
 
     expect(restored.snapshot()).toEqual(w1.snapshot());
+  });
+
+  it('M7-D011: Top Role Quest level 19-20 never produces NaN health or out-of-bounds table lookups for Garen, Lux, or Leona', () => {
+    const w = makeWorld('garen');
+    const garen = championById(w, 'garen', 'blue');
+    const garenState = w.championState(garen.id)!;
+    garenState.level = 20;
+    garenState.garenPassiveReadyTick = 0;
+    garen.hp = garen.maxHp * 0.5;
+    const regen = w.perseveranceRegenPerSecond(garen);
+    expect(Number.isFinite(regen)).toBe(true);
+    expect(regen).toBeGreaterThan(0);
+
+    advance(w, 60);
+    expect(Number.isFinite(garen.hp)).toBe(true);
+    expect(garen.hp).toBeGreaterThan(garen.maxHp * 0.5);
+    expect(garen.hp).toBeLessThanOrEqual(garen.maxHp);
   });
 });
