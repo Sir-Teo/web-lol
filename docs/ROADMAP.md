@@ -48,32 +48,34 @@ Complete the cohesive map art, rigged roster, effect library, combat sound mix, 
 
 Finish all applicable role quests, objectives, vision variants, items, and selected runes for the frozen patch. Reconcile source changes and measured exceptions. Expand to ten distinct characters only after the match retains its earlier quality.
 
-**Exit (verified on schema 185 / ruleset `e5e3cc7f…` / pack `e74775d9…`):** all five Season 2026 Role Quests (Top level `20` cap + `210 s` Teleport, Jungle `40`-treat Primal Smite `1,200`, Mid Tier 3 boots + `4 s` Empowered Recall, Carry **7th item slot** + `+2g` CS bonus, Support evolved World Atlas + `2`-Control-Ward capacity), full Epic Objectives (Voidgrubs + Voidmites, Rift Herald + Eye of the Herald summon, 6 Elemental Drakes, Elemental Rift transformation, 6 Dragon Souls, Elder Dragon *Aspect of the Dragon* `20%` execute, and Baron Nashor), Vision Variants (Farsight Alteration, Control Ward, `8` Season 2026 Faelights), a `58`-item catalog with uniqueness/actives/passives and Fountain Undo, editable Runes & Stat Shards, and **ten distinct champions** (`Ashe`, `Lux`, `Garen`, `Master Yi`, `Leona`, `Ahri`, `Darius`, `Vi`, `Ezreal`, `Morgana`) forming a zero-mirror 5v5 pass across unit, 10-champion roster contract, production subpath, offline pack (`1,519` files / `581.69 MB`, `1,518` SW responses), `960 s` 5v5 simulation (`57,600` ticks, `0` violations), and **Chrome (`157`) + Firefox (`155`) + WebKit (`26.6`)** E2E gates (`3/3`). All `158` advertised Patch 26.18 rules and content entries carry explicit coverage statuses (`49` `verified-behavior`, `34` `verified-data`, `75` `approximation`, `0` `unimplemented`) under **Pause → Reference & patch 26.18**, certified with `morluto/rea` (`rea-agents@6.10.1`, `12` Evidence records, bundle SHA-256 `7dbdfc6f…`). See [Milestone 6 report](MILESTONE-6.md) and [verification ledger](reference/milestone6-verification.json).
+**Exit (verified on schema 185 / ruleset `e5e3cc7f…` / pack `e74775d9…`):** all five Season 2026 Role Quests (Top level `20` cap + `210 s` Teleport, Jungle `40`-treat Primal Smite `1,200`, Mid Tier 3 boots + `4 s` Empowered Recall, Carry **7th item slot** + `+2g` CS bonus, Support evolved World Atlas + `2`-Control-Ward capacity), full Epic Objectives (Voidgrubs + Voidmites, Rift Herald + Eye of the Herald summon, 6 Elemental Drakes, Elemental Rift transformation, 6 Dragon Souls, Elder Dragon _Aspect of the Dragon_ `20%` execute, and Baron Nashor), Vision Variants (Farsight Alteration, Control Ward, `8` Season 2026 Faelights), a `58`-item catalog with uniqueness/actives/passives and Fountain Undo, editable Runes & Stat Shards, and **ten distinct champions** (`Ashe`, `Lux`, `Garen`, `Master Yi`, `Leona`, `Ahri`, `Darius`, `Vi`, `Ezreal`, `Morgana`) forming a zero-mirror 5v5 pass across unit, 10-champion roster contract, production subpath, offline pack (`1,519` files / `581.69 MB`, `1,518` SW responses), `960 s` 5v5 simulation (`57,600` ticks, `0` violations), and **Chrome (`157`) + Firefox (`155`) + WebKit (`26.6`)** E2E gates (`3/3`). All `158` advertised Patch 26.18 rules and content entries carry explicit coverage statuses (`49` `verified-behavior`, `34` `verified-data`, `75` `approximation`, `0` `unimplemented`) under **Pause → Reference & patch 26.18**, certified with `morluto/rea` (`rea-agents@6.10.1`, `12` Evidence records, bundle SHA-256 `7dbdfc6f…`). See [Milestone 6 report](MILESTONE-6.md) and [verification ledger](reference/milestone6-verification.json).
 
-## Milestone 7 — reference-calibrated ten-champion full-match release (In progress)
+## Milestone 7 — reference-calibrated ten-champion full-match release (Delivered; external hardware/reference gates tracked)
 
 Turn the existing ten-champion feature baseline into an independently measured,
 credible full-match release before expanding the roster. Reconcile the frozen
-Patch 26.18 reference ledger and all 75 recorded approximations; close
+Patch 26.18 reference ledger and all 77 recorded approximations; close
 match-changing kit, objective, role, item/rune, vision, and bot discrepancies;
 calibrate complete audiovisual timelines; and certify the actual shipped build.
 
-**Exit:** current ten-champion zero-mirror 5v5 passes a minimum 100-seed,
-60-minute-horizon cohort with zero invariant failures and at least 99% natural
-Nexus victories, periodic saved-future/replay checks, twenty recorded human-input
-full matches, the browser/resolution/offline/recovery matrix, and named physical
-device performance gates. All mandatory evidence is present and pinned; no
-unresolved P0/P1 defect or unsupported reference claim remains. Missing authorized
-native references block fidelity certification rather than being counted as passes.
-
-**Status:** acceptance work has begun; full certification remains open. REA
-`rea-agents@6.10.1` was run locally on eight read-only staged sources with
-networking disabled to inform the definition. That run was static research, not
-a new runtime or native-fidelity certification.
-See [Milestone 7 scope, dependencies, and acceptance gates](MILESTONE-7.md) and
-[planning research receipt](reference/milestone7-planning-research.json).
-
-The two-seed match reliability check passed on schema 186. See the
+**Delivered (verified on schema 187 / ruleset `bf0a46c…` / pack `9143268…`):**
+Increments 7.0–7.5 completed with zero open P0/P1 implementation discrepancies
+(`10` fixed including P0 level-19/20 Top-quest NaN HP crash `M7-D011`), split
+three-dimension evidence across all `158` reference entries (`0` unimplemented,
+`0` undocumented approximations), `34/34` Milestone 7 unit/matrix/calibration
+tests, summonable lane-charging Rift Herald + Voidgrub Voidmites, `6/6` natural
+Nexus victories in the 60-minute public-roster cohort (`757,842` checked ticks,
+`214` exact minute round-trips, `208` saved-future checks, `0` failures),
+**Chrome 157 + Firefox 155 + WebKit 26.6** multi-browser acceptance, nested
+subpath (`/nested/rift/`) + full offline pack (`1,554` files / `582.82 MB`,
+`1,522` SW responses) + offline completed-match restore (`2,295` SW responses,
+`0` offline origin requests), late-match simulation/production profiling
+(`72` p95 draw calls `< 250`), pinned `rea-agents@6.10.1` static + CDP runtime
+reconciliation (`12/12` scripts matched, `0` exposures, authenticated bundle
+SHA-256 `d0117f97…`), and fail-closed `tools/qa/verify-milestone7.mjs`. Native
+Riot client captures, physical integrated-GPU/macOS Safari hardware benchmarks,
+the 100-seed scale cohort, and 20 human-input full matches remain explicitly
+tracked as `blocked-external`. See [Milestone 7](MILESTONE-7.md) and the
 [verification ledger](reference/milestone7-verification.json).
 
 ## Milestone 8 — original roster and audiovisual validation (Completed)

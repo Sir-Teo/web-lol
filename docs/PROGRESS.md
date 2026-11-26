@@ -14,14 +14,46 @@ and exact offline restoration. REA captured the release flow and audited the
 shipped build.
 See the [Milestone 8 report](MILESTONE-8.md).
 
-### Milestone 7 baseline (schema 186 / ruleset `3627a2c1…`)
+### Milestone 7 release-calibration delivery (schema 187 / ruleset `bf0a46c…`)
 
-**The Milestone 7 two-seed match reliability check is complete.** Schema 186
-fixes saves around Empowered Recall and tenacity-shortened Charm, and restores
-projectile angles across Node and Chrome. Milestone 6 match files upgrade on
-load. Both public 5v5 seeds reached natural victory with 55 exact restores and
-53 continuation checks. Production Chrome imported, replayed, reloaded, and
-exported a genuine result offline. See the [Milestone 7 report](MILESTONE-7.md).
+**Milestone 7 Increments 7.0–7.5 are complete** at save schema **187**, ruleset
+`bf0a46cff65fb8997c4f7ad5846dffd9c308118612f39111125d1929a30ca869`, and
+production offline pack `91432688c428a5cf9abce0a0182f651838b35c7167f8f9a5b2ecbd3042915ab3`
+(`1,554` files / `582,816,032` bytes, worker policy `41e26572…`):
+
+- **Split Reference Evidence & Discrepancy Register (7.0–7.1):** All `158` entries
+  in `src/content/reference-coverage.ts` carry separate `implementationEvidence`,
+  `referenceEvidence`, and `presentationEvidence` classifications (`0` unimplemented,
+  `0` approximations missing deviation notes), surfaced in **Pause → Reference &
+  patch 26.18**. Registered all 8 comparison packets in
+  `docs/reference/milestone7-capture-packets.json` and verified `34/34` Milestone 7
+  unit, calibration-fixture, 10-champion matrix, and gameplay tests.
+- **Gameplay & Presentation Calibration (7.2–7.3):** Fixed all `10` tracked
+  implementation discrepancies (`0` open P0/P1), including exact `growthAtLevel`
+  base AD / item bonus AD & AP scaling (`M7-D002`), Darius R rank 1–2 `20 s` reset
+  expiry (`M7-D003`), Vi Q CC cancellation & R knockaside (`M7-D004`), dynamic
+  Mountain Drake defense & Cloud Drake slow resist (`M7-D005`, `M7-D008`), Voidgrub
+  Voidmites & summonable lane-charging Rift Herald with Eye of the Herald `4`
+  hotkey/HUD badge (`M7-D006`), First Strike combat-lock cooldown & item-aware
+  Adaptive Force (`M7-D007`), and level-19/20 clamping fixing Top-quest P0 NaN HP
+  crash `M7-D011`. Added shared `expectedModelAsset` rig helper, `1440p` HUD layout,
+  and 5-still browser presentation acceptance passing on **Chrome 157, Firefox 155,
+  and WebKit 26.6**.
+- **Full-Match Cohort, Offline Closure, Performance Profile & REA Certification (7.4–7.5):**
+  Verified **6/6 natural Nexus victories** (`0` failures, `757,842` checked ticks,
+  `214` exact minute round-trips, `208` saved-future checks) on the live 10-champion
+  public roster, passed nested subpath (`/nested/rift/`, `developmentHook: false`),
+  offline UI (`12/12`), full offline pack (`1,522` SW responses), and offline
+  completed-match restore (`2,295` SW responses, `0` offline origin requests),
+  profiled late-match simulation (`2.70 ms/tick` mean, `4.18 ms/tick` p95 on 2 vCPUs)
+  and production Chrome (`72` p95 draw calls `< 250`, `524.17 MiB` post-GC heap),
+  exported an authenticated `rea-agents@6.10.1` Evidence bundle (`12/12` runtime
+  scripts matched, `0` release exposures, SHA-256 `d0117f97…`), and added fail-closed
+  `tools/qa/verify-milestone7.mjs` + `tools/qa/verify-milestone7.test.mjs`. External
+  native Riot captures, physical integrated-GPU / macOS Safari hardware benchmarks,
+  the 100-seed scale run, and 20 human-input full matches remain explicitly tracked as
+  `blocked-external`. See [Milestone 7](MILESTONE-7.md) and the
+  [Milestone 7 verification ledger](reference/milestone7-verification.json).
 
 ### Milestone 6 baseline (schema 185 / ruleset `e5e3cc7f…`)
 
