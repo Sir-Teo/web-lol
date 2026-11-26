@@ -7745,7 +7745,7 @@ export class World {
     if (amount > 0 && (category === 'direct' || category === 'area' || category === 'ability')) {
       const isBasic = category === 'direct';
       const isAbil = category === 'area' || category === 'ability';
-      if (healthLost + absorbed > 0 && source.team !== target.team) {
+      if (this.riftObjectives && healthLost + absorbed > 0 && source.team !== target.team) {
         if (target.kind === 'champion') target.lastCombatTick = this.tick;
         if (source.kind === 'champion' && target.kind === 'champion') {
           source.lastCombatTick = this.tick;
