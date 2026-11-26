@@ -1,0 +1,149 @@
+{
+  "format": 1,
+  "milestone": 7,
+  "patch": "26.18",
+  "clientBuild": "16.18.8175716",
+  "hotfixCutoff": "2026-09-09",
+  "nativeCapturePolicy": "Local deterministic fixtures and pinned WAD/Data Dragon measurements are recorded below; authorized native League client captures remain explicitly marked pending-native-capture rather than fabricated.",
+  "packets": [
+    {
+      "experiment_id": "CAM-01",
+      "question": "Does the planar coordinate system and Summoner's Rift NavGrid preserve consistent landmark geometry across blue base, red base, mid lane, and river pits?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "public/assets/maps/rift-layout.json",
+        "public/assets/maps/rift-nav.json",
+        "docs/MAP-ASSETS.md"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#CAM-01",
+      "measurement_uncertainty": "Exact double-precision world coordinates; screen-space native camera pixel error pending native capture.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-geometry",
+      "known_deviations": "Local 3D camera projection awaits authorized side-by-side native Patch 26.18 stills."
+    },
+    {
+      "experiment_id": "MOVE-01",
+      "question": "Does fixed-step planar movement integrate speed accurately over straight paths and around narrow NavGrid walls with radius clearance?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "src/simulation/navgrid.ts",
+        "src/simulation/world.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#MOVE-01",
+      "measurement_uncertainty": "1 tick = 16.6667 ms at 60 Hz fixed step.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "60 Hz local step vs 30 Hz Riot server tick."
+    },
+    {
+      "experiment_id": "INPUT-01",
+      "question": "Do move, attack-move, stop, cast, recall, and invalid-command rejection preserve deterministic command queue ordering and zero hidden state leaks?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "src/simulation/world.ts",
+        "src/replay/match-replay.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#INPUT-01",
+      "measurement_uncertainty": "Deterministic per-tick command queue.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "Physical hardware keypress-to-pixel latency requires synchronized external overlay capture."
+    },
+    {
+      "experiment_id": "ATK-01",
+      "question": "Does Ashe stationary basic attack scale windup with attack speed, cancel before release on move, and commit after release?",
+      "game_mode": "practice-tool",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "docs/reference/champion-sample.json",
+        "src/simulation/world.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#ATK-01",
+      "measurement_uncertainty": "1 tick = 16.6667 ms at 60 Hz.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "Windup ratio derived from pinned 16.18 champion data."
+    },
+    {
+      "experiment_id": "FOG-01",
+      "question": "Do brush concealment, ward sight, Control Ward jamming, Faelight radius bonus, and line-of-sight rules hold consistently for selection and team observations?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "src/simulation/vision.ts",
+        "src/simulation/wards.ts",
+        "src/content/faelights.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#FOG-01",
+      "measurement_uncertainty": "NavGrid cell resolution.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "Faelight rings are authored per Season 2026 design spec."
+    },
+    {
+      "experiment_id": "LANE-01",
+      "question": "Do unopposed minion waves meet symmetrically, grant exact last-hit gold and shared XP, and draw minion aggro on enemy champion attacks?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "docs/reference/lane-minion-records.json",
+        "src/content/rift.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#LANE-01",
+      "measurement_uncertainty": "Exact 60 Hz tick boundaries.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "Streamlined turret plating rewards documented in coverage ledger."
+    },
+    {
+      "experiment_id": "BASE-01",
+      "question": "Do turret dependency protection, retaliation on champion damage, inhibitor destruction/regrowth, and Nexus victory invariants hold strictly?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "docs/STRUCTURES.md",
+        "src/simulation/world.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#BASE-01",
+      "measurement_uncertainty": "Exact state-machine verification.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "None on dependency protection or Nexus victory conditions."
+    },
+    {
+      "experiment_id": "MATCH-01",
+      "question": "Does a 10-champion zero-mirror composition run through lane, jungle, shop, epic objectives, and deterministic snapshot round-trips cleanly?",
+      "game_mode": "summoners-rift-5v5",
+      "patch": "26.18",
+      "client_build": "16.18.8175716",
+      "hotfix_cutoff": "2026-09-09",
+      "source_files_and_hashes": [
+        "src/simulation/lane-match.ts",
+        "src/simulation/bot-team.ts",
+        "src/simulation/epic-objectives.ts"
+      ],
+      "local_scenario_id": "tests/milestone7-calibration-fixtures.test.ts#MATCH-01",
+      "measurement_uncertainty": "Deterministic seeded simulation; full 100-seed statistical victory rate certified in Increment 7.4.",
+      "native_capture_status": "pending-native-capture",
+      "result": "verified-local-sim",
+      "known_deviations": "Bots play local hierarchical policy without hidden information."
+    }
+  ]
+}
