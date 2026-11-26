@@ -571,6 +571,8 @@ const unit = z
     dariusWRefundPending: z
       .strictObject({ casterId: id, tick, rank: z.number().int().min(1).max(5) })
       .optional(),
+    lastCombatTick: tick.optional(),
+    summonedObjective: z.enum(['voidmite', 'rift-herald']).optional(),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
     sunlight: z.strictObject({ sourceId: id, startTick: tick, endTick: tick }).nullable(),
     scorchclawBurns: z
@@ -1978,6 +1980,7 @@ const player: z.ZodType<PlayerState> = z
             targetId: id,
             rank: z.number().int().min(1).max(3),
             speed: z.number().positive(),
+            knockasideIds: z.array(id).max(20).optional(),
           })
           .nullable(),
       })
@@ -2309,6 +2312,7 @@ const snapshot = z.strictObject({
           blue: z.number().int().min(0).max(12),
           red: z.number().int().min(0).max(12),
         }),
+        miteCooldowns: z.record(z.string(), tick).optional(),
       }),
       herald: z.strictObject({
         unitId: id.nullable(),
@@ -2321,6 +2325,7 @@ const snapshot = z.strictObject({
             endTick: tick,
           })
           .nullable(),
+        summonedUnitId: id.nullable().optional(),
       }),
     })
     .nullable()

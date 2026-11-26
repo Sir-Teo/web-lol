@@ -1,9 +1,11 @@
 import { DARIUS_KIT, EZREAL_KIT, MORGANA_KIT, VI_KIT } from '../content/milestone6-champions';
 import { ABILITIES, TICK_RATE } from '../content/rules';
 import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
+import { championBaseAd, championItemBonusAd } from './champion-stats';
 import { consumeItemOnHitDamage, primeSpellbladeOnCast } from './item-effects';
 import { direction, distance, segmentDistance, type Vec2 } from './math';
 import { statPrecision } from './progression';
+import { runeAdaptiveStats } from './runes';
 import type { ChampionIdentity, ChampionState, Team, Unit } from './types';
 import type { World } from './world';
 
@@ -44,6 +46,7 @@ export interface ViState {
     targetId: number;
     rank: number;
     speed: number;
+    knockasideIds?: number[];
   } | null;
 }
 
@@ -337,14 +340,12 @@ export function milestone6BaseResources(
   return { mana: spec.cost, cooldownSeconds: spec.cooldown };
 }
 
+function m6BonusAd(w: World, u: Unit, state: ChampionState): number {
+  return championItemBonusAd(u, state) + runeAdaptiveStats(w, u, state).bonusAd;
+}
+
 function dariusBonusAd(w: World, u: Unit, state: ChampionState): number {
-  const base = 64 + 5 * Math.max(0, state.level - 1) * 0.85;
-  const might =
-    (state.darius?.noxianMightUntil ?? 0) > w.tick
-      ? DARIUS_KIT.passive.noxianMightBonusAdBase +
-        (state.level - 1) * DARIUS_KIT.passive.noxianMightBonusAdPerLevel
-      : 0;
-  return Math.max(0, u.damage - base) + might;
+  return m6BonusAd(w, u, state) + dariusNoxianMightBonusAd(w, state);
 }
 
 export function dariusNoxianMightBonusAd(w: World, state: ChampionState): number {
@@ -468,7 +469,7 @@ export function applyViDentingHit(w: World, vi: Unit, viState: ChampionState, ta
       );
     }
     target.viArmorShredUntil = w.tick + VI_KIT.w.shredDurationTicks;
-    const bonusAd = Math.max(0, vi.damage - 63);
+    const bonusAd = m6BonusAd(w, vi, viState);
     const pct =
       VI_KIT.w.maxHpDamageByRank[rank - 1] + (bonusAd / 100) * VI_KIT.w.bonusAdMaxHpPer100;
     const raw = target.maxHp * pct;
@@ -487,7 +488,7 @@ export function detonateEzrealFlux(
   if (!flux || flux.sourceId !== ezreal.id || flux.endTick <= w.tick) return;
   target.essenceFlux = undefined;
   const rank = Math.max(1, flux.rank);
-  const bonusAd = Math.max(0, ezreal.damage - 62);
+  const bonusAd = m6BonusAd(w, ezreal, ezState);
   const dmg =
     EZREAL_KIT.w.baseDamageByRank[rank - 1] +
     bonusAd * EZREAL_KIT.w.bonusAdRatio +
@@ -807,6 +808,7 @@ export function castMilestone6Ability(
         targetId: target.id,
         rank,
         speed: VI_KIT.r.dashSpeed,
+        knockasideIds: [],
       };
       primeSpellbladeOnCast(w, state);
       w.startCastAnimation(state, 'r');
@@ -916,7 +918,7 @@ export function castMilestone6Ability(
       });
       if (candidates[0]) {
         const hitTarget = candidates[0];
-        const bonusAd = Math.max(0, u.damage - 62);
+        const bonusAd = m6BonusAd(w, u, state);
         const boltDmg =
           EZREAL_KIT.e.baseDamageByRank[rank - 1] +
           bonusAd * EZREAL_KIT.e.bonusAdRatio +
@@ -1162,6 +1164,17 @@ export function advanceMilestone6Champions(w: World): void {
     const state = w.championState(u.id);
     if (!state) continue;
 
+    // Darius R rank 1-2 20s recast reset window expiration
+    if (state.darius && state.darius.rResetUntil > 0 && w.tick >= state.darius.rResetUntil) {
+      state.darius.rResetUntil = 0;
+      const rRank = state.spellRanks.r;
+      if (rRank > 0 && rRank < 3 && state.cooldowns.r <= w.tick) {
+        const baseCd = DARIUS_KIT.r.cooldownSecondsByRank[rRank - 1];
+        state.cooldowns.r =
+          w.tick + hastedCooldownTicks(baseCd, totalAbilityHaste(state, w.tick));
+      }
+    }
+
     // Darius Q windup completion
     if (state.darius?.qWindupEndTick !== null && state.darius?.qWindupEndTick !== undefined) {
       if (!w.alive(u) || w.winner) {
@@ -1206,7 +1219,10 @@ export function advanceMilestone6Champions(w: World): void {
 
     // Vi Q & R dashes
     if (state.vi?.qDash) {
-      if (!w.alive(u) || w.winner) {
+      const ccInterrupted =
+        !hasBlackShield(u, w.tick) &&
+        (u.stunUntil > w.tick || u.rootUntil > w.tick || (u.charm && u.charm.endTick > w.tick));
+      if (!w.alive(u) || w.winner || ccInterrupted) {
         state.vi.qDash = null;
       } else {
         const dash = state.vi.qDash;
@@ -1223,7 +1239,7 @@ export function advanceMilestone6Champions(w: World): void {
         u.previous = prevPos;
         u.x = nextPos.x;
         u.y = nextPos.y;
-        const bonusAd = Math.max(0, u.damage - 63);
+        const bonusAd = m6BonusAd(w, u, state);
         const dmg = VI_KIT.q.baseDamageByRank[dash.rank - 1] + bonusAd * VI_KIT.q.bonusAdRatio;
         let stoppedOnChamp = false;
         for (const foe of w.units) {
@@ -1265,6 +1281,8 @@ export function advanceMilestone6Champions(w: World): void {
       } else {
         const rem = distance(u, target);
         const stepDist = rDash.speed / TICK_RATE;
+        const bonusAd = m6BonusAd(w, u, state);
+        const fullDmg = VI_KIT.r.baseDamageByRank[rDash.rank - 1] + bonusAd * VI_KIT.r.bonusAdRatio;
         if (rem <= stepDist + u.radius + target.radius) {
           const land = w.battlefield.reachable({ x: target.x, y: target.y }, u.radius, u.team);
           u.previous = { x: u.x, y: u.y };
@@ -1272,18 +1290,43 @@ export function advanceMilestone6Champions(w: World): void {
           u.y = land.y;
           state.vi.rDash = null;
           triggerViBlastShield(w, u, state);
-          const bonusAd = Math.max(0, u.damage - 63);
-          const dmg = VI_KIT.r.baseDamageByRank[rDash.rank - 1] + bonusAd * VI_KIT.r.bonusAdRatio;
           if (!hasBlackShield(target, w.tick)) {
             target.stunUntil = Math.max(target.stunUntil, w.tick + VI_KIT.r.stunTicks);
           }
-          w.damage(u, target, dmg, 'physical', 'ability');
+          w.damage(u, target, fullDmg, 'physical', 'ability');
         } else {
           const dir = direction(u, target);
           u.previous = { x: u.x, y: u.y };
           u.x += dir.x * stepDist;
           u.y += dir.y * stepDist;
           u.facing = Math.atan2(dir.x, dir.y);
+          // Knock aside secondary enemy champions in Vi's unstoppable path
+          const knockasideIds = (rDash.knockasideIds ??= []);
+          for (const foe of w.units) {
+            if (
+              foe.id === target.id ||
+              foe.kind !== 'champion' ||
+              foe.team === u.team ||
+              knockasideIds.includes(foe.id) ||
+              !w.targetable(foe)
+            )
+              continue;
+            if (distance(u, foe) <= VI_KIT.q.hitRadius + foe.radius) {
+              knockasideIds.push(foe.id);
+              w.damage(u, foe, fullDmg * 0.75, 'physical', 'ability');
+              if (!hasBlackShield(foe, w.tick) && !isViUnstoppable(w.championState(foe.id))) {
+                const side = (foe.x - u.x) * -dir.y + (foe.y - u.y) * dir.x >= 0 ? 1 : -1;
+                const pushed = w.battlefield.reachable(
+                  { x: foe.x - dir.y * 120 * side, y: foe.y + dir.x * 120 * side },
+                  foe.radius,
+                  foe.team
+                );
+                foe.x = pushed.x;
+                foe.y = pushed.y;
+                foe.stunUntil = Math.max(foe.stunUntil, w.tick + Math.round(0.5 * TICK_RATE));
+              }
+            }
+          }
         }
       }
     }
@@ -1295,7 +1338,7 @@ export function advanceMilestone6Champions(w: World): void {
         state.ezreal.rChannel = null;
       } else if (w.tick >= ch.endTick) {
         state.ezreal.rChannel = null;
-        const bonusAd = Math.max(0, u.damage - 62);
+        const bonusAd = m6BonusAd(w, u, state);
         const dmg =
           EZREAL_KIT.r.baseDamageByRank[ch.rank - 1] +
           bonusAd * EZREAL_KIT.r.bonusAdRatio +
@@ -1467,7 +1510,7 @@ export function advanceMilestone6Champions(w: World): void {
             caster,
             casterState,
             foe,
-            62 + (casterState.level - 1) * 2.75
+            championBaseAd(caster, casterState)
           );
           w.damage(caster, foe, m.damage + onHit, 'physical', 'ability');
           consumed = true;

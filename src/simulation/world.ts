@@ -513,12 +513,15 @@ import {
   dragonBonusAttackSpeed,
   dragonBonusHaste,
   dragonBonusMoveSpeedMultiplier,
+  dragonDefenseMultiplier,
   dragonOffenseMultiplier,
+  dragonSlowResist,
   dragonTenacity,
   hasHeraldEmpoweredRecall,
   onEpicObjectiveKilled,
   onObjectivePostHitEffects,
   onUltimateCastDragonSoul,
+  summonRiftHerald,
   type RiftObjectivesState,
 } from './epic-objectives';
 import { EXTRA_SLOW_POLICY, isExtraSlowKind, type ExtraSlowKind } from './extra-slow-policy';
@@ -1433,6 +1436,12 @@ export class World {
         slot: command.slot,
         ...(command.point ? { point: { x: command.point.x, y: command.point.y } } : {}),
       });
+    } else if (command.type === 'summon-herald') {
+      this.commands.push({
+        type: 'summon-herald',
+        unit: command.unit,
+        ...(command.point ? { point: { x: command.point.x, y: command.point.y } } : {}),
+      });
     } else if (command.type === 'learn') {
       this.commands.push({ type: 'learn', unit: command.unit, ability: command.ability });
     } else if (command.type === 'oracle') {
@@ -1770,6 +1779,9 @@ export class World {
         if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
       } else if (command.type === 'use-item') {
         const error = useItemSlot(this, command.slot, command.point, u.id);
+        if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
+      } else if (command.type === 'summon-herald') {
+        const error = summonRiftHerald(this, u, command.point);
         if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
       } else if (command.type === 'order') {
         this.setOrder(u, command.order);
@@ -5375,6 +5387,10 @@ export class World {
         effect.startMultiplier + (effect.endMultiplier - effect.startMultiplier) * progress
       );
     }
+    if (slow < 1 && u.kind === 'champion') {
+      const sr = dragonSlowResist(this, u.team);
+      if (sr > 0) slow = 1 - (1 - slow) * (1 - sr);
+    }
     return slow;
   }
   applyExtraSlow(source: Unit, target: Unit, kind: ExtraSlowKind): boolean {
@@ -6854,12 +6870,14 @@ export class World {
   }
   /** Stored armor excludes temporary bonuses so purchases and growth cannot drift. */
   armorWithBuffs(target: Unit): number {
-    return (
+    const base =
       target.armor +
       (target.champion === 'leona'
         ? eclipseResistances(target, this.championState(target.id)!, this.tick).armor
-        : 0)
-    );
+        : 0);
+    return target.kind === 'champion'
+      ? statPrecision(base * dragonDefenseMultiplier(this, target.team))
+      : base;
   }
   /** Same named armor reduction does not stack across Garen owners. */
   effectiveArmor(target: Unit): number {
@@ -6873,12 +6891,14 @@ export class World {
     return armor;
   }
   effectiveMagicResist(target: Unit): number {
-    return (
+    const base =
       target.magicResist +
       (target.champion === 'leona'
         ? eclipseResistances(target, this.championState(target.id)!, this.tick).magicResist
-        : 0)
-    );
+        : 0);
+    return target.kind === 'champion'
+      ? statPrecision(base * dragonDefenseMultiplier(this, target.team))
+      : base;
   }
   private penetratedResistance(
     source: Unit | undefined,
@@ -7710,6 +7730,12 @@ export class World {
     if (amount > 0 && (category === 'direct' || category === 'area' || category === 'ability')) {
       const isBasic = category === 'direct';
       const isAbil = category === 'area' || category === 'ability';
+      if (healthLost + absorbed > 0 && source.team !== target.team) {
+        if (target.kind === 'champion') target.lastCombatTick = this.tick;
+        if (source.kind === 'champion' && target.kind === 'champion') {
+          source.lastCombatTick = this.tick;
+        }
+      }
       recordRoleQuestCombatHit(this, source, target, isAbil);
       onRuneCombatDamaged(this, source, target);
       onRuneHitDealt(this, source, target, healthLost + absorbed, isBasic, isAbil);

@@ -274,6 +274,8 @@ export interface UnitBase extends Vec2 {
   voidTouchBurn?: { sourceId: number; dps: number; endTick: number; nextTick: number };
   elderBurn?: { sourceId: number; dps: number; endTick: number; nextTick: number };
   dariusWRefundPending?: { casterId: number; tick: number; rank: number };
+  lastCombatTick?: number;
+  summonedObjective?: 'voidmite' | 'rift-herald';
   scorchclawBurns: {
     sourceId: number;
     startTick: number;
@@ -458,6 +460,7 @@ export type Command =
   | { type: 'farsight'; unit: number; point: Vec2 }
   | { type: 'oracle'; unit: number }
   | { type: 'use-item'; unit: number; slot: number; point?: Vec2 }
+  | { type: 'summon-herald'; unit: number; point?: Vec2 }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */

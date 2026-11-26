@@ -11,8 +11,10 @@ import {
   type DragonElement,
 } from '../content/epic-objectives';
 import { TICK_RATE } from '../content/rules';
-import { distance } from './math';
+import { championItemBonusAd } from './champion-stats';
+import { distance, type Vec2 } from './math';
 import { statPrecision } from './progression';
+import { runeAdaptiveStats } from './runes';
 import { averageChampionLevel } from './trinkets';
 import type { ChampionState, Team, Unit } from './types';
 import type { World } from './world';
@@ -38,12 +40,14 @@ export interface RiftObjectivesState {
     spawnsCompleted: number;
     nextReadyTick: number | null;
     stacks: Record<Team, number>;
+    miteCooldowns?: Record<number, number>;
   };
   herald: {
     unitId: number | null;
     spawned: boolean;
     clearedTick: number | null;
     chargeHolder: { unitId: number; team: Team; endTick: number } | null;
+    summonedUnitId?: number | null;
   };
 }
 
@@ -231,16 +235,65 @@ export function advanceRiftObjectives(w: World): void {
       obj.dragon.soulTeam === team &&
       obj.dragon.soulElement === 'earth' &&
       w.tick > 0 &&
-      w.tick % (5 * TICK_RATE) === 0
+      w.tick % (TICK_RATE / 2) === 0
     ) {
-      const hasMountainShield = u.shields.some((s) => s.mountainSoul);
-      if (!hasMountainShield) {
+      const lastCombat = u.lastCombatTick ?? -Infinity;
+      const outOfCombat = w.tick - lastCombat >= DRAGON_SLAYER_BUFFS.mountainSoulOutOfCombatTicks;
+      const hasMountainShield = u.shields.some((s) => s.mountainSoul && s.endTick > w.tick);
+      if (outOfCombat && !hasMountainShield) {
         u.shields.push({
           sourceId: u.id,
           amount: DRAGON_SLAYER_BUFFS.mountainSoulShieldBase + Math.round(u.maxHp * 0.08),
           endTick: w.tick + 12 * TICK_RATE,
           mountainSoul: true,
         });
+      }
+    }
+  }
+
+  // Advance summoned Rift Herald mercenary turret charge & AI holder auto-summon near enemy turret
+  if (obj.herald.chargeHolder && obj.herald.chargeHolder.endTick > w.tick) {
+    const holder = w.unit(obj.herald.chargeHolder.unitId);
+    if (holder && holder.ai && w.alive(holder) && holder.team !== 'neutral') {
+      const nearbyTurret = w.units.find(
+        (t) =>
+          t.kind === 'turret' &&
+          t.team !== holder.team &&
+          w.alive(t) &&
+          w.targetable(t) &&
+          distance(holder, t) <= 900
+      );
+      if (nearbyTurret) {
+        summonRiftHerald(w, holder, { x: nearbyTurret.x, y: nearbyTurret.y });
+      }
+    }
+  }
+
+  if (obj.herald.summonedUnitId) {
+    const summoned = w.unit(obj.herald.summonedUnitId);
+    if (!summoned || !w.alive(summoned) || summoned.team === 'neutral') {
+      obj.herald.summonedUnitId = null;
+    } else {
+      const turret = w.units.find(
+        (t) =>
+          t.kind === 'turret' &&
+          t.team !== summoned.team &&
+          w.alive(t) &&
+          w.targetable(t) &&
+          distance(summoned, t) <= 320 + t.radius
+      );
+      if (turret && w.tick >= (summoned.lastCombatTick ?? 0)) {
+        summoned.lastCombatTick = w.tick + 6 * TICK_RATE;
+        const chargeDmg =
+          EPIC_OBJECTIVE_TIMING.heraldTurretBaseTrueDamage +
+          turret.maxHp * EPIC_OBJECTIVE_TIMING.heraldTurretMaxHpTrueFraction;
+        w.emit('message', turret, {
+          text: 'Rift Herald Siege Charge!',
+          unit: summoned.id,
+          team: summoned.team,
+        });
+        w.damage(summoned, turret, chargeDmg, 'true', 'objective');
+        summoned.hp = Math.max(1, statPrecision(summoned.hp * 0.5));
       }
     }
   }
@@ -343,11 +396,6 @@ export function onEpicObjectiveKilled(w: World, victim: Unit, killer: Unit | und
         if (ch.kind !== 'champion' || ch.team !== team) continue;
         const st = w.championState(ch.id);
         if (st) st.gold = statPrecision(st.gold + 25);
-        // Apply immediate Earth defense bonus if Mountain Drake
-        if (element === 'earth') {
-          ch.armor = statPrecision(ch.armor * 1.04);
-          ch.magicResist = statPrecision(ch.magicResist * 1.04);
-        }
       }
 
       if (
@@ -393,6 +441,16 @@ export function dragonOffenseMultiplier(w: World, team: Team): number {
   return 1 + stacks * DRAGON_SLAYER_BUFFS.fireBonusOffenseFractionPerStack;
 }
 
+export function dragonDefenseMultiplier(w: World, team: Team): number {
+  const stacks = w.riftObjectives?.dragon.stacks[team].filter((e) => e === 'earth').length ?? 0;
+  return 1 + stacks * DRAGON_SLAYER_BUFFS.earthBonusDefenseFractionPerStack;
+}
+
+export function dragonSlowResist(w: World, team: Team): number {
+  const stacks = w.riftObjectives?.dragon.stacks[team].filter((e) => e === 'air').length ?? 0;
+  return Math.min(0.5, stacks * DRAGON_SLAYER_BUFFS.airSlowResistPerStack);
+}
+
 export function dragonBonusHaste(w: World, team: Team): number {
   const stacks = w.riftObjectives?.dragon.stacks[team].filter((e) => e === 'hextech').length ?? 0;
   return stacks * DRAGON_SLAYER_BUFFS.hextechAbilityHastePerStack;
@@ -436,6 +494,64 @@ export function hasHeraldEmpoweredRecall(w: World, state: ChampionState): boolea
   return !!holder && holder.unitId === state.id && holder.endTick > w.tick;
 }
 
+export function summonRiftHerald(w: World, summoner: Unit, point?: Vec2): string | null {
+  const obj = w.riftObjectives;
+  if (!obj || summoner.kind !== 'champion' || !w.alive(summoner))
+    return 'Cannot summon Rift Herald right now';
+  const holder = obj.herald.chargeHolder;
+  if (!holder || holder.unitId !== summoner.id || holder.endTick <= w.tick) {
+    return 'You do not hold the Eye of the Herald';
+  }
+  const team = summoner.team;
+  obj.herald.chargeHolder = null;
+  const targetPoint = point ?? { x: summoner.x + 120, y: summoner.y };
+  const spawnPos = w.battlefield.reachable(
+    {
+      x: summoner.x + Math.max(-180, Math.min(180, targetPoint.x - summoner.x)),
+      y: summoner.y + Math.max(-180, Math.min(180, targetPoint.y - summoner.y)),
+    },
+    64,
+    team
+  );
+  const minutes = Math.max(0, w.tick / (60 * TICK_RATE));
+  const maxHp = Math.round(2600 + minutes * 90);
+  const herald = w.spawn('siege', team, spawnPos);
+  herald.name = 'Rift Herald';
+  herald.summonedObjective = 'rift-herald';
+  herald.maxHp = maxHp;
+  herald.hp = maxHp;
+  herald.damage = 95;
+  herald.armor = 60;
+  herald.magicResist = 50;
+  herald.speed = 375;
+  herald.radius = 64;
+  herald.range = 200;
+  herald.goldBounty = 25;
+  herald.experienceBounty = 0;
+  herald.ai = true;
+  // Assign to the lane closest to the summon point so it marches down-lane
+  let bestLane = 1;
+  let bestDist = Infinity;
+  for (let laneIdx = 0; laneIdx < w.battlefield.lanes.length; laneIdx++) {
+    const waypoints = w.battlefield.lanes[laneIdx]!.points;
+    for (const wp of waypoints) {
+      const d = distance(spawnPos, wp);
+      if (d < bestDist) {
+        bestDist = d;
+        bestLane = laneIdx;
+      }
+    }
+  }
+  herald.lane = bestLane;
+  obj.herald.summonedUnitId = herald.id;
+  w.emit('message', herald, {
+    text: `${team === 'blue' ? 'Your' : 'Enemy'} team summoned the Rift Herald!`,
+    unit: herald.id,
+    team,
+  });
+  return null;
+}
+
 export function onObjectivePostHitEffects(
   w: World,
   source: Unit,
@@ -449,7 +565,7 @@ export function onObjectivePostHitEffects(
   const isStructure =
     target.kind === 'turret' || target.kind === 'inhibitor' || target.kind === 'nexus';
 
-  // Touch of the Void & Herald Siege Charge against structures
+  // Touch of the Void, Voidmites (4+ stacks), & Herald Siege Charge against structures
   if (isStructure && isBasicAttack) {
     const grubStacks = obj.voidgrubs.stacks[team];
     if (grubStacks > 0) {
@@ -459,6 +575,33 @@ export function onObjectivePostHitEffects(
         endTick: w.tick + EPIC_OBJECTIVE_TIMING.voidTouchDurationTicks,
         nextTick: w.tick + TICK_RATE,
       };
+      if (grubStacks >= 4) {
+        const cooldowns = (obj.voidgrubs.miteCooldowns ??= {});
+        const readyAt = cooldowns[source.id] ?? 0;
+        if (w.tick >= readyAt) {
+          cooldowns[source.id] = w.tick + 12 * TICK_RATE;
+          const miteCount = grubStacks >= 5 ? 2 : 1;
+          for (let i = 0; i < miteCount; i++) {
+            const offset = i === 0 ? -45 : 45;
+            const mitePos = w.battlefield.reachable(
+              { x: source.x + offset, y: source.y + offset },
+              28,
+              team
+            );
+            const mite = w.spawn('melee', team, mitePos);
+            mite.name = 'Voidmite';
+            mite.summonedObjective = 'voidmite';
+            mite.maxHp = 220;
+            mite.hp = 220;
+            mite.damage = 14;
+            mite.speed = 360;
+            mite.radius = 28;
+            mite.goldBounty = 0;
+            mite.experienceBounty = 0;
+            mite.order = { type: 'attack', target: target.id };
+          }
+        }
+      }
     }
     if (
       target.kind === 'turret' &&
@@ -486,9 +629,13 @@ export function onObjectivePostHitEffects(
     const ready = obj.dragon.soulCooldowns[source.id] ?? 0;
     if (obj.dragon.soulElement === 'fire' && w.tick >= ready) {
       obj.dragon.soulCooldowns[source.id] = w.tick + DRAGON_SLAYER_BUFFS.infernalSoulCooldownTicks;
+      const srcState = w.championState(source.id);
+      const bonusAd = srcState
+        ? championItemBonusAd(source, srcState) + runeAdaptiveStats(w, source, srcState).bonusAd
+        : 0;
       const burst =
         DRAGON_SLAYER_BUFFS.infernalSoulBaseDamage +
-        Math.max(0, source.damage - 60) * 0.22 +
+        bonusAd * 0.22 +
         w.abilityPower(source) * 0.15;
       for (const foe of w.units) {
         if (

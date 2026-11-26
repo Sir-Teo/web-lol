@@ -1,6 +1,7 @@
 import { isMeleeChampion } from '../content/champion-profiles';
 import { DEFAULT_ROLE_RUNES, RUNE_TIMING, type RuneLoadout } from '../content/runes';
 import { TICK_RATE } from '../content/rules';
+import { championItemAp, championItemBonusAd } from './champion-stats';
 import { distance, type Vec2 } from './math';
 import { statPrecision } from './progression';
 import type { ChampionState, Team, Unit } from './types';
@@ -159,12 +160,15 @@ export function runeAdaptiveStats(
     force += rs.conquerorStacks * perStack;
   }
   if (force <= 0) return { bonusAd: 0, bonusAp: 0 };
-  const prefersAp =
+  const itemBonusAd = championItemBonusAd(u, state);
+  const itemAp = championItemAp(state);
+  const defaultAp =
     u.champion === 'lux' ||
     u.champion === 'ahri' ||
     u.champion === 'morgana' ||
     u.champion === 'irielle' ||
     u.champion === 'oona';
+  const prefersAp = itemAp > itemBonusAd ? true : itemBonusAd > itemAp ? false : defaultAp;
   return prefersAp
     ? { bonusAd: 0, bonusAp: statPrecision(force) }
     : { bonusAd: statPrecision(force * 0.6), bonusAp: 0 };
@@ -194,6 +198,17 @@ export function advanceRunes(w: World): void {
       }
     }
     if (rs.bonePlatingActiveUntil <= w.tick) rs.bonePlatingCharges = 0;
+    if (
+      rs.loadout.keystone === 'first-strike' &&
+      rs.firstStrikeCombatLockTick > 0 &&
+      w.tick > rs.firstStrikeCombatLockTick &&
+      rs.firstStrikeActiveUntil <= w.tick &&
+      w.tick >= rs.firstStrikeReadyTick
+    ) {
+      const cdSec = 25 - ((state.level - 1) / 17) * 10;
+      rs.firstStrikeReadyTick = w.tick + Math.round(cdSec * TICK_RATE);
+      rs.firstStrikeCombatLockTick = 0;
+    }
   }
 
   if (w.activeComets?.length) {
@@ -366,7 +381,8 @@ export function onRuneHitDealt(
         rs.electrocuteTargetId = null;
         const cdSec = 20 - levelFrac * 5;
         rs.electrocuteReadyTick = w.tick + Math.round(cdSec * TICK_RATE);
-        const bonusAd = Math.max(0, attacker.damage - 60);
+        const bonusAd =
+          championItemBonusAd(attacker, state) + runeAdaptiveStats(w, attacker, state).bonusAd;
         const burst = 50 + levelFrac * 140 + bonusAd * 0.4 + w.abilityPower(attacker) * 0.25;
         const dmgType = w.abilityPower(attacker) > bonusAd ? 'magic' : 'physical';
         w.damage(attacker, target, burst, dmgType, 'rune');
@@ -379,7 +395,8 @@ export function onRuneHitDealt(
     if (w.tick >= rs.cometReadyTick) {
       const cdSec = 20 - levelFrac * 12;
       rs.cometReadyTick = w.tick + Math.round(cdSec * TICK_RATE);
-      const bonusAd = Math.max(0, attacker.damage - 60);
+      const bonusAd =
+        championItemBonusAd(attacker, state) + runeAdaptiveStats(w, attacker, state).bonusAd;
       const cometDmg = 30 + levelFrac * 100 + w.abilityPower(attacker) * 0.2 + bonusAd * 0.35;
       w.activeComets ??= [];
       w.activeComets.push({
