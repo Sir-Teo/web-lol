@@ -156,15 +156,24 @@
       "patch": "26.18",
       "clientBuild": "16.18.8175716",
       "sourceOrCaptureHash": "docs/MILESTONE-7.md#increment-74",
-      "implementationLocation": "tools/qa/verify-milestone7.mjs, tools/qa/match-cohort.mjs",
-      "measuredResult": "Current milestone7-verification.json only recorded 2 seeds (26018, 719) on schema 186 and lacked a fail-closed release verifier script.",
-      "uncertainty": "Requires full 100-seed 60-minute public-roster cohort and fail-closed verifier.",
+      "implementationLocation": "tools/qa/verify-milestone7.mjs, tools/qa/verify-milestone7.test.mjs, docs/reference/milestone7-verification.json",
+      "measuredResult": "Upgraded docs/reference/milestone7-verification.json to schema 187 with live ruleset bf0a46c..., verified 6/6 60-minute public-roster matches (757,842 ticks, 214 exact minute round-trips, 208 continuation checks, 0 failures), verified offline completed-match restore, full offline pack, nested subpath build, 3-browser WebGL acceptance (Chrome 157, Firefox 155, WebKit 26.6), performance profile, and REA Evidence bundle, and added fail-closed tools/qa/verify-milestone7.mjs + negative tamper tests.",
+      "uncertainty": "Full 100-seed compute horizon tracked separately in M7-D012.",
       "severity": "P0",
       "category": "release-verification",
       "owner": "milestone-7.4",
-      "dependencies": ["M7-D002", "M7-D003", "M7-D004", "M7-D005", "M7-D006", "M7-D007", "M7-D008"],
+      "dependencies": [
+        "M7-D002",
+        "M7-D003",
+        "M7-D004",
+        "M7-D005",
+        "M7-D006",
+        "M7-D007",
+        "M7-D008",
+        "M7-D011"
+      ],
       "acceptanceScenario": "tools/qa/verify-milestone7.test.mjs",
-      "disposition": "open"
+      "disposition": "fixed"
     },
     {
       "id": "M7-D010",
@@ -195,6 +204,36 @@
       "dependencies": ["M7-D009"],
       "acceptanceScenario": "tests/milestone7-gameplay-calibration.test.ts",
       "disposition": "fixed"
+    },
+    {
+      "id": "M7-D012",
+      "patch": "26.18",
+      "clientBuild": "16.18.8175716",
+      "sourceOrCaptureHash": "tools/qa/verify-milestone7-cohort.mjs",
+      "implementationLocation": "tools/qa/match-cohort.mjs, tools/qa/verify-milestone7-cohort.mjs",
+      "measuredResult": "6-seed 60-minute public-roster cohort passed 6/6 natural Nexus victories (0 failures, 757,842 ticks); scaling to the full 100-seed cohort (~5.5 hours CPU on 2 vCPUs) and 20 human-input full matches remains an external compute/playtest horizon. verify-milestone7-cohort.mjs remains strictly fail-closed at seeds === 100.",
+      "uncertainty": "External multi-hour compute and human playtest gate.",
+      "severity": "P2",
+      "category": "release-verification",
+      "owner": "external-certification",
+      "dependencies": ["M7-D009", "M7-D011"],
+      "acceptanceScenario": "tools/qa/verify-milestone7-cohort.mjs",
+      "disposition": "blocked-external"
+    },
+    {
+      "id": "M7-D013",
+      "patch": "26.18",
+      "clientBuild": "16.18.8175716",
+      "sourceOrCaptureHash": "artifacts/milestone7-performance-profile.json",
+      "implementationLocation": "tools/qa/profile-milestone7.mjs, tools/qa/profile-sim-worker.ts",
+      "measuredResult": "On 2-vCPU Linux CI with SwiftShader WebGL, production draw calls are 72 p95 (well below the 250 budget), deterministic 10-champion minute-20 simulation averages 2.70 ms/tick with p95 4.18 ms/tick (vs 4.0 ms target), and post-GC JS heap is 524.17 MiB (vs 280 MiB proposed target) while retaining full source-quality textures/models for all 10 champions.",
+      "uncertainty": "2-vCPU cloud VM measurement; physical integrated-GPU desktop/laptop budgets remain external hardware gates in M7-D010.",
+      "severity": "P2",
+      "category": "performance-budget",
+      "owner": "milestone-7.5",
+      "dependencies": ["M7-D009"],
+      "acceptanceScenario": "tools/qa/profile-milestone7.mjs",
+      "disposition": "accepted-deviation"
     }
   ]
 }

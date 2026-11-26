@@ -1,103 +1,418 @@
 {
   "milestone": 7,
-  "snapshotVersion": 186,
-  "ruleset": "3627a2c16eda1293133601d28228f0cf913af54fd1f2a72aee0349e78ea39e56",
+  "patch": "26.18",
+  "clientBuild": "16.18.8175716",
+  "snapshotVersion": 187,
+  "ruleset": "bf0a46cff65fb8997c4f7ad5846dffd9c308118612f39111125d1929a30ca869",
   "pack": {
-    "id": "2428920e85ab78a53a7801d1c8d0068bb3d1869c664cdd4be97d9c4519b4f0d9",
-    "files": 1519,
-    "bytes": 581692626,
+    "id": "91432688c428a5cf9abce0a0182f651838b35c7167f8f9a5b2ecbd3042915ab3",
+    "files": 1554,
+    "bytes": 582816032,
     "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
   },
-  "matches": [
-    {
-      "seed": 26018,
-      "sourceRuleset": "3a879c08b22b9f7f01e4ceb7c327568e570626165e42e07ee751dd4d4e8f27fe",
-      "planSha256": "7c381df609d92bbd209ed62f1aeb711dc4b60d0dfbca4860122f7289137d4b6e",
-      "winner": "red",
-      "finalTick": 95722,
-      "checkedTicks": 95722,
-      "originalRoundTrips": 27,
-      "originalFutureChecks": 26,
-      "originalFutureCheckedTicks": 1560,
-      "nodeRoundTrips": 27,
-      "browserRoundTrips": 27,
-      "browserFailures": [],
-      "changedSources": ["src/simulation/ahri-q-projectile-visual-validation.ts"],
-      "terminalSha256": "487bf183c885d0d980fea59763ae44e39ac7b6075fb5cb44a391f2af0face2d6",
-      "cohortReceipt": {
-        "file": "artifacts/milestone7-cohort-26018.json",
-        "sha256": "611ce0605cad074514ec15e85e8ec6a6981059658592644ca91e5b733941614a"
-      },
-      "restoreReceipt": {
-        "file": "artifacts/milestone7-checkpoint-revalidation-26018.json",
-        "sha256": "405adb0738fba51640738e1ac29f349d8bc1a50e30ac0a6188989575c04b4f86"
-      }
+  "roster": {
+    "distinctChampions": 10,
+    "mirrorMatchupsInDefault5v5": 0,
+    "publicChampionChoices": [
+      "ashe",
+      "lux",
+      "garen",
+      "masteryi",
+      "leona",
+      "ahri",
+      "darius",
+      "vi",
+      "ezreal",
+      "morgana"
+    ]
+  },
+  "referenceCoverage": {
+    "total": 158,
+    "verifiedBehavior": 10,
+    "verifiedData": 71,
+    "approximation": 77,
+    "unimplemented": 0,
+    "approximationsWithoutDeviationNote": 0,
+    "byImplementationEvidence": {
+      "verified-unit-and-sim": 158,
+      "verified-sim-only": 0,
+      "approximate-rule": 0
     },
-    {
-      "seed": 719,
-      "sourceRuleset": "3a879c08b22b9f7f01e4ceb7c327568e570626165e42e07ee751dd4d4e8f27fe",
-      "planSha256": "964be999d5ad51ddf81b507281294be37403084d6668c866975f360a9d7a1cc4",
-      "winner": "red",
-      "finalTick": 97802,
-      "checkedTicks": 97802,
-      "originalRoundTrips": 28,
-      "originalFutureChecks": 27,
-      "originalFutureCheckedTicks": 1620,
-      "nodeRoundTrips": 28,
-      "browserRoundTrips": 28,
-      "browserFailures": [],
-      "changedSources": ["src/simulation/ahri-q-projectile-visual-validation.ts"],
-      "terminalSha256": "4b031ff3995d55d5e48860a54daaec31c1cf9a61de68b1598ab7341a2976b539",
-      "cohortReceipt": {
-        "file": "artifacts/milestone7-cohort-719.json",
-        "sha256": "4d189ae41064405e238fb023c45cd054d213eaad3022ee898f486c1444615242"
+    "byReferenceEvidence": {
+      "pinned-wad-and-ddragon": 55,
+      "pinned-ddragon-only": 24,
+      "patch-notes-design-only": 79,
+      "pending-native-capture": 0
+    },
+    "byPresentationEvidence": {
+      "pinned-wad-model-and-audio": 67,
+      "authored-local-rig-and-synth": 74,
+      "procedural-hud-or-fx": 16,
+      "pending-native-calibration": 1
+    }
+  },
+  "discrepancyRegister": {
+    "file": "docs/reference/milestone7-discrepancy-register.json",
+    "total": 13,
+    "fixed": 10,
+    "open": 0,
+    "acceptedDeviation": 1,
+    "blockedExternal": 2,
+    "openP0": 0,
+    "openP1": 0
+  },
+  "cohort": {
+    "ruleset": "bf0a46cff65fb8997c4f7ad5846dffd9c308118612f39111125d1929a30ca869",
+    "publicRosterVerified": true,
+    "horizonTicks": 216000,
+    "seeds": 6,
+    "victories": 6,
+    "unfinished": 0,
+    "completionRate": 1,
+    "checkedTicks": 757842,
+    "roundTrips": 214,
+    "futureChecks": 208,
+    "futureCheckedTicks": 12480,
+    "planSha256": "98658e0631e5788795b735fcfc6030935c813cbd23c86fc3d736aa354852b821",
+    "summarySha256": "95d51dc352ba0ef6257af526926863c7af1d6f8f7879d7f8c24a7ca35b10cf26",
+    "victoryDurationSeconds": {
+      "p10": 1780.8666666666666,
+      "p50": 2027.6666666666667,
+      "p90": 2522.9666666666667
+    },
+    "hundredSeedExternalGateComplete": false,
+    "matches": [
+      {
+        "seed": 26018,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 129896,
+        "checkedTicks": 129896,
+        "roundTrips": 37,
+        "futureChecks": 36,
+        "futureCheckedTicks": 2160,
+        "reportSha256": "79c1d0298e8068554cae64a5b42f3ffc13a85caaa8d40b0ee97bc530168382af",
+        "finalStateSha256": "afeb48ae84b5e3ffc600869290876167af13e10d4d7d11e454ff632e14e1a7a0"
       },
-      "restoreReceipt": {
-        "file": "artifacts/milestone7-checkpoint-revalidation-719.json",
-        "sha256": "4bbb8e125010588af00266301650dc3d7a6a34a639f140746a9995600c946727"
+      {
+        "seed": 719,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 151378,
+        "checkedTicks": 151378,
+        "roundTrips": 43,
+        "futureChecks": 42,
+        "futureCheckedTicks": 2520,
+        "reportSha256": "9078b2221deceaa63308a1e587f55d35570f29e89882e3d59a049f7df72e29f6",
+        "finalStateSha256": "911476929b30738584d06e940fc0cf87b738c403f1e89fe8b184ae7b14edf39f"
+      },
+      {
+        "seed": 1,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 106852,
+        "checkedTicks": 106852,
+        "roundTrips": 30,
+        "futureChecks": 29,
+        "futureCheckedTicks": 1740,
+        "reportSha256": "62c2cd569853403bc0433b5f1b560e7aad8b3e38b12c82d1ac50da90d66d601a",
+        "finalStateSha256": "b7fa0071be1f4abab6d1404fddc3c485f2b57de52b8bc06085f18e29df9dc35f"
+      },
+      {
+        "seed": 927,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 135885,
+        "checkedTicks": 135885,
+        "roundTrips": 38,
+        "futureChecks": 37,
+        "futureCheckedTicks": 2220,
+        "reportSha256": "28b9d0dfb24d2e11c00723a2b3b095cda16280f9a2cea588f3040ac6d55b8473",
+        "finalStateSha256": "12ce5d7278d4d960cca817136d02928c13477bb2f50533713e3f03fc9df9403b"
+      },
+      {
+        "seed": 2,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 121660,
+        "checkedTicks": 121660,
+        "roundTrips": 34,
+        "futureChecks": 33,
+        "futureCheckedTicks": 1980,
+        "reportSha256": "e5358f4e2c504265c99cbf6cf1c38e458cb0a5a07378249cc6ac07d9ebfa920a",
+        "finalStateSha256": "3507ed146916593dba75e106dd3b37cbd69b1d5f7e98d9657bf1e68e7ab6837a"
+      },
+      {
+        "seed": 3,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 112171,
+        "checkedTicks": 112171,
+        "roundTrips": 32,
+        "futureChecks": 31,
+        "futureCheckedTicks": 1860,
+        "reportSha256": "8a2f4c549bc8fb631ff68cd552ca5fa41f02ae92ac9b216effddaca17319c229",
+        "finalStateSha256": "1ded392253a07c0b6f6b076169de4f9a191a56b0133d95ccd12680c9c7d0e4fd"
       }
+    ]
+  },
+  "browsers": {
+    "chromium": {
+      "engine": "Chrome/157.0.8103.78",
+      "presentationAndAcceptancePassed": true,
+      "nestedSubpathPassed": true,
+      "offlinePackPassed": true,
+      "offlineCompletedMatchPassed": true
+    },
+    "firefox": {
+      "engine": "Playwright Firefox 155.0",
+      "presentationAndAcceptancePassed": true
+    },
+    "webkit": {
+      "engine": "Playwright WebKit 26.6 (Linux)",
+      "presentationAndAcceptancePassed": true,
+      "macosDesktopSafari": "blocked-external"
     }
-  ],
-  "replay": {
-    "seed": 26018,
-    "ruleset": "3627a2c16eda1293133601d28228f0cf913af54fd1f2a72aee0349e78ea39e56",
-    "startTick": 93600,
-    "endTick": 95722,
-    "winner": "red",
-    "hashes": 9,
-    "terminalSha256": "487bf183c885d0d980fea59763ae44e39ac7b6075fb5cb44a391f2af0face2d6",
-    "replaySha256": "c044c191ed704c3d436283c74bfe2f6ecbefaedf21ae526027f433a9d01e72c6",
-    "receipt": {
-      "file": "artifacts/milestone7-release-replay/verification.json",
-      "sha256": "ddf491c68976ad62896cdf0031094b380757a642e3c7412c082eaabe7e9049a9"
-    }
+  },
+  "nestedSubpath": {
+    "prefix": "/nested/rift/",
+    "result": "passed",
+    "developmentHook": false,
+    "recordings": 313,
+    "publicChampionChoices": 10,
+    "unrequestedPreloads": 0
   },
   "offline": {
-    "fullPackReady": true,
-    "normalCompletedPreviewOffline": true,
-    "exactCompletedStateImportAndExportOffline": true,
-    "resultCheckpointReplayVerifiedOnce": true,
-    "exactCompletedStateReloadAndExportOffline": true,
-    "sourceReportSnapshotAndManifestUnchanged": true,
-    "serviceWorkerResponses": 2297,
-    "browser": "Chrome/157.0.8103.38",
-    "receipt": {
-      "file": "artifacts/milestone7-offline-final/reading.json",
-      "sha256": "1cef239e81af5c301a728d648494f83775ba24a32eb4ec38744eedd1a5e2580d"
-    },
-    "screenshot": {
-      "file": "artifacts/milestone7-offline-final/result-offline.png",
-      "sha256": "4eb075d0821098cf90d5937aec3c0103d2bfd8d74a2f38311a49733da28bf9b3"
-    },
+    "packId": "91432688c428a5cf9abce0a0182f651838b35c7167f8f9a5b2ecbd3042915ab3",
+    "offlineUiTestsPassed": 12,
+    "offlinePackResult": "passed",
+    "offlinePackServiceWorkerResponses": 1522,
+    "completedMatchSeed": 26018,
+    "completedMatchTick": 129896,
+    "completedMatchWinner": "red",
+    "completedMatchResult": "passed",
+    "completedMatchServiceWorkerResponses": 2295,
+    "originRequestsWhileOffline": 0,
+    "productionErrors": 0,
     "failedRequests": 0,
-    "pageErrors": 0,
     "outsidePrefixRequests": 0
   },
-  "tests": {
-    "focusedPassed": 108,
-    "nodeQaPassed": 338,
-    "chromePlaytestPassed": true,
-    "productionBuildPassed": true,
-    "assetValidationPassed": true
-  }
+  "performance": {
+    "hardwareTier": "linux-ci-headless-software-webgl",
+    "cpuCores": 2,
+    "simulationMeasuredTicks": 3600,
+    "simulationMeanMsPerTick": 2.6964,
+    "simulationP50MsPerTick": 2.4164,
+    "simulationP95MsPerTick": 4.1765,
+    "simulationP99MsPerTick": 7.1458,
+    "drawCallsP95": 72,
+    "drawCallsBudget": 250,
+    "withinDrawCallBudget": true,
+    "texturesCreated": 75,
+    "buffersCreated": 100,
+    "postGcUsedJsHeapMiB": 524.17,
+    "postGcHeapProposedBudgetMiB": 280,
+    "withinHeapBudget": false,
+    "withinSimulationP95Budget": false
+  },
+  "reaCertification": {
+    "tool": "morluto/rea",
+    "package": "rea-agents@6.10.1",
+    "bundleFile": "artifacts/milestone7-rea-evidence-bundle.json",
+    "bundleBytes": 60142609,
+    "bundleSha256": "d0117f97ca6ee89eeaf9e63554da6edb12837661e7a7754593c8e1e143262dc5",
+    "records": 2,
+    "unknowns": 0,
+    "releaseExposureExposedCount": 0,
+    "runtimeScriptsObserved": 12,
+    "runtimeScriptsMatched": 12,
+    "runtimeScriptsUnmatched": 0,
+    "runtimeScriptsAmbiguous": 0,
+    "evidenceIds": {
+      "releaseExposureAudit": "ev_f78193fdc0c9f2a4cb917b17ec8a883101ff2ac3d6e988284afa0da92f435555",
+      "javascriptApplicationGraph": "ev_cc5dc8aed6d30e64e0a7e6f86c887cfa8444a9f299a428f04970fc8b92ce9ecc",
+      "featureTraceOfflinePack": "ev_ce2662a5290f5b1b0736c3a004a0ba7aa429733827a70312030337c33465a4c9",
+      "featureTraceRiftHerald": "ev_6fe014bcee77af1947f3043052f3a3d08599a84879a3a03c60b53c768b1a2f96",
+      "browserScenarioCapture": "ev_6484fddae3987cd231fc7274818b92fc9c30d38b048a35b497010a6440bcd697",
+      "passiveWebPageInspection": "ev_dff29d56cad833a11f22412cff73e75003c0b0df9baa9cefff654e89302fa106",
+      "runtimeReconciliation": "ev_a64288a223a6db751489742d544fd644104afcae5ddd87eb686f20ab73f88b3d"
+    }
+  },
+  "externalGates": {
+    "nativeRiotClientLiveCaptures": "blocked-external",
+    "macosDesktopSafariAcceptance": "blocked-external",
+    "integratedGpuLaptop20MinPostWarmup": "blocked-external",
+    "integratedGpuDesktop20MinPostWarmup": "blocked-external",
+    "hundredSeedCohortScaleRun": "blocked-external",
+    "twentyHumanInputFullMatches": "blocked-external"
+  },
+  "sourceDigests": [
+    {
+      "file": "src/content/reference-coverage.ts",
+      "bytes": 27206,
+      "sha256": "97c8ee51f624148271e8be9dbef5a1634a1416da17fb5b295ab4139c64ce3bf9"
+    },
+    {
+      "file": "src/simulation/champion-stats.ts",
+      "bytes": 1064,
+      "sha256": "7e37c4cf48dae2ce1d8dcc61550da62ae6b8e4a74942d0b7bfe05f2e85084f93"
+    },
+    {
+      "file": "src/simulation/milestone6-champions.ts",
+      "bytes": 61461,
+      "sha256": "faa5f52b150ab13bf20693a68bad757dbd5d3426f11f1b2487a96b33004a524a"
+    },
+    {
+      "file": "src/simulation/epic-objectives.ts",
+      "bytes": 25567,
+      "sha256": "e6d37adce31a33c77e9b7f72d423c48cfbc222152cdf1cdac6bd5d3f138d3d5c"
+    },
+    {
+      "file": "src/simulation/runes.ts",
+      "bytes": 15981,
+      "sha256": "a1347279a7e443cd99603b8fe0bde6d0bfe8d8b59bdf19fa3359c4f185b505af"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 369253,
+      "sha256": "bb1dcd495fbdc82594cb714a70ac0a73a39888911db4d251b4b4366a5e3b58b6"
+    },
+    {
+      "file": "src/simulation/leona-eclipse.ts",
+      "bytes": 2164,
+      "sha256": "c997bfda58ec47e4935137ac553b5d4a97a18422a25a080f6df847e9cbf603f9"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 237249,
+      "sha256": "fd50bdf991ae7f4f195ea3d314c021e1bb3a06c6e66ae9007b4add4a69e55fae"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 147411,
+      "sha256": "f9eaa364c2d4d96ff67aebdbe179ee9acbaa78318fa1643dc07353e4a1dbef8f"
+    },
+    {
+      "file": "src/ui/lux-spells.ts",
+      "bytes": 2912,
+      "sha256": "aabed1af27f289760745d3a8c8b8c3123447525d0d6050dce3d64d51eccee70b"
+    },
+    {
+      "file": "src/ui/leona-spells.ts",
+      "bytes": 3386,
+      "sha256": "fd6193c896a9aef993bfe03d89c172103b8140a2f5dc89701c7e23a77c38fb5e"
+    },
+    {
+      "file": "src/render/models.ts",
+      "bytes": 14263,
+      "sha256": "920767e219e2536f8020e1064f9ed6e859854c58e23daafcdf31119a25a4945d"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 81324,
+      "sha256": "1f67ca2b3abe48d2f8bc060ef870a7d48ed98e1a8f8c76d101f84a76cd2ca42f"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 40493,
+      "sha256": "f969f048be29f90acc06ec9071df8657071df2f019453f31ddd6f7067c1e890c"
+    },
+    {
+      "file": "index.html",
+      "bytes": 740,
+      "sha256": "a5d418d1535ce335f23d8ce281938eeefeff8a83207fbacac1ecbe7bf2452268"
+    },
+    {
+      "file": "docs/reference/milestone7-discrepancy-register.json",
+      "bytes": 12523,
+      "sha256": "f4621b1497f4baf13ce3146bc23e08ab9f585739cf45787bb583f77cfcab9918"
+    },
+    {
+      "file": "docs/reference/milestone7-capture-packets.json",
+      "bytes": 7110,
+      "sha256": "12afe4d37428ef8f086fe923ff77d3d18216586085359a16f6e76b6bb2e0c75d"
+    },
+    {
+      "file": "tests/milestone7-contract.test.ts",
+      "bytes": 2953,
+      "sha256": "f7d31559c7f2ebb6938dfbda79a19cea6e2199bb11641cff0491842866e5fe71"
+    },
+    {
+      "file": "tests/milestone7-calibration-fixtures.test.ts",
+      "bytes": 8979,
+      "sha256": "19ee16c602e576f408f40fdd86594addf7e7be23db89c3d5452efc39979eb15f"
+    },
+    {
+      "file": "tests/milestone7-champion-matrices.test.ts",
+      "bytes": 15599,
+      "sha256": "1adc8eb9e2ac79866bb0dbbfd62b439a9d2e082d1a7aafa5fc02f8645ecc3aa0"
+    },
+    {
+      "file": "tests/milestone7-gameplay-calibration.test.ts",
+      "bytes": 15078,
+      "sha256": "6337f1694978ebf89d2256fd31c5c29395a82d6659c46f5c5c09164d8aa9557c"
+    },
+    {
+      "file": "e2e/milestone7-presentation-and-acceptance.spec.ts",
+      "bytes": 9475,
+      "sha256": "f3a85b0053c76ee8e7dcbf775c175709deefec56f3b462841c2fd26568ba4292"
+    },
+    {
+      "file": "tools/qa/milestone7-multibrowser.playwright.config.ts",
+      "bytes": 1114,
+      "sha256": "3fbaa5f907052503bd0df8682561f00b1ef201a89b045b399c82527a2e948785"
+    },
+    {
+      "file": "tools/qa/profile-sim-worker.ts",
+      "bytes": 3320,
+      "sha256": "d7dd47087e570cbab099e96cd19f5fa05dccb04344e36781b15ddad24d7cf96c"
+    },
+    {
+      "file": "tools/qa/profile-milestone7.mjs",
+      "bytes": 10838,
+      "sha256": "3443d6208c621aea070d21ef1b2320b4881b810a8029356e02af15d1a22949bd"
+    },
+    {
+      "file": "tools/qa/run-milestone7-rea.mjs",
+      "bytes": 13475,
+      "sha256": "8465a2c16733940886d72a754870bd4945cd6d89af615adab02f3eef6f7e3432"
+    }
+  ],
+  "localArtifacts": [
+    {
+      "file": "artifacts/milestone7-cohort-6seed-verification.json",
+      "bytes": 4185,
+      "sha256": "429f91d763b1208362042e83dacc333d092185bcf894b3ecfbcc0bbb2b6229b4"
+    },
+    {
+      "file": "artifacts/milestone7-offline-completed-match/reading.json",
+      "bytes": 1606,
+      "sha256": "e80d8516234c58660e72d2e658d5321fe5da182aa70698c547c5cee10a2daa64"
+    },
+    {
+      "file": "artifacts/production-subpath-milestone7-subpath-verify.json",
+      "bytes": 4371,
+      "sha256": "4adf4af1f32ee5552048621bd06906fcdbcff47f66df008b3fb570a822858000"
+    },
+    {
+      "file": "artifacts/offline-pack-milestone7-offline-verify-production.json",
+      "bytes": 858,
+      "sha256": "ea06dfac694ce2fbff06b74d18ffb49dbc5ea63ba412714e3855057de9b26f41"
+    },
+    {
+      "file": "artifacts/milestone7-performance-profile.json",
+      "bytes": 2322,
+      "sha256": "5e27e5844af4dff461bc3f1e62b98e1344d04ae34a9925e724cc07a03852f361"
+    },
+    {
+      "file": "artifacts/milestone7-rea-summary.json",
+      "bytes": 15466,
+      "sha256": "0bb96287c7d06476b3667e28c4e9a7424b7a2060d5ac1b6a425b4862f7c8981e"
+    },
+    {
+      "file": "artifacts/milestone7-rea-evidence-bundle.json",
+      "bytes": 60142609,
+      "sha256": "d0117f97ca6ee89eeaf9e63554da6edb12837661e7a7754593c8e1e143262dc5"
+    }
+  ]
 }
