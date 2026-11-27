@@ -685,34 +685,157 @@ export class World {
     }
     return this.units.filter((u) => u.kind === 'champion').map((u) => this.championState(u.id)!);
   }
-  /** Transient step-scoped index over this.units; never serialized and cleared on step exit. */
+  /** Transient index over this.units; never serialized and rebuilt if units array/length changes. */
   private unitLookup: {
+    unitsRef: Unit[];
+    size: number;
     byId: Map<number, Unit>;
     champions: Unit[];
+    blueChampions: Unit[];
+    redChampions: Unit[];
     structures: Unit[];
+    blue: Unit[];
+    red: Unit[];
+    hasGaren: boolean;
+    hasMasterYi: boolean;
   } | null = null;
-  private ensureUnitLookup(): {
-    byId: Map<number, Unit>;
-    champions: Unit[];
-    structures: Unit[];
-  } {
-    if (this.unitLookup) return this.unitLookup;
+  private spatialBlue: Unit[][] | null = null;
+  private spatialRed: Unit[][] | null = null;
+  private spatialDirtyBlue: number[] = [];
+  private spatialDirtyRed: number[] = [];
+  private spatialValid = false;
+  private spatialMaxSight = 1000;
+  private spatialMaxRadius = 65;
+  invalidateSpatialGrid(): void {
+    this.spatialValid = false;
+  }
+  private spatialCoord(v: number): number {
+    const c = (v + 8192) >> 10;
+    return c < 0 ? 0 : c > 15 ? 15 : c;
+  }
+  private buildSpatialGrid(): void {
+    if (!this.unitLookup) return;
+    if (!this.spatialBlue || !this.spatialRed) {
+      this.spatialBlue = Array.from({ length: 256 }, () => []);
+      this.spatialRed = Array.from({ length: 256 }, () => []);
+    } else {
+      for (let i = 0; i < this.spatialDirtyBlue.length; i++)
+        this.spatialBlue[this.spatialDirtyBlue[i]].length = 0;
+      for (let i = 0; i < this.spatialDirtyRed.length; i++)
+        this.spatialRed[this.spatialDirtyRed[i]].length = 0;
+      this.spatialDirtyBlue.length = 0;
+      this.spatialDirtyRed.length = 0;
+    }
+    let maxSight = 1000;
+    let maxRadius = 65;
+    const blue = this.unitLookup.blue;
+    for (let i = 0; i < blue.length; i++) {
+      const u = blue[i];
+      if (u.hp <= 0 || u.kind === 'champion') continue;
+      const cell = (this.spatialCoord(u.y) << 4) | this.spatialCoord(u.x);
+      const bucket = this.spatialBlue[cell];
+      if (bucket.length === 0) this.spatialDirtyBlue.push(cell);
+      bucket.push(u);
+      if (u.radius > maxRadius) maxRadius = u.radius;
+      const r = sightRadius(u);
+      if (r > maxSight) maxSight = r;
+    }
+    const red = this.unitLookup.red;
+    for (let i = 0; i < red.length; i++) {
+      const u = red[i];
+      if (u.hp <= 0 || u.kind === 'champion') continue;
+      const cell = (this.spatialCoord(u.y) << 4) | this.spatialCoord(u.x);
+      const bucket = this.spatialRed[cell];
+      if (bucket.length === 0) this.spatialDirtyRed.push(cell);
+      bucket.push(u);
+      if (u.radius > maxRadius) maxRadius = u.radius;
+      const r = sightRadius(u);
+      if (r > maxSight) maxSight = r;
+    }
+    this.spatialMaxSight = maxSight;
+    this.spatialMaxRadius = maxRadius;
+    this.spatialValid = true;
+  }
+  private ensureUnitLookup(): NonNullable<World['unitLookup']> {
+    if (
+      this.unitLookup &&
+      this.unitLookup.unitsRef === this.units &&
+      this.unitLookup.size === this.units.length
+    )
+      return this.unitLookup;
     const byId = new Map<number, Unit>();
     const champions: Unit[] = [];
+    const blueChampions: Unit[] = [];
+    const redChampions: Unit[] = [];
     const structures: Unit[] = [];
-    for (const u of this.units) {
+    const blue: Unit[] = [];
+    const red: Unit[] = [];
+    let hasGaren = false;
+    let hasMasterYi = false;
+    for (let i = 0; i < this.units.length; i++) {
+      const u = this.units[i];
       byId.set(u.id, u);
-      if (u.kind === 'champion') champions.push(u);
+      if (u.kind === 'champion') {
+        champions.push(u);
+        if (u.team === 'blue') blueChampions.push(u);
+        else if (u.team === 'red') redChampions.push(u);
+        if (u.champion === 'garen') hasGaren = true;
+        else if (u.champion === 'masteryi') hasMasterYi = true;
+      }
       if (u.structure) structures.push(u);
+      if (u.team === 'blue') blue.push(u);
+      else if (u.team === 'red') red.push(u);
     }
-    this.unitLookup = { byId, champions, structures };
+    this.unitLookup = {
+      unitsRef: this.units,
+      size: this.units.length,
+      byId,
+      champions,
+      blueChampions,
+      redChampions,
+      structures,
+      blue,
+      red,
+      hasGaren,
+      hasMasterYi,
+    };
     return this.unitLookup;
   }
   private indexUnit(u: Unit): void {
     if (!this.unitLookup) return;
+    if (this.unitLookup.unitsRef !== this.units) {
+      this.unitLookup = null;
+      this.spatialValid = false;
+      return;
+    }
+    this.unitLookup.size = this.units.length;
     this.unitLookup.byId.set(u.id, u);
-    if (u.kind === 'champion') this.unitLookup.champions.push(u);
+    if (u.kind === 'champion') {
+      this.unitLookup.champions.push(u);
+      if (u.team === 'blue') this.unitLookup.blueChampions.push(u);
+      else if (u.team === 'red') this.unitLookup.redChampions.push(u);
+      if (u.champion === 'garen') this.unitLookup.hasGaren = true;
+      else if (u.champion === 'masteryi') this.unitLookup.hasMasterYi = true;
+    }
     if (u.structure) this.unitLookup.structures.push(u);
+    if (u.team === 'blue') this.unitLookup.blue.push(u);
+    else if (u.team === 'red') this.unitLookup.red.push(u);
+    if (
+      this.spatialValid &&
+      u.hp > 0 &&
+      u.kind !== 'champion' &&
+      (u.team === 'blue' || u.team === 'red')
+    ) {
+      const grid = u.team === 'blue' ? this.spatialBlue! : this.spatialRed!;
+      const dirty = u.team === 'blue' ? this.spatialDirtyBlue : this.spatialDirtyRed;
+      const cell = (this.spatialCoord(u.y) << 4) | this.spatialCoord(u.x);
+      const bucket = grid[cell];
+      if (bucket.length === 0) dirty.push(cell);
+      bucket.push(u);
+      if (u.radius > this.spatialMaxRadius) this.spatialMaxRadius = u.radius;
+      const r = sightRadius(u);
+      if (r > this.spatialMaxSight) this.spatialMaxSight = r;
+    }
   }
   wave = 0;
   nextWaveTick = 5 * TICK_RATE;
@@ -808,7 +931,12 @@ export class World {
     return hero;
   }
   unit(id: number): Unit | undefined {
-    if (this.unitLookup) return this.unitLookup.byId.get(id);
+    if (
+      this.unitLookup &&
+      this.unitLookup.unitsRef === this.units &&
+      this.unitLookup.size === this.units.length
+    )
+      return this.unitLookup.byId.get(id);
     return this.units.find((u) => u.id === id);
   }
   alive(unit: Unit): boolean {
@@ -1543,7 +1671,9 @@ export class World {
     this.ensureUnitLookup();
     try {
       for (let i = 0; i < count && !this.winner; i++) {
+        this.spatialValid = false;
         this.update();
+        this.spatialValid = false;
         advanceLuxEAudio(this);
         advanceCharmAudio(this);
         advanceEVisualHistory(this);
@@ -1566,14 +1696,22 @@ export class World {
       }
     } finally {
       this.unitLookup = null;
+      this.spatialValid = false;
     }
   }
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
-    if (this.teamPlans)
-      for (const plan of Object.values(this.teamPlans))
-        plan.assignments = plan.assignments.filter((g) => g.expiresTick > this.tick);
+    if (this.teamPlans) {
+      if (this.teamPlans.blue.assignments.length)
+        this.teamPlans.blue.assignments = this.teamPlans.blue.assignments.filter(
+          (g) => g.expiresTick > this.tick
+        );
+      if (this.teamPlans.red.assignments.length)
+        this.teamPlans.red.assignments = this.teamPlans.red.assignments.filter(
+          (g) => g.expiresTick > this.tick
+        );
+    }
     if (this.luxIlluminationVisuals.length)
       this.luxIlluminationVisuals = this.luxIlluminationVisuals.filter(
         (v) => this.tick < v.startTick + LUX_ILLUMINATION_HISTORY_TICKS
@@ -1591,16 +1729,15 @@ export class World {
         (v) => v.stopTick === null || this.tick < v.stopTick + GROMP_ATTACK_VISUAL_TAIL_TICKS
       );
     pruneBaronAttackVisuals(this);
-    for (const unit of this.units)
-      if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
-    for (const unit of this.units)
-      if (unit.shields.length)
-        unit.shields = unit.shields.filter((shield) => shield.endTick > this.tick);
     if (this.luxBeams.length)
       this.luxBeams = this.luxBeams.filter(
         (beam) => this.tick < beam.startTick + LUX_R.presentationSeconds * TICK_RATE
       );
-    for (const unit of this.units) {
+    for (let i = 0; i < this.units.length; i++) {
+      const unit = this.units[i];
+      if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
+      if (unit.shields.length)
+        unit.shields = unit.shields.filter((shield) => shield.endTick > this.tick);
       if (unit.illumination.length)
         unit.illumination = unit.illumination.filter((mark) => mark.endTick > this.tick);
       if (
@@ -1608,10 +1745,9 @@ export class World {
         (unit.sunlight.endTick <= this.tick || !this.championState(unit.sunlight.sourceId))
       )
         unit.sunlight = null;
-    }
-    for (const unit of this.units)
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
+    }
     for (const state of this.activeChampionStates()) {
       if (state.alphaStrike) settleAlphaStrike(this, state, this.unit(state.id)!);
       if (state.meditate) settleMeditate(this, state, this.unit(state.id)!);
@@ -1762,12 +1898,19 @@ export class World {
         state.garenRReveal = null;
       }
     }
-    this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
-    this.bindingStops = this.bindingStops.filter(
-      (flight) => this.tick < flight.stopTick + LUX_BINDING_STOP_HISTORY_TICKS
-    );
-    this.scoutVisuals = this.scoutVisuals.filter((effect) => effect.endTick > this.tick);
-    for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
+    if (this.visionAreas.length)
+      this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
+    if (this.bindingStops.length)
+      this.bindingStops = this.bindingStops.filter(
+        (flight) => this.tick < flight.stopTick + LUX_BINDING_STOP_HISTORY_TICKS
+      );
+    if (this.scoutVisuals.length)
+      this.scoutVisuals = this.scoutVisuals.filter((effect) => effect.endTick > this.tick);
+    for (let i = 0; i < this.units.length; i++) {
+      const unit = this.units[i];
+      unit.previous.x = unit.x;
+      unit.previous.y = unit.y;
+    }
     for (const zone of this.singularities)
       if (zone.arrivalTick !== null && zone.detonatedTick === null && zone.endTick! > this.tick)
         this.slowSingularity(zone);
@@ -1894,6 +2037,7 @@ export class World {
     advanceMilestone6Champions(this);
     for (const state of this.activeChampionStates())
       if (state.original) advanceOriginalChampion(this, this.unit(state.id)!, state);
+    this.buildSpatialGrid();
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -2036,30 +2180,43 @@ export class World {
       this.advanceImpactVisuals();
       return;
     }
-    for (const unit of this.units) {
+    const champList = this.unitLookup ? this.unitLookup.champions : this.units;
+    for (let i = 0; i < champList.length; i++) {
+      const unit = champList[i];
+      if (unit.kind !== 'champion') continue;
       const champion = this.championState(unit.id);
-      if (champion) {
-        for (const team of ['blue', 'red'] as const)
-          if (unit.team === team || this.visible(unit, team)) {
-            const previous = champion.observedStats[team];
-            if (
-              previous?.level !== champion.level ||
-              previous.cs !== champion.cs ||
-              previous.inventory.length !== champion.inventory.length ||
-              previous.inventory.some((item, i) => item !== champion.inventory[i])
-            )
-              champion.observedStats[team] = {
-                level: champion.level,
-                cs: champion.cs,
-                inventory: [...champion.inventory],
-              };
-          }
-      }
-      if (!unit.structureKnowledge) continue;
+      if (!champion) continue;
       for (const team of ['blue', 'red'] as const) {
-        if (!this.visible(unit, team)) continue;
-        unit.structureKnowledge[team] = this.alive(unit) ? null : unit.deadAt;
-        if (unit.structureIdle && this.alive(unit))
+        const previous = champion.observedStats[team];
+        const changed =
+          previous?.level !== champion.level ||
+          previous.cs !== champion.cs ||
+          previous.inventory.length !== champion.inventory.length ||
+          previous.inventory.some((item, idx) => item !== champion.inventory[idx]);
+        if (changed && (unit.team === team || this.visible(unit, team)))
+          champion.observedStats[team] = {
+            level: champion.level,
+            cs: champion.cs,
+            inventory: [...champion.inventory],
+          };
+      }
+    }
+    const structList = this.unitLookup ? this.unitLookup.structures : this.units;
+    for (let i = 0; i < structList.length; i++) {
+      const unit = structList[i];
+      if (!unit.structureKnowledge) continue;
+      const alive = this.alive(unit);
+      const expectedDeath = alive ? null : unit.deadAt;
+      for (const team of ['blue', 'red'] as const) {
+        const needsKnowledge = unit.structureKnowledge[team] !== expectedDeath;
+        const needsIdle =
+          !!unit.structureIdle &&
+          alive &&
+          unit.structureIdle.observedStartTicks[team] !== unit.structureIdle.startTick;
+        if (!needsKnowledge && !needsIdle) continue;
+        if (unit.team !== team && !this.visible(unit, team)) continue;
+        unit.structureKnowledge[team] = expectedDeath;
+        if (unit.structureIdle && alive)
           unit.structureIdle.observedStartTicks[team] = unit.structureIdle.startTick;
       }
     }
@@ -2078,7 +2235,8 @@ export class World {
     }
     for (const state of this.activeChampionStates())
       advanceRedBuff(state, this.unit(state.id)!, this.tick);
-    for (const h of this.units) {
+    for (let i = 0; i < champList.length; i++) {
+      const h = champList[i];
       if (h.kind !== 'champion' || !this.alive(h)) continue;
       const owner = this.championState(h.id)!;
       const enlighten = owner.enlighten;
@@ -2090,7 +2248,7 @@ export class World {
         if (this.tick >= enlighten.endTick) owner.enlighten = null;
       }
       const fountain = distance(h, this.battlefield.spawns[h.team]) < 220;
-      const growth = growthAtLevel(this.championState(h.id)?.level ?? 1);
+      const growth = growthAtLevel(owner.level);
       const profile = championProfile(h.champion!);
       h.hp = Math.min(
         h.maxHp,
@@ -2105,9 +2263,12 @@ export class World {
           (fountain ? h.maxMana * 0.12 : profile.manaRegen + profile.manaRegenGrowth * growth) * DT
       );
     }
-    for (const unit of this.units)
-      if (unit.champion === 'garen')
-        advancePerseveranceVisual(this.championState(unit.id)!, unit, this.tick);
+    if (!this.unitLookup || this.unitLookup.hasGaren)
+      for (let i = 0; i < champList.length; i++) {
+        const unit = champList[i];
+        if (unit.champion === 'garen')
+          advancePerseveranceVisual(this.championState(unit.id)!, unit, this.tick);
+      }
     // Continuous fractional accrual is our cadence policy; see docs/ECONOMY.md.
     if (this.tick > AMBIENT_GOLD.startSeconds * TICK_RATE)
       for (const state of this.activeChampionStates())
@@ -2188,7 +2349,9 @@ export class World {
     }
   }
   private releaseWaveUnits(): void {
+    if (this.pendingSpawns.length === 0) return;
     const ready = this.pendingSpawns.filter((spawn) => spawn.tick <= this.tick);
+    if (ready.length === 0) return;
     this.pendingSpawns = this.pendingSpawns.filter((spawn) => spawn.tick > this.tick);
     for (const spawn of ready) {
       const lane = this.battlefield.lanes[spawn.lane],
@@ -2231,6 +2394,7 @@ export class World {
     )
       return false;
     if (u.team === team || this.pointVisible(u, team)) return true;
+    if (this.unitLookup && !this.unitLookup.hasGaren) return false;
     const candidates = this.unitLookup ? this.unitLookup.champions : this.units;
     for (let i = 0; i < candidates.length; i++) {
       const source = candidates[i];
@@ -2321,24 +2485,73 @@ export class World {
     if (this.visionSnapshot) this.visionSnapshot.sources[key] = sources;
     return sources;
   }
-  pointVisible(point: Vec2, team: Faction = 'blue'): boolean {
+  pointVisible(point: Vec2, team: Faction = 'blue', includeAttackReveals = true): boolean {
     if (team === 'neutral') return false;
     if (this.visionSnapshot)
-      return seenFrom(point, this.visionSources(team), this.battlefield.lineOfSight);
+      return seenFrom(
+        point,
+        this.visionSources(team, includeAttackReveals),
+        this.battlefield.lineOfSight
+      );
     const px = point.x,
       py = point.y,
       sight = this.battlefield.lineOfSight;
-    for (let i = 0; i < this.units.length; i++) {
-      const u = this.units[i];
-      if (u.team !== team || !this.alive(u)) continue;
-      const r = sightRadius(u);
-      const dx = u.x - px;
-      if (dx > r || dx < -r) continue;
-      const dy = u.y - py;
-      if (dy > r || dy < -r) continue;
-      if (dx * dx + dy * dy > r * r * 1.000001) continue;
-      if (u.kind === 'ward' && wardDisabled(this, u)) continue;
-      if (Math.hypot(dx, dy) <= r && sight(u, point)) return true;
+    if (this.spatialValid && this.unitLookup) {
+      const champs =
+        team === 'blue' ? this.unitLookup.blueChampions : this.unitLookup.redChampions;
+      for (let i = 0; i < champs.length; i++) {
+        const u = champs[i];
+        if (u.hp <= 0) continue;
+        const r = 1300;
+        const dx = u.x - px;
+        if (dx > r || dx < -r) continue;
+        const dy = u.y - py;
+        if (dy > r || dy < -r) continue;
+        if (dx * dx + dy * dy > r * r * 1.000001) continue;
+        if (Math.hypot(dx, dy) <= r && sight(u, point)) return true;
+      }
+      const grid = team === 'blue' ? this.spatialBlue! : this.spatialRed!;
+      const pad = this.spatialMaxSight + 64;
+      const cx0 = this.spatialCoord(px - pad);
+      const cx1 = this.spatialCoord(px + pad);
+      const cy0 = this.spatialCoord(py - pad);
+      const cy1 = this.spatialCoord(py + pad);
+      for (let cy = cy0; cy <= cy1; cy++) {
+        const row = cy << 4;
+        for (let cx = cx0; cx <= cx1; cx++) {
+          const bucket = grid[row | cx];
+          for (let i = 0; i < bucket.length; i++) {
+            const u = bucket[i];
+            if (u.hp <= 0) continue;
+            const r = u.kind === 'ward' ? sightRadius(u) : 1000;
+            const dx = u.x - px;
+            if (dx > r || dx < -r) continue;
+            const dy = u.y - py;
+            if (dy > r || dy < -r) continue;
+            if (dx * dx + dy * dy > r * r * 1.000001) continue;
+            if (u.kind === 'ward' && wardDisabled(this, u)) continue;
+            if (Math.hypot(dx, dy) <= r && sight(u, point)) return true;
+          }
+        }
+      }
+    } else {
+      const observers = this.unitLookup
+        ? team === 'blue'
+          ? this.unitLookup.blue
+          : this.unitLookup.red
+        : this.units;
+      for (let i = 0; i < observers.length; i++) {
+        const u = observers[i];
+        if (!this.alive(u) || (!this.unitLookup && u.team !== team)) continue;
+        const r = sightRadius(u);
+        const dx = u.x - px;
+        if (dx > r || dx < -r) continue;
+        const dy = u.y - py;
+        if (dy > r || dy < -r) continue;
+        if (dx * dx + dy * dy > r * r * 1.000001) continue;
+        if (u.kind === 'ward' && wardDisabled(this, u)) continue;
+        if (Math.hypot(dx, dy) <= r && sight(u, point)) return true;
+      }
     }
     const shrines = this.scuttlers?.shrines;
     if (shrines) {
@@ -2357,7 +2570,8 @@ export class World {
     }
     for (let i = 0; i < this.visionAreas.length; i++) {
       const a = this.visionAreas[i];
-      if (a.team !== team || a.endTick <= this.tick) continue;
+      if (a.team !== team || a.endTick <= this.tick || (!includeAttackReveals && a.kind !== 'scout'))
+        continue;
       const r = a.radius;
       const dx = a.x - px;
       if (dx > r || dx < -r) continue;
@@ -2421,12 +2635,14 @@ export class World {
     return event.audience.includes(team);
   }
   targetable(unit: Unit): boolean {
-    return (
-      this.alive(unit) &&
-      this.vulnerable(unit) &&
-      (this.championState(unit.id)?.itemState?.stasisUntilTick ?? 0) <= this.tick &&
-      (unit.champion !== 'masteryi' || !alphaVanished(this.championState(unit.id)))
-    );
+    if (unit.hp <= 0) return false;
+    if (unit.kind === 'champion') {
+      const state = this.championState(unit.id);
+      if ((state?.itemState?.stasisUntilTick ?? 0) > this.tick) return false;
+      if (unit.champion === 'masteryi' && alphaVanished(state)) return false;
+      return true;
+    }
+    return this.vulnerable(unit);
   }
   vulnerable(unit: Unit): boolean {
     if (
@@ -2481,23 +2697,53 @@ export class World {
     }
   }
   private validTarget(u: Unit, target: Unit | undefined, retainAggro = false): target is Unit {
-    return (
-      !!target &&
-      target.team !== u.team &&
-      this.alive(target) &&
-      (retainAggro ? this.vulnerable(target) : this.targetable(target)) &&
-      (target.kind !== 'ward' || u.kind === 'champion') &&
-      (target.kind !== 'monster' ||
-        (target.monster.phase !== 'returning' &&
-          u.kind === 'champion' &&
-          (!u.ai || (u.order.type === 'attack' && u.order.target === target.id)))) &&
-      (u.kind === 'monster'
-        ? target.kind !== 'monster' &&
-          !isStructureKind(target.kind) &&
-          distance(u, target) <= MONSTERS[u.monster.species].policy.sightRadius &&
-          this.battlefield.lineOfSight(u, target)
-        : this.visible(target, u.team))
-    );
+    if (
+      !target ||
+      target.team === u.team ||
+      target.hp <= 0 ||
+      !(retainAggro ? this.vulnerable(target) : this.targetable(target)) ||
+      (target.kind === 'ward' && u.kind !== 'champion') ||
+      (target.kind === 'monster' &&
+        (target.monster.phase === 'returning' ||
+          u.kind !== 'champion' ||
+          (u.ai && !(u.order.type === 'attack' && u.order.target === target.id))))
+    )
+      return false;
+    if (u.kind === 'monster')
+      return (
+        target.kind !== 'monster' &&
+        !isStructureKind(target.kind) &&
+        distance(u, target) <= MONSTERS[u.monster.species].policy.sightRadius &&
+        this.battlefield.lineOfSight(u, target)
+      );
+    // O(1) self-sight fast path: an alive non-ward attacker on u.team directly sees
+    // most nearby non-ward targets without scanning all team observers in pointVisible.
+    if (
+      u.hp > 0 &&
+      u.kind !== 'ward' &&
+      target.kind !== 'ward' &&
+      !(
+        target.kind === 'monster' &&
+        target.monster.species === 'scuttler' &&
+        target.monster.spawn &&
+        this.tick < target.monster.spawn.startTick + SCUTTLER_POLICY.hiddenTicks
+      )
+    ) {
+      const r = sightRadius(u);
+      const dx = u.x - target.x;
+      const dy = u.y - target.y;
+      if (
+        dx <= r &&
+        dx >= -r &&
+        dy <= r &&
+        dy >= -r &&
+        dx * dx + dy * dy <= r * r * 1.000001 &&
+        Math.hypot(dx, dy) <= r &&
+        this.battlefield.lineOfSight(u, target)
+      )
+        return true;
+    }
+    return this.visible(target, u.team);
   }
   private nearest(
     u: Unit,
@@ -2507,16 +2753,100 @@ export class World {
   ): Unit | undefined {
     let best: Unit | undefined,
       bestDistance = Infinity;
-    const list = championsOnly && this.unitLookup ? this.unitLookup.champions : this.units;
     const ux = u.x,
-      uy = u.y;
+      uy = u.y,
+      allowMonsters = u.kind === 'champion' && !u.ai,
+      isChampion = u.kind === 'champion';
+    if (
+      this.spatialValid &&
+      this.unitLookup &&
+      !championsOnly &&
+      !allowMonsters &&
+      (u.team === 'blue' || u.team === 'red')
+    ) {
+      const enemyChamps =
+        u.team === 'blue' ? this.unitLookup.redChampions : this.unitLookup.blueChampions;
+      for (let i = 0; i < enemyChamps.length; i++) {
+        const target = enemyChamps[i];
+        if (target.hp <= 0) continue;
+        const limit = range + target.radius;
+        const dx = target.x - ux;
+        if (dx >= limit || dx <= -limit) continue;
+        const dy = target.y - uy;
+        if (dy >= limit || dy <= -limit) continue;
+        if (dx * dx + dy * dy > limit * limit * 1.000001) continue;
+        const d = Math.hypot(dx, dy) - target.radius;
+        const score = d + (isChampion ? 0 : 300);
+        if (
+          d < range &&
+          score <= bestDistance &&
+          (score < bestDistance ||
+            (best !== undefined && this.units.indexOf(target) < this.units.indexOf(best))) &&
+          this.validTarget(u, target) &&
+          (!accept || accept(target))
+        ) {
+          bestDistance = score;
+          best = target;
+        }
+      }
+      const grid = u.team === 'blue' ? this.spatialRed! : this.spatialBlue!;
+      const pad = range + this.spatialMaxRadius + 64;
+      const cx0 = this.spatialCoord(ux - pad);
+      const cx1 = this.spatialCoord(ux + pad);
+      const cy0 = this.spatialCoord(uy - pad);
+      const cy1 = this.spatialCoord(uy + pad);
+      for (let cy = cy0; cy <= cy1; cy++) {
+        const row = cy << 4;
+        for (let cx = cx0; cx <= cx1; cx++) {
+          const bucket = grid[row | cx];
+          for (let i = 0; i < bucket.length; i++) {
+            const target = bucket[i];
+            if (target.hp <= 0 || target.kind === 'dummy' || (!isChampion && target.kind === 'ward')) continue;
+            const limit = range + target.radius;
+            const dx = target.x - ux;
+            if (dx >= limit || dx <= -limit) continue;
+            const dy = target.y - uy;
+            if (dy >= limit || dy <= -limit) continue;
+            const sq = dx * dx + dy * dy;
+            if (sq > limit * limit * 1.000001) continue;
+            if (bestDistance < Infinity) {
+              const bLim = bestDistance + target.radius;
+              if (bLim > 0 && sq > bLim * bLim * 1.000001) continue;
+            }
+            const d = Math.hypot(dx, dy) - target.radius;
+            if (
+              d < range &&
+              d <= bestDistance &&
+              (d < bestDistance ||
+                (best !== undefined && this.units.indexOf(target) < this.units.indexOf(best))) &&
+              this.validTarget(u, target) &&
+              (!accept || accept(target))
+            ) {
+              bestDistance = d;
+              best = target;
+            }
+          }
+        }
+      }
+      return best;
+    }
+    const list = this.unitLookup
+      ? championsOnly
+        ? this.unitLookup.champions
+        : !allowMonsters && (u.team === 'blue' || u.team === 'red')
+          ? u.team === 'blue'
+            ? this.unitLookup.red
+            : this.unitLookup.blue
+          : this.units
+      : this.units;
     for (let i = 0; i < list.length; i++) {
       const target = list[i];
       if (
-        target.team !== u.team &&
         target.hp > 0 &&
+        target.team !== u.team &&
         target.kind !== 'dummy' &&
-        (target.kind !== 'monster' || (u.kind === 'champion' && !u.ai)) &&
+        (isChampion || target.kind !== 'ward') &&
+        (allowMonsters || target.kind !== 'monster') &&
         (!championsOnly || target.kind === 'champion')
       ) {
         const limit = range + target.radius;
@@ -2524,8 +2854,9 @@ export class World {
         if (dx >= limit || dx <= -limit) continue;
         const dy = target.y - uy;
         if (dy >= limit || dy <= -limit) continue;
-        const d = distance(u, target) - target.radius;
-        const score = d + (target.kind === 'champion' && u.kind !== 'champion' ? 300 : 0);
+        if (dx * dx + dy * dy > limit * limit * 1.000001) continue;
+        const d = Math.hypot(dx, dy) - target.radius;
+        const score = d + (target.kind === 'champion' && !isChampion ? 300 : 0);
         if (
           d < range &&
           score < bestDistance &&
@@ -5000,7 +5331,7 @@ export class World {
           const baronReleasePose =
             u.monster?.species === 'baron' ? captureBaronReleasePose(u, this.tick) : null;
           u.releaseTick = null;
-          if (!seenFrom(u, this.visionSources(target.team, false), this.battlefield.lineOfSight))
+          if (!this.pointVisible(u, target.team, false))
             this.visionAreas.push({
               kind: 'attack',
               x: u.x,
@@ -6124,6 +6455,7 @@ export class World {
   }
   private unseenBeforeHawkshot(): Map<Team, Set<number>> {
     const unseen = new Map<Team, Set<number>>();
+    const champions = this.unitLookup ? this.unitLookup.champions : this.units;
     for (const team of ['blue', 'red'] as const) {
       const active =
         this.projectiles.some((p) => p.type === 'hawkshot' && p.team === team) ||
@@ -6134,14 +6466,17 @@ export class World {
             a.sourceId !== undefined &&
             a.endTick > this.tick
         ) ||
-        this.units.some(
-          (u) => u.team === team && this.championState(u.id)?.pendingCast?.ability === 'e'
+        champions.some(
+          (u) =>
+            u.kind === 'champion' &&
+            u.team === team &&
+            this.championState(u.id)?.pendingCast?.ability === 'e'
         );
       if (active)
         unseen.set(
           team,
           new Set(
-            this.units
+            champions
               .filter(
                 (u) =>
                   u.kind === 'champion' &&
@@ -6186,18 +6521,25 @@ export class World {
     }
   }
   private advanceAnimationClocks(): void {
-    for (const unit of this.units) {
-      const attack = this.garenQAttack(unit);
-      if (
-        attack &&
-        attack.landing === null &&
-        this.tick === garenQLandingTick(attack) &&
-        (attack.stopTick === null || this.tick < attack.stopTick)
-      )
-        attack.landing = { tick: this.tick, point: { x: unit.x, y: unit.y }, facing: unit.facing };
-      const mobileAlive = !isStructureKind(unit.kind) && unit.kind !== 'ward' && this.alive(unit);
-      const moving =
-        mobileAlive && Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
+    for (let i = 0; i < this.units.length; i++) {
+      const unit = this.units[i];
+      if (unit.champion === 'garen') {
+        const attack = this.garenQAttack(unit);
+        if (
+          attack &&
+          attack.landing === null &&
+          this.tick === garenQLandingTick(attack) &&
+          (attack.stopTick === null || this.tick < attack.stopTick)
+        )
+          attack.landing = { tick: this.tick, point: { x: unit.x, y: unit.y }, facing: unit.facing };
+      }
+      const mobileAlive = !isStructureKind(unit.kind) && unit.kind !== 'ward' && unit.hp > 0;
+      let moving = false;
+      if (mobileAlive) {
+        const dx = unit.x - unit.previous.x;
+        const dy = unit.y - unit.previous.y;
+        moving = (dx !== 0 || dy !== 0) && Math.hypot(dx, dy) > 0.01;
+      }
       if (moving) {
         const nominal =
           (unit.champion === 'leona'
@@ -6210,7 +6552,7 @@ export class World {
         clock.current += DT * (nominal > 0 ? this.movementSpeed(unit) / nominal : 1);
         unit.runClock = clock;
       } else unit.runClock = null;
-      const state = this.championState(unit.id),
+      const state = unit.kind === 'champion' ? this.championState(unit.id) : undefined,
         cast = state?.castAnimation;
       const casting =
         !!state?.alphaStrike ||
@@ -6255,7 +6597,12 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceMasterYiImpactVisuals(): void {
-    if (!this.units.some((unit) => unit.champion === 'masteryi')) return;
+    if (
+      this.unitLookup
+        ? !this.unitLookup.hasMasterYi
+        : !this.units.some((unit) => unit.champion === 'masteryi')
+    )
+      return;
     advancePrimaryHitPoses(this);
     advancePrimaryTrailRoots(this);
     advancePassiveTrails(this);
@@ -6281,7 +6628,8 @@ export class World {
     advanceLeonaAttacks(this);
     advanceLeonaDeaths(this);
     advanceLuxEHits(this);
-    for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
+    if (this.luxImpactVisuals.length || this.luxIlluminationVisuals.length)
+      for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
       const target = this.unit(visual.targetId);
       const previous = visual.frames.at(-1)!;
       const attached = visual.detachedTick === null && target;
@@ -8041,6 +8389,7 @@ export class World {
     u.y = point.y;
     u.previous = { ...point };
     u.hp = u.maxHp * (u.structure?.role === 'nexus-turret' ? 0.4 : 1);
+    if (u.kind !== 'champion') this.spatialValid = false;
     u.mana = u.maxMana;
     u.deadAt = null;
     if (u.structureIdle) u.structureIdle.startTick = this.tick;

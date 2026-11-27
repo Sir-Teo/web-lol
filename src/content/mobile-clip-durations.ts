@@ -66,20 +66,36 @@ export const MOBILE_CLIP_DURATIONS = {
   ),
 };
 export type MobileRig = keyof typeof MOBILE_CLIP_DURATIONS;
+const MOBILE_RIG_BY_KEY = new Map<string, MobileRig>(
+  (Object.keys(MOBILE_CLIP_DURATIONS) as MobileRig[]).map((key) => [key, key])
+);
+const MOBILE_DURATIONS_BY_KEY = new Map<string, Readonly<Record<string, number>>>(
+  (Object.entries(MOBILE_CLIP_DURATIONS) as [MobileRig, Readonly<Record<string, number>>][]).map(
+    ([key, value]) => [key, value]
+  )
+);
+const NON_MOBILE_KINDS = new Set(['turret', 'inhibitor', 'nexus', 'ward', 'dummy']);
 export function mobileRig(
   unit: Pick<Unit, 'kind' | 'champion' | 'team' | 'monster'>
 ): MobileRig | null {
+  if (NON_MOBILE_KINDS.has(unit.kind)) return null;
   const key =
     unit.kind === 'monster'
       ? MONSTERS[unit.monster!.species].rig
       : unit.kind === 'champion'
         ? `${unit.champion}-base`
         : `${unit.team}-${unit.kind}`;
-  return Object.hasOwn(MOBILE_CLIP_DURATIONS, key) ? (key as MobileRig) : null;
+  return MOBILE_RIG_BY_KEY.get(key) ?? null;
 }
 export function mobileClipDurations(
   unit: Pick<Unit, 'kind' | 'champion' | 'team' | 'monster'>
 ): Readonly<Record<string, number>> | undefined {
-  const key = mobileRig(unit);
-  return key === null ? undefined : MOBILE_CLIP_DURATIONS[key];
+  if (NON_MOBILE_KINDS.has(unit.kind)) return undefined;
+  const key =
+    unit.kind === 'monster'
+      ? MONSTERS[unit.monster!.species].rig
+      : unit.kind === 'champion'
+        ? `${unit.champion}-base`
+        : `${unit.team}-${unit.kind}`;
+  return MOBILE_DURATIONS_BY_KEY.get(key);
 }

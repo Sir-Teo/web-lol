@@ -151,6 +151,46 @@ run, and 20 human-input matches remain explicitly tracked as
 `blocked-external`. See [Milestone 10](MILESTONE-10.md) and the
 [verification ledger](reference/milestone10-verification.json).
 
+## Milestone 11 — simulation engine optimization, 100-seed scale certification (`M7-D012`), and 3-browser release readiness (Completed)
+
+Accelerate the 60 Hz deterministic simulation engine without altering gameplay
+outcomes, close the full 100-seed 60-minute public-roster scale cohort gate
+(`M7-D012`), expand schema-current browser acceptance and offline completed-match
+restoration across Chrome, Firefox, and WebKit, provide fail-closed macOS desktop
+Safari release-gate tooling, and re-certify the shipped production build with
+`morluto/rea`.
+
+**Exit (verified on schema 190 / ruleset `578c93f0…` / pack `426e7668…`):**
+bit-exact simulation hot-path optimizations (team-partitioned step-scoped unit
+lookup, 16×16 spatial grid for alive non-champions, O(1) self-sight, fused expiry
+loops, and `Map`-backed `mobileRig`/`mobileClipDurations`) deliver a **2.13×**
+full-match speedup (`148.96 s` → `69.9 s` on seed 1) and cut minute-20
+10-champion tick p95 from `1.3754 ms/tick` to **`0.8025 ms/tick`** (`0.502 ms`
+mean, `≤ 4.0 ms` budget) while holding `72` p95 draw calls (`≤ 250`) and
+`244.29 MiB` post-GC production JS heap (`≤ 280 MiB`). The full **100-seed
+60-minute public-roster cohort** passes `verify-match-cohort.mjs --public-roster`
+and `verify-milestone7-cohort.mjs` with **`100/100` natural Nexus victories
+(`100.0%`, `0` unfinished, `0` failures, `12,822,682` checked ticks, `3,616`
+exact minute round-trips, `3,516` future checks, p50 `34:20`, Blue 20 – Red 80)**,
+closing `M7-D012` with **bit-exact tick parity** across all 6 Milestone 7/9/10
+public baseline seeds (`docs/reference/578c93-public-milestone11-hundred-ledger.json`).
+The **8-seed calibrated Original-lineup cohort** retains bit-exact parity with
+Milestone 10 (`8/8` victories, `Blue 3 – Red 5`, `1,118,933` checked ticks, `0`
+drift). Full **3-browser acceptance (`Chrome 157`, `Firefox 155`, `WebKit 26.6`)**
+passes **`9/9` Playwright E2E cases** (controls/accessibility, multi-res HUD,
+Reference modal, Eye of the Herald summon, 10 sequential restarts, WebGL
+context-loss recovery) plus **3/3 real completed-match offline restores** on seed
+`26018` (`0` offline origin requests, `0` errors). Nested subpath (`/nested/rift/`),
+full offline pack (`1,554` files / `582.86 MB`, `1,439` SW responses, `0` errors),
+fail-closed `tools/qa/milestone11-macos-safari.mjs`, `.github/workflows/milestone-gates.yml`
+(`145` Vitest tests + `verify-milestone{5,6,7,9,10,11}.mjs`), and pinned
+`rea-agents@6.10.1` certification (`12/12` runtime scripts matched, `0` release
+exposures, bundle SHA-256 `d8dcefd9…`) all pass. Native Riot client captures,
+physical integrated-GPU/macOS Safari hardware benchmarks, and 20 human-input
+matches remain explicitly tracked as `blocked-external`. See
+[Milestone 11](MILESTONE-11.md) and the
+[verification ledger](reference/milestone11-verification.json).
+
 ## Test cases that protect fidelity
 
 | Scenario                                           | Required property                                                        |

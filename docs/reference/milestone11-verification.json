@@ -1,0 +1,458 @@
+{
+  "milestone": 11,
+  "title": "Simulation engine optimization, 100-seed scale certification (M7-D012), and 3-browser release readiness",
+  "patch": "26.18",
+  "snapshotVersion": 190,
+  "ruleset": "578c93f0c76c1740a83fb7617b08563944ecf406bc06902ccdc6739c9347f326",
+  "recordedAt": "2026-11-27T19:49:39.859Z",
+  "pack": {
+    "id": "426e76689f2a4a3458a83e67000744bb4a0b7d9d60a83403bfd1338d944ac389",
+    "files": 1554,
+    "bytes": 582860137,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "performance": {
+    "environment": {
+      "os": "linux 6.12.115-adc.2 (x64)",
+      "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+      "cpuCores": 2,
+      "totalRamGiB": 7.46,
+      "node": "v26.13.0",
+      "hardwareTier": "linux-ci-headless-software-webgl",
+      "note": "Software-rendered Linux CI VM verifies deterministic simulation budgets, draw-call ceilings, and post-GC JS heap on the production dist/ bundle. Physical integrated-GPU laptop/desktop and macOS Safari 20-minute post-warmup frame pacing remain explicit external hardware gates."
+    },
+    "fixtureSource": "generated-seed-26018-tick-72000",
+    "measuredTicks": 3600,
+    "distinctChampions": 10,
+    "simulationMeanMsPerTick": 0.502,
+    "simulationP50MsPerTick": 0.436,
+    "simulationP95MsPerTick": 0.8025,
+    "simulationP99MsPerTick": 1.4468,
+    "simulationMaxMsPerTick": 14.4273,
+    "simulationP95BudgetMs": 4,
+    "withinSimulationP95Budget": true,
+    "seed1FullMatchBaselineSeconds": 148.96,
+    "seed1FullMatchOptimizedSeconds": 69.9,
+    "seed1SpeedupFactor": 2.13,
+    "browser": "Chrome/157.0.8103.78",
+    "viewport": "1920x1080",
+    "coldBootMs": 8553,
+    "full5v5StartMs": 27825,
+    "drawCallsP50": 72,
+    "drawCallsP95": 72,
+    "drawCallsMax": 72,
+    "drawCallsBudget": 250,
+    "withinDrawCallBudget": true,
+    "texturesCreated": 76,
+    "buffersCreated": 100,
+    "postGcUsedJsHeapMiB": 244.29,
+    "postGcTotalJsHeapMiB": 325.07,
+    "postGcHeapBudgetMiB": 280,
+    "withinHeapBudget": true,
+    "developmentHookPresent": false,
+    "pageErrors": 0
+  },
+  "publicHundredCohort": {
+    "ruleset": "578c93f0c76c1740a83fb7617b08563944ecf406bc06902ccdc6739c9347f326",
+    "publicRosterVerified": true,
+    "hundredSeedInvariantGate": true,
+    "milestone7CohortGatePassed": true,
+    "horizonTicks": 216000,
+    "seeds": 100,
+    "victories": 100,
+    "unfinished": 0,
+    "failures": 0,
+    "completionRate": 1,
+    "blueWins": 20,
+    "redWins": 80,
+    "blueWinRate": 0.2,
+    "victoryDurationSeconds": {
+      "p10": 1785.5666666666666,
+      "p50": 2060.016666666667,
+      "p90": 2621.133333333333
+    },
+    "checkedTicks": 12822682,
+    "roundTrips": 3616,
+    "futureChecks": 3516,
+    "futureCheckedTicks": 210908,
+    "planSha256": "79a709ca709bb9578c011e4d75e482435c1c94a7c62fc35af4add11536c2b317",
+    "summarySha256": "80648830d8fe96faba48860349e8ad973a5948cd6d5caeaefa15af6ace48cd71",
+    "ledgerFile": "docs/reference/578c93-public-milestone11-hundred-ledger.json",
+    "ledgerBytes": 45066,
+    "ledgerSha256": "26fd8fef421a5fc8a847af0290fa3c8d4861b85b7cdea51d2708284fd5835eba"
+  },
+  "originalCohort": {
+    "ruleset": "578c93f0c76c1740a83fb7617b08563944ecf406bc06902ccdc6739c9347f326",
+    "originalLineupVerified": true,
+    "horizonTicks": 216000,
+    "seeds": 8,
+    "victories": 8,
+    "unfinished": 0,
+    "failures": 0,
+    "completionRate": 1,
+    "checkedTicks": 1118933,
+    "roundTrips": 315,
+    "futureChecks": 307,
+    "futureCheckedTicks": 18420,
+    "planSha256": "21da12e5f5e7b2631b3f73b99d51e0889f2e5a2625b99c5912b6d161f033c59b",
+    "summarySha256": "da90390e433791c556394751228c0c83673137fcb5c0c4b4fa08fd49c43a9ea5",
+    "blueWins": 3,
+    "redWins": 5,
+    "blueWinRate": 0.375,
+    "medianDurationSeconds": 2355.53,
+    "matches": [
+      {
+        "seed": 1,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 144276,
+        "checkedTicks": 144276,
+        "roundTrips": 41,
+        "futureChecks": 40,
+        "futureCheckedTicks": 2400,
+        "reportSha256": "a8ae977d1bae8ee32e1c088344ff92790cf7fcc1b7dcb22b8a742addf4fd12e8",
+        "reportBytes": 212472,
+        "finalStateSha256": "50da85fc1027e76f90a7c110ecc8e6b036c3b000d07b234a61760c9719f9e838"
+      },
+      {
+        "seed": 2,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 145534,
+        "checkedTicks": 145534,
+        "roundTrips": 41,
+        "futureChecks": 40,
+        "futureCheckedTicks": 2400,
+        "reportSha256": "a0547dbf731e4c48473059d7aef7616d20a24d24c33082a03c5a8cbc55174ca7",
+        "reportBytes": 213691,
+        "finalStateSha256": "338a3a1fe828e9d72b780b10a0153a9189709d01d0b641507bc9cbfc76279260"
+      },
+      {
+        "seed": 3,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 139619,
+        "checkedTicks": 139619,
+        "roundTrips": 39,
+        "futureChecks": 38,
+        "futureCheckedTicks": 2280,
+        "reportSha256": "3e5f05cf10ffbad591555d306a00fe2e8c1646c7deef7bd7b4b293ea04d553f4",
+        "reportBytes": 203199,
+        "finalStateSha256": "4ff4d3807d1eb2d0f8d9f03c6016e2b8aa37747ccec03438555beac93120346f"
+      },
+      {
+        "seed": 4,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 149744,
+        "checkedTicks": 149744,
+        "roundTrips": 42,
+        "futureChecks": 41,
+        "futureCheckedTicks": 2460,
+        "reportSha256": "975324a287b7488b227053c2da0c18dbc5f731e873c79ff13f8c4ee6f5654fbf",
+        "reportBytes": 218027,
+        "finalStateSha256": "6e645742c8d25ad011b82f568adb10e48aea18abf3eabbcccf02a94907d0eacf"
+      },
+      {
+        "seed": 5,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 112358,
+        "checkedTicks": 112358,
+        "roundTrips": 32,
+        "futureChecks": 31,
+        "futureCheckedTicks": 1860,
+        "reportSha256": "a2659665ec651c9c2e8c54711c7e7bb6944479ab6cdb0a7d80ddd8689ba9e4c5",
+        "reportBytes": 165232,
+        "finalStateSha256": "78aef138144a256407a4d6e58651b4fdfd7f8f8c187381d66064158b44ad20d0"
+      },
+      {
+        "seed": 6,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 149434,
+        "checkedTicks": 149434,
+        "roundTrips": 42,
+        "futureChecks": 41,
+        "futureCheckedTicks": 2460,
+        "reportSha256": "700fd2111979211f5d75b1ec29e667d3d58c8da62afd225df01e6b91b4bd7a0a",
+        "reportBytes": 215933,
+        "finalStateSha256": "4e0e2eb0dc92f492fa6cd6d06ede1419323e303446ffaee294bc496eac2f87f1"
+      },
+      {
+        "seed": 7,
+        "outcome": "victory",
+        "winner": "red",
+        "finalTick": 141332,
+        "checkedTicks": 141332,
+        "roundTrips": 40,
+        "futureChecks": 39,
+        "futureCheckedTicks": 2340,
+        "reportSha256": "9cfef2d47b2122329a2bf09dba9aa9cf92b086ae56f1c9e93a6df4e5d765b9d6",
+        "reportBytes": 207425,
+        "finalStateSha256": "b3ad67c950e37d1adcd6e96cbdb72caa212fbe37c0966a52f844948feb0ed2d5"
+      },
+      {
+        "seed": 8,
+        "outcome": "victory",
+        "winner": "blue",
+        "finalTick": 136636,
+        "checkedTicks": 136636,
+        "roundTrips": 38,
+        "futureChecks": 37,
+        "futureCheckedTicks": 2220,
+        "reportSha256": "7486f16fe16c566437a0c0845724e135aad6e65e330f81bd3458d5ed527dbff8",
+        "reportBytes": 197362,
+        "finalStateSha256": "50b5885b97f41214f078be49c4d86cca21647a94eb4ffb15a1f8ec5a61a9621c"
+      }
+    ]
+  },
+  "nestedSubpath": {
+    "artifactRun": "milestone11-subpath",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 313,
+    "publicChampionChoices": 10,
+    "developmentHook": false,
+    "unrequestedPreloads": 0
+  },
+  "offline": {
+    "browser": "google-chrome",
+    "result": "passed",
+    "packId": "426e76689f2a4a3458a83e67000744bb4a0b7d9d60a83403bfd1338d944ac389",
+    "files": 1554,
+    "bytes": 582860137,
+    "serviceWorkerResponses": 1439,
+    "productionErrors": 0,
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 1439,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    }
+  },
+  "browsers": {
+    "chromium": {
+      "engine": "chromium",
+      "version": "Chrome/157.0.8103.78",
+      "controlsAndAccessibilityPassed": true,
+      "presentationAndAcceptancePassed": true,
+      "tenSequentialRestartsAndContextLossPassed": true,
+      "offlineCompletedMatchPassed": true,
+      "offlineCompletedSeed": 26018,
+      "offlineCompletedTick": 129896,
+      "offlineCompletedOriginRequests": 0,
+      "offlineCompletedServiceWorkerResponses": 2244,
+      "specs": [
+        "e2e/milestone10-controls-and-accessibility.spec.ts",
+        "e2e/milestone7-presentation-and-acceptance.spec.ts"
+      ]
+    },
+    "firefox": {
+      "engine": "firefox",
+      "version": "Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0",
+      "controlsAndAccessibilityPassed": true,
+      "presentationAndAcceptancePassed": true,
+      "tenSequentialRestartsAndContextLossPassed": true,
+      "offlineCompletedMatchPassed": true,
+      "offlineCompletedSeed": 26018,
+      "offlineCompletedTick": 129896,
+      "offlineCompletedOriginRequests": 0,
+      "offlineCompletedServiceWorkerResponses": 2229,
+      "specs": [
+        "e2e/milestone10-controls-and-accessibility.spec.ts",
+        "e2e/milestone7-presentation-and-acceptance.spec.ts"
+      ]
+    },
+    "webkit": {
+      "engine": "webkit",
+      "version": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15",
+      "controlsAndAccessibilityPassed": true,
+      "presentationAndAcceptancePassed": true,
+      "tenSequentialRestartsAndContextLossPassed": true,
+      "offlineCompletedMatchPassed": true,
+      "offlineCompletedSeed": 26018,
+      "offlineCompletedTick": 129896,
+      "offlineCompletedOriginRequests": 0,
+      "offlineCompletedServiceWorkerResponses": 2162,
+      "specs": [
+        "e2e/milestone10-controls-and-accessibility.spec.ts",
+        "e2e/milestone7-presentation-and-acceptance.spec.ts"
+      ]
+    }
+  },
+  "ciGates": {
+    "workflow": ".github/workflows/milestone-gates.yml",
+    "verifiers": [
+      "verify-milestone5.mjs",
+      "verify-milestone6.mjs",
+      "verify-milestone7.mjs",
+      "verify-milestone9.mjs",
+      "verify-milestone10.mjs",
+      "verify-milestone11.mjs"
+    ],
+    "vitestFiles": 14,
+    "vitestTestsPassed": 145
+  },
+  "reaCertification": {
+    "tool": "morluto/rea",
+    "package": "rea-agents@6.10.1",
+    "bundleFile": "artifacts/milestone11-rea-evidence-bundle.json",
+    "bundleBytes": 62459260,
+    "bundleSha256": "d8dcefd9dbd910731d81b6b46847f4c35578e6a6aa354457b3bb9338295d9893",
+    "records": 2,
+    "unknowns": 0,
+    "importValidation": {
+      "imported": 2,
+      "unknowns_added": 0,
+      "total": 2
+    },
+    "evidenceIds": {
+      "releaseExposureAudit": "ev_d85915484bd3db044d1f630d87c1a591bb804cac313bcdc119ddd80898f358ba",
+      "javascriptApplicationGraph": "ev_2d9990c0cd33445b31f787bc1dda6ea15ba8234740370394a6373c9fc4fe1b4a",
+      "featureTracePlayerSettings": "ev_e34efaf3d258e58f8fb77f76ff25e53a58358100b956215b81815694a2f67afd",
+      "featureTraceOfflinePack": "ev_b17d0677d972f55fa810e4b7f1d832bcb6154ee6633ba350cde0c6a8c5606806",
+      "browserScenarioCapture": "ev_e8cf71fb4721619b70458f63518b8af9edfa579049fd479167f196c97dc50af4",
+      "passiveWebPageInspection": "ev_f83c8f63382ccacbdbeebc568a94508fc83172c0637f4d3bc7ef1495f607d370",
+      "runtimeReconciliation": "ev_f8b502d545e694a5f232b361ae8716bca3ec5f5e7e69ea9f2799f62d069b0bbb"
+    },
+    "releaseExposureExposedCount": 0,
+    "runtimeScriptsObserved": 12,
+    "runtimeScriptsMatched": 12,
+    "runtimeScriptsAmbiguous": 0,
+    "runtimeScriptsUnmatched": 0
+  },
+  "externalGates": {
+    "hundredSeedSixtyMinuteCohort": "closed-in-milestone-11",
+    "nativeRiotClientCaptures": "blocked-external",
+    "integratedGpuLaptopAndDesktop20MinPostWarmup": "blocked-external",
+    "macosDesktopSafariAcceptance": "blocked-external",
+    "twentyHumanInputFullMatches": "blocked-external"
+  },
+  "sourceDigests": [
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 389416,
+      "sha256": "cb57341a988761b6e6e3154370be12dfdb13e89a63510d9d6a90ef522069e0f4"
+    },
+    {
+      "file": "src/simulation/milestone6-champions.ts",
+      "bytes": 61541,
+      "sha256": "c346253445262d4a5c14cd9460b1e097283c16af9bd60e893045d9f829a54ca2"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 237675,
+      "sha256": "116bd290c49091a0ff81ce58c0851342e2a2af35909795effedbf07f570aed46"
+    },
+    {
+      "file": "src/content/mobile-clip-durations.ts",
+      "bytes": 4172,
+      "sha256": "eed6475fb843b9da86631d6dbeaddc1e82226aca0c33377f87fe7f473627e60c"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "591460093ae14aba5378da00f4190a3bf2f2d71125e2457690937bf7d0f322a9"
+    },
+    {
+      "file": "tests/milestone11-release-readiness.test.ts",
+      "bytes": 6522,
+      "sha256": "fc991bb187e74c83fa710972c12df0293ecd9f11e7f7415c8e4775edd18d55f2"
+    },
+    {
+      "file": "tools/qa/milestone11-multibrowser.playwright.config.ts",
+      "bytes": 1177,
+      "sha256": "f67b8fdafd9ad8a5c7221ae08b44798ebdb7e5e6491f7d2f65666b17ad4e3b35"
+    },
+    {
+      "file": "tools/qa/milestone11-macos-safari.mjs",
+      "bytes": 8762,
+      "sha256": "ae40ef1f05465c6c082a443f73c49d06c71d3fa248773dec6341d9d58e76578c"
+    },
+    {
+      "file": "tools/qa/run-milestone11-rea.mjs",
+      "bytes": 14091,
+      "sha256": "d525b5191456eebdb965bfef115bce8d9da1012d1816cb374e3de219fb313a11"
+    },
+    {
+      "file": "tools/qa/verify-milestone11.mjs",
+      "bytes": 15772,
+      "sha256": "d2ad5244927cd1d109c42f22b05578f52cba010ae4b9c87b73d5edcb1f64ae33"
+    },
+    {
+      "file": "tools/qa/verify-milestone11.test.mjs",
+      "bytes": 3967,
+      "sha256": "aa7c810b68485c70ca4abe69fad97c2f3c0aaeeef010b00d191ce50a6f9593d5"
+    },
+    {
+      "file": "docs/reference/578c93-public-milestone11-hundred-ledger.json",
+      "bytes": 45066,
+      "sha256": "26fd8fef421a5fc8a847af0290fa3c8d4861b85b7cdea51d2708284fd5835eba"
+    },
+    {
+      "file": ".github/workflows/milestone-gates.yml",
+      "bytes": 2089,
+      "sha256": "d1ebd12fb9d99b41cace0670b050abf92828e0a6db44b19d24b4a07ae5873521"
+    }
+  ],
+  "localArtifacts": [
+    {
+      "file": "artifacts/milestone11-performance-profile.json",
+      "bytes": 2279,
+      "sha256": "13bbbbf68149dfcc8360de67514c371485aab88eaab14e80ebe1da39169c9bb3"
+    },
+    {
+      "file": "artifacts/production-subpath-milestone11-subpath.json",
+      "bytes": 4359,
+      "sha256": "2234c4cf965865cae8b31cca37826251538ae1502c0c23968c9aa9706c5bd80d"
+    },
+    {
+      "file": "artifacts/offline-pack-milestone11-offline-production.json",
+      "bytes": 858,
+      "sha256": "74d0bf03f834650acf64762467bcc15d19894ac1e4a3572e583f1cb32b6bf1aa"
+    },
+    {
+      "file": "artifacts/milestone11-original-cohort-summary.json",
+      "bytes": 1906025,
+      "sha256": "da90390e433791c556394751228c0c83673137fcb5c0c4b4fa08fd49c43a9ea5"
+    },
+    {
+      "file": "artifacts/milestone11-offline-completed-chromium/reading.json",
+      "bytes": 1508,
+      "sha256": "9bbd5d9301aba7f594321b1906d2370909f1e67c86c553780e6f78938cc9019c"
+    },
+    {
+      "file": "artifacts/milestone11-offline-completed-firefox/reading.json",
+      "bytes": 1557,
+      "sha256": "e56951ab216f3711842b07275990721436c47b707072ee2203a6cc06cd6f2f9a"
+    },
+    {
+      "file": "artifacts/milestone11-offline-completed-webkit/reading.json",
+      "bytes": 1604,
+      "sha256": "cfa73ffe4e5373e63dffbbbafb1b54ddd0466427f90ffeeeb07b367c14d4971d"
+    },
+    {
+      "file": "artifacts/milestone11-rea-summary.json",
+      "bytes": 15475,
+      "sha256": "7a9ebafb8d824f8e4a6c37f7f88d256e55dc1779022e8b71a3ce958e1b6ed03d"
+    },
+    {
+      "file": "artifacts/milestone11-rea-evidence-bundle.json",
+      "bytes": 62459260,
+      "sha256": "d8dcefd9dbd910731d81b6b46847f4c35578e6a6aa354457b3bb9338295d9893"
+    }
+  ]
+}

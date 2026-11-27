@@ -693,6 +693,7 @@ export function castMilestone6Ability(
           );
           foe.x = pullPos.x;
           foe.y = pullPos.y;
+          w.invalidateSpatialGrid();
           foe.stunUntil = Math.max(foe.stunUntil, w.tick + DARIUS_KIT.e.stunTicks);
           w.applyExtraSlow(u, foe, 'apprehend');
         }
@@ -1323,6 +1324,7 @@ export function advanceMilestone6Champions(w: World): void {
                 );
                 foe.x = pushed.x;
                 foe.y = pushed.y;
+                w.invalidateSpatialGrid();
                 foe.stunUntil = Math.max(foe.stunUntil, w.tick + Math.round(0.5 * TICK_RATE));
               }
             }
