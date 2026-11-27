@@ -445,8 +445,8 @@
     },
     {
       "file": "tests/milestone9-performance-and-memory.test.ts",
-      "bytes": 9536,
-      "sha256": "c81704727cb6128a8d35ed5f3c1e64e88e42ac9c467efc55d044486425dc5147"
+      "bytes": 9554,
+      "sha256": "e0ffaa6fa89bddf2a4449307457e1fff6451efdff743ecb97bc400b70d6a145e"
     },
     {
       "file": "tools/qa/run-milestone9-rea.mjs",

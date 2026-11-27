@@ -13,15 +13,14 @@ import {
 import { getExpandedItem } from '../simulation/item-effects';
 import { hasHeraldEmpoweredRecall } from '../simulation/epic-objectives';
 
-const ITEM_SLOT_BY_KEY: Readonly<Record<string, number>> = {
-  '1': 0,
-  '2': 1,
-  '3': 2,
-  '5': 3,
-  '6': 4,
-  '7': 5,
-  '8': 6,
-};
+import {
+  defaultPlayerSettings,
+  matchesActionKey,
+  type PlayerSettings,
+  type RebindableAction,
+} from '../storage/player-settings';
+
+const EXTRA_CARRY_ITEM_KEY = '8';
 
 export class GameInput {
   pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -31,6 +30,7 @@ export class GameInput {
   private readonly abort = new AbortController();
   private cameraKeys: string[] = [];
   private aiming: Ability | null = null;
+  private normalCastArmed = false;
   private wardAiming = false;
   private itemAimingSlot: number | null = null;
   private attackMove = false;
@@ -43,12 +43,15 @@ export class GameInput {
     attackMove: boolean;
     elapsed: number;
   } | null = null;
+  private readonly getSettings: () => PlayerSettings;
   constructor(
     private world: World,
     private view: GameView,
     private hud: Hud,
-    unlockAudio: () => void
+    unlockAudio: () => void,
+    getSettings?: () => PlayerSettings
   ) {
+    this.getSettings = getSettings ?? (() => defaultPlayerSettings(false));
     const canvas = view.renderer.domElement;
     const signal = this.abort.signal;
     view.onBeforeAim = () => {
@@ -172,6 +175,11 @@ export class GameInput {
           if (e.button === 0) view.selected = target?.id ?? this.world.player.id;
           return;
         }
+        if (e.button === 0 && this.normalCastArmed && this.aiming) {
+          this.commitAimedCast(this.aiming);
+          this.cancelAim();
+          return;
+        }
         if (e.button === 0 && this.wardAiming) {
           this.world.enqueue({
             type: this.world.player.trinket.kind === 'farsight' ? 'farsight' : 'ward',
@@ -225,22 +233,38 @@ export class GameInput {
     window.addEventListener(
       'keydown',
       (e) => {
+        if (hud.capturingKeybind) return;
         const typing =
           e.target instanceof HTMLInputElement ||
           e.target instanceof HTMLTextAreaElement ||
           e.target instanceof HTMLSelectElement;
         if (typing) return;
+        const settings = this.getSettings();
+        const bindings = settings.keybindings;
         const key = e.key.toLowerCase();
-        const learnShortcut =
-          e.ctrlKey && !e.altKey && !e.metaKey && ['q', 'w', 'e', 'r'].includes(key);
-        if ((e.ctrlKey || e.altKey || e.metaKey) && !learnShortcut) return;
-        const championTargeting = e.code === 'Backquote';
+        const matchAction = (action: RebindableAction) =>
+          matchesActionKey(bindings, action, e.key, e.code);
+        const matchedAbility = (['q', 'w', 'e', 'r', 'd', 'f'] as Ability[]).find((slot) =>
+          matchAction(slot)
+        );
+        const learnAbility = (['q', 'w', 'e', 'r'] as const).find(
+          (slot) => matchAction(slot) || key === slot
+        );
+        const learnShortcut = e.ctrlKey && !e.altKey && !e.metaKey && !!learnAbility;
+        const selfCastShortcut =
+          settings.selfCastModifier &&
+          e.altKey &&
+          !e.ctrlKey &&
+          !e.metaKey &&
+          !!matchedAbility;
+        if ((e.ctrlKey || e.altKey || e.metaKey) && !learnShortcut && !selfCastShortcut) return;
+        const championTargeting = matchAction('targetChampionsOnly');
         if (championTargeting && !hud.paused && !hud.modal) e.preventDefault();
         const cameraTarget = cameraKeyTarget(this.world, key);
         // Reserve repeat events too, especially F1 help and F3 browser search.
         if (cameraTarget && !hud.paused && !hud.modal) e.preventDefault();
-        // Reserve learning chords even on repeat; enqueue only on first keydown.
-        if (learnShortcut && !hud.paused && !hud.modal) e.preventDefault();
+        // Reserve learning and self-cast chords even on repeat; enqueue only on first keydown.
+        if ((learnShortcut || selfCastShortcut) && !hud.paused && !hud.modal) e.preventDefault();
         // Autoplay activation belongs to the first real gameplay/HUD gesture.
         // Printable keys and button Enter/Space qualify; repeats and browser
         // modifier shortcuts must not enqueue more context transitions.
@@ -265,19 +289,21 @@ export class GameInput {
           else hud.toggleModal('pause');
           return;
         }
-        if (key === 'p' && !this.readOnly) {
+        if (matchAction('shop') && !this.readOnly && !e.altKey && !e.ctrlKey) {
           this.cancelAim();
           hud.toggleModal('shop');
           return;
         }
-        if (key === 'h') {
+        if (matchAction('help') && !e.altKey && !e.ctrlKey) {
           this.cancelAim();
           hud.toggleModal('help');
           return;
         }
         if (hud.paused || hud.modal) return;
-        if (championTargeting && !this.readOnly) {
-          this.setChampionTargeting(true);
+        if (championTargeting && !this.readOnly && !e.altKey && !e.ctrlKey) {
+          this.setChampionTargeting(
+            settings.targetChampionsOnlyMode === 'toggle' ? !this.championsOnly : true
+          );
           this.updateHover();
           return;
         }
@@ -288,34 +314,51 @@ export class GameInput {
           return;
         }
         if (key === 'tab') hud.scoreboard(true);
-        if (key === ' ') {
+        if (matchAction('recenter') && !e.altKey && !e.ctrlKey) {
           this.recenterHeld = true;
           this.updateCameraFocus();
           view.recenter(this.world.hero);
         }
-        if (key === 'y') hud.toggleCamera();
+        if (matchAction('cameraLock') && !e.altKey && !e.ctrlKey) hud.toggleCamera();
         if (key === 'shift') {
           view.rangeVisible = true;
           if (this.heldOrder) this.heldOrder.attackMove = true;
         }
         if (this.readOnly) return;
-        if (learnShortcut) {
+        if (learnShortcut && learnAbility) {
           e.preventDefault();
           this.cancelAim();
           this.world.enqueue({
             type: 'learn',
             unit: this.world.player.id,
-            ability: key as 'q' | 'w' | 'e' | 'r',
+            ability: learnAbility,
           });
           return;
         }
-        if (key === '4') this.beginWardAim();
-        const itemSlot = ITEM_SLOT_BY_KEY[key];
+        if (selfCastShortcut && matchedAbility) {
+          e.preventDefault();
+          this.heldOrder = null;
+          this.cancelAim();
+          const selfTarget =
+            this.world.hero.champion === 'morgana' && matchedAbility === 'e'
+              ? { targetId: this.world.hero.id }
+              : {};
+          this.world.enqueue({
+            type: 'cast',
+            unit: this.world.player.id,
+            ability: matchedAbility,
+            point: { x: this.world.hero.x, y: this.world.hero.y },
+            ...selfTarget,
+          });
+          return;
+        }
+        if (matchAction('trinket')) this.beginWardAim();
+        const itemSlot = this.matchedItemSlot(bindings, e.key, e.code);
         if (itemSlot !== undefined) {
           this.activateItemSlot(itemSlot);
           return;
         }
-        if (key === 's') {
+        if (matchAction('stop')) {
           this.heldOrder = null;
           this.cancelAim();
           this.world.enqueue({
@@ -324,17 +367,36 @@ export class GameInput {
             order: { type: 'idle' },
           });
         }
-        if (key === 'a') {
+        if (matchAction('attackMove')) {
           this.heldOrder = null;
-          this.attackMove = true;
-          view.rangeVisible = true;
-          canvas.classList.add('aiming');
+          if (settings.attackMoveMode === 'quick') {
+            this.cancelAim();
+            const point =
+              this.overCanvas()
+                ? view.worldPoint(this.pointer.x, this.pointer.y)
+                : this.hud.minimapPoint(this.pointer.x, this.pointer.y);
+            if (point) {
+              const target = this.overCanvas() ? this.pick() : undefined;
+              this.world.enqueue({
+                type: 'order',
+                unit: this.world.player.id,
+                order:
+                  target && target.team !== this.world.hero.team
+                    ? { type: 'attack', target: target.id }
+                    : { type: 'attackMove', point },
+              });
+            }
+          } else {
+            this.attackMove = true;
+            view.rangeVisible = true;
+            canvas.classList.add('aiming');
+          }
         }
-        if (key === 'b') {
+        if (matchAction('recall')) {
           this.heldOrder = null;
           this.world.enqueue({ type: 'recall', unit: this.world.player.id });
         }
-        const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
+        const spell = matchedAbility ?? null;
         if (spell) this.heldOrder = null;
         if (spell && (this.wardAiming || this.itemAimingSlot !== null)) this.cancelAim();
         if (spell && instantSpell(this.world, spell)) {
@@ -346,14 +408,20 @@ export class GameInput {
           this.world.enqueue({
             type: 'cast',
             unit: this.world.player.id,
-            ability: key as Ability,
+            ability: spell,
             point: { x: point.x, y: point.y },
           });
         }
         if (spell && !instantSpell(this.world, spell)) {
-          this.aiming = key as Ability;
-          canvas.classList.add('aiming');
-          view.setAim(this.aiming, this.castPoint(this.aiming));
+          if (settings.castMode === 'quick') {
+            this.commitAimedCast(spell);
+            this.cancelAim();
+          } else {
+            this.aiming = spell;
+            this.normalCastArmed = settings.castMode === 'normal';
+            canvas.classList.add('aiming');
+            view.setAim(this.aiming, this.castPoint(this.aiming));
+          }
         }
       },
       { signal }
@@ -361,8 +429,13 @@ export class GameInput {
     window.addEventListener(
       'keyup',
       (e) => {
+        if (hud.capturingKeybind) return;
+        const settings = this.getSettings();
+        const bindings = settings.keybindings;
         const key = e.key.toLowerCase();
-        if (e.code === 'Backquote') {
+        const matchAction = (action: RebindableAction) =>
+          matchesActionKey(bindings, action, e.key, e.code);
+        if (matchAction('targetChampionsOnly') && settings.targetChampionsOnlyMode === 'hold') {
           this.setChampionTargeting(false);
           this.updateHover();
         }
@@ -371,7 +444,7 @@ export class GameInput {
           this.cameraKeys = this.cameraKeys.filter((held) => held !== key);
           this.updateCameraFocus();
         }
-        if (key === '4' && this.wardAiming) {
+        if (matchAction('trinket') && this.wardAiming) {
           const point = this.wardPoint();
           if (!this.readOnly && !hud.paused && !hud.modal && point)
             this.world.enqueue({
@@ -381,7 +454,7 @@ export class GameInput {
             });
           this.cancelAim();
         }
-        const releaseItemSlot = ITEM_SLOT_BY_KEY[key];
+        const releaseItemSlot = this.matchedItemSlot(bindings, e.key, e.code);
         if (releaseItemSlot !== undefined && this.itemAimingSlot === releaseItemSlot) {
           const point = this.wardPoint();
           if (!this.readOnly && !hud.paused && !hud.modal && point)
@@ -394,37 +467,15 @@ export class GameInput {
           this.cancelAim();
         }
         if (key === 'tab') hud.scoreboard(false);
-        if (key === ' ') {
+        if (matchAction('recenter')) {
           this.recenterHeld = false;
           this.updateCameraFocus();
         }
         if (key === 'shift' && !this.attackMove) view.rangeVisible = false;
         if (key === 'shift' && this.heldOrder) this.heldOrder.attackMove = false;
-        if (key === this.aiming) {
+        if (this.aiming && !this.normalCastArmed && matchAction(this.aiming)) {
           if (!this.readOnly && !hud.paused && !hud.modal) {
-            const point = this.castPoint(this.aiming);
-            if (point) {
-              const hovered = this.pick();
-              const target = targetedSpell(this.world, this.aiming)
-                ? spellTarget(this.world, this.aiming, hovered)
-                : this.world.hero.champion === 'morgana' &&
-                    this.aiming === 'e' &&
-                    hovered?.kind === 'champion' &&
-                    hovered.team === this.world.hero.team &&
-                    this.world.alive(hovered)
-                  ? hovered
-                  : undefined;
-              if (targetedSpell(this.world, this.aiming) && !target)
-                hud.toast(targetInstruction(this.world, this.aiming));
-              else
-                this.world.enqueue({
-                  type: 'cast',
-                  unit: this.world.player.id,
-                  ability: this.aiming,
-                  point,
-                  ...(target ? { targetId: target.id } : {}),
-                });
-            }
+            this.commitAimedCast(this.aiming);
           }
           this.cancelAim();
         }
@@ -589,8 +640,51 @@ export class GameInput {
       return;
     this.world.enqueue({ type: 'order', unit: this.world.player.id, order });
   }
+  private overCanvas(): boolean {
+    return (
+      document.elementFromPoint(this.pointer.x, this.pointer.y) === this.view.renderer.domElement
+    );
+  }
+  private matchedItemSlot(
+    bindings: PlayerSettings['keybindings'],
+    key: string,
+    code: string
+  ): number | undefined {
+    const actions: RebindableAction[] = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
+    for (let i = 0; i < actions.length; i++) {
+      if (matchesActionKey(bindings, actions[i], key, code)) return i;
+    }
+    if (key.toLowerCase() === EXTRA_CARRY_ITEM_KEY) return 6;
+    return undefined;
+  }
+  private commitAimedCast(ability: Ability): void {
+    if (this.readOnly || this.hud.paused || this.hud.modal) return;
+    const point = this.castPoint(ability);
+    if (!point) return;
+    const hovered = this.overCanvas() ? this.pick() : undefined;
+    const target = targetedSpell(this.world, ability)
+      ? spellTarget(this.world, ability, hovered)
+      : this.world.hero.champion === 'morgana' &&
+          ability === 'e' &&
+          hovered?.kind === 'champion' &&
+          hovered.team === this.world.hero.team &&
+          this.world.alive(hovered)
+        ? hovered
+        : undefined;
+    if (targetedSpell(this.world, ability) && !target)
+      this.hud.toast(targetInstruction(this.world, ability));
+    else
+      this.world.enqueue({
+        type: 'cast',
+        unit: this.world.player.id,
+        ability,
+        point,
+        ...(target ? { targetId: target.id } : {}),
+      });
+  }
   cancelAim(): void {
     this.aiming = null;
+    this.normalCastArmed = false;
     this.wardAiming = false;
     this.itemAimingSlot = null;
     this.attackMove = false;

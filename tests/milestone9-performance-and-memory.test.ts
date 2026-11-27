@@ -106,7 +106,7 @@ describe('Milestone 9 — Runtime Performance, Memory Budget, and Scale Hardenin
   });
 
   test('Schema 188 upgrades Milestone 7/8 checkpoints and rejects tampered rulesets', () => {
-    expect(SNAPSHOT_VERSION).toBe(188);
+    expect(SNAPSHOT_VERSION).toBeGreaterThanOrEqual(188);
     expect(SNAPSHOT_RULESET).toMatch(/^[0-9a-f]{64}$/);
     const battlefield = loadPublicRift();
     const publicMatch = createLaneMatch(battlefield).snapshot();

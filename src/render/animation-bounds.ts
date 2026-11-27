@@ -17,10 +17,13 @@ export function prepareAnimationBounds(
 ): void {
   const meshes: THREE.SkinnedMesh[] = [];
   const local = new Map<THREE.Object3D, Envelope>();
+  const nodesByName = new Map<string, THREE.Object3D>();
   const animated = new Set<THREE.Object3D>();
+  const composed = new THREE.Matrix4();
   let supported = true;
   scene.updateMatrixWorld(true);
   scene.traverse((node) => {
+    if (node.name && !nodesByName.has(node.name)) nodesByName.set(node.name, node);
     if (node instanceof THREE.SkinnedMesh) {
       node.frustumCulled = false;
       delete node.userData.animationBounds;
@@ -28,13 +31,19 @@ export function prepareAnimationBounds(
       meshes.push(node);
     }
     // Imported TRS nodes only. Arbitrary authored shear needs a different bound.
-    const composed = new THREE.Matrix4().compose(node.position, node.quaternion, node.scale);
-    if (composed.elements.some((v, i) => Math.abs(v - node.matrix.elements[i]) > 1e-6))
-      supported = false;
+    composed.compose(node.position, node.quaternion, node.scale);
+    const ce = composed.elements;
+    const ne = node.matrix.elements;
+    for (let i = 0; i < 16; i++) {
+      if (Math.abs(ce[i] - ne[i]) > 1e-6) {
+        supported = false;
+        break;
+      }
+    }
     if (Math.abs(node.quaternion.lengthSq() - 1) > 1e-5) supported = false;
     local.set(node, {
       translation: node.position.length(),
-      scale: Math.max(...node.scale.toArray().map(Math.abs)),
+      scale: Math.max(Math.abs(node.scale.x), Math.abs(node.scale.y), Math.abs(node.scale.z)),
     });
   });
   for (const clip of clips) {
@@ -50,13 +59,17 @@ export function prepareAnimationBounds(
         continue;
       }
       const binding = THREE.PropertyBinding.parseTrackName(track.name);
-      const node = THREE.PropertyBinding.findNode(scene, binding.nodeName);
+      const node =
+        nodesByName.get(binding.nodeName) ??
+        THREE.PropertyBinding.findNode(scene, binding.nodeName);
       if (
         !(node instanceof THREE.Object3D) ||
         !local.has(node) ||
         binding.objectName ||
         binding.propertyIndex !== undefined ||
-        !['position', 'scale', 'quaternion'].includes(binding.propertyName) ||
+        (binding.propertyName !== 'position' &&
+          binding.propertyName !== 'scale' &&
+          binding.propertyName !== 'quaternion') ||
         (track.getInterpolation() !== THREE.InterpolateLinear &&
           track.getInterpolation() !== THREE.InterpolateDiscrete)
       ) {
@@ -64,22 +77,49 @@ export function prepareAnimationBounds(
         continue;
       }
       animated.add(node);
-      const size = binding.propertyName === 'quaternion' ? 4 : 3;
-      if (track.getValueSize() !== size || !Array.from(track.values).every(Number.isFinite)) {
+      const prop = binding.propertyName;
+      const size = prop === 'quaternion' ? 4 : 3;
+      const values = track.values;
+      if (track.getValueSize() !== size) {
+        supported = false;
+        continue;
+      }
+      let allFinite = true;
+      for (let i = 0; i < values.length; i++) {
+        if (!Number.isFinite(values[i])) {
+          allFinite = false;
+          break;
+        }
+      }
+      if (!allFinite) {
         supported = false;
         continue;
       }
       const envelope = local.get(node)!;
-      for (let i = 0; i < track.values.length; i += size) {
-        const x = track.values[i],
-          y = track.values[i + 1],
-          z = track.values[i + 2];
-        if (binding.propertyName === 'position')
-          envelope.translation = Math.max(envelope.translation, Math.hypot(x, y, z));
-        else if (binding.propertyName === 'scale')
-          envelope.scale = Math.max(envelope.scale, Math.abs(x), Math.abs(y), Math.abs(z));
-        else if (Math.abs(x * x + y * y + z * z + track.values[i + 3] ** 2 - 1) > 1e-5)
-          supported = false;
+      if (prop === 'position') {
+        for (let i = 0; i < values.length; i += 3) {
+          envelope.translation = Math.max(
+            envelope.translation,
+            Math.hypot(values[i], values[i + 1], values[i + 2])
+          );
+        }
+      } else if (prop === 'scale') {
+        for (let i = 0; i < values.length; i += 3) {
+          envelope.scale = Math.max(
+            envelope.scale,
+            Math.abs(values[i]),
+            Math.abs(values[i + 1]),
+            Math.abs(values[i + 2])
+          );
+        }
+      } else {
+        for (let i = 0; i < values.length; i += 4) {
+          const x = values[i],
+            y = values[i + 1],
+            z = values[i + 2],
+            w = values[i + 3];
+          if (Math.abs(x * x + y * y + z * z + w * w - 1) > 1e-5) supported = false;
+        }
       }
     }
   }

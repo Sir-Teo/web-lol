@@ -157,9 +157,14 @@ function release(world: World, source: TeamUnit, cast: OriginalCast, spell: Orig
   if (spell.damage || spell.slow || spell.root) {
     for (const target of areaHits(world, source, cast, spell)) {
       if (spell.damage) {
+        const ap = world.abilityPower(source);
+        const adHybrid =
+          source.champion === 'brannic' || source.champion === 'taviq'
+            ? source.damage * 0.55
+            : 0;
         const scaling = spell.physical
-          ? Math.max(0, source.damage - 55) * (cast.slot === 'r' ? 0.75 : 0.45)
-          : world.abilityPower(source) * (cast.slot === 'r' ? 0.65 : 0.38);
+          ? source.damage * (cast.slot === 'r' ? 1.05 : 0.7)
+          : Math.max(ap, adHybrid) * (cast.slot === 'r' ? 1.0 : 0.68);
         world.damage(
           source,
           target,
@@ -186,17 +191,18 @@ function release(world: World, source: TeamUnit, cast: OriginalCast, spell: Orig
         );
   for (const ally of recipients) {
     if (spell.shield) {
+      const hpBonus = spell.shape === 'self' ? source.maxHp * 0.09 : 0;
       world.applyShield(
         source,
         ally,
-        scaled(spell.shield) + 0.24 * world.abilityPower(source),
-        144
+        scaled(spell.shield) + 0.55 * world.abilityPower(source) + hpBonus,
+        150
       );
       creditSupport(world, source, ally);
     }
     if (
       spell.heal &&
-      world.healUnit(ally, scaled(spell.heal) + 0.35 * world.abilityPower(source)) > 0
+      world.healUnit(ally, scaled(spell.heal) + 0.58 * world.abilityPower(source)) > 0
     )
       creditSupport(world, source, ally);
   }
@@ -251,8 +257,8 @@ export function originalBasicAttackBonus(
   }
   state.original.hits = 0;
   state.original.hitExpiry = 0;
-  if (unit.champion === 'brannic') world.applyShield(unit, unit, 32 + state.level * 4, 120);
-  if (unit.champion === 'taviq') world.healUnit(unit, 14 + state.level * 2);
+  if (unit.champion === 'brannic') world.applyShield(unit, unit, 105 + state.level * 15, 150);
+  if (unit.champion === 'taviq') world.healUnit(unit, Math.round(36 + state.level * 5));
   if (unit.champion === 'irielle') state.cooldowns.q = Math.max(world.tick, state.cooldowns.q - 90);
   if (unit.champion === 'oona') {
     const recipient = world.units
@@ -261,14 +267,16 @@ export function originalBasicAttackBonus(
           ally.kind === 'champion' &&
           ally.team === unit.team &&
           world.alive(ally) &&
-          distance(unit, ally) <= 490 &&
+          distance(unit, ally) <= 560 &&
           ally.hp < ally.maxHp
       )
       .sort((a, b) => a.hp / a.maxHp - b.hp / b.maxHp || a.id - b.id)[0];
-    if (recipient && world.healUnit(recipient, 18 + state.level * 2) > 0)
+    if (recipient && world.healUnit(recipient, Math.round(44 + state.level * 5.5)) > 0)
       creditSupport(world, unit, recipient);
   }
-  return unit.champion === 'vess' ? 12 + state.level * 2 : 0;
+  return unit.champion === 'vess'
+    ? Math.round(30 + state.level * 6.5 + unit.damage * 0.14)
+    : 0;
 }
 
 export function planOriginalAbility(
@@ -340,6 +348,14 @@ export function planOriginalAbility(
         distance(unit, target) > unit.range
       )
         point = target;
+      else if (
+        spell.damage &&
+        target?.kind === 'champion' &&
+        unit.hp / unit.maxHp > 0.45 &&
+        target.hp / target.maxHp < 0.85 &&
+        distance(unit, target) <= spell.range + spell.radius * 0.5
+      )
+        point = aim(target);
       else continue;
     } else if (spell.heal || (spell.shield && !spell.damage)) {
       if (
@@ -348,13 +364,22 @@ export function planOriginalAbility(
           target ||
           retreat ||
           (definition.role === 'support' &&
-            enemies.some((enemy) => distance(needsHelp, enemy) < 470)))
+            enemies.some((enemy) => distance(needsHelp, enemy) < 520)))
       )
         point = needsHelp;
-    } else if (target && !retreat && (slot !== 'r' || target.kind === 'champion')) {
-      point = aim(target);
+    } else if (
+      target &&
+      (!retreat || (spell.shape !== 'ring' && slot !== 'r' && target.kind === 'champion')) &&
+      (slot !== 'r' || target.kind === 'champion')
+    ) {
+      const leadTicks = Math.min(spell.windup, 16) * 0.65;
+      const predicted = {
+        x: target.x + (target.x - target.previous.x) * leadTicks,
+        y: target.y + (target.y - target.previous.y) * leadTicks,
+      };
+      point = aim(predicted);
       if (spell.shape === 'ring') {
-        const toward = direction(target, unit);
+        const toward = direction(predicted, unit);
         const radius = (spell.radius * (1 + ORIGINAL_RING_INNER)) / 2;
         point = { x: point.x + toward.x * radius, y: point.y + toward.y * radius };
       }

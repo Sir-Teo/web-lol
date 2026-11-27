@@ -97,6 +97,60 @@ import { LazyBaronFlights } from './lazy-baron-flights';
 import { GarenSpin } from './garen-spin';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
+import type { ColorVisionMode } from '../storage/player-settings';
+
+const ACCESSIBILITY_VIEW_PALETTES: Record<
+  ColorVisionMode,
+  {
+    selection: number;
+    hover: number;
+    range: number;
+    aimLine: number;
+    wardSight: number;
+    moveMarker: number;
+  }
+> = {
+  default: {
+    selection: 0x80e1da,
+    hover: 0xf0d68b,
+    range: 0x89dcd8,
+    aimLine: 0x93dfdf,
+    wardSight: 0xdcc775,
+    moveMarker: 0x7cf9b4,
+  },
+  deuteranopia: {
+    selection: 0x56b4e9,
+    hover: 0xf0e442,
+    range: 0x56b4e9,
+    aimLine: 0x88ccff,
+    wardSight: 0xe69f00,
+    moveMarker: 0xf0e442,
+  },
+  protanopia: {
+    selection: 0x56b4e9,
+    hover: 0xf0e442,
+    range: 0x56b4e9,
+    aimLine: 0x88ccff,
+    wardSight: 0xe69f00,
+    moveMarker: 0xf0e442,
+  },
+  tritanopia: {
+    selection: 0x33ddff,
+    hover: 0xff77aa,
+    range: 0x33ddff,
+    aimLine: 0x66eeff,
+    wardSight: 0xff99cc,
+    moveMarker: 0xff77aa,
+  },
+  'high-contrast': {
+    selection: 0x00ffff,
+    hover: 0xffff00,
+    range: 0xffffff,
+    aimLine: 0x00ffff,
+    wardSight: 0xffff00,
+    moveMarker: 0xffff00,
+  },
+};
 import { flurryFlight } from './flurry-flight';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
@@ -254,6 +308,7 @@ export class GameView {
   height = 1;
   selected: number | null = null;
   hovered: number | null = null;
+  reducedMotion = false;
   rangeVisible = false;
   models = new Map<number, UnitModel>();
   readonly particleBatcher = new ParticleSurfaceBatcher(this.scene);
@@ -374,6 +429,9 @@ export class GameView {
       alpha: false,
       powerPreference: 'high-performance',
     });
+    // Skip synchronous shader/program info-log readbacks in production builds so
+    // WebGL shader compilation and compileAsync() do not stall startup.
+    if (!import.meta.env.DEV) this.renderer.debug.checkShaderErrors = false;
     this.renderer.setOpaqueSort(groundDisplayListSort);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.shadowMap.enabled = true;
@@ -718,6 +776,21 @@ export class GameView {
       }
     }
     return target;
+  }
+  setAccessibility(colorVision: ColorVisionMode, reducedMotion: boolean): void {
+    this.reducedMotion = reducedMotion;
+    const palette = ACCESSIBILITY_VIEW_PALETTES[colorVision] ?? ACCESSIBILITY_VIEW_PALETTES.default;
+    (this.selection.material as THREE.MeshBasicMaterial).color.setHex(palette.selection);
+    (this.hover.material as THREE.MeshBasicMaterial).color.setHex(palette.hover);
+    (this.range.material as THREE.LineBasicMaterial).color.setHex(palette.range);
+    (this.aimLine.material as THREE.LineBasicMaterial).color.setHex(palette.aimLine);
+    (this.wardSightLine.material as THREE.LineBasicMaterial).color.setHex(palette.wardSight);
+    (this.solarCenterLine.material as THREE.LineBasicMaterial).color.setHex(palette.wardSight);
+    for (const child of this.moveMarker.children) {
+      if (child instanceof THREE.Line) {
+        (child.material as THREE.LineBasicMaterial).color.setHex(palette.moveMarker);
+      }
+    }
   }
   setAim(mode: string | null, point: Vec2 | null): void {
     this.aimMode = mode;
@@ -1074,7 +1147,9 @@ export class GameView {
       this.moveMarker.position.set(move.x * SCALE, this.ground(move), move.y * SCALE);
     }
     this.moveMarker.visible = world.tick - this.markerTick < 30;
-    this.moveMarker.scale.setScalar(0.7 + ((world.tick - this.markerTick) / 30) * 0.6);
+    this.moveMarker.scale.setScalar(
+      this.reducedMotion ? 1.0 : 0.7 + ((world.tick - this.markerTick) / 30) * 0.6
+    );
     this.onBeforeAim?.();
     this.updateAim(world);
     if (world.tick - this.lastFogTick >= 8) {

@@ -119,6 +119,38 @@ benchmarks, the 100-seed scale run, and 20 human-input matches remain
 explicitly tracked as `blocked-external`. See [Milestone 9](MILESTONE-9.md) and
 the [verification ledger](reference/milestone9-verification.json).
 
+## Milestone 10 — player controls, accessibility, original-lineup balance calibration, and continuous QA hardening (Completed)
+
+Deliver full player-configurable controls and accessibility settings, calibrate
+the 5-champion Original lineup to competitive full-match parity against the
+public roster without perturbing public-roster determinism, codify continuous
+CI milestone gates, and re-certify the production build with `morluto/rea`.
+
+**Exit (verified on schema 189 / ruleset `c1e93950…` / pack `c5da4523…`):**
+browser-persisted `PlayerSettings` (`rift.player-settings.v1`) adds configurable
+cast modes (`Quick cast with indicator`, `Quick cast`, `Normal cast`),
+click/quick attack-move, hold/toggle Target Champions Only, optional `Alt`
+self-cast, interactive 20-action key rebinding with conflict swapping and
+reserved-key guards, 5 color-vision palettes (`Default`, `Deuteranopia`,
+`Protanopia`, `Tritanopia`, `High contrast`), HUD/text scaling, and reduced
+motion across HUD and 3D indicators (`6/6` unit tests, Chrome E2E pass).
+Calibrated per-rank scaling and Brannic/Taviq hybrid ultimate scaling bring the
+Original lineup to **`8/8` natural Nexus victories (`Blue 3 – Red 5`, `37.5%`
+Blue, p50 `39:15`, `1,118,933` checked ticks, `315` round-trips, `0` failures)**
+while preserving **bit-exact tick parity across all 6 Milestone 7/9 public
+baseline seeds** (`757,842` checked ticks, `0` drift). Runtime budgets hold
+(`1.3754 ms/tick` p95 `≤ 4.0 ms`, `197.11 MiB` post-GC JS heap `≤ 280 MiB`,
+`72` p95 draw calls `≤ 250`), production nested subpath (`/nested/rift/`),
+offline pack (`1,554` files / `582.85 MB`, `1,440` SW responses, `0` errors),
+Chrome acceptance (`3/3`), `.github/workflows/milestone-gates.yml`, pinned
+`rea-agents@6.10.1` certification (`12/12` runtime scripts matched, `0` release
+exposures, bundle SHA-256 `5d6fd1d0…`), and fail-closed
+`tools/qa/verify-milestone10.mjs` all pass. External Riot client captures,
+physical integrated-GPU/macOS Safari hardware benchmarks, the 100-seed scale
+run, and 20 human-input matches remain explicitly tracked as
+`blocked-external`. See [Milestone 10](MILESTONE-10.md) and the
+[verification ledger](reference/milestone10-verification.json).
+
 ## Test cases that protect fidelity
 
 | Scenario                                           | Required property                                                        |

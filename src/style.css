@@ -1898,6 +1898,147 @@ button {
   font-size: 0.9rem;
   text-align: left;
 }
+
+/* Milestone 10: Controls, keybindings, scaling, color-vision palettes, and reduced motion */
+:root {
+  --hud-scale: 1;
+  --text-scale: 1;
+}
+.hud .champion-hud {
+  zoom: var(--hud-scale);
+}
+.hud .minimap-shell {
+  zoom: var(--hud-scale);
+}
+.hud .match-top,
+.hud .match-identity,
+.hud .target-panel,
+.hud .tooltip,
+.hud .game-dialog,
+.hud .scoreboard {
+  font-size: calc(1em * var(--text-scale));
+}
+.game-dialog.settings {
+  max-width: 680px;
+}
+.settings-scroll {
+  max-height: min(62vh, 520px);
+  overflow-y: auto;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.settings-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.keybind-section {
+  text-align: left;
+}
+.keybind-status {
+  margin: 4px 0 8px;
+}
+.keybind-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px 12px;
+}
+.keybind-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 8px;
+  background: rgba(10, 26, 29, 0.78);
+  border: 1px solid #354c48;
+  font-size: 12px;
+  color: #c5d4c8;
+}
+.keybind-btn {
+  width: auto;
+  min-width: 58px;
+  margin-top: 0;
+  padding: 4px 10px;
+  font-size: 12px;
+  text-align: center;
+}
+.keybind-btn.capturing {
+  border-color: #f4dc88;
+  background: #2c4a46;
+  color: #fff3c4;
+  box-shadow: 0 0 0 2px rgba(244, 220, 136, 0.45);
+}
+
+/* Color-vision palettes */
+:root[data-color-vision='deuteranopia'] .blue-number,
+:root[data-color-vision='protanopia'] .blue-number {
+  color: #56b4e9;
+}
+:root[data-color-vision='deuteranopia'] .red-number,
+:root[data-color-vision='protanopia'] .red-number {
+  color: #e69f00;
+}
+:root[data-color-vision='deuteranopia'] .unit-bar.ally .unit-hp i,
+:root[data-color-vision='protanopia'] .unit-bar.ally .unit-hp i {
+  background: linear-gradient(#6ec6f5, #2b83ba);
+}
+:root[data-color-vision='deuteranopia'] .unit-bar.enemy .unit-hp i,
+:root[data-color-vision='protanopia'] .unit-bar.enemy .unit-hp i {
+  background: linear-gradient(#f5b041, #c87000);
+}
+:root[data-color-vision='deuteranopia'] .resource.health i,
+:root[data-color-vision='protanopia'] .resource.health i {
+  background: linear-gradient(#56b4e9, #1f6fa8);
+}
+
+:root[data-color-vision='tritanopia'] .blue-number {
+  color: #00d2e6;
+}
+:root[data-color-vision='tritanopia'] .red-number {
+  color: #ff5c8a;
+}
+:root[data-color-vision='tritanopia'] .unit-bar.ally .unit-hp i {
+  background: linear-gradient(#3de0f0, #008ca0);
+}
+:root[data-color-vision='tritanopia'] .unit-bar.enemy .unit-hp i {
+  background: linear-gradient(#ff6b98, #b82552);
+}
+
+:root[data-color-vision='high-contrast'] .blue-number {
+  color: #00ffff;
+}
+:root[data-color-vision='high-contrast'] .red-number {
+  color: #ff66aa;
+}
+:root[data-color-vision='high-contrast'] .unit-bar.ally .unit-hp i {
+  background: #00ffff;
+}
+:root[data-color-vision='high-contrast'] .unit-bar.enemy .unit-hp i {
+  background: #ff4d94;
+}
+:root[data-color-vision='high-contrast'] .resource.health i {
+  background: #00e676;
+}
+:root[data-color-vision='high-contrast'] .game-dialog,
+:root[data-color-vision='high-contrast'] .champion-hud,
+:root[data-color-vision='high-contrast'] .minimap-shell,
+:root[data-color-vision='high-contrast'] .match-top {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* Explicit reduced-motion preference */
+:root[data-reduced-motion='true'] *,
+:root[data-reduced-motion='true'] *::before,
+:root[data-reduced-motion='true'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
 .champion-choice {
   display: grid;
   grid-template-columns: 1fr 1fr;

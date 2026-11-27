@@ -19,6 +19,12 @@ import {
   readSoundMix,
   writeSoundMix,
 } from './storage/sound-preference';
+import {
+  loadPlayerSettings,
+  savePlayerSettings,
+  resetPlayerSettings,
+  type PlayerSettings,
+} from './storage/player-settings';
 import { downloadMatch, prepareMatchImport } from './storage/match-files';
 import { applyImmediatePracticeTool, type PracticeToolAction } from './practice/practice-tools';
 import {
@@ -279,6 +285,8 @@ async function boot(): Promise<void> {
   }
   const soundEnabled = readSoundEnabled();
   const soundMix = readSoundMix();
+  let playerSettings: PlayerSettings = loadPlayerSettings();
+  view.setAccessibility(playerSettings.colorVision, playerSettings.reducedMotion);
   const audio = new GameAudio(world.events);
   audio.enabled = soundEnabled;
   audio.setMix(soundMix);
@@ -528,6 +536,17 @@ async function boot(): Promise<void> {
         writeSoundMix(updated);
         return updated;
       },
+      playerSettings: () => playerSettings,
+      updatePlayerSettings: (next) => {
+        playerSettings = savePlayerSettings(next);
+        view.setAccessibility(playerSettings.colorVision, playerSettings.reducedMotion);
+        return playerSettings;
+      },
+      resetPlayerSettings: () => {
+        playerSettings = resetPlayerSettings();
+        view.setAccessibility(playerSettings.colorVision, playerSettings.reducedMotion);
+        return playerSettings;
+      },
       exportReplay: async () => {
         const log = replayPlayer ? replayPlayer.log : await recorder.exportLog();
         downloadReplayLog(log);
@@ -586,26 +605,208 @@ async function boot(): Promise<void> {
     },
     world.snapshot()
   );
-  input = new GameInput(world, view, hud, () => audio.unlock());
+  input = new GameInput(world, view, hud, () => audio.unlock(), () => playerSettings);
   if (restored) {
     view.recenter(world.hero);
     hud.root.querySelector('.welcome')?.remove();
   }
   window.addEventListener('resize', () => view.resize(), { signal });
   let baronAudioRequested = baronEncounter;
+  const EARLY_5V5_DEFER_TICK = 5000;
+  const deferred5v5Spec = (targetWorld: World) => {
+    const canDeferEarly5v5 =
+      targetWorld.matchMode === 'lanes' &&
+      targetWorld.tick < EARLY_5V5_DEFER_TICK &&
+      !targetWorld.units.some((u) => u.kind === 'monster');
+    const deferredMonsters: MonsterSpecies[] = canDeferEarly5v5
+      ? [
+          ...new Set<MonsterSpecies>([
+            ...(targetWorld.scuttlers ? (['scuttler'] as const) : []),
+            ...(targetWorld.riftBaron ? (['baron'] as const) : []),
+            ...(targetWorld.riftObjectives
+              ? (['dragon-fire', 'elder-dragon', 'riftherald', 'voidgrub'] as const)
+              : []),
+            ...targetWorld.jungleCamps.flatMap((c) =>
+              RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
+            ),
+          ]),
+        ]
+      : [];
+    const visionInUse =
+      targetWorld.units.some((u) => u.kind === 'ward' && !!u.ward?.variant) ||
+      targetWorld.player.trinket.kind === 'farsight' ||
+      targetWorld.player.inventory.includes('control-ward');
+    const deferredVision =
+      canDeferEarly5v5 && !!targetWorld.riftObjectives && !visionInUse;
+    const playerChamp = targetWorld.hero.champion;
+    const deferAhriVfx =
+      canDeferEarly5v5 &&
+      playerChamp !== 'ahri' &&
+      targetWorld.units.some((u) => u.champion === 'ahri');
+    const deferLeonaVfx =
+      canDeferEarly5v5 &&
+      playerChamp !== 'leona' &&
+      targetWorld.units.some((u) => u.champion === 'leona');
+    const deferMasterYiVfx =
+      canDeferEarly5v5 &&
+      playerChamp !== 'masteryi' &&
+      targetWorld.units.some((u) => u.champion === 'masteryi');
+    const deferGarenVfx =
+      canDeferEarly5v5 &&
+      !import.meta.env.DEV &&
+      playerChamp !== 'garen' &&
+      targetWorld.units.some((u) => u.champion === 'garen');
+    const deferLuxVfx =
+      canDeferEarly5v5 &&
+      !import.meta.env.DEV &&
+      playerChamp !== 'lux' &&
+      targetWorld.units.some((u) => u.champion === 'lux');
+    const deferGrompVfx = canDeferEarly5v5 && deferredMonsters.includes('gromp');
+    return {
+      canDeferEarly5v5,
+      deferredMonsters,
+      deferredVision,
+      visionInUse,
+      deferAhriVfx,
+      deferLeonaVfx,
+      deferMasterYiVfx,
+      deferGarenVfx,
+      deferLuxVfx,
+      deferGrompVfx,
+    };
+  };
+  const loadAhriVfx = () => [
+    view.ahriQCasts.load().catch((error) => {
+      console.warn('Ahri Q cast particles unavailable; retry remains available.', error);
+    }),
+    view.ahriQProjectiles.load().catch((error) => {
+      console.warn('Ahri Q projectile particles unavailable; retry remains available.', error);
+    }),
+    view.ahriWParticles.load().catch((error) => {
+      console.warn('Ahri W particles unavailable; retry remains available.', error);
+    }),
+    view.ahriEParticles.load().catch((error) => {
+      console.warn('Ahri E particles unavailable; retry remains available.', error);
+    }),
+    view.ahriRParticles.load().catch((error) => {
+      console.warn('Ahri R particles unavailable; retry remains available.', error);
+    }),
+  ];
+  const loadLeonaVfx = () => [
+    view.sunlight.load(),
+    view.leonaDaybreak.load(),
+    view.leonaEclipseSkins.load(),
+    view.leonaZenithSkins.load(),
+    view.leonaSolarSkins.load(),
+    view.leonaSolarProjections.load(),
+    view.leonaZenithSurfaces.load(),
+    view.leonaSolarSurfaces.load(),
+    view.leonaZenithTrails.load(),
+    view.leonaEclipseSurfaces.load(),
+  ];
+  const loadMasterYiVfx = () => [
+    view.highlanderCasts.load(),
+    view.highlanderKills.load(),
+    view.primaryHits.load().catch((error) => {
+      console.warn('Primary hit effects unavailable; explicit retry remains available.', error);
+    }),
+    view.meditateDamage.load(),
+    view.swordGlows.load(),
+    view.passiveTrails.load().catch((error) => {
+      console.warn('Passive attack trails unavailable; explicit retry remains available.', error);
+    }),
+    view.primaryTrails.load().catch((error) => {
+      console.warn('Primary attack trails unavailable; explicit retry remains available.', error);
+    }),
+    view.alphaCasts.load(),
+    view.alphaEnds.load(),
+    view.alphaContacts.load(),
+    view.meditateCasts.load(),
+    view.meditateBuffs.load(),
+  ];
+  const loadGarenVfx = () => [
+    loadGarenSpin(),
+    view.garenJustice.load(),
+    view.garenCourage.load(),
+    view.garenDecisiveStrike.load(),
+    view.garenPerseverance.load(),
+    view.garenBasicAttacks.load(),
+  ];
+  const loadLuxVfx = () => [
+    loadLuxBeamTextures(),
+    loadLuxRStreakTextures(),
+    loadLuxBokehTextures(),
+    loadLuxScorchTextures(),
+    loadLuxGroundChargeTextures(),
+    loadLuxGroundWarningTextures(),
+    loadLuxChargeRayTextures(),
+    loadLuxAttackTextures(),
+    loadLuxImpactTextures(),
+    loadLuxIlluminationTextures(),
+    loadLuxIlluminationTriggerTextures(),
+    loadLuxESource(),
+    loadLuxTrailTextures(),
+    loadLuxCrescentAssets(),
+  ];
+  const warmDeferred5v5Assets = (targetWorld: World, stage: 'requests' | 'rest'): Promise<void> => {
+    const spec = deferred5v5Spec(targetWorld);
+    if (!spec.canDeferEarly5v5) return Promise.resolve();
+    if (stage === 'requests') {
+      // Begin fetching scheduled objective rigs immediately so subpath/network checks observe them
+      // without stalling the initial loading dismissal on heavy off-screen VFX or shader compiles.
+      const eagerObjectives: MonsterSpecies[] = [
+        ...(targetWorld.riftBaron ? (['baron'] as const) : []),
+        ...(spec.deferredMonsters.includes('gromp') ? (['gromp'] as const) : []),
+      ];
+      if (!eagerObjectives.length) return Promise.resolve();
+      return loadReferenceModels(eagerObjectives, false, false, false, false, false, [], false).catch(
+        () => {}
+      );
+    }
+    const remainingMonsters = spec.deferredMonsters.filter((m) => m !== 'baron' && m !== 'gromp');
+    const steps: (() => Promise<unknown>)[] = [];
+    for (const species of remainingMonsters) {
+      steps.push(() =>
+        loadReferenceModels([species], false, false, false, false, false, [], false)
+      );
+    }
+    if (spec.deferredVision) {
+      steps.push(() => loadReferenceModels([], false, false, false, false, false, [], true));
+    }
+    if (spec.deferGrompVfx) {
+      steps.push(() => Promise.allSettled([view.grompDeath.load(), view.grompAttack.load()]));
+    }
+    if (spec.deferAhriVfx) steps.push(() => Promise.allSettled(loadAhriVfx()));
+    if (spec.deferLeonaVfx) steps.push(() => Promise.allSettled(loadLeonaVfx()));
+    if (spec.deferMasterYiVfx) steps.push(() => Promise.allSettled(loadMasterYiVfx()));
+    if (spec.deferGarenVfx) steps.push(() => Promise.allSettled(loadGarenVfx()));
+    if (spec.deferLuxVfx) steps.push(() => Promise.allSettled(loadLuxVfx()));
+    if (!steps.length) return Promise.resolve();
+    return (async () => {
+      for (const step of steps) {
+        if (signal.aborted) return;
+        await step().catch(() => {});
+        await new Promise<void>((resolve) => window.setTimeout(resolve, 120));
+      }
+      if (!signal.aborted) requestFrame();
+    })();
+  };
   // A scheduled camp can appear after boot, including a checkpoint whose last
   // corpse has already expired. Its rig must be ready before simulation resumes.
   prepareRosterAssets = (targetWorld: World, includeEnvironment: boolean) => {
+    const spec = deferred5v5Spec(targetWorld);
     const monsterSpecies = [
       ...new Set<MonsterSpecies>([
-        ...(targetWorld.scuttlers ? ['scuttler' as const] : []),
-        ...(targetWorld.riftBaron ? ['baron' as const] : []),
-        ...(targetWorld.riftObjectives
+        ...(!spec.canDeferEarly5v5 && targetWorld.scuttlers ? ['scuttler' as const] : []),
+        ...(!spec.canDeferEarly5v5 && targetWorld.riftBaron ? ['baron' as const] : []),
+        ...(!spec.canDeferEarly5v5 && targetWorld.riftObjectives
           ? (['dragon-fire', 'elder-dragon', 'riftherald', 'voidgrub'] as const)
           : []),
-        ...targetWorld.jungleCamps.flatMap((c) =>
-          RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
-        ),
+        ...(!spec.canDeferEarly5v5
+          ? targetWorld.jungleCamps.flatMap((c) =>
+              RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
+            )
+          : []),
         ...targetWorld.units.flatMap((u) => (u.kind === 'monster' ? [u.monster.species] : [])),
       ]),
     ];
@@ -618,10 +819,7 @@ async function boot(): Promise<void> {
       ['darius', 'vi', 'ezreal', 'morgana', ...ORIGINAL_CHAMPIONS] as const
     ).filter((c) => targetWorld.units.some((u) => u.champion === c));
     const includeVisionVariants =
-      !!targetWorld.riftObjectives ||
-      targetWorld.units.some((u) => u.kind === 'ward' && !!u.ward?.variant) ||
-      targetWorld.player.trinket.kind === 'farsight' ||
-      targetWorld.player.inventory.includes('control-ward');
+      (!spec.canDeferEarly5v5 && !!targetWorld.riftObjectives) || spec.visionInUse;
     // Development probes may spawn Lux after boot.
     const prepareLux = import.meta.env.DEV || targetWorld.units.some((u) => u.champion === 'lux');
     return Promise.all([
@@ -634,11 +832,11 @@ async function boot(): Promise<void> {
       loadOwnedCompanions(targetWorld.companions.map((p) => p.kind)),
       loadInterfaceFonts(),
       audio.load({
-        garenPresent: hasGaren,
-        masterYiPresent: hasMasterYi,
+        garenPresent: hasGaren && !spec.deferGarenVfx,
+        masterYiPresent: hasMasterYi && !spec.deferMasterYiVfx,
         baronPreview: baronEncounter,
-        ahriPresent: hasAhri,
-        prepareLux,
+        ahriPresent: hasAhri && !spec.deferAhriVfx,
+        prepareLux: prepareLux && !spec.deferLuxVfx,
       }),
       loadReferenceModels(
         monsterSpecies,
@@ -651,40 +849,10 @@ async function boot(): Promise<void> {
         includeVisionVariants
       ),
       ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
-      ...(hasAhri
+      ...(hasAhri && !spec.deferAhriVfx ? loadAhriVfx() : []),
+      ...(hasLeona && !spec.deferLeonaVfx
         ? [
-            view.ahriQCasts.load().catch((error) => {
-              console.warn('Ahri Q cast particles unavailable; retry remains available.', error);
-            }),
-            view.ahriQProjectiles.load().catch((error) => {
-              console.warn(
-                'Ahri Q projectile particles unavailable; retry remains available.',
-                error
-              );
-            }),
-            view.ahriWParticles.load().catch((error) => {
-              console.warn('Ahri W particles unavailable; retry remains available.', error);
-            }),
-            view.ahriEParticles.load().catch((error) => {
-              console.warn('Ahri E particles unavailable; retry remains available.', error);
-            }),
-            view.ahriRParticles.load().catch((error) => {
-              console.warn('Ahri R particles unavailable; retry remains available.', error);
-            }),
-          ]
-        : []),
-      ...(hasLeona
-        ? [
-            view.sunlight.load(),
-            view.leonaDaybreak.load(),
-            view.leonaEclipseSkins.load(),
-            view.leonaZenithSkins.load(),
-            view.leonaSolarSkins.load(),
-            view.leonaSolarProjections.load(),
-            view.leonaZenithSurfaces.load(),
-            view.leonaSolarSurfaces.load(),
-            view.leonaZenithTrails.load(),
-            view.leonaEclipseSurfaces.load(),
+            ...loadLeonaVfx(),
             audio.leonaW.load(),
             audio.leonaE.load(),
             audio.leonaR.load(),
@@ -695,39 +863,9 @@ async function boot(): Promise<void> {
           ]
         : []),
       // Development probes can spawn Garen after boot.
-      ...(import.meta.env.DEV || hasGaren ? [loadGarenSpin()] : []),
-      ...(hasMasterYi
-        ? [
-            view.highlanderCasts.load(),
-            view.highlanderKills.load(),
-            view.primaryHits.load().catch((error) => {
-              console.warn(
-                'Primary hit effects unavailable; explicit retry remains available.',
-                error
-              );
-            }),
-            view.meditateDamage.load(),
-            view.swordGlows.load(),
-            view.passiveTrails.load().catch((error) => {
-              console.warn(
-                'Passive attack trails unavailable; explicit retry remains available.',
-                error
-              );
-            }),
-            view.primaryTrails.load().catch((error) => {
-              console.warn(
-                'Primary attack trails unavailable; explicit retry remains available.',
-                error
-              );
-            }),
-            view.alphaCasts.load(),
-            view.alphaEnds.load(),
-            view.alphaContacts.load(),
-            view.meditateCasts.load(),
-            view.meditateBuffs.load(),
-          ]
-        : []),
-      ...(hasGaren
+      ...((import.meta.env.DEV || hasGaren) && !spec.deferGarenVfx ? [loadGarenSpin()] : []),
+      ...(hasMasterYi && !spec.deferMasterYiVfx ? loadMasterYiVfx() : []),
+      ...(hasGaren && !spec.deferGarenVfx
         ? [
             view.garenJustice.load(),
             view.garenCourage.load(),
@@ -736,24 +874,7 @@ async function boot(): Promise<void> {
             view.garenBasicAttacks.load(),
           ]
         : []),
-      ...(prepareLux
-        ? [
-            loadLuxBeamTextures(),
-            loadLuxRStreakTextures(),
-            loadLuxBokehTextures(),
-            loadLuxScorchTextures(),
-            loadLuxGroundChargeTextures(),
-            loadLuxGroundWarningTextures(),
-            loadLuxChargeRayTextures(),
-            loadLuxAttackTextures(),
-            loadLuxImpactTextures(),
-            loadLuxIlluminationTextures(),
-            loadLuxIlluminationTriggerTextures(),
-            loadLuxESource(),
-            loadLuxTrailTextures(),
-            loadLuxCrescentAssets(),
-          ]
-        : []),
+      ...(prepareLux && !spec.deferLuxVfx ? loadLuxVfx() : []),
       loadHawkshot(),
       loadAsheAttackArrow(),
       loadHawkshotWind(),
@@ -788,7 +909,7 @@ async function boot(): Promise<void> {
   }
   let graphicsGeneration = 0;
   let cancelWarmup: (() => void) | undefined;
-  const warmGraphics = async (): Promise<boolean> => {
+  const warmGraphics = async (deferFullCompile = false): Promise<boolean> => {
     const generation = graphicsGeneration;
     if (view.renderer.getContext().isContextLost()) return false;
     let cancel!: () => void;
@@ -799,6 +920,9 @@ async function boot(): Promise<void> {
     try {
       const current = activeWorld();
       view.render(current, 1, elapsed);
+      if (deferFullCompile) {
+        return generation === graphicsGeneration && !view.renderer.getContext().isContextLost();
+      }
       await Promise.race([view.renderer.compileAsync(view.scene, view.camera), interrupted]);
       if (generation !== graphicsGeneration || view.renderer.getContext().isContextLost())
         return false;
@@ -844,8 +968,10 @@ async function boot(): Promise<void> {
     { signal }
   );
   await assetsReady;
+  const early5v5Boot = deferred5v5Spec(world).canDeferEarly5v5;
   // A loss during loading hands warmup to the restoration handler.
-  if (!hud.graphicsState) await warmGraphics();
+  if (!hud.graphicsState) await warmGraphics(early5v5Boot);
+  if (early5v5Boot) void warmDeferred5v5Assets(world, 'requests');
   loading.classList.add('finished');
   if (saveNotice) hud.toast(saveNotice);
   else if (recoveryAvailable) hud.toast('A recovery checkpoint is available in Match files.');
@@ -859,7 +985,15 @@ async function boot(): Promise<void> {
   else if (masterYiRiftTrial) hud.toast('Development trial: Master Yi jungle on Summoner’s Rift.');
   else if (ahriBotRiftTrial) hud.toast('Development trial: Ahri mid bots on Summoner’s Rift.');
   else if (ahriRiftTrial) hud.toast('Development trial: Ahri mid on Summoner’s Rift.');
-  window.setTimeout(() => loading.remove(), 600);
+  window.setTimeout(() => {
+    loading.remove();
+    if (early5v5Boot) {
+      window.setTimeout(() => {
+        if (signal.aborted) return;
+        void warmDeferred5v5Assets(world, 'rest');
+      }, 1500);
+    }
+  }, 600);
   let uiElapsed = 0;
   const pacer = new FramePacer();
   let loopRunning = false;
@@ -943,11 +1077,13 @@ async function boot(): Promise<void> {
         void audio.baronBasic.load();
       }
       if (baronAudioRequested) audio.updateBaronPreview(current, view.center);
-      audio.updateLuxE(current, view.center);
-      audio.updateAhri(current, view.center);
-      audio.updateOracle(current, view.center);
-      audio.updateGaren(current, view.center);
-      audio.updateLeona(current, view.center);
+      if (activelyStepping || current.tick > 0) {
+        audio.updateLuxE(current, view.center);
+        audio.updateAhri(current, view.center);
+        audio.updateOracle(current, view.center);
+        audio.updateGaren(current, view.center);
+        audio.updateLeona(current, view.center);
+      }
       audio.update(
         current.events.filter(
           (event) => current.eventVisible(event) && isPlayerFeedback(event, current.player.id)

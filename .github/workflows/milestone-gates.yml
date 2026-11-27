@@ -1,0 +1,61 @@
+name: Milestone Verification Gates
+
+on:
+  push:
+    branches: [main, REA]
+  pull_request:
+    branches: [main, REA]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: milestone-gates-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Validate game assets
+        run: npm run assets:validate
+      - name: Run Milestone and core unit/simulation tests
+        run: >-
+          npx vitest run --testTimeout=20000
+          tests/milestone4-graduation.test.ts
+          tests/milestone5-replay-and-mix.test.ts
+          tests/milestone6-roster-contract.test.ts
+          tests/milestone6-systems.test.ts
+          tests/milestone7-calibration-fixtures.test.ts
+          tests/milestone7-champion-matrices.test.ts
+          tests/milestone7-contract.test.ts
+          tests/milestone7-gameplay-calibration.test.ts
+          tests/milestone9-performance-and-memory.test.ts
+          tests/milestone10-controls-accessibility.test.ts
+          tests/original-lineup.test.ts
+          tests/ruleset-fingerprint.test.ts
+          tests/snapshot.test.ts
+      - name: Build production bundle
+        run: npm run build
+      - name: Verify offline pack manifest
+        run: npm run offline:verify
+      - name: Verify Milestones 5 through 10 evidence and REA receipts
+        run: |
+          node tools/qa/verify-milestone5.mjs
+          node tools/qa/verify-milestone6.mjs
+          node tools/qa/verify-milestone7.mjs
+          node tools/qa/verify-milestone9.mjs
+          node tools/qa/verify-milestone10.mjs
+      - name: Run milestone verifier unit tests
+        run: node --test tools/qa/verify-milestone*.test.mjs

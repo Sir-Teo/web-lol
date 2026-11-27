@@ -153,6 +153,82 @@ import { experienceToNextLevel, growthAtLevel, statPrecision } from '../simulati
 import { isStructureKind, type Ability, type ChampionIdentity } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
+import {
+  COLOR_VISION_LABELS,
+  COLOR_VISION_MODES,
+  HUD_SCALES,
+  REBINDABLE_ACTION_LABELS,
+  REBINDABLE_ACTIONS,
+  TEXT_SCALES,
+  defaultPlayerSettings,
+  formatKeyLabel as formatKeybinding,
+  normalizeBindKey as normalizeBindingKey,
+  rebindAction,
+  type AttackMoveMode,
+  type CastMode,
+  type ColorVisionMode,
+  type HudScale,
+  type PlayerSettings,
+  type RebindableAction,
+  type TargetChampionsOnlyMode,
+  type TextScale,
+} from '../storage/player-settings';
+
+const MINIMAP_PALETTES: Record<
+  ColorVisionMode,
+  { player: string; blue: string; red: string; neutral: string; dragon: string; baron: string; shrineAlly: string; shrineEnemy: string }
+> = {
+  default: {
+    player: '#f4dc88',
+    blue: '#60d1e5',
+    red: '#ee7b81',
+    neutral: '#dfba6a',
+    dragon: '#ff9d3b',
+    baron: '#c37aff',
+    shrineAlly: '#6ed6d4',
+    shrineEnemy: '#e89575',
+  },
+  deuteranopia: {
+    player: '#ffe640',
+    blue: '#56b4e9',
+    red: '#e67e22',
+    neutral: '#d9d9d9',
+    dragon: '#f0e442',
+    baron: '#cc79a7',
+    shrineAlly: '#56b4e9',
+    shrineEnemy: '#e67e22',
+  },
+  protanopia: {
+    player: '#ffe640',
+    blue: '#56b4e9',
+    red: '#e69f00',
+    neutral: '#d9d9d9',
+    dragon: '#f0e442',
+    baron: '#cc79a7',
+    shrineAlly: '#56b4e9',
+    shrineEnemy: '#e69f00',
+  },
+  tritanopia: {
+    player: '#ffffff',
+    blue: '#00bcd4',
+    red: '#ff5277',
+    neutral: '#e2c5a6',
+    dragon: '#ff7b54',
+    baron: '#b388ff',
+    shrineAlly: '#00bcd4',
+    shrineEnemy: '#ff5277',
+  },
+  'high-contrast': {
+    player: '#ffff00',
+    blue: '#00ffff',
+    red: '#ff4d94',
+    neutral: '#ffffff',
+    dragon: '#ffaa00',
+    baron: '#e080ff',
+    shrineAlly: '#00ffff',
+    shrineEnemy: '#ff4d94',
+  },
+};
 
 export interface ReplayHudState {
   active: boolean;
@@ -193,6 +269,9 @@ export interface HudActions {
   sound: (enabled: boolean) => void;
   soundMix?: () => SoundMixPreferences;
   updateSoundMix?: (partial: Partial<SoundMixPreferences>) => SoundMixPreferences;
+  playerSettings?: () => PlayerSettings;
+  updatePlayerSettings?: (next: PlayerSettings) => PlayerSettings;
+  resetPlayerSettings?: () => PlayerSettings;
   exportReplay?: () => Promise<void>;
   watchCurrentReplay?: () => Promise<void>;
   prepareReplay?: (file: File) => Promise<PreparedReplayImport>;
@@ -206,11 +285,13 @@ export class Hud {
   modal: string | null = null;
   paused = false;
   replaying = false;
+  capturingKeybind: RebindableAction | null = null;
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
   sound = true;
   private readonly abort = new AbortController();
   private renderedHeroKey = '';
   private offlineCleanup: (() => void) | null = null;
+  private keybindCleanup: (() => void) | null = null;
   private replacingMatch = false;
   private importError = '';
   private mini: HTMLCanvasElement;
@@ -326,6 +407,7 @@ export class Hud {
       world.matchMode === 'lanes';
     this.updateCameraButton();
     this.updateSoundButton();
+    this.applySettingsToHud(this.currentSettings());
     this.updateGold();
     this.updateResourceMeter('health-text', Math.ceil(world.hero.hp), Math.ceil(world.hero.maxHp));
     this.updateResourceMeter(
@@ -527,11 +609,49 @@ export class Hud {
       cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
     };
   }
+  private currentSettings(): PlayerSettings {
+    return this.actions.playerSettings?.() ?? defaultPlayerSettings(false);
+  }
+  applySettingsToHud(settings: PlayerSettings): void {
+    const doc = document.documentElement;
+    if (settings.colorVision === 'default') delete doc.dataset.colorVision;
+    else doc.dataset.colorVision = settings.colorVision;
+    if (settings.reducedMotion) doc.dataset.reducedMotion = 'true';
+    else delete doc.dataset.reducedMotion;
+    doc.style.setProperty('--hud-scale', String(settings.hudScale));
+    doc.style.setProperty('--text-scale', String(settings.textScale));
+    this.root.dataset.colorVision = settings.colorVision;
+    this.root.dataset.reducedMotion = String(settings.reducedMotion);
+    for (const slot of ['q', 'w', 'e', 'r', 'd', 'f'] as Ability[]) {
+      const label = formatKeybinding(settings.keybindings[slot]);
+      const kbd = this.root.querySelector<HTMLElement>(`button[data-ability="${slot}"] kbd`);
+      if (kbd) kbd.textContent = label;
+      const learn = this.root.querySelector<HTMLButtonElement>(`button[data-learn="${slot}"]`);
+      if (learn) learn.title = `Upgrade ${label} (Ctrl+${label})`;
+    }
+    const trinketSpan = this.root.querySelector<HTMLElement>('#trinket > span');
+    if (trinketSpan) trinketSpan.textContent = formatKeybinding(settings.keybindings.trinket);
+    const shopBtn = this.root.querySelector<HTMLButtonElement>('#shop-button');
+    if (shopBtn) {
+      const shopKey = formatKeybinding(settings.keybindings.shop);
+      shopBtn.title = `Open shop (${shopKey})`;
+      shopBtn.setAttribute('aria-keyshortcuts', shopKey);
+      const kbd = shopBtn.querySelector('kbd');
+      if (kbd) kbd.textContent = shopKey;
+    }
+    const camBtn = this.root.querySelector<HTMLButtonElement>('#camera-button');
+    if (camBtn) {
+      const camKey = formatKeybinding(settings.keybindings.cameraLock);
+      camBtn.title = `${this.view.locked ? 'Unlock' : 'Lock'} camera (${camKey})`;
+    }
+    this.lastInventory = '';
+  }
   private abilityMarkup(a: Ability): string {
     const spec = this.spellSpec(a);
-    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${(a === 'e' && this.world.hero.champion === 'ashe') || (a === 'r' && this.world.hero.champion === 'ahri') || this.world.summonerSpell(a) === 'smite' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    const label = formatKeybinding(this.currentSettings().keybindings[a]);
+    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${label}</kbd><span class="ability-cost">${spec.cost || ''}</span>${(a === 'e' && this.world.hero.champion === 'ashe') || (a === 'r' && this.world.hero.champion === 'ahri') || this.world.summonerSpell(a) === 'smite' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
     if (a === 'd' || a === 'f') return button;
-    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${spec.name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
+    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${spec.name}" title="Upgrade ${label} (Ctrl+${label})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
   private positionTooltip(): void {
     if (this.tip.hidden) return;
@@ -985,6 +1105,9 @@ export class Hud {
     }
     this.offlineCleanup?.();
     this.offlineCleanup = null;
+    this.keybindCleanup?.();
+    this.keybindCleanup = null;
+    this.capturingKeybind = null;
     this.modal = which;
     this.itemTooltip.clear();
     this.hoveredAbility = null;
@@ -1076,8 +1199,37 @@ export class Hud {
         ? 'Deterministic command-log playback.'
         : 'A moment of clarity before the next move.';
       content = this.replaying
-        ? '<button class="primary-button" data-action="resume">Return to replay</button><button class="menu-button" data-action="replay">Replay files</button><button class="menu-button" data-action="audio">Sound & mix</button><button class="menu-button" data-action="reference-audit">Reference &amp; patch 26.18</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="exit-replay">Exit replay</button>'
-        : `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="replay">Replay</button><button class="menu-button" data-action="audio">Sound & mix</button><button class="menu-button" data-action="offline">Offline files</button><button class="menu-button" data-action="reference-audit">Reference &amp; patch 26.18</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart 5v5 match' : 'Restart practice'}</button>`;
+        ? '<button class="primary-button" data-action="resume">Return to replay</button><button class="menu-button" data-action="replay">Replay files</button><button class="menu-button" data-action="settings">Controls &amp; accessibility</button><button class="menu-button" data-action="audio">Sound & mix</button><button class="menu-button" data-action="reference-audit">Reference &amp; patch 26.18</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="exit-replay">Exit replay</button>'
+        : `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="replay">Replay</button><button class="menu-button" data-action="settings">Controls &amp; accessibility</button><button class="menu-button" data-action="audio">Sound & mix</button><button class="menu-button" data-action="offline">Offline files</button><button class="menu-button" data-action="reference-audit">Reference &amp; patch 26.18</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart 5v5 match' : 'Restart practice'}</button>`;
+    } else if (which === 'settings') {
+      const s = this.currentSettings();
+      title = 'Controls & accessibility';
+      subtitle = 'Tailor casting, keybindings, scaling, and color clarity for this browser.';
+      const castOptions: Array<[CastMode, string]> = [
+        ['quick-indicator', 'Quick + indicator'],
+        ['quick', 'Quick cast'],
+        ['normal', 'Normal cast'],
+      ];
+      const attackMoveOptions: Array<[AttackMoveMode, string]> = [
+        ['click', 'Key + click'],
+        ['quick', 'Quick attack-move'],
+      ];
+      const tcoOptions: Array<[TargetChampionsOnlyMode, string]> = [
+        ['hold', 'Hold'],
+        ['toggle', 'Toggle'],
+      ];
+      content = `<div class="settings-scroll">
+        <div class="mix-group" role="group" aria-label="Ability cast mode"><span class="mix-label">Ability cast mode</span><div class="mix-presets">${castOptions.map(([id, label]) => `<button type="button" class="menu-button mix-preset" data-setting-cast="${id}" aria-pressed="${s.castMode === id}">${label}</button>`).join('')}</div></div>
+        <div class="mix-group" role="group" aria-label="Attack-move input"><span class="mix-label">Attack-move input</span><div class="mix-presets">${attackMoveOptions.map(([id, label]) => `<button type="button" class="menu-button mix-preset" data-setting-attack-move="${id}" aria-pressed="${s.attackMoveMode === id}">${label}</button>`).join('')}</div></div>
+        <div class="mix-group" role="group" aria-label="Target champions only"><span class="mix-label">Target champions only</span><div class="mix-presets">${tcoOptions.map(([id, label]) => `<button type="button" class="menu-button mix-preset" data-setting-tco="${id}" aria-pressed="${s.targetChampionsOnlyMode === id}">${label}</button>`).join('')}</div></div>
+        <button type="button" class="menu-button" data-action="toggle-self-cast" aria-pressed="${s.selfCastModifier}">${s.selfCastModifier ? 'Alt + ability self-cast: On' : 'Alt + ability self-cast: Off'}</button>
+        <div class="mix-group" role="group" aria-label="Color vision palette"><span class="mix-label">Color vision palette</span><div class="mix-presets">${COLOR_VISION_MODES.map((mode) => `<button type="button" class="menu-button mix-preset" data-setting-color="${mode}" aria-pressed="${s.colorVision === mode}">${COLOR_VISION_LABELS[mode]}</button>`).join('')}</div></div>
+        <div class="mix-group" role="group" aria-label="HUD scale"><span class="mix-label">HUD scale</span><div class="mix-presets">${HUD_SCALES.map((scale) => `<button type="button" class="menu-button mix-preset" data-setting-hud-scale="${scale}" aria-pressed="${s.hudScale === scale}">${Math.round(scale * 100)}%</button>`).join('')}</div></div>
+        <div class="mix-group" role="group" aria-label="Text scale"><span class="mix-label">Text scale</span><div class="mix-presets">${TEXT_SCALES.map((scale) => `<button type="button" class="menu-button mix-preset" data-setting-text-scale="${scale}" aria-pressed="${s.textScale === scale}">${Math.round(scale * 100)}%</button>`).join('')}</div></div>
+        <button type="button" class="menu-button" data-action="toggle-reduced-motion" aria-pressed="${s.reducedMotion}">${s.reducedMotion ? 'Reduced motion: On' : 'Reduced motion: Off'}</button>
+        <div class="mix-group keybind-section"><span class="mix-label">Keybindings (click a binding, then press a new key; Esc cancels)</span><p class="practice-note keybind-status" role="status">Saved per browser. Assigning an in-use key swaps bindings cleanly.</p><div class="keybind-grid">${REBINDABLE_ACTIONS.map((act) => `<div class="keybind-row"><span>${REBINDABLE_ACTION_LABELS[act]}</span><button type="button" class="menu-button keybind-btn" data-rebind="${act}" aria-label="Rebind ${REBINDABLE_ACTION_LABELS[act]}"><kbd>${formatKeybinding(s.keybindings[act])}</kbd></button></div>`).join('')}</div></div>
+      </div>
+      <div class="settings-footer"><button type="button" class="menu-button" data-action="reset-settings">Reset defaults</button><button type="button" class="menu-button" data-action="back">Back to pause menu</button></div>`;
     } else if (which === 'reference-audit') {
       const summary = summarizeReferenceCoverage();
       title = 'Reference & Patch 26.18';
@@ -1487,6 +1639,7 @@ export class Hud {
         if (action === 'files') this.toggleModal('files');
         if (action === 'replay') this.toggleModal('replay');
         if (action === 'audio') this.toggleModal('audio');
+        if (action === 'settings') this.toggleModal('settings');
         if (action === 'back') this.toggleModal('pause');
         if (action === 'result-back') this.toggleModal('result');
         if (action === 'exit-replay') {
@@ -1589,6 +1742,164 @@ export class Hud {
         }
       })
     );
+    if (which === 'settings') {
+      const commitSettings = (next: PlayerSettings): PlayerSettings => {
+        const saved = this.actions.updatePlayerSettings?.(next) ?? next;
+        this.applySettingsToHud(saved);
+        return saved;
+      };
+      const stopCapture = () => {
+        this.keybindCleanup?.();
+        this.keybindCleanup = null;
+        this.capturingKeybind = null;
+        backdrop
+          .querySelectorAll<HTMLButtonElement>('[data-rebind]')
+          .forEach((b) => b.classList.remove('capturing'));
+      };
+      const syncKeybindButtons = (settings: PlayerSettings) => {
+        backdrop.querySelectorAll<HTMLButtonElement>('[data-rebind]').forEach((btn) => {
+          const act = btn.dataset.rebind as RebindableAction;
+          const kbd = btn.querySelector('kbd');
+          if (kbd) kbd.textContent = formatKeybinding(settings.keybindings[act]);
+        });
+      };
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-setting-cast]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const mode = btn.dataset.settingCast as CastMode;
+          const updated = commitSettings({ ...this.currentSettings(), castMode: mode });
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-setting-cast]')
+            .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.settingCast === updated.castMode)));
+        });
+      });
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-setting-attack-move]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const mode = btn.dataset.settingAttackMove as AttackMoveMode;
+          const updated = commitSettings({ ...this.currentSettings(), attackMoveMode: mode });
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-setting-attack-move]')
+            .forEach((b) =>
+              b.setAttribute('aria-pressed', String(b.dataset.settingAttackMove === updated.attackMoveMode))
+            );
+        });
+      });
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-setting-tco]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const mode = btn.dataset.settingTco as TargetChampionsOnlyMode;
+          const updated = commitSettings({
+            ...this.currentSettings(),
+            targetChampionsOnlyMode: mode,
+          });
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-setting-tco]')
+            .forEach((b) =>
+              b.setAttribute('aria-pressed', String(b.dataset.settingTco === updated.targetChampionsOnlyMode))
+            );
+        });
+      });
+      backdrop.querySelector<HTMLButtonElement>('[data-action="toggle-self-cast"]')?.addEventListener('click', (ev) => {
+        stopCapture();
+        const btn = ev.currentTarget as HTMLButtonElement;
+        const cur = this.currentSettings();
+        const updated = commitSettings({ ...cur, selfCastModifier: !cur.selfCastModifier });
+        btn.setAttribute('aria-pressed', String(updated.selfCastModifier));
+        btn.textContent = updated.selfCastModifier
+          ? 'Alt + ability self-cast: On'
+          : 'Alt + ability self-cast: Off';
+      });
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-setting-color]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const mode = btn.dataset.settingColor as ColorVisionMode;
+          const updated = commitSettings({ ...this.currentSettings(), colorVision: mode });
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-setting-color]')
+            .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.settingColor === updated.colorVision)));
+        });
+      });
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-setting-hud-scale]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const scale = Number(btn.dataset.settingHudScale) as HudScale;
+          const updated = commitSettings({ ...this.currentSettings(), hudScale: scale });
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-setting-hud-scale]')
+            .forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.settingHudScale) === updated.hudScale)));
+        });
+      });
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-setting-text-scale]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const scale = Number(btn.dataset.settingTextScale) as TextScale;
+          const updated = commitSettings({ ...this.currentSettings(), textScale: scale });
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-setting-text-scale]')
+            .forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.settingTextScale) === updated.textScale)));
+        });
+      });
+      backdrop.querySelector<HTMLButtonElement>('[data-action="toggle-reduced-motion"]')?.addEventListener('click', (ev) => {
+        stopCapture();
+        const btn = ev.currentTarget as HTMLButtonElement;
+        const cur = this.currentSettings();
+        const updated = commitSettings({ ...cur, reducedMotion: !cur.reducedMotion });
+        btn.setAttribute('aria-pressed', String(updated.reducedMotion));
+        btn.textContent = updated.reducedMotion ? 'Reduced motion: On' : 'Reduced motion: Off';
+      });
+      backdrop.querySelector<HTMLButtonElement>('[data-action="reset-settings"]')?.addEventListener('click', () => {
+        stopCapture();
+        const updated = this.actions.resetPlayerSettings?.() ?? defaultPlayerSettings(false);
+        this.applySettingsToHud(updated);
+        this.toggleModal('settings');
+        this.toast('Controls and accessibility reset to defaults.');
+      });
+      const statusEl = backdrop.querySelector<HTMLElement>('.keybind-status');
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-rebind]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          stopCapture();
+          const act = btn.dataset.rebind as RebindableAction;
+          this.capturingKeybind = act;
+          btn.classList.add('capturing');
+          if (statusEl) {
+            statusEl.textContent = `Press a new key for ${REBINDABLE_ACTION_LABELS[act]} (Esc to cancel)…`;
+          }
+          const onKey = (event: KeyboardEvent) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (event.key === 'Escape') {
+              stopCapture();
+              if (statusEl) statusEl.textContent = 'Keybinding unchanged.';
+              return;
+            }
+            const normalized = normalizeBindingKey(event.key, event.code);
+            if (!normalized) {
+              if (statusEl) {
+                statusEl.textContent = `Key "${event.key}" is reserved and cannot be assigned. Press another key or Esc.`;
+              }
+              return;
+            }
+            const cur = this.currentSettings();
+            const result = rebindAction(cur.keybindings, act, normalized);
+            if (!result) {
+              if (statusEl) statusEl.textContent = 'That key cannot be bound. Press another key or Esc.';
+              return;
+            }
+            const updated = commitSettings({ ...cur, keybindings: result.keybindings });
+            stopCapture();
+            syncKeybindButtons(updated);
+            if (statusEl) {
+              statusEl.textContent = result.swappedWith
+                ? `Bound ${REBINDABLE_ACTION_LABELS[act]} to ${formatKeybinding(normalized)} (swapped with ${REBINDABLE_ACTION_LABELS[result.swappedWith]}).`
+                : `Bound ${REBINDABLE_ACTION_LABELS[act]} to ${formatKeybinding(normalized)}.`;
+            }
+          };
+          window.addEventListener('keydown', onKey, { capture: true });
+          this.keybindCleanup = () => window.removeEventListener('keydown', onKey, { capture: true });
+        });
+      });
+    }
     if (which === 'reference-audit') {
       backdrop.querySelectorAll<HTMLButtonElement>('[data-audit-filter]').forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -1900,6 +2211,9 @@ export class Hud {
       return;
     this.offlineCleanup?.();
     this.offlineCleanup = null;
+    this.keybindCleanup?.();
+    this.keybindCleanup = null;
+    this.capturingKeybind = null;
     this.modal = null;
     this.importError = '';
     this.root.querySelector<HTMLElement>('#modal')!.hidden = true;
@@ -2607,8 +2921,17 @@ export class Hud {
     const invKey = `${maxSlots}::${p.inventory.join(',')}::${activeCdSignature}`;
     if (this.lastInventory !== invKey) {
       this.lastInventory = invKey;
-      const slotKeys = [1, 2, 3, 5, 6, 7, 8];
-      this.root.querySelector('#inventory')!.innerHTML = Array.from(
+    const kb = this.currentSettings().keybindings;
+    const slotKeys = [
+      formatKeybinding(kb.item0),
+      formatKeybinding(kb.item1),
+      formatKeybinding(kb.item2),
+      formatKeybinding(kb.item3),
+      formatKeybinding(kb.item4),
+      formatKeybinding(kb.item5),
+      '8',
+    ];
+    this.root.querySelector('#inventory')!.innerHTML = Array.from(
         { length: maxSlots },
         (_, i) => {
           const item = ITEMS.find((item) => item.id === p.inventory[i]);
@@ -2654,7 +2977,11 @@ export class Hud {
           element.style.left = `${screen.x}px`;
           element.style.top = `${screen.y}px`;
           this.floating.append(element);
-          element.addEventListener('animationend', () => element.remove(), { once: true });
+          if (this.currentSettings().reducedMotion) {
+            window.setTimeout(() => element.remove(), 750);
+          } else {
+            element.addEventListener('animationend', () => element.remove(), { once: true });
+          }
         }
       }
     this.drawMinimap();
@@ -2662,7 +2989,8 @@ export class Hud {
   private drawMinimap(): void {
     const ctx = this.mini.getContext('2d')!,
       n = this.mini.width,
-      w = this.world;
+      w = this.world,
+      palette = MINIMAP_PALETTES[this.currentSettings().colorVision] ?? MINIMAP_PALETTES.default;
     ctx.drawImage(this.view.mapTexture.image as HTMLCanvasElement, 0, 0, n, n);
     ctx.fillStyle = 'rgba(4,16,18,.38)';
     ctx.fillRect(0, 0, n, n);
@@ -2675,7 +3003,7 @@ export class Hud {
       const point = shrinePoint(shrine.river, w.battlefield);
       if (shrine.endTick <= w.tick || !w.pointVisible(point)) continue;
       const p = xy(point);
-      ctx.strokeStyle = shrine.team === w.hero.team ? '#6ed6d4' : '#e89575';
+      ctx.strokeStyle = shrine.team === w.hero.team ? palette.shrineAlly : palette.shrineEnemy;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
@@ -2718,16 +3046,16 @@ export class Hud {
                   : 1.5;
       ctx.fillStyle =
         u.id === w.player.id
-          ? '#f4dc88'
+          ? palette.player
           : isEpicMonster
             ? u.monster!.species.startsWith('dragon-') || u.monster!.species === 'elder-dragon'
-              ? '#ff9d3b'
-              : '#c37aff'
+              ? palette.dragon
+              : palette.baron
             : u.team === 'neutral'
-              ? '#dfba6a'
+              ? palette.neutral
               : u.team === 'blue'
-                ? '#60d1e5'
-                : '#ee7b81';
+                ? palette.blue
+                : palette.red;
       ctx.strokeStyle = '#102228';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
